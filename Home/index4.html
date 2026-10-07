@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>リバースエイジング サプリメント - アンチエイジングの一歩先へ | クロノ・アール カプセル</title>
+<meta name="description" content="再生医療の研究所が開発したリバースエイジング サプリメント「クロノ・アール カプセル」。ウロリチン・スペルミジン・フィセチンなど30種以上の成分を1日1包に。アンチエイジングの一歩先をいく、毎日のインナーケアに。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f2e8;
+  --bg-deep:#efe9da;
+  --white:#fdfcf8;
+  --ink:#1f1b12;
+  --dim:#6a634e;
+  --text:#4d4634;
+  --head:#302c23;
+  --line:#ddd5c0;
+  --gold:#b5933b;
+  --gold-deep:#826a26;
+  --gold-bright:#e3c878;
+  --gold-pale:#f3ecdc;
+  --gold-ghost:rgba(181,147,59,.1);
+  --grad-gold:linear-gradient(105deg,#7a6120 0%,#9c7e2c 32%,#b8973c 44%,#cfae55 50%,#b8973c 56%,#9c7e2c 68%,#7a6120 100%);
+  --grad-gold-text:linear-gradient(125deg,#8a6d1e 0%,#c4a23f 9%,#d9bb5c 16%,#b8963a 24%,#8f7222 33%,#c9a844 42%,#d9bb5c 50%,#b8963a 58%,#8a6d1e 67%,#c4a23f 76%,#d9bb5c 84%,#b8963a 92%,#8a6d1e 100%);
+  --mincho:"Shippori Mincho","Hiragino Mincho ProN",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+  --serif-en:"Cormorant Garamond",serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--head);
+  font-family:var(--sans);
+  font-size:15.5px;
+  line-height:2.15;
+  letter-spacing:.05em;
+  overflow-x:hidden;
+  font-feature-settings:"palt";
+}
+::selection{background:var(--gold);color:#fff}
+
+.gold-text{
+  background:var(--grad-gold-text);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+@keyframes sheen{
+  0%,100%{background-position:0% center}
+  50%{background-position:100% center}
+}
+
+/* ---------- 金粉（淡く） ---------- */
+
+/* ---------- ヘッダー ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(24px,6vw,110px);height:76px;
+  background:rgba(31,27,18,.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(181,147,59,.35);
+}
+.logo{
+  font-family:var(--serif-en);
+  font-size:23px;font-weight:600;letter-spacing:.16em;
+  text-decoration:none;
+}
+nav,.h-right{display:flex;align-items:center;gap:clamp(16px,3vw,44px)}
+.menu-btn{display:none}
+nav a.navlink{
+  color:#f0e8d6;text-decoration:none;
+  font-size:15px;font-weight:500;letter-spacing:.12em;
+  position:relative;padding:6px 0;
+  transition:color .4s;
+}
+nav a.navlink::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
+  background:var(--gold);transition:width .45s cubic-bezier(.22,1,.36,1);
+}
+nav a.navlink:hover{color:var(--gold-bright)}
+nav a.navlink:hover::after{width:100%}
+.nav-cta{
+  font-size:16px;font-weight:400;letter-spacing:.16em;
+  color:#fff;text-decoration:none;
+  text-shadow:0 1px 3px rgba(143,116,42,.5);
+  background:var(--grad-gold);background-size:200% auto;
+  animation:sheen 6s ease-in-out infinite;
+  box-shadow:0 3px 14px rgba(181,147,59,.35);
+  padding:7px 28px;border-radius:5px;
+  transition:filter .35s,box-shadow .35s,transform .35s cubic-bezier(.22,1,.36,1);
+}
+.nav-cta:hover,.btn-gold:hover{
+  filter:brightness(1.1);
+  box-shadow:0 10px 28px rgba(143,116,42,.45);
+  transform:scale(1.06);
+}
+@media (max-width:950px){
+  nav a.navlink{font-size:13px;letter-spacing:.08em}
+}
+/* 840px以下：メニューは三本線のボタンで開く */
+@media (max-width:840px){
+  .h-right{gap:14px}
+  .menu-btn{
+    display:flex;flex-direction:column;justify-content:center;gap:6px;
+    width:44px;height:44px;padding:0 10px;margin-right:-10px;
+    background:none;border:0;cursor:pointer;
+  }
+  .menu-btn span{display:block;height:1px;background:#f0e8d6;transition:transform .3s,opacity .3s}
+  header.open .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  header.open .menu-btn span:nth-child(2){opacity:0}
+  header.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  #gnav{
+    display:none;position:fixed;left:0;right:0;top:76px;
+    flex-direction:column;align-items:stretch;gap:0;
+    padding:6px clamp(24px,6vw,110px) 22px;
+    background:#302c23;border-bottom:1px solid rgba(181,147,59,.35);
+    box-shadow:0 18px 30px rgba(0,0,0,.25);
+  }
+  header.open #gnav{display:flex}
+  #gnav a.navlink{font-size:16px;letter-spacing:.12em;padding:18px 2px;border-bottom:1px solid rgba(240,232,214,.14)}
+  #gnav a.navlink::after{display:none}
+}
+@media (max-width:540px){
+  header{padding:0 20px}
+  .logo{font-size:19px;letter-spacing:.14em}
+  .h-right{gap:8px}
+  .nav-cta{font-size:14px;letter-spacing:.08em;padding:7px 14px}
+}
+
+/* ---------- ヒーロー ---------- */
+.hero{
+  position:relative;min-height:100vh;
+  padding:140px clamp(24px,6vw,110px) 0;
+  isolation:isolate;
+  display:flex;flex-direction:column;
+}
+.hero-main{
+  position:relative;
+  max-width:1080px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.01fr);
+  align-items:end;gap:clamp(28px,5vw,80px);
+  flex:1;padding-bottom:10px;
+}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:12px;
+  font-size:15.5px;font-weight:500;letter-spacing:.18em;
+  color:var(--gold-deep);margin-top:10px;margin-bottom:30px;line-height:1.2;
+  opacity:0;animation:riseIn 1.4s 0s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.hero-eyebrow::before{content:"";width:32px;height:1px;background:var(--gold);flex-shrink:0}
+.hero-kicker{
+  font-family:var(--mincho);
+  font-size:clamp(17px,calc(1.7vw + 1px),22px);font-weight:600;
+  letter-spacing:.3em;
+  line-height:1.4;
+  margin-bottom:10px;
+  white-space:nowrap;
+}
+.hero-kicker .char{opacity:0;display:inline-block;animation:charIn 1s cubic-bezier(.3,.5,.3,1) forwards}
+@keyframes charIn{
+  from{opacity:0;transform:translateY(12px);filter:blur(3px)}
+  to{opacity:1;transform:none;filter:none}
+}
+.hero-inner{container-type:inline-size;min-width:0}
+.hero-h1{display:flow-root;margin:0 0 15px;padding-top:0}
+.hero-h1 .hero-sub-en{line-height:1.1}
+.hero-h1 > span{display:block}
+.hero-title{
+  font-family:var(--serif-en);
+  font-weight:500;
+  font-size:min(clamp(60px,calc(7vw + 10px),112px),18.72cqw);
+  line-height:.98;
+  letter-spacing:.01em;
+  white-space:nowrap;
+  margin-top:calc(-0.13em + 15px);
+  margin-bottom:5px;
+  opacity:0;animation:riseIn 1.4s .35s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.hero-sub-en{
+  font-family:var(--serif-en);
+  font-size:clamp(28px,calc(2.1vw + 10px),37px);font-weight:500;
+  letter-spacing:.56em;
+  color:var(--dim);
+  opacity:0;animation:riseIn 1.4s .5s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.hero-sub-en.gold-text{color:transparent}
+.nw{white-space:nowrap}
+.hero-copy{
+  width:98%;max-width:32em;
+  color:var(--text);
+  font-size:16px;line-height:1.8;
+  margin-bottom:20px;
+  opacity:0;animation:riseIn 1.4s .65s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.hero-cta-row{
+  display:flex;align-items:center;gap:28px;flex-wrap:wrap;
+  opacity:0;animation:riseIn 1.4s .8s cubic-bezier(.3,.5,.3,1) forwards;
+}
+@keyframes riseIn{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:none}
+}
+.btn-gold{
+  position:relative;display:inline-block;
+  font-size:19px;font-weight:400;letter-spacing:.2em;text-indent:.1em;
+  color:#fff;text-decoration:none;text-align:center;
+  text-shadow:0 1px 3px rgba(143,116,42,.5);
+  background:var(--grad-gold);background-size:200% auto;
+  animation:sheen 6s ease-in-out infinite;
+  box-shadow:0 6px 26px rgba(181,147,59,.45),0 2px 8px rgba(181,147,59,.3);
+  padding:13px 45px;border-radius:5px;
+  overflow:hidden;
+  transition:filter .35s,box-shadow .35s,transform .35s cubic-bezier(.22,1,.36,1);
+}
+.btn-gold::after{
+  content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);
+  animation:btnSweep 3.6s ease-in-out infinite;
+}
+@keyframes btnSweep{
+  0%{left:-80%}
+  45%,100%{left:130%}
+}
+.btn-gold span{position:relative;z-index:1}
+.btn-note{font-size:15px;letter-spacing:.16em;color:var(--dim)}
+.hero-right{position:relative;z-index:1}
+.hero-visual{
+  position:relative;
+  height:auto;aspect-ratio:1672/941;
+  opacity:0;animation:visualIn 2s .2s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.hero-badges{
+  margin-top:21px;
+  opacity:0;animation:riseIn 1.4s .7s cubic-bezier(.3,.5,.3,1) forwards;
+}
+/* 帯型のスペックバー：文字幅ぴったりのセル＋その間を等分する区切り。棒は必ず隣り合う文字のちょうど中間に立つ */
+.hero-badges{
+  container-type:inline-size;
+  display:flex;gap:0;align-items:stretch;
+  background:linear-gradient(175deg,#fdfaf1,#f7f0dd);
+  border:1px solid rgba(181,147,59,.6);
+  border-radius:5px;
+  box-shadow:0 8px 24px rgba(181,147,59,.22);
+}
+.hero-badges::before,.hero-badges::after{content:"";flex:1 1 0}
+.hb{flex:0 0 auto;padding:16px 0 15px}
+.hbw{width:max-content;text-align:center}
+.sep{flex:2 1 0;position:relative}
+.sep::before{
+  content:"";position:absolute;left:50%;top:20%;bottom:20%;width:1px;
+  margin-left:-.5px;background:rgba(181,147,59,.4);
+}
+.hb .ic{width:24px;height:24px;margin:0 auto;display:block;color:var(--gold-deep);flex-shrink:0;margin-bottom:0}
+.hb .nb{font-size:calc(1em + 5px);line-height:0;font-weight:500}
+.hb .s .nb{font-size:calc(1em + 10px);font-weight:400}
+.hb .s{
+  font-family:var(--serif-en);
+  font-size:14px;font-weight:600;letter-spacing:.14em;
+  color:var(--gold-deep);margin:0 auto 4px;
+  height:24px;line-height:24px;
+  text-indent:.14em;
+  width:0;display:flex;justify-content:center;white-space:nowrap;
+}
+.hb .t{
+  font-family:var(--mincho);
+  font-size:min(14.5px,calc(3.33cqw - 1.8px));font-weight:600;letter-spacing:.05em;margin-right:-.05em;line-height:1.7;
+  color:var(--head);white-space:nowrap;
+}
+@keyframes visualIn{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:none}
+}
+.pframe{
+  position:absolute;inset:0;
+  transform:translate(22px,22px);
+  border:1px solid var(--gold);
+  z-index:0;
+}
+.pframe::before{
+  content:"";position:absolute;top:-5px;left:-5px;
+  width:9px;height:9px;background:var(--gold);transform:rotate(45deg);
+}
+.pic{
+  position:relative;z-index:1;height:100%;overflow:hidden;
+  box-shadow:0 24px 70px rgba(31,27,18,.18);
+}
+.pic img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 1.2s cubic-bezier(.22,1,.36,1);
+}
+.hero-visual .pic img{object-fit:contain}
+@media (max-width:840px){
+  .hero{padding-top:100px}
+  .hero-main{grid-template-columns:1fr}
+  .hero-right{order:-1}
+}
+/* 低い画面（ノートPC等）でもFV＋帯が1画面に収まるように詰める */
+@media (min-width:841px) and (max-height:850px){
+  .hero{padding-top:94px}
+  .hero-title{font-size:min(clamp(56px,calc(6.6vw + 10px),100px),18.72cqw)}
+  .marquee{margin-top:clamp(20px,3.5vh,44px)}
+}
+/* さらに低い画面（Windowsの拡大表示など） */
+@media (min-width:841px) and (max-height:600px){
+  .hero{padding-top:80px}
+  .hero-title{font-size:min(clamp(36px,4.6vw,56px),18.72cqw)}
+  .hero-sub-en{font-size:15px}
+  .hero-copy{font-size:13.5px}
+  .btn-gold{padding:14px 44px}
+  .marquee{margin-top:14px;height:56px}
+}
+
+/* 画面の高さが足りないときは、流れる帯を1画面目の下へ送る（JSで判定） */
+.hero.fv-short{min-height:0}
+.hero.fv-short .hero-main{flex:none;padding-bottom:36px}
+.hero.fv-short .marquee{margin-top:0}
+
+/* ---------- 比較図解（アンチエイジング／リバースエイジング） ---------- */
+.vs-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.4vw,28px)}
+.vs-card{
+  background:var(--white);border:1px solid var(--line);border-radius:5px;
+  padding:clamp(22px,2.6vw,32px) clamp(20px,2.6vw,32px) clamp(24px,2.6vw,32px);
+}
+.vs-card.is-main{
+  background:linear-gradient(175deg,#fefcf5,#fcf6e6);
+  border-color:rgba(181,147,59,.6);
+  box-shadow:0 8px 24px rgba(181,147,59,.22);
+}
+.vs-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.vs-title{font-family:var(--mincho);font-size:clamp(18px,1.7vw,21px);font-weight:600;letter-spacing:.1em;line-height:1.4;color:#302c23}
+.vs-card.is-main .vs-title{color:var(--gold-deep)}
+.vs-tag{
+  font-size:13px;font-weight:500;letter-spacing:.08em;line-height:1;
+  padding:9px 16px;border-radius:999px;white-space:nowrap;
+  background:#ece6d6;color:#302c23;
+}
+.vs-card.is-main .vs-tag{background:#302c23;color:#f0e8d6}
+.vs-graph{display:block;width:100%;height:auto;margin-bottom:16px;overflow:visible}
+.vs-graph .ax{fill:none;stroke:#d5ccb6;stroke-width:1.5}
+.vs-graph .base{fill:none;stroke:#c2b89e;stroke-width:1.6;stroke-dasharray:6 6}
+.vs-graph .ln{fill:none;stroke:#8c836b;stroke-width:3;stroke-linecap:round}
+.vs-graph .dot{fill:#8c836b}
+.vs-graph text{font-family:var(--sans);font-size:12px;letter-spacing:.04em;fill:#6a634e}
+.vs-graph .lb{font-size:13px;font-weight:500;fill:#302c23}
+.vs-card.is-main .vs-graph .ln{stroke:#b5933b}
+.vs-card.is-main .vs-graph .dot{fill:#b5933b}
+.vs-card.is-main .vs-graph .lb{fill:var(--gold-deep)}
+.vs-text{font-size:15px;line-height:2;letter-spacing:.05em;color:#4d4634}
+.vs-text strong{font-weight:500;color:#302c23}
+.vs-note{position:relative;z-index:1;text-align:center;font-size:13px;letter-spacing:.06em;color:var(--dim);margin-top:26px}
+@media (max-width:840px){.vs-grid{grid-template-columns:1fr}}
+
+/* 読み上げソフト専用（画面には出ない） */
+.sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+/* キーボードで最初に止まる「本文へ移動」。ふだんは画面の外、選ばれたときだけ出る */
+.skip{position:fixed;left:16px;top:-80px;z-index:200;padding:12px 20px;background:#302c23;color:#f0e8d6;font-size:15px;letter-spacing:.08em;text-decoration:none;border:1px solid var(--gold);border-radius:5px}
+.skip:focus{top:14px}
+main:focus{outline:none}
+
+/* ---------- マーキー ---------- */
+.marquee{
+  margin:clamp(40px,6vh,70px) calc(50% - 50vw) 0;
+  width:100vw;
+  border-top:2px solid #d2bd87;
+  border-bottom:2px solid #d2bd87;
+  overflow:hidden;white-space:nowrap;
+  height:68px;box-sizing:border-box;display:flex;align-items:center;
+  background:var(--white);
+  opacity:0;animation:riseIn 1.4s .9s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.marquee-in{display:inline-block;flex:none;animation:scrollX 30s linear infinite}
+.marquee-in span{
+  font-family:var(--serif-en);
+  font-size:15px;font-weight:500;letter-spacing:.34em;
+  color:var(--dim);
+  margin:0 28px;
+}
+.marquee-in .dia{color:var(--gold);letter-spacing:0}
+@keyframes scrollX{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* ---------- 共通セクション ---------- */
+section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
+@media (max-width:840px){section{padding-top:80px;padding-bottom:80px}}
+.wrap{max-width:1080px;margin:0 auto;position:relative}
+.ghost{
+  position:absolute;top:-24px;left:-8px;z-index:0;
+  font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:clamp(80px,13vw,170px);line-height:1;
+  color:var(--gold-ghost);
+  pointer-events:none;user-select:none;white-space:nowrap;
+}
+.sec-head{
+  position:relative;z-index:1;
+  display:flex;align-items:baseline;gap:22px;
+  margin-bottom:36px;
+}
+.sec-head .num{
+  font-family:var(--serif-en);
+  font-size:16px;font-weight:600;letter-spacing:.1em;
+  color:var(--gold);
+}
+.sec-head .label{
+  font-family:var(--serif-en);
+  font-size:13px;font-weight:600;letter-spacing:.44em;
+  color:var(--dim);
+}
+.sec-title{
+  position:relative;z-index:1;
+  font-family:var(--mincho);
+  font-size:clamp(24px,3.2vw,37px);
+  font-weight:600;letter-spacing:.12em;
+  line-height:1.9;
+  margin-bottom:30px;
+}
+.sec-lead{
+  position:relative;z-index:1;
+  max-width:42em;
+  color:var(--text);font-size:16px;
+  margin-bottom:60px;line-height:2.25;}
+/* 見出しの配置バリエーション（左ばかりにしない） */
+.head-c .ghost{left:50%;transform:translateX(-50%)}
+.head-c .sec-head{justify-content:center}
+.head-c .sec-title{text-align:center}
+.head-c .sec-lead{margin-left:auto;margin-right:auto;text-align:center}
+.head-r .ghost{left:auto;right:-8px}
+.head-r .sec-head{justify-content:flex-end}
+.head-r .sec-title{text-align:right}
+.head-r .sec-lead{margin-left:auto;text-align:left}
+.tc{text-align:center}
+.link-more{
+  display:inline-block;position:relative;
+  margin-top:36px;padding:14px 26px 16px;text-indent:.18em;
+  color:var(--gold-deep);text-decoration:none;
+  font-family:var(--mincho);font-size:18px;font-weight:500;letter-spacing:.18em;line-height:1;
+}
+/* 文字の下の線が右へ伸びて、先が矢印になる */
+.link-more .arrow{
+  position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;
+  transition:right .35s;
+}
+.link-more .arrow::after{
+  content:"";position:absolute;right:0;top:0;
+  width:13px;height:1px;background:currentColor;
+  transform:rotate(36deg);transform-origin:right center;
+}
+.link-more:hover .arrow{right:-8px}
+.btn-center{margin-top:60px;text-align:center}
+
+/* スクロール出現 */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity 1.4s cubic-bezier(.3,.5,.3,1),transform 1.4s cubic-bezier(.3,.5,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.15s}
+.reveal.d2{transition-delay:.3s}
+.reveal.d3{transition-delay:.45s}
+/* 写真は動かさず、ゆっくり浮かび上がるだけ */
+.photo.reveal{transform:none;transition:opacity 1.8s cubic-bezier(.3,.5,.3,1)}
+/* 「動きを減らす」設定の人には、動きを止める */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal,.hero-eyebrow,.hero-kicker .char,.hero-title,.hero-sub-en,.hero-copy,.hero-cta-row,.hero-visual,.hero-badges,.marquee{opacity:1!important;transform:none!important;filter:none!important}
+}
+
+/* ---------- 背景3色のローテーション ---------- */
+.sect-a{background:var(--white)}
+.sect-b{background:var(--bg-deep)}
+.sect-c{background:var(--bg)}
+.tate.gold-text{color:transparent;background-image:linear-gradient(180deg,#8a6d1e 0%,#8f7222 26%,#b8963a 40%,#c9a844 47%,#d9bb5c 52%,#c4a23f 58%,#b8963a 64%,#8f7222 78%,#8a6d1e 100%);background-size:100% 100%;background-position:0 0}
+/* コンセプト：読みやすさの調整 */
+.concept{background:var(--white);border-top:none}
+.concept .sec-title{margin-bottom:4.6px}
+.sec-head{line-height:1;margin-bottom:50px}
+.sec-head .label{font-size:20px;line-height:1;color:#6f6853}
+.head-c .sec-head .label{text-indent:.44em}
+.ghost{color:rgba(181,147,59,.17)}
+.rev,.voice{border-top:none;background:#faf5e8}
+/* 色味は枠（AWARD 2024の帯・コンセプトの枠）と同じ。上は白との差、下は次の生成りとの差が出るよう、上から下へ明るくする */
+.rev{background:linear-gradient(180deg,#faf5e8 0%,#fbf8ef 45%,#fefdf9 100%)}
+/* 写真の上端＝後ろの大きな英字の g の下端から25px下（リバースエイジングと同じ）。下端＝文章の最終行から30px下 */
+.split.ing-split{grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);gap:clamp(32px,6vw,86px);align-items:stretch;margin-bottom:104px}
+.split.ing-split .photo{height:auto;margin:calc(1.0998 * clamp(80px,13vw,170px) + 1px) 0 -20px}
+.split.ing-split .pic{position:absolute;inset:0;height:auto}
+.ing .sec-title{letter-spacing:.03em;font-size:clamp(22px,2.95vw,36px);white-space:nowrap}
+.ing .sec-lead{margin-bottom:0}
+@media (max-width:840px){
+  .split.ing-split{grid-template-columns:1fr}
+  .split.ing-split .photo{height:56vw;min-height:230px;order:2;margin:40px 0 0}
+}
+.rev + section{border-top:none}
+.sec-title{margin-bottom:44px;color:var(--head)}
+.rev .sec-lead{font-size:16px;line-height:2.25;letter-spacing:.06em;color:#4d4634}
+.rev .sec-lead strong{font-weight:500;color:var(--head)}
+@media (min-width:841px){
+  .rev .split{align-items:stretch}
+  /* 写真の上端＝後ろの大きな英字の g の下端から25px下。下端＝文章の最終行の下端 */
+  .rev .split .photo{height:auto;margin:calc(1.0998 * clamp(80px,13vw,170px) - 113px - 3.8 * clamp(24px,3.2vw,37px)) 0 -21.4px}
+  .rev .split{margin-bottom:100px!important}
+  .rev .split .pic{position:absolute;inset:0;height:auto}
+  .rev .split .pic img{object-position:left top}
+}
+.concept .concept-lead-jp{font-size:15px;letter-spacing:.24em;color:var(--text);margin-top:-20px;margin-bottom:60px}
+.concept .concept-lead-jp span{display:inline-flex;align-items:center;gap:16px;line-height:1}
+.concept .concept-lead-jp span::before{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:translateY(1.5px) rotate(45deg);flex:none}
+.concept .concept-grid{
+  max-width:900px;box-sizing:border-box;gap:clamp(36px,6vw,84px);align-items:stretch;
+  padding:clamp(22px,calc(4.4vw - 10px),46px) clamp(24px,5.4vw,70px);
+  background:linear-gradient(175deg,#fdfaf1,#f7f0dd);
+  border:1px solid rgba(181,147,59,.6);border-radius:5px;
+  box-shadow:0 8px 24px rgba(181,147,59,.22);
+}
+.concept .tate{font-size:clamp(19px,2.2vw,25px);letter-spacing:.26em;padding:9.9px 0 0;border-left:none;align-self:start;margin-bottom:-2em}
+.concept .concept-body p{font-size:16px;line-height:2.25;letter-spacing:.06em;color:#4d4634;max-width:34em;margin-bottom:2em}
+.concept .concept-body p:first-child{
+  font-family:var(--mincho);font-size:18px;font-weight:500;line-height:2.1;letter-spacing:.08em;color:var(--head);max-width:none;
+  padding-bottom:1.6em;margin-bottom:1.7em;position:relative;
+}
+.concept .concept-body p:first-child::after{content:"";position:absolute;left:0;bottom:0;width:44px;height:1px;background:var(--gold)}
+.concept .concept-body p:last-child{margin-bottom:0}
+.concept .concept-body strong{font-weight:500;color:var(--head)}
+.concept .concept-body p:first-child strong{font-weight:600;color:var(--gold-deep);white-space:nowrap}
+
+/* ---------- 2カラム（文章＋写真） ---------- */
+.split{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
+  gap:clamp(32px,6vw,86px);align-items:center;
+}
+.split .photo{position:relative;height:clamp(280px,34vw,420px)}
+.split .sec-lead{margin-bottom:0}
+@media (max-width:840px){
+  .split{grid-template-columns:1fr}
+  .split .photo{height:56vw;min-height:230px}
+}
+
+/* ---------- コンセプト ---------- */
+.concept-lead{
+  position:relative;z-index:1;
+  font-family:var(--serif-en);font-style:italic;
+  font-size:clamp(26px,3.6vw,44px);font-weight:500;
+  letter-spacing:.03em;
+  margin-bottom:70px;
+  display:flex;align-items:center;gap:26px;
+}
+.concept-lead::after{
+  content:"";flex:1;height:1px;max-width:220px;
+  background:linear-gradient(to right,var(--gold),transparent);
+}
+.concept-lead-jp{
+  font-family:var(--mincho);
+  font-size:13.5px;letter-spacing:.3em;
+  color:var(--dim);
+  margin-bottom:64px;
+}
+.head-c .concept-lead{justify-content:center}
+.head-c .concept-lead::before{
+  content:"";flex:1;height:1px;max-width:220px;
+  background:linear-gradient(to left,var(--gold),transparent);
+}
+.head-c .concept-lead-jp{text-align:center}
+.wf-inline{font-size:11px;color:#aaa28c;letter-spacing:.06em}
+.concept-grid{
+  display:grid;grid-template-columns:auto 1fr;
+  gap:clamp(36px,7vw,110px);align-items:start;
+  max-width:860px;margin:0 auto;
+}
+.tate{
+  writing-mode:vertical-rl;
+  font-family:var(--mincho);
+  font-size:clamp(17px,2vw,22px);font-weight:600;
+  letter-spacing:.32em;line-height:2.4;
+  height:auto;
+  border-left:1px solid var(--gold);
+  padding-left:28px;
+}
+.concept-body p{color:var(--text);margin-bottom:1.9em;max-width:36em}
+.concept-body strong{color:var(--head);font-weight:700}
+@media (max-width:840px){
+  .concept-grid{grid-template-columns:1fr}
+  .tate{writing-mode:horizontal-tb;height:auto;border-left:none;border-top:1px solid var(--gold);padding:22px 0 0;line-height:2.1}
+}
+
+/* ---------- 比較表 ---------- */
+.cmp-wrap{
+  position:relative;z-index:1;max-width:880px;margin:0 auto;
+  border:1px solid rgba(181,147,59,.6);border-radius:5px;overflow:hidden;
+  box-shadow:0 8px 24px rgba(181,147,59,.22);
+  background:var(--white);
+}
+.cmp-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:15px;letter-spacing:.04em;
+}
+.cmp-table th,.cmp-table td{
+  border-bottom:1px solid var(--line);
+  padding:22px 24px;vertical-align:middle;line-height:1.8;text-align:center;
+}
+.cmp-table tr:last-child th,.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table thead th{
+  font-family:var(--mincho);
+  background:#302c23;color:#f0e8d6;
+  font-weight:600;letter-spacing:.14em;
+  font-size:16px;
+  border-bottom:none;padding:20px 24px;
+}
+.cmp-table thead th:last-child{
+  font-size:18px;
+  background:var(--grad-gold);color:#fff;
+  text-shadow:0 1px 3px rgba(143,116,42,.5);
+}
+.cmp-table tbody th{
+  font-family:var(--mincho);
+  color:var(--gold-deep);font-weight:600;white-space:nowrap;
+  font-size:15px;letter-spacing:.12em;
+  width:27%;
+}
+.cmp-table td{color:var(--dim);font-size:15px;width:33%;border-left:1px solid var(--line)}
+.cmp-table .n{font-size:calc(1em + 2px);line-height:1}
+.cmp-table thead th:nth-child(2){border-left:1px solid rgba(240,232,214,.2)}
+.cmp-table td.hl{
+  color:var(--head);font-weight:500;font-size:15px;
+  background:linear-gradient(175deg,#fdfaf1,#f7f0dd);
+  border-left:1px solid rgba(181,147,59,.6);
+  border-bottom-color:rgba(181,147,59,.28);
+  width:40%;
+}
+@media (max-width:840px){
+  .cmp-table th,.cmp-table td{padding-left:10px;padding-right:10px}
+  .cmp-table thead th{font-size:14px;letter-spacing:.04em}
+  .cmp-table thead th:last-child{font-size:15.5px}
+  .cmp-table tbody th{white-space:normal;letter-spacing:.04em}
+}
+@media (max-width:540px){
+  .cmp-table thead th,.cmp-table tbody th,.cmp-table td,.cmp-table td.hl{font-size:13px;letter-spacing:0;padding:14px 8px;line-height:1.6}
+  .cmp-table tbody th{white-space:normal;width:26%}
+  .cmp-table thead th{font-size:12px;white-space:nowrap;padding:14px 4px}
+  .cmp-table thead th:last-child{font-size:13.5px}
+}
+
+/* ---------- 金枠カード ---------- */
+.line-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.line-grid.cols3{grid-template-columns:repeat(3,1fr)}
+.cell{
+  position:relative;
+  background:var(--white);
+  border:1px solid var(--gold);
+  padding:44px clamp(20px,2.4vw,34px) 38px;
+  text-align:center;
+}
+.cell::before{
+  content:"";position:absolute;inset:6px;
+  border:1px solid rgba(181,147,59,.35);
+  pointer-events:none;
+  transition:border-color .5s;
+}
+.cell .ic{
+  width:48px;height:48px;margin:0 auto 18px;display:block;
+  color:var(--gold);
+}
+.cell.has-hex{padding-top:72px;border-radius:5px}
+.cell.has-hex::before{border-radius:3px}
+.cell .hex{position:absolute;top:-45.5px;left:50%;width:91px;height:91px;margin-left:-45.5px;z-index:2}
+.cell .hex .hexbg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.cell .hex .h1{fill:url(#hexgrad);stroke:none}
+.cell .hex .ic{position:absolute;left:50%;top:50%;width:60.5px;height:60.5px;margin:-30.25px 0 0 -30.25px;color:#fff}
+.cell .hex .ic[src*="balance"]{width:55px;height:55px;margin:-27.5px 0 0 -27.5px}
+.cell .hex .ic[src*="sachet"]{width:63.4px;height:63.4px;margin:-31.7px 0 0 -31.7px}
+.cell .hex .ic[src*="flask"]{width:58.5px;height:58.5px;margin:-29.25px 0 0 -29.25px}
+.cell .big{
+  display:block;
+  font-family:var(--serif-en);font-style:italic;font-weight:500;
+  font-size:52px;line-height:1;letter-spacing:.02em;
+  margin-bottom:14px;
+  color:var(--gold);
+}
+.cell .big .gold-text{display:inline-block;padding:.1em .22em .12em;font-family:"Pinyon Script",var(--serif-en);font-style:normal;font-weight:400}
+.cell .big .no{font-size:38px;letter-spacing:0;margin-right:6px}
+.cell .big .n{font-size:58px}
+.cell .big::after{
+  content:"";display:block;width:64px;height:1px;
+  background:var(--gold);margin:-2.5px auto 0;
+}
+.cell h3{
+  font-family:var(--mincho);
+  font-size:clamp(14px,1.42vw,18.5px);font-weight:600;letter-spacing:.05em;line-height:1.9;white-space:nowrap;
+  margin-bottom:12px;
+  color:var(--gold-deep);
+}
+.cell p{font-size:15px;color:var(--text);line-height:1.8;letter-spacing:.04em;text-align:justify;text-justify:inter-character;line-break:strict;overflow-wrap:normal;text-wrap:pretty}
+.cell p.c{text-align:center}
+@media (max-width:840px){.line-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:840px){.line-grid.cols3{grid-template-columns:1fr}}
+@media (max-width:540px){.line-grid{grid-template-columns:1fr}}
+
+/* ---------- 成分：金枠の円アイコン ---------- */
+.ing-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:repeat(6,1fr);
+  gap:22px;max-width:1000px;margin:0 auto;
+}
+.ing-item{text-align:center}
+.ing-item .ring{
+  width:clamp(84px,8.6vw,112px);height:clamp(84px,8.6vw,112px);
+  margin:0 auto 16px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(175deg,#fdfaf1,#f7f0dd);
+  border:1px solid rgba(181,147,59,.6);
+  position:relative;
+}
+.ing-item .ic-img{display:block;width:66%;height:66%;object-fit:contain}
+.ing-item .nm{
+  font-family:var(--mincho);
+  font-size:15px;font-weight:600;letter-spacing:.06em;line-height:1.8;
+}
+.ing-item .sub{font-size:13px;color:var(--dim);letter-spacing:.08em;white-space:nowrap}
+@media (max-width:1140px){.ing-item .sub{letter-spacing:.02em}}
+.ing-rest{
+  position:relative;z-index:1;
+  text-align:center;margin-top:36px;
+  font-size:13px;letter-spacing:.2em;color:var(--dim);
+  display:flex;align-items:center;justify-content:center;gap:20px;
+}
+.ing-rest::before,.ing-rest::after{
+  content:"";width:60px;height:1px;background:var(--line);
+}
+@media (max-width:840px){.ing-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:540px){.ing-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- 開発元 ---------- */
+.award{background:var(--ink);color:#f4f1ea;overflow:hidden}
+.award .ghost{color:rgba(227,200,120,.13)}
+.award .sec-head .label{color:rgba(244,241,234,.5)}
+.award .sec-title{color:#fff}
+.award-body{position:relative;z-index:1;max-width:44em;color:rgba(244,241,234,.72);font-size:16px;line-height:2.25;}
+.award-lead{position:relative;z-index:1;font-family:var(--mincho);font-size:18px;font-weight:500;letter-spacing:.1em;line-height:1;color:var(--gold-bright);margin:-10px 0 24px;display:flex;align-items:center;gap:16px}
+.award-lead::before{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:translateY(1.5px) rotate(45deg);flex:none}
+.award-date{
+  position:relative;z-index:1;
+  display:inline-block;margin-top:46px;line-height:1;
+  font-family:var(--serif-en);font-size:15px;font-weight:600;letter-spacing:.4em;
+  color:var(--gold-bright);
+  border-top:1px solid rgba(227,200,120,.4);
+  padding-top:18px;
+}
+.award .link-more{color:var(--gold-bright)}
+/* 写真の上端＝後ろの大きな英字の下端から25px下。下端＝受賞の英字の行（NEXT ERA LEADERS AWARD）の文字の下端 */
+.dev-split{row-gap:0;align-items:stretch}
+@media (min-width:841px){
+  .dev-split .photo{height:auto;margin:calc(1.0998 * clamp(80px,13vw,170px)) 0 10.4px}
+  .dev-split .pic{position:absolute;inset:0;height:auto}
+}
+.award .pframe{border-color:rgba(227,200,120,.5)}
+.award .pframe::before{background:var(--gold-bright)}
+
+/* ---------- 購入者の声 ---------- */
+.quote-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  max-width:1000px;margin:0 auto;
+}
+@media (max-width:840px){.quote-grid{grid-template-columns:1fr}}
+.quote-card{
+  position:relative;
+  background:var(--white);
+  border:1px solid var(--gold);border-radius:5px;
+  padding:46px clamp(24px,3vw,44px);
+}
+.quote-card::before{
+  content:"";position:absolute;inset:6px;
+  border:1px solid rgba(181,147,59,.35);border-radius:3px;
+  pointer-events:none;
+}
+.quote-card{display:flex;flex-direction:column;padding:54px clamp(26px,3.4vw,48px) 40px}
+.quote-card .q-mark{
+  position:absolute;top:26px;left:clamp(22px,3vw,40px);
+  font-family:var(--serif-en);font-size:104px;line-height:.9;font-style:italic;
+  opacity:.5;pointer-events:none;
+}
+.quote-card .q-title{
+  position:relative;
+  font-family:var(--mincho);font-size:clamp(18px,1.7vw,21px);font-weight:600;letter-spacing:.08em;line-height:1.8;
+  color:var(--head);margin:26px 0 16px;min-height:3.6em;text-align:left;
+}
+@media (max-width:840px){.quote-card .q-title{min-height:0}}
+.quote-card p{position:relative;font-size:15px;line-height:2;color:var(--text);margin-bottom:26px;text-align:justify}
+.quote-card .who{
+  margin-top:auto;margin-bottom:0;padding-top:18px;
+  border-top:1px solid rgba(181,147,59,.4);
+  display:flex;align-items:baseline;gap:10px;
+  font-family:var(--mincho);font-size:15px;letter-spacing:.14em;color:var(--gold-deep);text-align:left;
+}
+.quote-card .who-age{font-size:15px;line-height:1}
+.quote-card .who-age .n{font-family:var(--serif-en);font-size:32px;font-weight:500;letter-spacing:.02em;line-height:1;margin-right:3px;font-variant-numeric:lining-nums;font-feature-settings:"lnum"}
+
+/* ---------- 価格 ---------- */
+.price-box{
+  position:relative;z-index:1;
+  max-width:940px;margin:0 auto;
+  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+  background:var(--white);
+  border:2px solid var(--gold);border-radius:5px;overflow:hidden;
+  box-shadow:0 18px 50px rgba(181,147,59,.34),0 4px 14px rgba(181,147,59,.18);
+}
+.price-photo{position:relative;min-height:300px;background:#0d0b07;order:2}
+.price-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
+.price-info{padding:clamp(28px,3.2vw,40px) clamp(26px,4.4vw,56px);text-align:left}
+.price-en{font-family:var(--serif-en);font-size:clamp(16px,1.6vw,20px);font-weight:600;letter-spacing:.3em;color:var(--gold-deep);line-height:1;margin-bottom:10px}
+.price-name{font-family:var(--mincho);font-size:clamp(22px,2.3vw,28px);font-weight:600;letter-spacing:.12em;line-height:1.5;color:var(--head);margin-bottom:12px}
+.price-amount{
+  font-family:var(--serif-en);
+  font-size:clamp(56px,6.4vw,80px);font-weight:500;line-height:1;
+  margin-bottom:16px;font-variant-numeric:lining-nums;font-feature-settings:"lnum";
+}
+.price-amount .gold-text{display:inline-block;padding:.04em .06em .08em 0}
+/* 色はロゴと同じ金。両端は暗い金、真ん中に明るい筋を1つ */
+.price-amount .gold-text{background-image:linear-gradient(105deg,#8a6d1e 0%,#8f7222 26%,#b8963a 40%,#c9a844 46%,#d9bb5c 51%,#c4a23f 56%,#b8963a 62%,#8f7222 76%,#8a6d1e 100%);background-size:100% 100%;background-position:0 0}
+.price-amount .tax{font-family:var(--sans);font-size:15px;font-weight:400;letter-spacing:.06em;color:var(--text);margin-left:4px;white-space:nowrap}
+.price-amount .yen{font-size:.5em;vertical-align:.3em;margin-right:.12em}
+.price-spec{border-top:1px solid rgba(181,147,59,.4);margin-bottom:22px}
+.price-spec>div{display:flex;gap:20px;align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(181,147,59,.4)}
+.price-spec dt{flex:none;width:4.6em;font-family:var(--mincho);font-size:15px;font-weight:600;letter-spacing:.12em;color:var(--gold-deep)}
+.price-spec dd{font-size:15px;letter-spacing:.05em;color:var(--text);line-height:1.6}
+.price-spec .n{font-size:calc(1em + 2px);line-height:1}
+.price-info .btn-gold{display:block;padding:11px 20px}
+.price-notes{list-style:none;margin-top:14px;text-align:left}
+.price-notes li{position:relative;padding-left:1.1em;font-size:13px;line-height:1.65;letter-spacing:.04em;color:var(--dim)}
+.price-notes li::before{content:"※";position:absolute;left:0}
+@media (max-width:840px){
+  .price-box{grid-template-columns:1fr}
+  .price-photo{min-height:0;aspect-ratio:720/826;max-width:420px;width:100%;margin:0 auto;order:-1}
+  .price-box{background:var(--white)}
+  .price-info{text-align:center}
+  .price-spec>div{text-align:left}
+}
+
+/* ---------- よくある質問 ---------- */
+.faq-list{position:relative;z-index:1;max-width:880px;border-top:1px solid var(--line)}
+.faq-item{
+  border-bottom:1px solid var(--line);
+  padding:32px 4px;
+}
+.faq-item .q{
+  display:flex;gap:20px;align-items:baseline;line-height:2.15;color:var(--head);
+  font-family:var(--mincho);
+  font-size:18px;font-weight:600;letter-spacing:.08em;
+  margin-bottom:10px;
+}
+.faq-item .a{
+  display:flex;gap:20px;align-items:baseline;
+  font-size:16px;color:var(--text);line-height:2.05;
+}
+.faq-item .mark{
+  font-family:var(--serif-en);font-style:italic;font-size:18px;font-weight:500;flex-shrink:0;
+  color:var(--gold-deep);
+}
+
+/* ---------- コラム：ニュース型リスト ---------- */
+.news-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,3vw,44px);margin-top:64px}
+.news-card{display:flex;flex-direction:column;text-decoration:none;color:var(--head)}
+.news-card .thumb{aspect-ratio:3/2;border-radius:5px;overflow:hidden;background:var(--bg-deep)}
+.news-card .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s cubic-bezier(.22,1,.36,1)}
+.news-card:hover .thumb img{transform:scale(1.04)}
+.news-card .body{display:flex;flex-direction:column;flex:1;padding:24px 4px 0;text-align:left}
+.news-card .meta{display:flex;align-items:center;gap:16px;margin-bottom:12px;line-height:1}
+.news-card .date{font-family:var(--serif-en);font-size:15px;font-weight:600;letter-spacing:.14em;color:var(--dim)}
+.news-card .cat{font-family:var(--serif-en);font-size:15px;font-weight:600;letter-spacing:.14em;color:var(--dim);padding-left:16px;border-left:1px solid var(--line);line-height:1.2;white-space:nowrap}
+.news-card h3{font-family:var(--mincho);font-size:18px;font-weight:600;letter-spacing:.06em;line-height:1.8;margin-bottom:10px}
+.news-card .ex{font-size:15px;line-height:1.9;color:var(--text);margin-bottom:22px}
+.news-card .more{margin-top:auto;align-self:flex-start;position:relative;padding:0 26px 10px 2px;font-family:var(--mincho);font-size:15px;letter-spacing:.14em;color:var(--gold-deep);line-height:1}
+.news-card .more .arrow{position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transition:right .35s}
+.news-card .more .arrow::after{content:"";position:absolute;right:0;top:0;width:11px;height:1px;background:currentColor;transform:rotate(36deg);transform-origin:right center}
+.news-card:hover .more .arrow{right:-8px}
+@media (max-width:840px){.news-grid{grid-template-columns:1fr;max-width:460px;margin-left:auto;margin-right:auto;gap:44px}}
+
+/* ---------- 最後のCTA ---------- */
+.final{
+  text-align:center;
+  background:#faf5e8;
+  overflow:hidden;
+}
+.final-catch{
+  position:relative;z-index:1;
+  font-family:var(--mincho);
+  font-size:clamp(26px,4vw,40px);
+  font-weight:600;letter-spacing:.14em;
+  margin-bottom:44px;line-height:1.9;
+  color:#302c23;
+}
+.final-body{
+  position:relative;z-index:1;
+  max-width:38em;margin:0 auto 50px;
+  font-size:16px;color:var(--text);line-height:2.25;}
+.final .btn-gold{display:block;width:max-content;margin:0 auto}
+
+/* ---------- 注記（WF用） ---------- */
+.wf-note{
+  position:relative;z-index:1;
+  font-size:11.5px;letter-spacing:.08em;
+  color:#aaa28c;margin-top:24px;
+}
+
+/* ---------- フッター ---------- */
+footer{
+  border-top:1px solid rgba(181,147,59,.35);
+  padding:64px clamp(24px,6vw,110px) 44px;
+  background:#302c23;color:#f0e8d6;
+}
+.f-in{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start}
+.f-logo{font-family:var(--serif-en);font-size:23px;font-weight:600;letter-spacing:.16em;margin-bottom:16px}
+.f-company{font-size:13px;letter-spacing:.12em;color:rgba(240,232,214,.75);line-height:2.3}
+.f-links{display:grid;grid-template-columns:repeat(2,auto);gap:10px 44px}
+.f-links a{font-size:13px;font-weight:500;letter-spacing:.1em;color:#f0e8d6;text-decoration:none;transition:color .4s}
+.f-links a:hover{color:var(--gold-bright)}
+.f-copy{
+  max-width:1080px;margin:46px auto 0;
+  font-family:var(--serif-en);font-size:13px;letter-spacing:.3em;color:rgba(240,232,214,.6);
+  border-top:1px solid rgba(181,147,59,.35);padding-top:22px;
+}
+@media (max-width:540px){.f-in{flex-direction:column}}
+
+/* ==========================================================
+   画面幅ごとの上書き
+   切り替え：1440 / 1280 / 1140 / 950 / 840 / 540 / 440 / 402 / 393 / 359
+   1440・1280 は基本の見た目のまま（上書きなし。1280の見た目は変えない）
+   ここより上の指定を、画面が狭いときだけ上書きする
+   ========================================================== */
+/* ファーストビューの3つの帯：英字を枠の幅に合わせる */
+.hb .s{font-size:min(14px,3.3cqw)}
+@media (min-width:841px) and (max-width:1140px){
+  /* 写真が縦長になっても、手と顔が入る位置で切り取る */
+  .rev .split .pic img{object-position:30% top}
+}
+@media (max-width:1140px){
+  /* 比較表：見出しが折れないように */
+  .cmp-table th,.cmp-table td{padding-left:10px;padding-right:10px}
+  .cmp-table thead th{font-size:14px;letter-spacing:.04em}
+  .cmp-table thead th:last-child{font-size:15.5px}
+  .cmp-table tbody th{white-space:normal;letter-spacing:.04em}
+  /* 3つの理由：列が細いときは左寄せ（字間が間のびしない） */
+  .cell.has-hex{padding-left:18px;padding-right:18px}
+  .cell p{text-align:left}
+  /* 成分：3つずつ2段に */
+  .ing-grid{grid-template-columns:repeat(3,1fr);row-gap:30px}
+  /* 開発元 */
+  .award-lead{align-items:flex-start;line-height:1.5}
+  .award-lead::before{margin-top:.5em}
+  .award-date{font-size:13px;letter-spacing:.2em;white-space:nowrap}
+}
+@media (max-width:840px){
+  /* 3つの理由：縦に並ぶとき、六角形が上のカードに重ならないよう間をあける */
+  .line-grid.cols3{row-gap:72px}
+  /* コンセプト：縦書きを横書きに。1行に収めて、下の文と重ならないようにする */
+  .concept .tate{
+    font-size:18px;letter-spacing:.16em;line-height:1.6;white-space:nowrap;
+    padding:0 0 16px;margin-bottom:0;align-self:auto;
+    border-top:none;border-bottom:1px solid var(--gold);
+    background-image:var(--grad-gold-text);background-size:200% auto;
+  }
+  /* 開発元：写真の上下に間をあける */
+  .dev-split .photo{margin-top:30px}
+  /* 図：1列に並ぶとき、グラフが広がりすぎないようにする */
+  .vs-graph{max-width:460px;margin-left:auto;margin-right:auto}
+}
+@media (max-width:540px){
+  .ghost{font-size:15vw;top:-14px}
+  .pframe{transform:translate(12px,12px)}
+  /* 見出し：語の途中や1文字だけで折れないよう、少し小さく・字間を詰める */
+  .sec-title,.final-catch{font-size:clamp(19px,5.35vw,24px);letter-spacing:.02em;line-height:1.75}
+  .ing .sec-title{font-size:clamp(19px,5.35vw,24px)}
+  /* ファーストビューの3つの帯：枠に収まる大きさに */
+  .hb .s{font-size:11.5px;letter-spacing:.08em;text-indent:.08em}
+  .hb .t{font-size:max(11px,min(14.5px,calc(3.33cqw - 1.8px)))}
+  .hb{padding:14px 0 13px}
+  .vs-note{text-wrap:balance}
+  .award-lead{font-size:16px}
+  .award-date{letter-spacing:.14em}
+  .ing-grid{grid-template-columns:repeat(2,1fr)}
+  .f-links{grid-template-columns:1fr}
+  /* 比較表：列の幅を固定して、項目名が細く折れないようにする */
+  .cmp-table{table-layout:fixed}
+  .cmp-table thead th{white-space:normal;text-wrap:balance;line-height:1.45}
+  .cmp-table tbody th{width:28%;text-wrap:balance}
+  .cmp-table td{width:30%}
+  .cmp-table td.hl{width:42%}
+  .cmp-table thead th:nth-child(1){width:28%}
+  .cmp-table thead th:nth-child(2){width:30%}
+  .cmp-table thead th:nth-child(3){width:42%}
+  .faq-item .q{text-wrap:balance}
+  /* 見出し類：言葉の途中で折らない（対応ブラウザのみ） */
+  .sec-title,.final-catch,.news-card h3,.faq-item .q,.cmp-table th,.cmp-table td,.q-title,.award-lead,.cell h3,.final-body{word-break:auto-phrase}
+}
+/* ---- 1140px以下（追加） ---- */
+@media (max-width:1140px){
+  .award-lead,.news-card h3{text-wrap:balance}
+  .news-card h3,.q-title{word-break:auto-phrase}
+}
+/* ---- タブレット縦（541〜840px）：大見出しを少し大きく ---- */
+@media (min-width:541px) and (max-width:840px){
+  /* 価格の枠：写真を小さくして、枠の上から離す */
+  .price-photo{max-width:300px;margin-top:36px}
+  /* 価格の枠：商品名・値段・英語名を大きく */
+  .price-name{font-size:27px}
+  .price-amount{font-size:61px}
+  .price-en{font-size:19px}
+  .sec-title,.ing .sec-title{font-size:clamp(24px,3.5vw,27px)}
+  /* 比較表：項目名が1文字だけ残って折れないようにする */
+  .cmp-table{table-layout:fixed}
+  .cmp-table thead th{white-space:normal;text-wrap:balance}
+  .cmp-table tbody th{text-wrap:balance}
+  .cmp-table th,.cmp-table td{word-break:auto-phrase}
+  .cmp-table thead th:nth-child(1),.cmp-table tbody th{width:28%}
+  .cmp-table thead th:nth-child(2),.cmp-table td{width:30%}
+  .cmp-table thead th:nth-child(3),.cmp-table td.hl{width:42%}
+}
+/* ---- 見出しが本文より小さくならないようにする（3つの理由のカード） ---- */
+@media (max-width:1140px){
+  .cell h3{font-size:max(16px,1.42vw)}
+}
+@media (min-width:951px) and (max-width:1056px){
+  .cell h3{letter-spacing:.01em}
+}
+@media (min-width:841px) and (max-width:950px){
+  /* 幅が足りないので見出しは2行まで。3枚の段がずれないよう2行分の高さを取る */
+  .cell h3{font-size:16px;letter-spacing:.02em;white-space:normal;text-wrap:balance;word-break:auto-phrase;line-height:1.5;min-height:3em;display:flex;align-items:center;justify-content:center;text-align:center}
+}
+@media (max-width:840px){
+  .cell h3{font-size:18px}
+}
+/* ---- 951〜1140px：説明文が4行以上のとき、アイブロウ下を10px詰めて、全体を20px上げる ---- */
+@media (min-width:951px) and (max-width:1140px){
+  .hero.copy-long .hero-eyebrow{margin-bottom:20px}
+  .hero.copy-long:not(.fv-short) .hero-main{padding-bottom:30px}
+}
+/* ---- 841〜950px：ファーストビューの中身を、ヘッダーと流れる帯の間の上下真ん中に置く
+   （アイブロウの上の空き＝「1日1包・約30日分」の下の空き） ---- */
+@media (min-width:841px) and (max-width:950px){
+  .hero:not(.fv-short){padding-top:76px}
+  .hero:not(.fv-short) .hero-main{align-content:center;padding-top:24px;padding-bottom:24px}
+  .hero:not(.fv-short) .marquee{margin-top:0}
+  .hero-eyebrow{margin-top:0;margin-bottom:22px}
+  /* 右の3つの証明の枠の下端を、左の購入ボタンの下端に揃える（--rg＝ボタンと「1日1包・約30日分」の間） */
+  .btn-note{line-height:1}
+  .hero{--rg:18px}
+  .hero-cta-row{row-gap:var(--rg)}
+  .hero-right{margin-bottom:calc(var(--rg) + 15px)}
+  /* 画面が低いとき（JSで判定）：中の間を詰めて帯を1画面目に収める。--s＝高さの余り。余りが増えるほど通常の間へ戻す */
+  .hero.fv-tight{--s:clamp(0px,calc(100vh - 620px),40px)}
+  .hero.fv-tight .hero-eyebrow{margin-bottom:calc(19px + var(--s)*.075)}
+  .hero.fv-tight .hero-kicker{margin-bottom:calc(6px + var(--s)*.1)}
+  .hero.fv-tight .hero-h1{margin-bottom:calc(8px + var(--s)*.175)}
+  .hero.fv-tight .hero-copy{margin-bottom:calc(14px + var(--s)*.15)}
+  .hero.fv-tight{--rg:calc(8px + var(--s)*.25)}
+}
+/* ---- 比較図の中の文字：図が縮む幅では、図の中の文字を大きくして読める大きさを保つ ---- */
+@media (min-width:1041px) and (max-width:1140px){
+  .vs-graph text{font-size:13px}
+  .vs-graph .lb{font-size:14px}
+}
+@media (min-width:951px) and (max-width:1040px){
+  .vs-graph text{font-size:14.5px}
+  .vs-graph .lb{font-size:15.5px}
+}
+@media (min-width:841px) and (max-width:950px){
+  .vs-graph text{font-size:15px}
+  .vs-graph .lb{font-size:16px}
+}
+@media (max-width:440px){
+  .vs-graph text{font-size:15px}
+  .vs-graph .lb{font-size:16px}
+}
+@media (max-width:402px){
+  .vs-graph text{font-size:16.5px}
+  .vs-graph .lb{font-size:17.5px}
+  .vs-card.is-main .vs-graph .lb{transform:translateX(-8px)}
+}
+@media (max-width:359px){
+  .vs-graph text{font-size:18px;letter-spacing:.02em}
+  .vs-graph .lb{font-size:19px}
+  .vs-card.is-main .vs-graph .lb{transform:translate(-20px,-1px)}
+}
+/* ---- 951〜1016px：「1日1包・約30日分」をボタンの横に収める ---- */
+@media (min-width:951px) and (max-width:1016px){
+  .hero-cta-row{flex-wrap:nowrap;gap:12px}
+  .btn-note{letter-spacing:.06em;white-space:nowrap}
+}
+/* ---- 950px以下：2列のまま、すき間を詰める ---- */
+@media (max-width:950px){
+  nav,.h-right{gap:22px}
+  .hero-main{gap:30px}
+  .split{gap:36px}
+  .award-lead{font-size:16px}
+  .cell.has-hex{padding-left:14px;padding-right:14px}
+}
+/* ---- 840px以下（追加） ---- */
+@media (max-width:840px){
+  nav,.h-right{gap:14px}
+  .final-catch{text-wrap:balance}
+}
+/* ---- 540px以下（追加） ---- */
+@media (max-width:540px){
+  .h-right{gap:8px}
+}
+/* ---- 440px以下 ---- */
+@media (max-width:440px){
+  .link-more{font-size:16px;letter-spacing:.08em}
+  .price-name{font-size:20px;letter-spacing:.06em}
+  .price-en{font-size:15px;letter-spacing:.22em}
+}
+/* ---- 402px以下 ---- */
+@media (max-width:402px){
+  .cmp-table thead th:nth-child(1),.cmp-table tbody th{width:30%}
+  .cmp-table thead th:nth-child(2),.cmp-table td{width:28%}
+  .cmp-table thead th:nth-child(3),.cmp-table td.hl{width:42%}
+  .cmp-table thead th,.cmp-table tbody th,.cmp-table td,.cmp-table td.hl{padding-left:5px;padding-right:5px;font-size:12px}
+  .price-amount{font-size:48px}
+  .price-info{padding-left:22px;padding-right:22px}
+}
+/* ---- 393px以下 ---- */
+@media (max-width:393px){
+  .hero-eyebrow{letter-spacing:.1em;gap:10px}
+  .hero-eyebrow::before{width:24px}
+  .concept .concept-lead-jp{letter-spacing:.12em}
+  .concept .tate{font-size:16px;letter-spacing:.12em}
+}
+/* ---- 359px以下 ---- */
+@media (max-width:359px){
+  .vs-title,.faq-item .q,.news-card h3,.q-title{font-size:17px}
+  .hero-kicker{font-size:16px;letter-spacing:.16em}
+  .nav-cta{font-size:13px;padding:7px 10px}
+  .sec-title,.final-catch,.ing .sec-title{font-size:19px;letter-spacing:.01em}
+  .price-amount{font-size:44px}
+}
+/* ---- 3つの理由のカード：文章の左右にゆとりを取る（950px以下） ---- */
+@media (min-width:841px) and (max-width:950px){
+  .cell.has-hex{padding-left:20px;padding-right:20px}
+}
+@media (min-width:541px) and (max-width:840px){
+  .cell.has-hex{padding-left:44px;padding-right:44px}
+}
+@media (max-width:540px){
+  .cell.has-hex{padding-left:26px;padding-right:26px}
+}
+@media (max-width:393px){
+  .cell h3{font-size:17px}
+}
+/* ---- 比較図のカードと口コミのカード：左右のゆとりを「3つの理由」のカードに合わせる ---- */
+@media (min-width:541px) and (max-width:840px){
+  .vs-card,.quote-card{padding-left:44px;padding-right:44px}
+}
+@media (max-width:540px){
+  .vs-card{padding-left:26px;padding-right:26px}
+}
+.t-br{display:none}
+@media (min-width:768px) and (max-width:840px){
+  .t-br{display:inline}
+}
+/* ---- iPad縦（541〜840px）のファーストビュー：写真の上を10px空ける／アイブロウ〜ボタンを中央揃え ---- */
+@media (min-width:541px) and (max-width:840px){
+  .hero{padding-top:110px}
+  .hero-inner{text-align:center}
+  /* アイブロウ：左の線と同じ幅の見えない余白を右にも置いて、文字そのものを中央に */
+  .hero-eyebrow{justify-content:center}
+  .hero-eyebrow::after{content:"";width:calc(32px - .18em);flex-shrink:0}
+  .hero-kicker{padding-left:.3em}
+  .hero-sub-en{padding-left:.56em}
+  .hero-copy{margin-left:auto;margin-right:auto;width:100%;max-width:none;text-wrap:balance;letter-spacing:.02em}
+  /* ボタンを中央に。「1日1包・約30日分」はその下 */
+  .hero-cta-row{flex-direction:column;align-items:center;gap:16px}
+}
+/* ---- 本文：両端揃え＋行頭禁則（句読点・かっこ閉じ・長音「ー」などで行を始めない）。全サイズ共通 ---- */
+.hero-copy,.sec-lead,.concept-body p,.vs-text,.cell p,.award-body,.quote-card p:not(.q-title):not(.who),.faq-item .a,.news-card .ex,.final-body{
+  line-break:strict;overflow-wrap:normal;
+}
+.sec-lead,.concept-body p,.vs-text,.cell p,.award-body,.quote-card p:not(.q-title):not(.who),.faq-item .a,.news-card .ex{
+  text-align:justify;text-justify:inter-character;
+}
+/* 両端揃えにしない文章：中央揃えのもの／折れる位置を決めてある短い文（ファーストビューの説明文、コンセプトの1段落目）
+   ／3枚並びで1行が短いカード（841〜1140px）。字間が広がってスカスカになるため */
+.head-c .sec-lead,.cell p.c{text-align:center}
+.concept .concept-body p:first-child{text-align:left}
+@media (min-width:841px) and (max-width:1140px){.cell p{text-align:left}}
+/* ---- 840px以下：リバースエイジングの文章の右端を、開発元の文章の右端に合わせる ---- */
+@media (max-width:840px){
+  .rev .sec-lead,.ing .sec-lead{max-width:44em}
+  /* コンセプト：枠の中の文章を、上の線と同じ幅まで広げる */
+  .concept .concept-body,.concept .concept-body p{max-width:none}
+  /* よくある質問の答えも同じ右端で止める */
+  .faq-item .a{max-width:calc(44em - 4px);margin-right:-4px}
+}
+/* ---- 840px以下：コラムの題名は右端まで入れてから折る ---- */
+@media (max-width:840px){
+  .news-card h3{text-wrap:wrap;word-break:normal;line-break:strict}
+}
+/* ---- iPad縦（541〜840px）：コンセプトの1段落目も右端まで入れる ---- */
+@media (min-width:541px) and (max-width:840px){
+  .concept .concept-body p:first-child{text-align:justify}
+  .concept .concept-body p:first-child strong,.concept .concept-body p:first-child .nw{white-space:normal}
+}
+/* ---- iPad縦（541〜840px）：比較図の「アンチエイジング」「リバースエイジング」の見出しをカードの中央に ---- */
+@media (min-width:541px) and (max-width:840px){
+  .vs-head{position:relative;justify-content:center}
+  .vs-title{padding-left:.1em}
+  .vs-tag{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+}
+/* 幅が狭い所（541〜600px）は、見出しをカードの中央に置いたままラベルと重ならないよう、字間とラベルの余白を少し詰める */
+@media (min-width:541px) and (max-width:600px){
+  .vs-title{letter-spacing:.04em;padding-left:.04em}
+  .vs-tag{padding-left:11px;padding-right:11px;letter-spacing:.04em}
+}
+/* ---- 840px以下：小さい英語（CONCEPT など）が、後ろの大きい英語の上のほうに重なるようにする（1280pxと同じ比率＝上から約29%） ---- */
+@media (min-width:541px) and (max-width:840px){
+  .ghost{font-size:calc(clamp(80px,13vw,109.2px) + 15px);top:calc(19.6px - clamp(23.2px,3.77vw,32px))}
+  /* 見出し（h2）が後ろの大きい英語の下のほうに重なるようにする（1280pxと同じ＝上から約75%の位置） */
+  .sec-head{margin-bottom:calc(clamp(36.8px,5.98vw,50.1px) - 14.1px)}
+}
+@media (max-width:540px){
+  .ghost{font-size:calc(15vw + 10px);top:calc(18.1px - 4.35vw)}
+  /* 見出し（h2）も、後ろの大きい英語の上から約75%の位置に重ねる */
+  .sec-head{margin-bottom:calc(6.9vw - 9.4px)}
+}
+/* ---- 840px以下：最後のセクションの文は途中で改行せず、一段落で続ける ---- */
+@media (max-width:840px){
+  .final-body br{display:none}
+  .final-body{word-break:normal;text-wrap:wrap}
+}
+/* ---- 540px以下：ファーストビューの写真とヘッダーの間を15px広げる ---- */
+@media (max-width:540px){
+  .hero{padding-top:115px}
+}
+/* ---- 540px以下：「Regenerate Your Time」と「未来の再生科学を、日常へ。」を3px大きく ---- */
+@media (max-width:540px){
+  .concept .concept-lead{font-size:29px}
+  .concept .tate{font-size:20px}
+}
+@media (max-width:393px){
+  .concept .tate{font-size:18px}
+}
+/* ---- 540px以下：3つの理由の「No.1〜No.3」を3px大きく ---- */
+@media (max-width:540px){
+  .cell .big .no{font-size:41px}
+  .cell .big .n{font-size:61px}
+}
+/* ---- 540px以下：価格の枠の写真を小さくして、枠の上から離す（iPad縦と同じ形） ---- */
+@media (max-width:540px){
+  .price-photo{max-width:min(300px,72%);margin-top:32px}
+}
+/* ---- 540px以下：スマホで読みやすい文字の大きさに揃える ---- */
+@media (max-width:540px){
+  /* 大見出し：22〜24px。長い行は言葉の区切りで折る（.ph＝ひとかたまりの言葉） */
+  .sec-title,.final-catch,.ing .sec-title{font-size:clamp(22px,5.35vw,24px);letter-spacing:.02em;line-height:1.65;white-space:normal}
+  .sec-title .ph{display:inline-block}
+  /* 小さい英語（CONCEPT など）：大見出しとの比率を1280pxに近づける */
+  .sec-head .label{font-size:14px}
+  /* ファーストビューの3つの証明 */
+  .hb .s{font-size:12px}
+  .hb .t{font-size:12px}
+}
+@media (max-width:440px){
+  .vs-graph text{font-size:16px}
+  .vs-graph .lb{font-size:17px}
+}
+@media (max-width:402px){
+  .hb .t{font-size:11.5px}
+  .cmp-table thead th,.cmp-table tbody th,.cmp-table td,.cmp-table td.hl{font-size:12.5px}
+  .vs-graph text{font-size:17.5px}
+  .vs-graph .lb{font-size:18.5px}
+}
+@media (max-width:375px){
+  .hb .t{font-size:11px}
+  .hb .s{font-size:11.5px}
+  .sec-title,.final-catch,.ing .sec-title{font-size:20.5px}
+  .cmp-table thead th,.cmp-table tbody th,.cmp-table td,.cmp-table td.hl{font-size:12px}
+}
+@media (max-width:359px){
+  .vs-graph text{font-size:19px}
+  .vs-graph .lb{font-size:20px}
+}
+</style>
+</head>
+<body>
+
+
+<!-- 金の線画アイコン -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="ic-cell"><circle cx="24" cy="24" r="16.5"/><circle cx="24" cy="24" r="5.5"/><circle cx="33" cy="15.5" r="1.5"/><circle cx="14.5" cy="27" r="1.5"/><circle cx="29" cy="33" r="1.5"/></g>
+    <g id="ic-hourglass"><path d="M15 8h18M15 40h18"/><path d="M17.5 8c0 13 13 13 13 32M30.5 8c0 13-13 13-13 32"/><circle cx="24" cy="36" r="1.4"/></g>
+    <g id="ic-cycle"><path d="M37.5 22a13.5 13.5 0 1 0-.8 7.5"/><polyline points="38.5,14.5 37.7,22.3 30,21.4"/></g>
+    <g id="ic-energy"><path d="M26.5 7L15 27.5h8.5L21 41l12-20.5h-8.5l2-13.5z"/></g>
+    <g id="ic-capsule"><rect x="9" y="18.5" width="30" height="11.5" rx="5.75" transform="rotate(-26 24 24)"/><line x1="19" y1="29.5" x2="28.5" y2="18.2"/></g>
+    <g id="ic-sachet"><rect x="11.5" y="6.5" width="25" height="35" rx="2.5"/><line x1="11.5" y1="13" x2="36.5" y2="13"/><rect x="16" y="19" width="16" height="7" rx="3.5" transform="rotate(-22 24 22.5)"/><line x1="23" y1="19.4" x2="25" y2="25.6"/><rect x="16" y="29" width="16" height="7" rx="3.5" transform="rotate(-22 24 32.5)"/><line x1="23" y1="29.4" x2="25" y2="35.6"/></g>
+    <g id="ic-balance"><circle cx="24" cy="9" r="1.8"/><line x1="24" y1="10.8" x2="24" y2="39"/><line x1="16.5" y1="39" x2="31.5" y2="39"/><line x1="9" y1="15" x2="39" y2="15"/><path d="M9 15L4.5 26.5h9L9 15z"/><path d="M4.5 26.5a4.5 4.5 0 0 0 9 0"/><path d="M39 15l-4.5 11.5h9L39 15z"/><path d="M34.5 26.5a4.5 4.5 0 0 0 9 0"/></g>
+    <g id="ic-mol"><circle cx="15" cy="16" r="5.5"/><circle cx="34" cy="20" r="4.2"/><circle cx="22" cy="35" r="4.8"/><line x1="20.3" y1="17.2" x2="29.9" y2="19.2"/><line x1="17.2" y1="21" x2="20.2" y2="30.5"/><line x1="31.2" y1="23.2" x2="25.4" y2="31.6"/></g>
+    <g id="ic-bilberry"><circle cx="19" cy="28" r="10.5"/><path d="M15.5 20.5l3.5 3 3.5-3M19 19v4.5"/><circle cx="33.5" cy="20" r="6.5"/><path d="M31.3 15.5l2.2 1.8 2.2-1.8"/></g>
+    <g id="ic-nano"><polygon points="24,6.5 38.5,15 38.5,32 24,40.5 9.5,32 9.5,15"/><circle cx="24" cy="23.5" r="4.2"/><line x1="24" y1="10.5" x2="24" y2="19.3"/></g>
+    <g id="ic-award"><circle cx="24" cy="18" r="9.5"/><circle cx="24" cy="18" r="4"/><path d="M19 26.5L15.5 41l8.5-4.8 8.5 4.8L29 26.5"/></g>
+    <g id="ic-leaf"><path d="M10 38C10 20 20 9 39 9c0 19-10 29-29 29z"/><path d="M10 38C17 28 25 20 33 15"/><path d="M19.5 28.5l-.5-7M26 22l-1-6M21 27l7 .5M28 20.5l6 .5"/></g>
+    <g id="ic-flask"><path d="M20 6.5h8M22 6.5v10.5L12.5 35a3.4 3.4 0 0 0 3 5h17a3.4 3.4 0 0 0 3-5L26 17V6.5"/><line x1="17" y1="31.5" x2="31" y2="31.5"/></g>
+    <g id="ic-pome"><circle cx="24" cy="27.5" r="13"/><path d="M19.5 11.5L22 16M28.5 11.5L26 16M24 9.5V16"/><circle cx="20.5" cy="25" r="1.4"/><circle cx="27.5" cy="25" r="1.4"/><circle cx="24" cy="31" r="1.4"/></g>
+    <g id="ic-wheat"><line x1="24" y1="7" x2="24" y2="41"/><path d="M24 15c-5.5.5-8-4.5-8-4.5s5.5-2.5 8 4.5zM24 15c5.5.5 8-4.5 8-4.5s-5.5-2.5-8 4.5z"/><path d="M24 23c-5.5.5-8-4.5-8-4.5s5.5-2.5 8 4.5zM24 23c5.5.5 8-4.5 8-4.5s-5.5-2.5-8 4.5z"/><path d="M24 31c-5.5.5-8-4.5-8-4.5s5.5-2.5 8 4.5zM24 31c5.5.5 8-4.5 8-4.5s-5.5-2.5-8 4.5z"/></g>
+    <g id="ic-berry"><path d="M24 14.5c8 0 13 5 11 13-1.6 6.8-7 12.5-11 12.5s-9.4-5.7-11-12.5c-2-8 3-13 11-13z"/><path d="M17.5 11.5c3.5-4 9.5-4 13 0-4.5 2.2-8.5 2.2-13 0z"/><line x1="24" y1="6.5" x2="24" y2="10"/><circle cx="20" cy="23" r="1.2"/><circle cx="28" cy="23" r="1.2"/><circle cx="24" cy="29" r="1.2"/><circle cx="19.5" cy="32.5" r="1.2"/><circle cx="28.5" cy="32.5" r="1.2"/></g>
+    <g id="ic-pill"><rect x="10.5" y="19" width="27" height="10" rx="5" transform="rotate(-18 24 24)"/><line x1="19.5" y1="27.8" x2="27.5" y2="19.6"/><path d="M36 10v7M32.5 13.5h7"/></g>
+    <g id="ic-onion"><path d="M24 10.5c7 5.5 11.5 9.5 11.5 17a11.5 11.5 0 0 1-23 0c0-7.5 4.5-11.5 11.5-17z"/><path d="M24 13c.5 7.5-5.5 9.5-5.5 15.5M24 13c-.5 7.5 5.5 9.5 5.5 15.5"/><path d="M24 6.5v4"/></g>
+    <g id="ic-grape"><circle cx="19" cy="22" r="4.4"/><circle cx="29" cy="22" r="4.4"/><circle cx="14.5" cy="29.5" r="4.4"/><circle cx="24" cy="29.5" r="4.4"/><circle cx="33.5" cy="29.5" r="4.4"/><circle cx="19" cy="37" r="4.4"/><circle cx="29" cy="37" r="4.4"/><path d="M24 17.5V9.5M24 9.5c3-3 7-2.5 9 0"/></g>
+  </defs>
+</svg>
+
+<a class="skip" href="#main">本文へ移動</a>
+<header>
+  <a class="logo gold-text" href="#top">CHRONO-R</a>
+  <div class="h-right">
+  <nav id="gnav" aria-label="メインメニュー">
+    <a class="navlink" href="#">商品・成分</a>
+    <a class="navlink" href="#">開発元・販売店について</a>
+    <a class="navlink" href="#">よくある質問</a>
+  </nav>
+    <a class="nav-cta" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）">ご購入はこちら</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+<!-- 1. ファーストビュー -->
+<section class="hero" id="top">
+  <div class="hero-main">
+    <div class="hero-inner">
+      <h1 class="hero-eyebrow">リバースエイジング サプリメント</h1>
+      <p class="hero-kicker" id="kicker">再生医療の研究所が開発した、</p>
+      <div class="hero-h1">
+        <span class="hero-title gold-text">CHRONO-R</span>
+        <span class="hero-sub-en gold-text">CAPSULES</span>
+      </div>
+      <p class="hero-copy">アンチエイジングの、その一歩先へ。再生医療の研究所が、<span class="nw">ウロリチン・</span><span class="nw">スペルミジン</span>など<br class="t-br">30種以上の成分を1包に込めた<span class="nw">インナーケア</span> <span class="nw">サプリメント</span><span class="nw">「クロノ・</span><span class="nw">アール</span> <span class="nw">カプセル」。</span></p>
+      <div class="hero-cta-row">
+        <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
+        <span class="btn-note">1日1包・約30日分</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-visual">
+        <div class="pic"><img src="images/hero2.jpg" alt="クロノ・アール カプセル（CHRONO-R CAPSULES）のパッケージとカプセル。画像内の文字：内側から、未来の美しさを育てる。美容と健康の本質に着目し、厳選された成分を独自のバランスで配合。年齢を重ねるごとに、内側から輝く美しさをサポートします。" width="1672" height="941"></div>
+      </div>
+      <div class="hero-badges">
+        <div class="hb"><div class="hbw"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-award"/></svg><p class="s"><span>AWARD <span class="nb">2024</span></span></p><p class="t">WSJアワード受賞</p></div></div>
+        <div class="sep"></div>
+        <div class="hb"><div class="hbw"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-flask"/></svg><p class="s"><span>DEVELOPER</span></p><p class="t">再生医療研究所が開発</p></div></div>
+        <div class="sep"></div>
+        <div class="hb"><div class="hbw"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-leaf"/></svg><p class="s"><span>INGREDIENTS</span></p><p class="t"><span class="nb">30</span>種以上の成分</p></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true"><div class="marquee-in" id="marquee">
+    <span>CHRONO-R CAPSULES</span><span class="dia">◆</span><span>REVERSE AGING SUPPLEMENT</span><span class="dia">◆</span><span>REGENERATE YOUR TIME</span><span class="dia">◆</span><span>INNER CARE</span><span class="dia">◆</span><span>FEMCARE</span><span class="dia">◆</span>
+  </div></div>
+</section>
+</main>
+
+<!-- 2. コンセプト -->
+<section class="sect-a head-c concept">
+  <div class="wrap">
+    <p class="ghost" aria-hidden="true">Concept</p>
+    <div class="hd reveal">
+      <div class="sec-head"><span class="label">CONCEPT</span></div>
+      <h2 class="sec-title"><span class="ph">再生医療研究の</span><span class="ph">知見に着目した、</span><br><span class="ph">インナーケア</span> <span class="ph">サプリメント</span></h2>
+      <div>
+        <p class="concept-lead gold-text" style="margin-bottom:14px">Regenerate Your Time</p>
+        <p class="concept-lead-jp"><span>あなたの時間を、再び動かすために</span></p>
+      </div>
+    </div>
+    <div class="concept-grid reveal">
+      <p class="tate gold-text">未来の再生科学を、日常へ。</p>
+      <div class="concept-body">
+        <p><strong>クロノ・アール</strong>という名前は、ギリシャ語で時間を意味する<strong>クロノス（Chronos）</strong>と、開発元RIEIRの頭文字<strong>（R）</strong><span class="nw">から生まれました。</span></p>
+        <p>年齢を重ねることは、衰えていくことだけではない。開発元のリエール再生医療研究所はそう考え、再生医療の研究を美容と健康の分野に生かしてきました。目指すのは、<strong>人生100年時代を健やかに、自分らしく過ごせる毎日</strong>です。</p>
+        <p>毎日の<strong>インナーケア</strong>に。そして、年齢とともに変わる女性の体を支える<strong>フェムケア</strong>にも。1日1包を、日々の習慣に。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. リバースエイジングとは -->
+<section class="sect-b rev">
+  <div class="wrap">
+    <p class="ghost" aria-hidden="true">Reverse Aging</p>
+    <div class="hd reveal">
+      <div class="sec-head"><span class="label">REVERSE AGING</span></div>
+      <h2 class="sec-title">リバースエイジングとは？<br>アンチエイジングとの違い</h2>
+    </div>
+    <div class="split" style="margin-bottom:70px">
+      <div>
+        <p class="sec-lead reveal">アンチエイジングは、年齢による変化をゆるやかにして、今の状態を保とうとする<strong>「守りのケア」</strong>。それに対してリバースエイジングは、一般的に「若返り」を意味する言葉として、美容や健康の分野で使われています。リエール再生医療研究所では、これを「若作り」ではなく、年齢を重ねた今の体に内側から向き合い、これからの毎日を健やかに過ごすための<strong>「前向きなケア」</strong>と捉えています。<br><br>近年は、老化のしくみを細胞の単位から解き明かそうとする研究が世界中で進み、その知見が美容や健康の分野にも広がりはじめました。クロノ・アール カプセルは、こうした研究の流れに着目して開発されたリバースエイジング サプリメントです。</p>
+      </div>
+      <div class="photo reveal d1">
+        <div class="pframe"></div>
+        <div class="pic"><img src="images/reverse-aging.jpg" alt="朝の光の中で伸びをする女性" width="1536" height="1024" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="vs-grid">
+      <div class="vs-card reveal">
+        <div class="vs-head">
+          <h3 class="vs-title">アンチエイジング</h3>
+          <span class="vs-tag">守りのケア</span>
+        </div>
+        <svg class="vs-graph" viewBox="0 0 400 138" role="img" aria-label="アンチエイジングの考え方のイメージ図">
+          <path class="ax" d="M22 8V118H392"/>
+          <path class="base" d="M42 44C150 48 255 74 384 106"/>
+          <path class="ln" d="M42 44C150 46 265 59 384 70"/>
+          <circle class="dot" cx="42" cy="44" r="4.5"/><circle class="dot" cx="384" cy="70" r="4.5"/>
+          <text x="30" y="12">コンディション</text>
+          <text x="392" y="134" text-anchor="end">年齢</text>
+          <text x="150" y="100">何もしない場合</text>
+          <text class="lb" x="236" y="40">変化をゆるやかに</text>
+        </svg>
+        <p class="vs-text">年齢による変化を<strong>ゆるやかにする</strong>ことを目指す考え方。今の状態をできるだけ保つ、守りのケアです。</p>
+      </div>
+      <div class="vs-card is-main reveal d1">
+        <div class="vs-head">
+          <h3 class="vs-title">リバースエイジング</h3>
+          <span class="vs-tag">前向きなケア</span>
+        </div>
+        <svg class="vs-graph" viewBox="0 0 400 138" role="img" aria-label="リバースエイジングの考え方のイメージ図">
+          <defs><marker id="vs-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#b5933b"/></marker></defs>
+          <path class="ax" d="M22 8V118H392"/>
+          <path class="base" d="M42 44C150 48 255 74 384 106"/>
+          <path class="ln" d="M42 44C150 44 265 31 380 19" marker-end="url(#vs-arrow)"/>
+          <circle class="dot" cx="42" cy="44" r="4.5"/>
+          <text x="30" y="12">コンディション</text>
+          <text x="392" y="134" text-anchor="end">年齢</text>
+          <text x="150" y="100">何もしない場合</text>
+          <text class="lb" x="256" y="58">内側から向き合う</text>
+        </svg>
+        <p class="vs-text">年齢を重ねた今の体に、<strong>内側から向き合う</strong>考え方。これからの毎日を健やかに過ごすための、前向きなケアです。</p>
+      </div>
+    </div>
+    <p class="vs-note">※イメージ図です。効果・効能を示すものではありません。</p>
+  </div>
+</section>
+
+<!-- 6. 他との違い -->
+<section class="sect-c head-c why">
+  <div class="wrap">
+    <p class="ghost" aria-hidden="true">Reasons</p>
+    <div class="hd reveal">
+      <div class="sec-head"><span class="label">WHY CHRONO-R</span></div>
+      <h2 class="sec-title"><span class="ph">ほかのサプリメントと、</span><span class="ph">何が違う？</span><br><span class="ph">3つの選ばれる理由</span></h2>
+    </div>
+    <div class="line-grid cols3" style="margin:110px 0 64px">
+      <div class="cell has-hex reveal">
+        <div class="hex"><svg class="hexbg" viewBox="0 0 76 76" aria-hidden="true"><defs><linearGradient id="hexgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a6d1e"/><stop offset=".3" stop-color="#c4a23f"/><stop offset=".5" stop-color="#d9bb5c"/><stop offset=".72" stop-color="#b8963a"/><stop offset="1" stop-color="#8a6d1e"/></linearGradient></defs><polygon class="h1" points="38,2 69.2,20 69.2,56 38,74 6.8,56 6.8,20"/></svg><img class="ic" src="images/ic-sachet.png" alt="" width="600" height="600"></div>
+        <span class="big"><span class="gold-text"><span class="no">No.</span><span class="n">1</span></span></span>
+        <h3>30種以上の成分を、1日1包に</h3>
+        <p>ウロリチン、スペルミジン、フィセチン、NAD原料成分。話題のエイジングケア成分を個別にそろえようとすると、何種類ものサプリメントを買い、飲み分ける必要があります。クロノ・アールなら、毎日1包でまとめて取り入れられます。</p>
+      </div>
+      <div class="cell has-hex reveal d1">
+        <div class="hex"><svg class="hexbg" viewBox="0 0 76 76" aria-hidden="true"><polygon class="h1" points="38,2 69.2,20 69.2,56 38,74 6.8,56 6.8,20"/></svg><img class="ic" src="images/ic-balance.png" alt="" width="600" height="600"></div>
+        <span class="big"><span class="gold-text"><span class="no">No.</span><span class="n">2</span></span></span>
+        <h3>独自の「黄金比バランス」設計</h3>
+        <p>成分配合と設計思想にこだわった、独自の黄金比バランス。30種以上の成分を1包にまとめるにあたり、複数の有用成分が互いに補い合うよう、ナノテクノロジーを応用した超微細なレベルで設計しています。</p>
+      </div>
+      <div class="cell has-hex reveal d2">
+        <div class="hex"><svg class="hexbg" viewBox="0 0 76 76" aria-hidden="true"><polygon class="h1" points="38,2 69.2,20 69.2,56 38,74 6.8,56 6.8,20"/></svg><img class="ic" src="images/ic-flask.png" alt="" width="600" height="600"></div>
+        <span class="big"><span class="gold-text"><span class="no">No.</span><span class="n">3</span></span></span>
+        <h3>再生医療の研究所が開発</h3>
+        <p>開発したのは、リエール再生医療研究所。人生100年時代を健やかに過ごすことを目指して、商品開発を続けています。2024年5月には、ニューヨークで開かれたウォール・ストリート・ジャーナル主催のアワードで、Next Era Beauty部門を受賞しました。</p>
+      </div>
+    </div>
+    <div class="cmp-wrap reveal">
+      <table class="cmp-table">
+        <thead>
+          <tr><th scope="col">比較項目</th><th scope="col">一般的なサプリメント</th><th scope="col">クロノ・アール カプセル</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">成分数</th><td><span class="n">1</span>〜数種類</td><td class="hl"><span class="n">30</span>種以上</td></tr>
+          <tr><th scope="row">注目成分をそろえるには</th><td>何種類も購入・飲み分け</td><td class="hl"><span class="n">1</span>日<span class="n">1</span>包で完結</td></tr>
+          <tr><th scope="row">設計</th><td>一般的な製法</td><td class="hl">独自の黄金比バランス設計</td></tr>
+          <tr><th scope="row">開発</th><td>―</td><td class="hl">再生医療の研究所</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="btn-center"><a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a></div>
+  </div>
+</section>
+
+<!-- 5. 注目成分（要約） -->
+<section class="sect-a head-r ing">
+  <div class="wrap">
+    <p class="ghost" aria-hidden="true">Ingredients</p>
+    <div class="split ing-split">
+      <div class="photo reveal">
+        <div class="pframe"></div>
+        <div class="pic"><img src="images/ingredients.jpg" alt="ザクロ、ぶどう、りんご、青みかん、ビルベリー、オリーブ、小麦など、原料となる植物" width="1536" height="1024" loading="lazy"></div>
+      </div>
+      <div class="ing-head reveal d1">
+        <div class="sec-head"><span class="label">INGREDIENTS</span></div>
+        <h2 class="sec-title"><span class="ph">ウロリチン・</span><span class="ph">スペルミジン・</span><br><span class="ph">フィセチン配合。</span><span class="ph">話題の成分を</span><br><span class="ph">まとめて摂れる</span><span class="ph">サプリメント</span></h2>
+        <p class="sec-lead">セノリティクス研究で注目される成分をはじめ、30種以上の素材を配合。エイジングケアの分野で研究が進み、単体のサプリメントとしても販売されている成分を、クロノ・アール カプセルなら<span class="nw">1日1包</span><span class="nw">（4カプセル）</span>でまとめて取り入れられます。</p>
+      </div>
+    </div>
+    <div class="ing-grid reveal">
+      <div class="ing-item"><div class="ring"><img class="ic-img" src="images/ic-pomegranate.png" alt="" width="430" height="430" loading="lazy"></div><h3 class="nm">ウロリチン</h3><p class="sub">ザクロ抽出発酵物</p></div>
+      <div class="ing-item"><div class="ring"><img class="ic-img" src="images/ic-wheat.png" alt="" width="430" height="430" loading="lazy"></div><h3 class="nm">スペルミジン</h3><p class="sub">小麦胚芽エキス末</p></div>
+      <div class="ing-item"><div class="ring"><img class="ic-img" src="images/ic-molecule.png" alt="" width="430" height="430" loading="lazy"></div><h3 class="nm">フィセチン</h3><p class="sub">フラボノイドの一種</p></div>
+      <div class="ing-item"><div class="ring"><img class="ic-img" src="images/ic-capsule.png" alt="" width="430" height="430" loading="lazy"></div><h3 class="nm">NAD原料成分</h3><p class="sub">ナイアシンアミド</p></div>
+      <div class="ing-item"><div class="ring"><img class="ic-img" src="images/ic-bilberry.png" alt="" width="430" height="430" loading="lazy"></div><h3 class="nm">アントシアニン</h3><p class="sub">ビルベリーエキス末</p></div>
+      <div class="ing-item"><div class="ring"><img class="ic-img" src="images/ic-grape.png" alt="" width="430" height="430" loading="lazy"></div><h3 class="nm">レスベラトロール</h3><p class="sub">赤ワインエキス</p></div>
+    </div>
+    <p class="ing-rest">ほか、全30種以上</p>
+    <div class="tc"><a class="link-more" href="#">全成分を見る<span class="arrow"></span></a></div>
+  </div>
+</section>
+
+<!-- 7. 開発元（要約） -->
+<section class="award">
+  <div class="wrap">
+    <p class="ghost" aria-hidden="true">Developer</p>
+    <div class="split dev-split">
+      <div class="dev-top reveal">
+        <div class="sec-head"><span class="label">DEVELOPER</span></div>
+        <h2 class="sec-title"><span class="gold-text">再生医療の研究所が<br>開発したサプリメント</span></h2>
+        <p class="award-lead">ニューヨークで Next Era Beauty部門を受賞</p>
+        <p class="award-body">クロノ・アール カプセルを開発したのは、リエール再生医療研究所です。再生医療の技術を美容と健康の分野に生かし、人生100年時代を健やかに過ごすための商品開発を続けています。2024年5月には、ウォール・ストリート・ジャーナル（WSJ）主催の式典「The Future of Everything」で開かれた、世界が選ぶ次世代のリーダーを表彰する Next Era Leaders Award のセレモニーで、Next Era Beauty部門を受賞しました。</p>
+        <p class="award-date">NEXT ERA LEADERS AWARD — 2024</p>
+      </div>
+      <div class="photo reveal d1">
+        <div class="pframe"></div>
+        <div class="pic"><img src="images/developer.jpg" alt="Next Era Leaders Award の授賞式で、Next Era Beauty Award の盾を手にした受賞時の様子" width="1566" height="1044" loading="lazy"></div>
+      </div>
+      <div class="dev-bottom">
+        <div><a class="link-more" href="#">開発元・販売店について詳しく<span class="arrow"></span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. 購入者の声（仮） -->
+<section class="sect-c head-c voice">
+  <div class="wrap">
+    <p class="ghost" aria-hidden="true">Voice</p>
+    <div class="hd reveal">
+      <div class="sec-head"><span class="label">VOICE</span></div>
+      <h2 class="sec-title"><span class="ph">クロノ・アール</span> <span class="ph">カプセルを</span><br><span class="ph">続けている方の声</span></h2>
+    </div>
+    <div class="quote-grid" style="margin-top:64px">
+      <div class="quote-card reveal">
+        <span class="q-mark gold-text" aria-hidden="true">“</span>
+        <p class="q-title">何種類もそろえなくていいのが、<span class="nw">助かっています。</span></p>
+        <p>成分ごとに別々のサプリメントを買っていたので、1包にまとまっているのが決め手でした。個包装なので、朝のスムージーと一緒に続けています。</p>
+        <p class="who"><span class="who-age"><span class="n">40</span>代</span>女性</p>
+      </div>
+      <div class="quote-card reveal d1">
+        <span class="q-mark gold-text" aria-hidden="true">“</span>
+        <p class="q-title">出張にも、1包ずつ持っていけて、<span class="nw">とても便利です。</span></p>
+        <p>成分表を見て選びました。1日分が1包に分かれているので、数える手間がありません。かばんに入れておけるので、助かっています。</p>
+        <p class="who"><span class="who-age"><span class="n">50</span>代</span>男性</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. 価格 -->
+<section class="sect-a head-c">
+  <div class="wrap">
+    <p class="ghost" aria-hidden="true">Price</p>
+    <div class="hd reveal">
+      <div class="sec-head"><span class="label">PRICE</span></div>
+      <h2 class="sec-title"><span class="ph">クロノ・アール</span> <span class="ph">カプセルの価格</span></h2>
+      <p class="sec-lead">話題の成分を一つずつそろえる手間を、1包に。30種以上の成分を配合した、約30日分のリバースエイジング サプリメントです。</p>
+    </div>
+    <div class="price-box reveal">
+      <div class="price-photo"><img src="images/supplement.jpg" alt="クロノ・アール カプセルのパッケージ" width="720" height="826" loading="lazy"></div>
+      <div class="price-info">
+        <p class="price-en">CHRONO-R CAPSULES</p>
+        <p class="price-name">クロノ・アール カプセル</p>
+        <p class="price-amount"><span class="gold-text"><span class="yen">¥</span>150,000</span><span class="tax">（税込）</span></p>
+        <dl class="price-spec">
+          <div><dt>内容量</dt><dd>0.4g × 4カプセル × <span class="n">30</span>包（約<span class="n">30</span>日分）</dd></div>
+          <div><dt>目安</dt><dd><span class="n">1</span>日<span class="n">1</span>包（<span class="n">4</span>カプセル）</dd></div>
+        </dl>
+        <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
+        <ul class="price-notes">
+          <li>【仮】送料：全国一律 無料</li>
+          <li>【仮】お支払い：クレジットカード・銀行振込</li>
+          <li>【仮】1回ごとのご購入です（定期購入ではありません）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. よくある質問（抜粋） -->
+<section class="sect-c">
+  <div class="wrap">
+    <p class="ghost" aria-hidden="true">FAQ</p>
+    <div class="hd reveal">
+      <div class="sec-head"><span class="label">FAQ</span></div>
+      <h2 class="sec-title">よくある質問</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <h3 class="q"><span class="mark">Q.</span>いつ飲むのがいいですか？</h3>
+        <p class="a"><span class="mark">A.</span>決まったタイミングはありません。毎日続けやすい時間にお召し上がりください。</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="q"><span class="mark">Q.</span>薬と一緒に飲んでも大丈夫ですか？</h3>
+        <p class="a"><span class="mark">A.</span>薬を服用中の方、通院中の方は、お召し上がりの前に医師にご相談ください。</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="q"><span class="mark">Q.</span>どのくらい続ければいいですか？</h3>
+        <p class="a"><span class="mark">A.</span>健康食品のため、感じ方には個人差があります。まずは毎日の習慣として、続けていただくことをおすすめしています。</p>
+      </div>
+    </div>
+    <a class="link-more" href="#">よくある質問をもっと見る<span class="arrow"></span></a>
+  </div>
+</section>
+
+<!-- 11. 新着コラム（仮） -->
+<section class="sect-a head-c">
+  <div class="wrap">
+    <p class="ghost" aria-hidden="true">Column</p>
+    <div class="hd reveal">
+      <div class="sec-head"><span class="label">COLUMN</span></div>
+      <h2 class="sec-title"><span class="ph">コラム｜</span><span class="ph">リバースエイジングと</span><br><span class="ph">エイジングケアの</span><span class="ph">基礎知識</span></h2>
+    </div>
+    <div class="news-grid">
+      <a class="news-card reveal" href="#">
+        <div class="thumb"><img src="images/column1.jpg" alt="半分に割ったザクロの実と、こぼれた粒" width="1100" height="733" loading="lazy"></div>
+        <div class="body">
+          <p class="meta"><time class="date" datetime="2026-10-04">2026.10.04</time><span class="cat">6 min read</span></p>
+          <h3>ウロリチンとは？ 含まれる食品と、注目される理由</h3>
+          <p class="ex">ウロリチンがどんな成分なのか、含まれる食品とあわせて紹介します。</p>
+          <span class="more">記事を読む<span class="arrow"></span></span>
+        </div>
+      </a>
+      <a class="news-card reveal d1" href="#">
+        <div class="thumb"><img src="images/column2.jpg" alt="小麦の穂と、木の器に入った小麦胚芽" width="1100" height="733" loading="lazy"></div>
+        <div class="body">
+          <p class="meta"><time class="date" datetime="2026-10-01">2026.10.01</time><span class="cat">5 min read</span></p>
+          <h3>スペルミジンとは？ ポリアミンの基礎知識</h3>
+          <p class="ex">スペルミジンとポリアミンの関係を、基本から整理します。</p>
+          <span class="more">記事を読む<span class="arrow"></span></span>
+        </div>
+      </a>
+      <a class="news-card reveal d2" href="#">
+        <div class="thumb"><img src="images/column3.jpg" alt="朝の光が入る部屋で、緑に囲まれて深呼吸をする女性" width="1100" height="733" loading="lazy"></div>
+        <div class="body">
+          <p class="meta"><time class="date" datetime="2026-09-28">2026.09.28</time><span class="cat">8 min read</span></p>
+          <h3>インナーケアとは？ 内側からのエイジングケアの考え方</h3>
+          <p class="ex">インナーケアという言葉の意味と、毎日の取り入れ方を紹介します。</p>
+          <span class="more">記事を読む<span class="arrow"></span></span>
+        </div>
+      </a>
+    </div>
+    <div class="tc"><a class="link-more" href="#">コラム一覧を見る<span class="arrow"></span></a></div>
+  </div>
+</section>
+
+<!-- 12. 最後のひと押し -->
+<section class="final head-c">
+  <div class="wrap">
+    <p class="ghost" aria-hidden="true">Chrono-R</p>
+    <div class="hd reveal">
+      <div class="sec-head"><span class="label">CHRONO-R</span></div>
+      <h2 class="final-catch"><span class="nw">アンチエイジングの、</span><span class="nw">その一歩先へ。</span></h2>
+      <p class="final-body">年齢を重ねることを、あきらめではなく、これからを楽しむきっかけに。<br>リエール再生医療研究所が開発したリバースエイジング サプリメント<span class="nw">「クロノ・アール</span> <span class="nw">カプセル」で、</span>内側からのインナーケアを始めませんか。</p>
+      <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-in">
+    <div class="f-left">
+      <p class="f-logo gold-text">CHRONO-R</p>
+      <p class="f-company">販売元：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）<br>開発元：リエール再生医療研究所</p>
+    </div>
+    <div class="f-links">
+      <a href="#">商品・成分</a>
+      <a href="#">開発元・販売店について</a>
+      <a href="#">よくある質問・お問い合わせ</a>
+      <a href="#">会社概要</a>
+      <a href="#">特定商取引法に基づく表記</a>
+      <a href="#">プライバシーポリシー</a>
+    </div>
+  </div>
+  <p class="f-copy">© 2026 株式会社ハタママ</p>
+</footer>
+
+<script>
+/* ---- キャッチコピー：1文字ずつ出現 ---- */
+(function(){
+  const el=document.getElementById('kicker');
+  const text=el.textContent;
+  el.textContent='';
+  const sr=document.createElement('span');
+  sr.className='sr-only';
+  sr.textContent=text;
+  el.appendChild(sr);
+  [...text].forEach((ch,i)=>{
+    const s=document.createElement('span');
+    s.className='char';
+    s.setAttribute('aria-hidden','true');
+    s.textContent=ch;
+    s.style.animationDelay=(0.2+i*0.06)+'s';
+    el.appendChild(s);
+  });
+})();
+
+/* ---- マーキー：中身を複製してループ ---- */
+(function(){
+  // ファーストビューの高さ合わせ：帯まで入りきらない画面では、帯を1画面目の下へ送る
+  const hero=document.querySelector('.hero'),heroMain=document.querySelector('.hero-main');
+  const heroCopy=document.querySelector('.hero-copy');
+  function fitFV(){
+    // 951〜1140px：説明文が4行以上になったら印をつける（上の間を詰めて、全体を上げる）
+    hero.classList.toggle('copy-long',Math.round(heroCopy.getBoundingClientRect().height/parseFloat(getComputedStyle(heroCopy).lineHeight))>=4);
+    hero.classList.remove('fv-short','fv-tight');heroMain.style.minHeight='';
+    // 841〜950px：画面の高さが足りないときは、まず上下の間を詰めて流れる帯を1画面目に収める
+    if(hero.getBoundingClientRect().height>window.innerHeight+.5&&window.matchMedia('(min-width:841px) and (max-width:950px)').matches){
+      hero.classList.add('fv-tight');
+      if(hero.getBoundingClientRect().height>window.innerHeight+.5)hero.classList.remove('fv-tight');
+    }
+    if(hero.getBoundingClientRect().height>window.innerHeight+.5){
+      const pt=parseFloat(getComputedStyle(hero).paddingTop);
+      hero.classList.add('fv-short');
+      heroMain.style.minHeight=Math.max(0,window.innerHeight-pt)+'px';
+    }
+  }
+  fitFV();
+  window.addEventListener('resize',fitFV);
+  window.addEventListener('load',fitFV);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitFV);
+
+  // コンセプト：縦書きの高さを、右の本文の文字の高さに合わせる（文字の大きさで調整）
+  function fitTate(){
+    const te=document.querySelector('.concept .tate'),ps=document.querySelectorAll('.concept .concept-body p');
+    if(!te||!ps.length)return;
+    te.style.fontSize='';te.style.paddingTop='';
+    if(getComputedStyle(te).writingMode.indexOf('vertical')<0)return;
+    const hl=e=>{const c=getComputedStyle(e);return (parseFloat(c.lineHeight)-parseFloat(c.fontSize))/2};
+    for(let i=0;i<2;i++){
+      const first=ps[0],last=ps[ps.length-1];
+      const top=first.getBoundingClientRect().top+hl(first),bot=last.getBoundingClientRect().bottom-hl(last);
+      te.style.paddingTop=hl(first)+'px';
+      te.style.fontSize=((bot-top)/15.46)+'px';
+    }
+  }
+  fitTate();
+  window.addEventListener('resize',fitTate);
+  window.addEventListener('load',fitTate);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitTate);
+
+  // スマホ・タブレットのメニュー：開く・閉じる
+  const header=document.querySelector('header'),menuBtn=document.querySelector('.menu-btn');
+  function setMenu(open){
+    header.classList.toggle('open',open);
+    menuBtn.setAttribute('aria-expanded',open?'true':'false');
+    menuBtn.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く');
+  }
+  menuBtn.addEventListener('click',()=>setMenu(!header.classList.contains('open')));
+  document.querySelectorAll('#gnav a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+  window.addEventListener('resize',()=>{if(window.innerWidth>840)setMenu(false)});
+
+  const m=document.getElementById('marquee');
+  m.innerHTML=m.innerHTML+m.innerHTML;
+})();
+
+/* ---- スクロール出現 ---- */
+(function(){
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+
+</script>
+<!-- ▼▼ 一時的：画面サイズの表示（確認用。公開前に、この目印の間をまるごと消す） ▼▼ -->
+<div id="vp-size" aria-hidden="true" style="position:fixed;left:10px;bottom:10px;z-index:9999;padding:6px 10px;background:rgba(48,44,35,.88);color:#f0e8d6;font:13px/1.2 ui-monospace,Menlo,monospace;letter-spacing:0;border-radius:5px;pointer-events:none"></div>
+<script>
+(function(){
+  const el=document.getElementById('vp-size');
+  function show(){
+    const w=window.innerWidth,h=window.innerHeight;
+    const bps=[359,393,402,440,540,840,950,1140,1280,1440];
+    const hit=bps.find(b=>w<=b);
+    const bp=hit?hit+'以下':'1440より上';
+    el.textContent=w+' × '+h+'　'+bp;
+  }
+  show();window.addEventListener('resize',show);
+})();
+</script>
+<!-- ▲▲ 一時的：画面サイズの表示 ここまで ▲▲ -->
+</body>
+</html>
