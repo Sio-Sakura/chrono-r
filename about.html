@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>開発元・販売店について - リエール再生医療研究所とHATSUGA | クロノ・アール カプセル</title>
+<meta name="description" content="クロノ・アール カプセルの開発元・リエール再生医療研究所と、販売店・幹細胞育毛ラボ HATSUGA（東京・銀座）を紹介します。研究所の考え方、ニューヨークでの Next Era Beauty部門の受賞、販売店の所在地やアクセスまで、購入の前に確かめられます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================
+   ホーム（index4.html）と共通の土台
+   ========================================================== */
+:root{
+  --bg:#f6f2e8;
+  --bg-deep:#efe9da;
+  --white:#fdfcf8;
+  --ink:#1f1b12;
+  --dim:#6a634e;
+  --text:#4d4634;
+  --head:#302c23;
+  --line:#ddd5c0;
+  --gold:#b5933b;
+  --gold-deep:#826a26;
+  --gold-bright:#e3c878;
+  --gold-pale:#f3ecdc;
+  --gold-ghost:rgba(181,147,59,.1);
+  --grad-gold:linear-gradient(105deg,#7a6120 0%,#9c7e2c 32%,#b8973c 44%,#cfae55 50%,#b8973c 56%,#9c7e2c 68%,#7a6120 100%);
+  --grad-gold-text:linear-gradient(125deg,#8a6d1e 0%,#c4a23f 9%,#d9bb5c 16%,#b8963a 24%,#8f7222 33%,#c9a844 42%,#d9bb5c 50%,#b8963a 58%,#8a6d1e 67%,#c4a23f 76%,#d9bb5c 84%,#b8963a 92%,#8a6d1e 100%);
+  --mincho:"Shippori Mincho","Hiragino Mincho ProN",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+  --serif-en:"Cormorant Garamond",serif;
+  --gutter:clamp(24px,6vw,110px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--head);
+  font-family:var(--sans);
+  font-size:15.5px;
+  line-height:2.15;
+  letter-spacing:.05em;
+  overflow-x:hidden;
+  font-feature-settings:"palt";
+}
+::selection{background:var(--gold);color:#fff}
+.gold-text{
+  background:var(--grad-gold-text);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+@keyframes sheen{
+  0%,100%{background-position:0% center}
+  50%{background-position:100% center}
+}
+.nw{white-space:nowrap}
+.n{font-size:calc(1em + 2px);line-height:1}
+
+/* ---------- ヘッダー ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--gutter);height:76px;
+  background:rgba(31,27,18,.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(181,147,59,.35);
+}
+.logo{
+  font-family:var(--serif-en);
+  font-size:23px;font-weight:600;letter-spacing:.16em;
+  text-decoration:none;
+}
+nav,.h-right{display:flex;align-items:center;gap:clamp(16px,3vw,44px)}
+.menu-btn{display:none}
+nav a.navlink{
+  color:#f0e8d6;text-decoration:none;
+  font-size:15px;font-weight:500;letter-spacing:.12em;
+  position:relative;padding:6px 0;
+  transition:color .4s;
+}
+nav a.navlink::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
+  background:var(--gold);transition:width .45s cubic-bezier(.22,1,.36,1);
+}
+nav a.navlink:hover{color:var(--gold-bright)}
+nav a.navlink:hover::after{width:100%}
+/* いま開いているページ */
+nav a.navlink[aria-current="page"]{color:var(--gold-bright)}
+nav a.navlink[aria-current="page"]::after{width:100%}
+.nav-cta{
+  font-size:16px;font-weight:400;letter-spacing:.16em;
+  color:#fff;text-decoration:none;
+  text-shadow:0 1px 3px rgba(143,116,42,.5);
+  background:var(--grad-gold);background-size:200% auto;
+  animation:sheen 6s ease-in-out infinite;
+  box-shadow:0 3px 14px rgba(181,147,59,.35);
+  padding:7px 28px;border-radius:5px;
+  transition:filter .35s,box-shadow .35s,transform .35s cubic-bezier(.22,1,.36,1);
+}
+.nav-cta:hover,.btn-gold:hover{
+  filter:brightness(1.1);
+  box-shadow:0 10px 28px rgba(143,116,42,.45);
+  transform:scale(1.06);
+}
+
+/* ---------- ボタン ---------- */
+.btn-gold{
+  position:relative;display:inline-block;
+  font-size:19px;font-weight:400;letter-spacing:.2em;text-indent:.1em;
+  color:#fff;text-decoration:none;text-align:center;
+  text-shadow:0 1px 3px rgba(143,116,42,.5);
+  background:var(--grad-gold);background-size:200% auto;
+  animation:sheen 6s ease-in-out infinite;
+  box-shadow:0 6px 26px rgba(181,147,59,.45),0 2px 8px rgba(181,147,59,.3);
+  padding:13px 45px;border-radius:5px;
+  overflow:hidden;
+  transition:filter .35s,box-shadow .35s,transform .35s cubic-bezier(.22,1,.36,1);
+}
+.btn-gold::after{
+  content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);
+  animation:btnSweep 3.6s ease-in-out infinite;
+}
+@keyframes btnSweep{
+  0%{left:-80%}
+  45%,100%{left:130%}
+}
+.btn-gold span{position:relative;z-index:1}
+
+/* 読み上げソフト専用（画面には出ない） */
+.sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.skip{position:fixed;left:16px;top:-80px;z-index:200;padding:12px 20px;background:#302c23;color:#f0e8d6;font-size:15px;letter-spacing:.08em;text-decoration:none;border:1px solid var(--gold);border-radius:5px}
+.skip:focus{top:14px}
+main:focus{outline:none}
+
+/* ---------- 共通セクション ---------- */
+section{position:relative;padding:120px var(--gutter);z-index:1;scroll-margin-top:76px}
+.wrap{max-width:1080px;margin:0 auto;position:relative}
+.ghost{
+  position:absolute;top:-24px;left:-8px;z-index:0;
+  font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:clamp(80px,13vw,170px);line-height:1;
+  color:rgba(181,147,59,.17);
+  pointer-events:none;user-select:none;white-space:nowrap;
+}
+.sec-head{
+  position:relative;z-index:1;
+  display:flex;align-items:baseline;gap:22px;
+  line-height:1;margin-bottom:50px;
+}
+.sec-head .label{
+  font-family:var(--serif-en);
+  font-size:20px;font-weight:600;letter-spacing:.44em;line-height:1;
+  color:#6f6853;
+}
+.sec-title{
+  position:relative;z-index:1;
+  font-family:var(--mincho);
+  font-size:clamp(24px,3.2vw,37px);
+  font-weight:600;letter-spacing:.12em;
+  line-height:1.9;
+  margin-bottom:44px;color:var(--head);
+}
+.sec-lead{
+  position:relative;z-index:1;
+  max-width:42em;
+  color:var(--text);font-size:16px;
+  margin-bottom:60px;line-height:2.25;letter-spacing:.06em;
+}
+.sec-lead strong{font-weight:500;color:var(--head)}
+.head-c .ghost{left:50%;transform:translateX(-50%)}
+.head-c .sec-head{justify-content:center}
+.head-c .sec-head .label{text-indent:.44em}
+.head-c .sec-title{text-align:center}
+.head-c .sec-lead{margin-left:auto;margin-right:auto;text-align:center}
+.head-r .ghost{left:auto;right:-8px}
+.head-r .sec-head{justify-content:flex-end}
+.head-r .sec-title{text-align:right}
+.tc{text-align:center}
+.link-more{
+  display:inline-block;position:relative;
+  margin-top:36px;padding:14px 26px 16px;text-indent:.18em;
+  color:var(--gold-deep);text-decoration:none;
+  font-family:var(--mincho);font-size:18px;font-weight:500;letter-spacing:.18em;line-height:1;
+}
+.link-more .arrow{
+  position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;
+  transition:right .35s;
+}
+.link-more .arrow::after{
+  content:"";position:absolute;right:0;top:0;
+  width:13px;height:1px;background:currentColor;
+  transform:rotate(36deg);transform-origin:right center;
+}
+.link-more:hover .arrow{right:-8px}
+
+.sect-a{background:var(--white)}
+.sect-b{background:var(--bg-deep)}
+.sect-c{background:var(--bg)}
+.sect-d{background:linear-gradient(180deg,#faf5e8 0%,#fbf8ef 45%,#fefdf9 100%)}
+/* ホームの「購入者の声」と同じ、淡い金の生成り（単色） */
+.sect-e{background:#faf5e8}
+
+/* 写真の金枠 */
+.pframe{
+  position:absolute;inset:0;
+  transform:translate(22px,22px);
+  border:1px solid var(--gold);
+  z-index:0;
+}
+.pframe::before{
+  content:"";position:absolute;top:-5px;left:-5px;
+  width:9px;height:9px;background:var(--gold);transform:rotate(45deg);
+}
+.pic{
+  position:relative;z-index:1;height:100%;overflow:hidden;
+  box-shadow:0 24px 70px rgba(31,27,18,.18);
+}
+.pic img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* スクロール出現 */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity 1.4s cubic-bezier(.3,.5,.3,1),transform 1.4s cubic-bezier(.3,.5,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.15s}
+.reveal.d2{transition-delay:.3s}
+.photo.reveal{transform:none;transition:opacity 1.8s cubic-bezier(.3,.5,.3,1)}
+@keyframes riseIn{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal,.ph-crumb,.ph-label,.ph-title,.ph-lead,.toc{opacity:1!important;transform:none!important}
+}
+
+/* ---------- フッター ---------- */
+footer{
+  border-top:1px solid rgba(181,147,59,.35);
+  padding:64px var(--gutter) 44px;
+  background:#302c23;color:#f0e8d6;
+}
+.f-in{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start}
+.f-logo{font-family:var(--serif-en);font-size:23px;font-weight:600;letter-spacing:.16em;margin-bottom:16px}
+.f-company{font-size:13px;letter-spacing:.12em;color:rgba(240,232,214,.75);line-height:2.3}
+.f-links{display:grid;grid-template-columns:repeat(2,auto);gap:10px 44px}
+.f-links a{font-size:13px;font-weight:500;letter-spacing:.1em;color:#f0e8d6;text-decoration:none;transition:color .4s}
+.f-links a:hover{color:var(--gold-bright)}
+.f-copy{
+  max-width:1080px;margin:46px auto 0;
+  font-family:var(--serif-en);font-size:13px;letter-spacing:.3em;color:rgba(240,232,214,.6);
+  border-top:1px solid rgba(181,147,59,.35);padding-top:22px;
+}
+
+/* ==========================================================
+   このページ専用
+   ========================================================== */
+
+/* ---------- ページの見出し（h1）＋目次 ---------- */
+.phero{
+  padding:calc(76px + clamp(48px,6vw,84px)) var(--gutter) clamp(72px,8vw,110px);
+  background:var(--bg);overflow:hidden;
+}
+.phero .ghost{top:auto;bottom:-.3em;left:auto;right:-8px;font-size:clamp(90px,17vw,230px);color:rgba(181,147,59,.11)}
+.ph-crumb{
+  position:relative;z-index:1;list-style:none;display:flex;flex-wrap:wrap;gap:0 14px;
+  font-size:13px;letter-spacing:.1em;line-height:1.6;color:var(--dim);
+  margin-bottom:clamp(36px,5vw,60px);
+  opacity:0;animation:riseIn 1.4s 0s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.ph-crumb li+li::before{content:"";display:inline-block;width:18px;height:1px;background:var(--gold);vertical-align:middle;margin-right:14px}
+.ph-crumb a{color:var(--dim);text-decoration:none;transition:color .4s}
+.ph-crumb a:hover{color:var(--gold-deep)}
+.ph-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);
+  gap:clamp(36px,5vw,72px);align-items:end;
+}
+.ph-label{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--serif-en);font-size:17px;font-weight:600;letter-spacing:.36em;line-height:1.2;
+  color:var(--gold-deep);margin-bottom:26px;
+  opacity:0;animation:riseIn 1.4s .15s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.ph-label::before{content:"";width:32px;height:1px;background:var(--gold);flex-shrink:0}
+.ph-title{
+  font-family:var(--mincho);
+  font-size:clamp(27px,3.1vw,38px);font-weight:600;letter-spacing:.08em;line-height:1.75;
+  color:var(--head);margin-bottom:30px;
+  opacity:0;animation:riseIn 1.4s .3s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.ph-lead{
+  max-width:35em;font-size:16px;line-height:2.2;letter-spacing:.06em;color:var(--text);
+  opacity:0;animation:riseIn 1.4s .45s cubic-bezier(.3,.5,.3,1) forwards;
+}
+/* 目次：金枠の箱 */
+.toc{
+  display:block;
+  background:linear-gradient(175deg,#fdfaf1,#f7f0dd);
+  border:1px solid rgba(181,147,59,.6);border-radius:5px;
+  box-shadow:0 8px 24px rgba(181,147,59,.22);
+  padding:clamp(22px,2.4vw,30px) clamp(22px,2.8vw,36px) clamp(14px,1.6vw,20px);
+  opacity:0;animation:riseIn 1.4s .6s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.toc-ttl{
+  font-family:var(--serif-en);font-size:15px;font-weight:600;letter-spacing:.34em;line-height:1;
+  color:var(--gold-deep);padding-bottom:16px;border-bottom:1px solid rgba(181,147,59,.4);
+}
+.toc ol{list-style:none}
+.toc li+li{border-top:1px solid rgba(181,147,59,.22)}
+.toc a{
+  display:flex;align-items:baseline;gap:18px;
+  padding:11px 2px;text-decoration:none;color:var(--head);
+  font-family:var(--mincho);font-size:16px;font-weight:600;letter-spacing:.1em;line-height:1.6;
+  transition:color .4s,padding-left .4s cubic-bezier(.22,1,.36,1);
+}
+.toc a .no{flex:none;width:1.6em;font-family:var(--serif-en);font-size:18px;font-weight:600;letter-spacing:.06em;color:var(--gold-deep)}
+.toc a:hover{color:var(--gold-deep);padding-left:8px}
+
+/* ---------- 01 商品概要 ---------- */
+.ov-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+  gap:clamp(40px,7vw,100px);align-items:center;
+}
+.ov-photo{position:relative;aspect-ratio:720/826}
+.ov-photo .pic{background:#0d0b07}
+.ov-body .sec-lead{margin-bottom:38px;max-width:none}
+/* 仕様の表 */
+.spec{border-top:1px solid rgba(181,147,59,.4)}
+.spec>div{display:flex;gap:24px;align-items:baseline;padding:13px 2px;border-bottom:1px solid rgba(181,147,59,.4)}
+.spec dt{flex:none;width:7.2em;font-family:var(--mincho);font-size:15px;font-weight:600;letter-spacing:.12em;line-height:1.7;color:var(--gold-deep)}
+.spec dd{font-size:15px;letter-spacing:.05em;line-height:1.7;color:var(--text)}
+
+/* ---------- 02 注目成分 ---------- */
+.key-banner{position:relative;z-index:1;aspect-ratio:1080/380;margin:0 0 clamp(56px,6vw,76px)}
+.key-banner .pic img{object-position:center 44%}
+.ki-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.2vw,26px)}
+.ki{
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,2.4vw,30px);align-items:start;
+  background:var(--white);border:1px solid var(--line);border-radius:5px;
+  padding:clamp(26px,2.8vw,36px) clamp(22px,2.8vw,36px) clamp(26px,2.8vw,34px);
+}
+.ki .ring{
+  width:clamp(72px,7.4vw,96px);height:clamp(72px,7.4vw,96px);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(175deg,#fdfaf1,#f7f0dd);
+  border:1px solid rgba(181,147,59,.6);
+}
+.ki .ring img{display:block;width:66%;height:66%;object-fit:contain}
+.ki .ki-en{font-family:var(--serif-en);font-size:15px;font-weight:600;letter-spacing:.24em;line-height:1;color:var(--gold-deep);margin:6px 0 10px}
+.ki h3{font-family:var(--mincho);font-size:clamp(19px,1.8vw,22px);font-weight:600;letter-spacing:.08em;line-height:1.6;color:var(--head);margin-bottom:12px}
+.ki .ki-src{
+  display:inline-block;font-size:13px;font-weight:500;letter-spacing:.06em;line-height:1.5;
+  padding:6px 14px;border-radius:999px;background:#ece6d6;color:var(--head);margin-bottom:14px;
+}
+.ki p{font-size:15px;line-height:2;letter-spacing:.05em;color:var(--text)}
+.note{position:relative;z-index:1;font-size:13px;letter-spacing:.06em;line-height:1.8;color:var(--dim);margin-top:26px}
+.note.c{text-align:center}
+
+/* ---------- 03 全成分（黒地） ---------- */
+.all{background:var(--ink);color:#f4f1ea;overflow:hidden}
+.all .ghost{color:rgba(227,200,120,.13)}
+.all .sec-head .label{color:rgba(244,241,234,.5)}
+.all .sec-lead{color:rgba(244,241,234,.72)}
+.all-tag{
+  position:relative;z-index:1;display:flex;align-items:center;gap:16px;
+  font-family:var(--mincho);font-size:18px;font-weight:500;letter-spacing:.1em;line-height:1.5;
+  color:var(--gold-bright);margin:-14px 0 24px;
+}
+.all-tag::before{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:translateY(1.5px) rotate(45deg);flex:none}
+.all-list{
+  position:relative;z-index:1;list-style:none;
+  columns:3;column-gap:clamp(28px,4vw,56px);
+  border-top:1px solid rgba(227,200,120,.4);
+}
+.all-list li{
+  break-inside:avoid;display:flex;gap:16px;align-items:baseline;
+  padding:13px 2px 12px;border-bottom:1px solid rgba(240,232,214,.14);
+}
+.all-list .no{flex:none;width:1.7em;font-family:var(--serif-en);font-size:16px;font-weight:600;letter-spacing:.06em;line-height:1.6;color:var(--gold-bright)}
+.all-list .nm{display:block;font-family:var(--mincho);font-size:16px;font-weight:600;letter-spacing:.06em;line-height:1.6;color:#f4f1ea}
+.all-list .sub{display:block;font-size:13px;letter-spacing:.06em;line-height:1.6;color:rgba(244,241,234,.6)}
+.all .note{color:rgba(244,241,234,.55)}
+
+/* ---------- 04 設計 ---------- */
+.dz{position:relative;z-index:1;max-width:940px;margin:0 auto;border-bottom:1px solid var(--line)}
+.dz-row{
+  display:grid;grid-template-columns:clamp(84px,11vw,150px) minmax(0,1fr);
+  gap:clamp(20px,4vw,56px);align-items:start;
+  padding:clamp(34px,3.6vw,46px) 4px;border-top:1px solid var(--line);
+}
+.dz-row .dz-no{max-width:none;font-family:"Pinyon Script",var(--serif-en);font-size:clamp(58px,7vw,88px);line-height:.9;text-align:center}
+.dz-no .gold-text{display:inline-block;padding:.12em .2em .1em}
+.dz-row h3{font-family:var(--mincho);font-size:clamp(19px,1.9vw,23px);font-weight:600;letter-spacing:.1em;line-height:1.7;color:var(--gold-deep);margin-bottom:12px}
+.dz-row p{font-size:16px;line-height:2.2;letter-spacing:.06em;color:var(--text);max-width:40em}
+
+/* ---------- 05 お召し上がり方 ---------- */
+.steps{position:relative;z-index:1;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(26px,3.4vw,44px)}
+.step{
+  position:relative;text-align:center;
+  background:linear-gradient(175deg,#fdfaf1,#f7f0dd);
+  border:1px solid rgba(181,147,59,.6);border-radius:5px;
+  box-shadow:0 8px 24px rgba(181,147,59,.22);
+  padding:34px clamp(18px,2.2vw,30px) 32px;
+}
+/* 箱と箱の間の矢印 */
+.step+.step::before{
+  content:"";position:absolute;top:50%;left:calc(clamp(26px,3.4vw,44px) / -2 - 5px);
+  width:9px;height:9px;border-top:1px solid var(--gold);border-right:1px solid var(--gold);
+  transform:translateY(-50%) rotate(45deg);
+}
+.step .step-no{text-align:center;font-family:var(--serif-en);font-size:15px;font-weight:600;letter-spacing:.3em;text-indent:.3em;line-height:1;color:var(--gold-deep);margin-bottom:18px}
+.step-no .n{font-size:26px;font-weight:500;letter-spacing:.04em;margin-left:4px;vertical-align:-2px}
+.step .ic{display:block;width:52px;height:52px;margin:0 auto 16px;color:var(--gold)}
+.step h3{font-family:var(--mincho);font-size:clamp(18px,1.7vw,20px);font-weight:600;letter-spacing:.08em;line-height:1.7;color:var(--head);margin-bottom:10px}
+.step p{font-size:15px;line-height:1.95;letter-spacing:.05em;color:var(--text);text-align:left}
+
+/* ---------- 06 品質・ご使用上の注意 ---------- */
+.safe-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  gap:clamp(36px,6vw,86px);align-items:start;
+}
+.safe-grid .sec-lead{margin-bottom:0}
+.caution{
+  background:var(--white);border:1px solid var(--gold);border-radius:5px;position:relative;
+  padding:clamp(30px,3.2vw,42px) clamp(24px,3.2vw,44px) clamp(28px,3vw,38px);
+}
+.caution::before{content:"";position:absolute;inset:6px;border:1px solid rgba(181,147,59,.35);border-radius:3px;pointer-events:none}
+.caution h3{font-family:var(--mincho);font-size:clamp(19px,1.8vw,21px);font-weight:600;letter-spacing:.12em;line-height:1.6;color:var(--gold-deep);padding-bottom:16px;margin-bottom:6px;border-bottom:1px solid rgba(181,147,59,.4)}
+.caution ul{list-style:none}
+.caution li{position:relative;padding:15px 0 15px 24px;font-size:15.5px;line-height:1.95;letter-spacing:.05em;color:var(--text);border-bottom:1px solid var(--line)}
+.caution li:last-child{border-bottom:none;padding-bottom:0}
+.caution li::before{content:"";position:absolute;left:4px;top:calc(15px + .975em - 3px);width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+
+/* ---------- 07 価格 ---------- */
+.buy{
+  position:relative;z-index:1;max-width:720px;margin:0 auto;text-align:center;
+  background:var(--white);border:2px solid var(--gold);border-radius:5px;
+  box-shadow:0 18px 50px rgba(181,147,59,.34),0 4px 14px rgba(181,147,59,.18);
+  padding:clamp(34px,4vw,50px) clamp(24px,5vw,64px) clamp(30px,3.6vw,44px);
+}
+.price-en{font-family:var(--serif-en);font-size:clamp(16px,1.6vw,20px);font-weight:600;letter-spacing:.3em;text-indent:.3em;color:var(--gold-deep);line-height:1;margin-bottom:12px}
+.price-name{font-family:var(--mincho);font-size:clamp(22px,2.3vw,28px);font-weight:600;letter-spacing:.12em;line-height:1.5;color:var(--head);margin-bottom:10px}
+.price-amount{
+  font-family:var(--serif-en);
+  font-size:clamp(52px,6.4vw,80px);font-weight:500;line-height:1;
+  margin-bottom:22px;font-variant-numeric:lining-nums;font-feature-settings:"lnum";
+}
+.price-amount .gold-text{display:inline-block;padding:.04em .06em .08em 0;background-image:linear-gradient(105deg,#8a6d1e 0%,#8f7222 26%,#b8963a 40%,#c9a844 46%,#d9bb5c 51%,#c4a23f 56%,#b8963a 62%,#8f7222 76%,#8a6d1e 100%);background-size:100% 100%;background-position:0 0}
+.price-amount .tax{font-family:var(--sans);font-size:15px;font-weight:400;letter-spacing:.06em;color:var(--text);margin-left:4px;white-space:nowrap}
+.price-amount .yen{font-size:.5em;vertical-align:.3em;margin-right:.12em}
+.buy .spec{text-align:left;margin-bottom:28px}
+.buy .spec dt{width:4.6em}
+.buy .btn-gold{display:block;width:max-content;max-width:100%;margin:0 auto}
+.price-notes{list-style:none;margin:20px auto 0;text-align:left;width:max-content;max-width:100%}
+.price-notes li{position:relative;padding-left:1.1em;font-size:13px;line-height:1.75;letter-spacing:.04em;color:var(--dim)}
+.price-notes li::before{content:"※";position:absolute;left:0}
+/* 関連ページへの案内 */
+.next{position:relative;z-index:1;max-width:720px;margin:clamp(44px,5vw,64px) auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.next a{
+  display:block;text-decoration:none;color:var(--head);
+  padding:22px 26px 24px;border-top:1px solid var(--gold);border-bottom:1px solid var(--line);
+  transition:background .5s;
+}
+.next a:hover{background:rgba(181,147,59,.08)}
+.next .en{display:block;font-family:var(--serif-en);font-size:14px;font-weight:600;letter-spacing:.3em;line-height:1;color:var(--gold-deep);margin-bottom:12px}
+.next .jp{display:block;font-family:var(--mincho);font-size:18px;font-weight:600;letter-spacing:.1em;line-height:1.6}
+
+/* ---------- 本文：両端揃え＋行頭禁則 ---------- */
+.ph-lead,.sec-lead,.ki p,.dz-row p,.step p,.caution li{line-break:strict;overflow-wrap:normal}
+.sec-lead,.ki p,.dz-row p,.caution li{text-align:justify;text-justify:inter-character}
+.head-c .sec-lead{text-align:center}
+
+/* ==========================================================
+   画面幅ごとの上書き
+   切り替え：1140 / 950 / 840 / 540 / 440 / 393 / 359（ホームと同じ区切り）
+   ========================================================== */
+@media (max-width:1140px){
+  .all-list{columns:2}
+  .step p{text-align:left}
+  .ph-title,.sec-title{word-break:auto-phrase}
+}
+@media (max-width:950px){
+  nav a.navlink{font-size:13px;letter-spacing:.08em}
+  nav,.h-right{gap:22px}
+  .ph-grid{gap:30px}
+  .ki-grid{grid-template-columns:1fr}
+}
+/* 840px以下：メニューは三本線のボタンで開く */
+@media (max-width:840px){
+  .h-right{gap:14px}
+  .menu-btn{
+    display:flex;flex-direction:column;justify-content:center;gap:6px;
+    width:44px;height:44px;padding:0 10px;margin-right:-10px;
+    background:none;border:0;cursor:pointer;
+  }
+  .menu-btn span{display:block;height:1px;background:#f0e8d6;transition:transform .3s,opacity .3s}
+  header.open .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  header.open .menu-btn span:nth-child(2){opacity:0}
+  header.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  #gnav{
+    display:none;position:fixed;left:0;right:0;top:76px;
+    flex-direction:column;align-items:stretch;gap:0;
+    padding:6px var(--gutter) 22px;
+    background:#302c23;border-bottom:1px solid rgba(181,147,59,.35);
+    box-shadow:0 18px 30px rgba(0,0,0,.25);
+  }
+  header.open #gnav{display:flex}
+  #gnav a.navlink{font-size:16px;letter-spacing:.12em;padding:18px 2px;border-bottom:1px solid rgba(240,232,214,.14)}
+  #gnav a.navlink::after{display:none}
+
+  section{padding-top:80px;padding-bottom:80px}
+  .phero{padding-top:calc(76px + 40px);padding-bottom:72px}
+  .ph-grid{grid-template-columns:1fr;gap:44px}
+  .ph-lead{max-width:44em}
+  .toc ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}
+  .toc li:nth-child(2){border-top:none}
+  .ov-grid{grid-template-columns:1fr;gap:56px}
+  .ov-photo{max-width:380px;width:100%;margin:0 auto}
+  .key-banner{aspect-ratio:16/9}
+  .safe-grid{grid-template-columns:1fr}
+  .sec-lead{max-width:44em}
+  .steps{grid-template-columns:1fr;max-width:460px;margin:0 auto;gap:40px}
+  .step+.step::before{top:-25px;left:50%;margin-left:-5px;transform:rotate(135deg)}
+  /* 商品概要：写真が先に来るので、後ろの大きい英字は出さない */
+  #overview .ghost{display:none}
+}
+@media (min-width:541px) and (max-width:840px){
+  .ghost{top:calc(24px - clamp(23.2px,3.77vw,32px))}
+  .sec-head{margin-bottom:calc(clamp(36.8px,5.98vw,50.1px) - 21px)}
+  .sec-title{font-size:clamp(24px,3.5vw,27px)}
+  .ph-title{font-size:clamp(27px,4.4vw,34px)}
+}
+@media (max-width:540px){
+  header{padding:0 20px}
+  .logo{font-size:19px;letter-spacing:.14em}
+  .h-right{gap:8px}
+  .nav-cta{font-size:14px;letter-spacing:.08em;padding:7px 14px}
+  .ghost{font-size:15vw;top:calc(24px - 4.35vw)}
+  .phero .ghost{font-size:24vw;top:auto}
+  .pframe{transform:translate(12px,12px)}
+  .sec-title{font-size:clamp(19px,5.35vw,24px);letter-spacing:.02em;line-height:1.75}
+  .ph-title{font-size:clamp(22px,6.2vw,27px);letter-spacing:.04em;line-height:1.65}
+  .ph-label{font-size:14px;letter-spacing:.24em}
+  .toc ol{grid-template-columns:1fr}
+  .toc li:nth-child(2){border-top:1px solid rgba(181,147,59,.22)}
+  .all-list{columns:1}
+  .ki{grid-template-columns:1fr;gap:14px}
+  .ki .ring{width:76px;height:76px}
+  .dz-row{grid-template-columns:1fr;gap:6px}
+  .dz-row .dz-no{text-align:left;font-size:60px}
+  .dz-no .gold-text{padding-left:0}
+  .spec>div{gap:16px}
+  .spec dt{width:5.4em;letter-spacing:.06em}
+  .next{grid-template-columns:1fr;gap:0}
+  .f-in{flex-direction:column}
+  .f-links{grid-template-columns:1fr}
+  .price-notes{width:auto}
+  .all-tag{font-size:16px;align-items:flex-start}
+  .all-tag::before{margin-top:.55em}
+}
+@media (max-width:440px){
+  .link-more{font-size:16px;letter-spacing:.08em}
+  .price-name{font-size:20px;letter-spacing:.06em}
+  .price-en{font-size:15px;letter-spacing:.22em}
+  .btn-gold{font-size:17px;padding:13px 30px}
+}
+@media (max-width:393px){
+  .ph-crumb{letter-spacing:.04em}
+  .price-amount{font-size:46px}
+}
+@media (max-width:359px){
+  .nav-cta{font-size:13px;padding:7px 10px}
+  .sec-title{font-size:19px;letter-spacing:.01em}
+  .ph-title{font-size:21px;letter-spacing:.02em}
+  .price-amount{font-size:42px}
+}
+
+/* ==========================================================
+   見出しの見せ方（このページ専用。ホームとは変える）
+   金の章番号 → 見出し → 下に小さい英字。後ろの大きい英字は使わない
+   ========================================================== */
+.chap{position:relative;z-index:1;display:flex;align-items:center;gap:20px;line-height:1;margin-bottom:26px}
+.chap-no{
+  font-family:var(--serif-en);font-size:clamp(46px,5.2vw,66px);font-weight:500;letter-spacing:.02em;line-height:1;
+  font-variant-numeric:lining-nums;font-feature-settings:"lnum";
+  background-image:linear-gradient(105deg,#8a6d1e 0%,#8f7222 26%,#b8963a 40%,#c9a844 46%,#d9bb5c 51%,#c4a23f 56%,#b8963a 62%,#8f7222 76%,#8a6d1e 100%);background-size:100% 100%;
+}
+.chap::after{content:"";width:clamp(56px,8vw,110px);height:1px;background:var(--gold)}
+.head-c .chap{flex-direction:column;gap:16px;margin-bottom:22px}
+.head-c .chap::after{width:1px;height:36px}
+.sec-title{margin-bottom:14px}
+.sec-en{
+  position:relative;z-index:1;display:flex;align-items:center;gap:14px;
+  font-family:var(--serif-en);font-size:16px;font-weight:600;letter-spacing:.34em;line-height:1.2;
+  color:var(--gold-deep);margin-bottom:44px;
+}
+.sec-en::before{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:rotate(45deg);flex:none}
+.head-c .sec-en{justify-content:center;text-indent:.34em}
+.head-c .sec-en::after{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:rotate(45deg);flex:none}
+.all .sec-en{color:var(--gold-bright)}
+.all-tag{margin:0 0 24px}
+/* 見出しの「｜」は、画面では改行に置きかえる（文字としては残る） */
+.sec-title .bar{display:block;height:0;overflow:hidden}
+/* ページの見出し（h1）：右の目次の枠の上端と同じ高さから始める */
+/* 最初の画面：1画面（100vh）にちょうど収める。画面が低いときは上下の余白と目次の行間を詰める（2列で並ぶ841px以上） */
+@media (min-width:841px){
+  .phero{
+    min-height:100vh;display:flex;flex-direction:column;
+    padding-top:calc(76px + clamp(22px,5vh,84px));padding-bottom:clamp(26px,6vh,110px);
+  }
+  .phero .wrap{flex:1;width:100%;display:flex;flex-direction:column}
+  .phero .ph-crumb{margin-bottom:clamp(18px,4vh,60px)}
+  .phero .ph-grid{margin-top:auto;margin-bottom:auto}
+  .toc a{padding-top:clamp(6px,1.35vh,11px);padding-bottom:clamp(6px,1.35vh,11px)}
+  .ph-grid{align-items:start}
+  /* h1の文字の上端を、右の目次の枠の上端にそろえる（行の上の空き分だけ持ち上げる） */
+  .ph-grid>div:first-child{margin-top:calc(-.53 * clamp(24px,3.2vw,37px))}
+}
+.ph-title{margin-bottom:18px}
+.ph-label{margin-bottom:34px}
+.ph-label::before{width:7.2px;height:7.2px;transform:rotate(45deg)}
+@media (max-width:540px){
+  .chap{margin-bottom:18px}
+  .sec-en{font-size:14px;letter-spacing:.26em;margin-bottom:36px}
+  .head-c .sec-en{text-indent:.26em}
+}
+
+/* 01 商品概要：写真は上から並べ、後ろの金の枠の上端を右の英字（OVERVIEW）の上端にそろえる（位置はJSで計算） */
+@media (min-width:841px){
+  .ov-grid{align-items:start}
+}
+/* 02 注目の6成分：説明文は文の切れ目で折って2行に収める（幅に余裕がある951px以上） */
+.br-pc{display:none}
+@media (min-width:951px){
+  .br-pc{display:inline}
+  #key .sec-lead{max-width:none}
+}
+/* 540px以下：中央寄せの説明文（02・04・05）は両端揃えにして、最後の行だけ中央に置く（行の端がガタガタにならないように。ホームの最後のセクションと同じ） */
+@media (max-width:540px){
+  .head-c .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:center}
+  /* 最後の行が1〜2文字だけにならないよう、字間を少し詰める */
+  .head-c .sec-lead{letter-spacing:.03em;text-wrap:pretty}
+}
+/* 02 成分カードの枠：ホームの「3つの理由」のカードと同じ作り（金の線＋6px内側に薄い金の線、角丸5px／内側3px） */
+.ki{
+  position:relative;background:var(--white);
+  border:1px solid var(--gold);border-radius:5px;
+  padding:clamp(32px,3.2vw,44px) clamp(26px,3vw,40px) clamp(30px,3vw,38px);
+}
+.ki::before{
+  content:"";position:absolute;inset:6px;
+  border:1px solid rgba(181,147,59,.35);border-radius:3px;
+  pointer-events:none;
+}
+/* 02 成分カードの並び：上の段＝丸いアイコン＋その右に英語名と成分名（アイコンの高さに合わせる）。下の段＝原材料名と説明文をカードの幅いっぱいに */
+.ki{display:block}
+.ki-head{display:flex;align-items:stretch;gap:clamp(18px,2vw,26px);margin-bottom:22px}
+.ki-head .ring{flex:none}
+.ki-name{display:flex;flex-direction:column;justify-content:space-between;padding:9px 0 7px;min-width:0}
+.ki .ki-en{margin:0}
+.ki .ki-name h3{margin:0;font-size:clamp(25px,calc(2.2vw + 3px),30px);line-height:1.3;letter-spacing:.1em;color:#302c23}
+.ki .ki-src{margin-bottom:14px}
+@media (max-width:540px){
+  .ki-head{gap:18px;margin-bottom:18px}
+  .ki-name{padding:6px 0 4px}
+  .ki .ki-name h3{font-size:22px;letter-spacing:.06em}
+}
+/* 02 成分カード：アイコンの右に、英語名・成分名・原材料名の3つを、アイコンの高さの中に収める。説明文はその下にカードの幅いっぱい。
+   列数は画面の幅で決める（1090px以上＝3列／761〜1089px＝2列／760px以下＝1列）。
+   カードの中の並びは「カード1枚の幅」で決める（@container）：
+   ・幅に余裕がある → 原材料名はアイコンの右（3つ並び）
+   ・少し足りない（3列のときなど） → 原材料名の文字を12pxにして余白を詰め、アイコンの右のまま（3つ並び）
+   ・入りきらない → 原材料名を、説明文の上（アイコンと名前の段の下）へ移す（13px）
+   成分名は、一番長い「レスベラトロール」が1行に収まる大きさに、カードの幅に合わせて自動で変わる（18〜27px） */
+.ki{container-type:inline-size}
+.ki-name{padding:1px 0 0}
+/* 原材料名のラベルは、中の余白の分だけ左へ出して、「原」の字の左端を英語名・成分名の左端にそろえる */
+.ki .ki-name .ki-src{margin:0 0 0 -14px;align-self:flex-start;white-space:nowrap;font-size:12px}
+.ki .ki-name h3{font-size:clamp(18px,calc((100cqw - 122px) / 8.4),27px);letter-spacing:.04em;white-space:nowrap}
+@media (min-width:541px){
+  .ki .ring{width:96px;height:96px}
+  .ki-head{gap:24px}
+}
+@media (min-width:761px){
+  .ki-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:1090px){
+  .ki-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+  .ki{padding:36px 20px 32px}
+  .ki .ki-en{letter-spacing:.18em}
+}
+@container (max-width:332px){
+  .ki-head{gap:18px}
+  .ki .ki-name h3{font-size:clamp(18px,calc((100cqw - 116px) / 8.4),27px)}
+  .ki .ki-name .ki-src{font-size:11px;letter-spacing:.02em;line-height:1.5;padding:4px 10px;margin-left:-10px}
+}
+@container (max-width:301px){
+  .ki-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;row-gap:0;align-items:center}
+  .ki-head .ring{grid-column:1;grid-row:1 / span 2}
+  .ki-name{display:contents}
+  .ki .ki-en{grid-column:2;grid-row:1;align-self:end;margin-bottom:10px}
+  .ki .ki-name h3{grid-column:2;grid-row:2;align-self:start;font-size:clamp(18px,calc((100cqw - 112px) / 8.4),27px)}
+  .ki .ki-name .ki-src{grid-column:1 / -1;grid-row:3;justify-self:start;margin:16px 0 0;white-space:normal;font-size:12px;letter-spacing:.06em;line-height:1.5;padding:6px 14px}
+}
+/* スマホ（540px以下）は、いつも原材料名を下の段に置く。成分名は22pxまで */
+@media (max-width:540px){
+  .ki-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;row-gap:0;align-items:center}
+  .ki-head .ring{grid-column:1;grid-row:1 / span 2}
+  .ki-name{display:contents}
+  .ki .ki-en{grid-column:2;grid-row:1;align-self:end;margin-bottom:10px}
+  .ki .ki-name h3{grid-column:2;grid-row:2;align-self:start;font-size:clamp(18px,calc((100cqw - 112px) / 8.4),22px)}
+  .ki .ki-name .ki-src{grid-column:1 / -1;grid-row:3;justify-self:start;margin:16px 0 0;white-space:normal;font-size:12px;letter-spacing:.06em;line-height:1.5;padding:6px 14px}
+}
+/* 359px以下：一番長い成分名（レスベラトロール）がカードの内側の線にかからないよう、成分名の下限を18px→15.5pxに下げる */
+@media (max-width:359px){
+  .ki .ki-name h3{font-size:clamp(15.5px,calc((100cqw - 112px) / 8.4),22px)}
+}
+/* 02 成分カードの説明文だけ、左右の端をホームの「3つの理由」のカードの本文と同じ位置にする。
+   上の段（アイコン・英語名・成分名・原材料名）はカードの余白のまま動かさない。
+   カードの余白よりホームの余白のほうが広い幅でだけ、その差の分を説明文の左右に足す
+   （1141px以上：ホーム＝画面幅の2.4%で最大34px、カード＝20px／541〜760px：ホーム＝44px、カード＝26px） */
+@media (min-width:1141px){.ki>p{padding-left:clamp(0px,calc(2.4vw - 20px),14px);padding-right:clamp(0px,calc(2.4vw - 20px),14px)}}
+@media (min-width:541px) and (max-width:760px){.ki>p{padding-left:18px;padding-right:18px}}
+/* 02 成分カードの説明文：ホームの「3つの理由」のカードの本文と同じ（15px・行間1.8・字間.04em） */
+.ki>p{font-size:15px;line-height:1.8;letter-spacing:.04em;color:var(--text)}
+/* 03 全成分：見出しと説明文の右に写真（正方形・金の枠）。左右の割合と間の空きはホームの「文章＋写真」と同じ（52：48）。840px以下は説明文の下に置く */
+.all-top{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(32px,6vw,86px);align-items:center;margin-bottom:60px}
+.all-top .sec-lead{margin-bottom:0}
+.all-photo{position:relative;aspect-ratio:1/1;margin-right:22px}
+.all .pframe{border-color:rgba(227,200,120,.5)}
+.all .pframe::before{background:var(--gold-bright)}
+@media (max-width:840px){
+  .all-top{grid-template-columns:1fr;gap:48px;margin-bottom:56px}
+  .all-photo{width:100%;max-width:420px;margin:0 auto}
+}
+@media (max-width:540px){
+  .all-photo{max-width:none;width:calc(100% - 12px);margin:0 12px 0 0}
+}
+/* 03 全成分リスト：どの行も同じ高さにして、列どうしの横の線をそろえる（成分名が2段の行に合わせる）。
+   上から下へ番号順に、10行×3列（701〜1140pxは15行×2列）。700px以下は1列なので、行ごとの自然な高さのまま */
+@media (min-width:701px){
+  .all-list{
+    columns:auto;display:grid;grid-auto-flow:column;
+    grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(10,1fr);
+    column-gap:clamp(28px,4vw,56px);
+  }
+  .all-list li{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:baseline;align-content:center}
+}
+@media (min-width:701px) and (max-width:1140px){
+  .all-list{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(15,1fr)}
+}
+@media (max-width:700px){
+  .all-list{columns:1}
+}
+/* 04 設計：数字の前の「Point」。数字と同じ書体で、大きさは数字の3分の1の1.1倍 */
+/* 数字と「Point」の大きさ・比率は、ホームの「No.1」と同じ（数字58px：小さい字38px。スマホは61px：41px）。間の空きも同じ6px */
+.dz-row .dz-no{white-space:nowrap;font-size:58px}
+/* 「Point 1〜3」が収まる幅で左の列を固定する（3行とも右の見出しの左端をそろえるため） */
+@media (min-width:541px){
+  .dz-row{grid-template-columns:160px minmax(0,1fr);align-items:center}
+  /* 上下の真ん中：右の見出し＋文章の、文字の上端〜下端の中心に合わせる（書体の上下の空きの差を4px分補正） */
+  .dz-row .dz-no{position:relative;top:4px}
+}
+.dz-no .pt{font-size:38px;margin-right:6px;letter-spacing:0}
+@media (max-width:540px){
+  .dz-row .dz-no{font-size:61px}
+  .dz-no .pt{font-size:41px}
+}
+/* 06 品質・ご注意：見出しと右の枠の関係を、01（見出しと写真）と同じにする。
+   枠の上端＝英字（SAFETY）の文字の上端より22px上（01の写真の上端と同じ関係。位置はJSで計算）。
+   枠の下端＝左の文章の最後の行の文字の下端。この高さに収まるよう、枠の中の上下の余白を少し詰める */
+@media (min-width:841px){
+  .safe-grid{align-items:stretch}
+  .caution{
+    margin-bottom:10px;padding-top:22px;padding-bottom:21px;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .caution h3{padding-bottom:12px;margin-bottom:4px}
+  .caution li{padding-top:8px;padding-bottom:8px}
+  .caution li:last-child{padding-bottom:0}
+  .caution ul li::before{top:calc(8px + 1em - 3px)}
+}
+/* ==========================================================
+   色と文字の大きさをホーム（Home/index4.html）にそろえる
+   ========================================================== */
+/* h1：ホームの大見出し（h2）と同じ大きさ・字間・行間 */
+.ph-title{font-size:clamp(24px,3.2vw,37px);letter-spacing:.12em;line-height:1.9;color:var(--head)}
+/* 説明文：ホームの本文（16px・行間2.25・字間.06em） */
+.ph-lead{font-size:16px;line-height:2.25;letter-spacing:.06em;color:var(--text)}
+.dz-row p{font-size:16px;line-height:2.25;letter-spacing:.06em;color:var(--text)}
+/* カードの見出し：ホームの比較カードの見出し（18〜21px・字間.1em） */
+.dz-row h3,.caution h3{font-size:clamp(18px,1.7vw,21px);letter-spacing:.1em}
+/* 3つ並びのカード：ホームの「3つの理由」の見出し・本文と同じ */
+.step h3{font-size:max(16px,min(1.42vw,18.5px));letter-spacing:.05em;line-height:1.9;color:var(--gold-deep)}
+.step p{font-size:15px;line-height:1.8;letter-spacing:.04em;color:var(--text)}
+/* カードの本文：ホームのカード本文（15px・行間2） */
+.caution li{font-size:15px;line-height:2;letter-spacing:.05em;color:var(--text)}
+.caution li::before{top:calc(15px + 1em - 3px)}
+/* 成分名：ホームの成分名（15px） */
+.all-list .nm{font-size:15px;line-height:1.8}
+.next .en{font-size:15px}
+@media (max-width:840px){
+  .step h3{font-size:18px}
+}
+@media (min-width:541px) and (max-width:840px){
+  .ph-title{font-size:clamp(24px,3.5vw,27px)}
+}
+@media (max-width:540px){
+  .sec-title,.ph-title{font-size:clamp(22px,5.35vw,24px);letter-spacing:.02em;line-height:1.65}
+}
+@media (max-width:393px){
+  .step h3{font-size:17px}
+}
+@media (max-width:375px){
+  .sec-title,.ph-title{font-size:20.5px}
+}
+
+/* ==========================================================
+   「開発元・販売店について」のページ専用
+   色・書体・文字の大きさは、ホームと商品・成分ページのものだけを使う
+   ========================================================== */
+.txt-link{color:var(--gold-deep);text-underline-offset:.25em}
+.txt-link:hover{color:var(--gold)}
+.sec-lead+.sec-lead{margin-top:-28px}
+
+/* ---------- 01 開発元と販売店の役割 ---------- */
+.roles{position:relative;z-index:1;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(34px,5vw,64px);max-width:940px;margin:calc(var(--rs) / 2 + 20px) auto 0}
+.role{
+  position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;
+  background:var(--white);
+  border:1px solid var(--gold);border-radius:5px;
+  /* 影：商品・成分ページの CONTENTS の箱と同じ量 */
+  box-shadow:0 8px 24px rgba(181,147,59,.22);
+  padding:calc(var(--rs) / 2 + 28px) clamp(26px,3vw,40px) clamp(30px,3vw,38px);
+}
+/* 枠：商品・成分ページの02の成分カードと同じ作り（金の線＋6px内側に薄い金の線、角丸5px／内側3px） */
+.role::after{
+  content:"";position:absolute;inset:6px;
+  border:1px solid rgba(181,147,59,.35);border-radius:3px;
+  pointer-events:none;
+}
+/* 箱と箱の間の矢印 */
+.role+.role::before{
+  content:"";position:absolute;top:50%;left:calc(clamp(34px,5vw,64px) / -2 - 5px);
+  width:9px;height:9px;border-top:1px solid var(--gold);border-right:1px solid var(--gold);
+  transform:translateY(-50%) rotate(45deg);
+}
+.role-tag{font-family:var(--mincho);font-size:16px;font-weight:600;letter-spacing:.3em;text-indent:.3em;line-height:1;color:var(--gold-deep);margin-bottom:16px}
+/* アイコン：カードの上の線にまたがる丸。丸の大きさ・色・線、中のアイコンの大きさと色は、ホームの成分（ウロリチンなど）と同じ */
+.roles{--rs:clamp(84px,8.6vw,112px)}
+.role .hex{
+  position:absolute;top:calc(var(--rs) / -2);left:50%;width:var(--rs);height:var(--rs);margin-left:calc(var(--rs) / -2);z-index:2;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(175deg,#fdfaf1,#f7f0dd);
+  border:1px solid rgba(181,147,59,.6);
+}
+/* ホームのアイコン画像は、絵のまわりに余白がある（絵は画像の81%）。こちらの画像は余白がないので、その分だけ小さく置いて、絵の大きさをそろえる */
+.role .hex .ic{display:block;width:55%;height:55%;object-fit:contain}
+.role h3{font-family:var(--mincho);font-size:clamp(20px,2.1vw,25px);font-weight:600;letter-spacing:.08em;line-height:1.6;color:var(--head);margin-bottom:14px}
+.role-do{display:inline-block;font-size:13px;font-weight:500;letter-spacing:.06em;line-height:1.5;padding:6px 16px;border-radius:999px;background:#ece6d6;color:var(--head);margin-bottom:16px}
+.role p.role-txt{font-size:15px;line-height:1.8;letter-spacing:.04em;color:var(--text);text-align:left;line-break:strict}
+.role .link-more{margin-top:auto;font-size:16px;padding:14px 20px 14px}
+.role .role-txt{margin-bottom:10px}
+
+/* ---------- 02 開発元 ---------- */
+.dv-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);
+  gap:clamp(36px,6vw,86px);align-items:center;
+}
+.dv-grid .sec-lead{max-width:none}
+.dv-grid .sec-lead:last-child{margin-bottom:0}
+/* 概要の枠：ホームのカードと同じ作り（金の線＋6px内側に薄い金の線） */
+.info{
+  position:relative;z-index:1;
+  background:var(--white);border:1px solid var(--gold);border-radius:5px;
+  /* 影：CONTENTS の箱と同じ量 */
+  box-shadow:0 8px 24px rgba(181,147,59,.22);
+  padding:clamp(28px,3vw,38px) clamp(24px,3.2vw,44px) clamp(18px,2vw,24px);
+}
+.info::before{content:"";position:absolute;inset:6px;border:1px solid rgba(181,147,59,.35);border-radius:3px;pointer-events:none}
+.info h3{font-family:var(--mincho);font-size:clamp(18px,1.7vw,21px);font-weight:600;letter-spacing:.1em;line-height:1.6;color:var(--gold-deep);padding-bottom:14px}
+.info .spec>div:last-child{border-bottom:none}
+.info .spec dd{min-width:0;overflow-wrap:anywhere}
+.info .spec ul{list-style:none}
+.info .spec li+li{margin-top:4px}
+.info .spec small{display:block;font-size:13px;color:var(--dim);letter-spacing:.04em}
+
+/* ---------- 04 受賞（黒地） ---------- */
+/* 受賞の写真：4枚を1枚にまとめた画像。金の枠は、ほかの写真と同じ（写真と同じ大きさで、右と下へ22pxずらす。540px以下は12px） */
+.aw-photo{aspect-ratio:1400/1202}
+.aw-facts{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 clamp(20px,3vw,40px);
+}
+.aw-facts>div{border-top:1px solid rgba(227,200,120,.4);padding:18px 2px 0}
+.aw-facts dt{font-family:var(--mincho);font-size:14px;font-weight:500;letter-spacing:.2em;line-height:1.5;color:var(--gold-bright);margin-bottom:8px}
+.aw-facts dd{font-family:var(--mincho);font-size:16px;font-weight:600;letter-spacing:.06em;line-height:1.8;color:#f4f1ea}
+.aw-facts dd small{display:block;font-family:var(--sans);font-size:13px;font-weight:400;letter-spacing:.04em;line-height:1.7;color:rgba(244,241,234,.6)}
+
+/* ---------- 05 販売店 ---------- */
+.vals{margin-bottom:clamp(48px,5vw,64px)}
+.vals .step+.step::before{display:none}
+.st-info{max-width:860px;margin:0 auto}
+.st-info .spec dt{width:6.4em}
+
+/* ---------- 06 ご購入・お問い合わせ ---------- */
+.cta-btn{position:relative;z-index:1;text-align:center}
+#contact .sec-lead{margin-bottom:44px}
+
+@media (min-width:951px){
+  #roles .sec-lead,#philosophy .sec-lead,#store .sec-lead,#contact .sec-lead{max-width:none}
+}
+@media (max-width:1140px){
+  .aw-facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}
+}
+@media (max-width:840px){
+  .roles{grid-template-columns:1fr;max-width:460px;gap:100px}
+  .role+.role::before{top:-77px;left:50%;margin-left:-5px;transform:rotate(135deg)}
+  .dv-grid{grid-template-columns:1fr;gap:48px}
+  .sec-lead+.sec-lead{margin-top:-32px}
+}
+@media (max-width:540px){
+  .aw-facts{grid-template-columns:1fr;row-gap:22px}
+  .role h3{font-size:20px;letter-spacing:.04em}
+  .info .spec>div{flex-direction:column;gap:2px}
+  .info .spec dt,.st-info .spec dt{width:auto}
+}
+
+/* ---------- 最初の画面：商品・成分ページとは変える。中央寄せ＋目次は下に3列×2段 ---------- */
+.phero.phero-c{display:block;min-height:0;padding-top:calc(76px + clamp(40px,5vw,64px));padding-bottom:clamp(64px,7vw,96px)}
+.phero.phero-c .wrap{display:block}
+.phero.phero-c .ph-crumb{margin-bottom:clamp(44px,6vw,76px)}
+.phc{position:relative;z-index:1;text-align:center}
+.phc .ph-label{justify-content:center;text-indent:.36em;margin-bottom:34px}
+.phc .ph-label::after{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:rotate(45deg);flex:none}
+.phc .ph-title{margin-bottom:18px}
+/* 説明文：両端揃え。最後の行だけ中央に置く */
+.phc .ph-lead{max-width:41em;margin:0 auto;text-align:justify;text-justify:inter-character;text-align-last:center}
+/* 目次：商品・成分ページの CONTENTS の箱と同じ作り（淡い金の地・金の線・影・英字の見出し・数字は欧文書体）。並びだけ3列×2段 */
+.toc-row{
+  display:block;position:relative;z-index:1;margin-top:clamp(48px,6vw,72px);
+  background:linear-gradient(175deg,#fdfaf1,#f7f0dd);
+  border:1px solid rgba(181,147,59,.6);border-radius:5px;
+  box-shadow:0 8px 24px rgba(181,147,59,.22);
+  padding:clamp(22px,2.4vw,30px) clamp(22px,2.8vw,36px) clamp(14px,1.6vw,20px);
+  opacity:0;animation:riseIn 1.4s .6s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.toc-row ol{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(20px,3vw,40px)}
+.toc-row li:nth-child(n+4){border-top:1px solid rgba(181,147,59,.22)}
+.toc-row a{
+  display:flex;align-items:baseline;gap:18px;height:100%;
+  padding:11px 2px;text-decoration:none;color:var(--head);
+  font-family:var(--mincho);font-size:16px;font-weight:600;letter-spacing:.1em;line-height:1.6;
+  transition:color .4s,padding-left .4s cubic-bezier(.22,1,.36,1);
+}
+.toc-row a .no{flex:none;width:1.6em;font-family:var(--serif-en);font-size:18px;font-weight:600;letter-spacing:.06em;color:var(--gold-deep)}
+.toc-row a:hover{color:var(--gold-deep);padding-left:8px}
+@media (prefers-reduced-motion:reduce){.toc-row{opacity:1!important}}
+@media (max-width:840px){
+  .toc-row ol{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .toc-row li:nth-child(n+3){border-top:1px solid rgba(181,147,59,.22)}
+}
+@media (max-width:540px){
+  .toc-row ol{grid-template-columns:1fr}
+  .toc-row li+li{border-top:1px solid rgba(181,147,59,.22)}
+}
+
+
+/* ---------- 05 クロノ・アール カプセルに込めた想い ---------- */
+.cn-grid{align-items:center}
+.cn{position:relative;z-index:1;border-bottom:1px solid var(--line)}
+.cn-item{padding:clamp(22px,2.4vw,28px) 2px;border-top:1px solid var(--line)}
+.cn-item h3{font-family:var(--mincho);font-size:clamp(18px,1.7vw,21px);font-weight:600;letter-spacing:.1em;line-height:1.7;color:var(--gold-deep);margin-bottom:8px}
+.cn-item p{font-size:16px;line-height:2.25;letter-spacing:.06em;color:var(--text);text-align:justify;text-justify:inter-character;line-break:strict}
+.cn-item strong{font-weight:500;color:var(--head)}
+#product .link-more{margin-top:30px}
+
+/* 02 開発元：見出しと右の枠の関係を、商品・成分ページの06（見出しと「ご使用上の注意」の枠）と同じにする。
+   枠の上端＝英字（DEVELOPER）の文字の上端（位置はJSで計算）。枠の下端＝左の文章の最後の行の文字の下端。
+   枠の中の行は、この高さに合わせて均等に広げる */
+@media (min-width:841px){
+  .dv-grid{align-items:stretch}
+  .dv-grid .info{margin-bottom:10px;display:flex;flex-direction:column}
+  .dv-grid .info .spec{flex:1;display:flex;flex-direction:column}
+  /* 行の上下の余白は少し詰めておく（左の文章が短い幅でも、枠が文章より下に出ないように。余った分は行が均等に広がる） */
+  .dv-grid .info .spec>div{flex:1 1 auto;flex-wrap:wrap;align-content:center;padding-top:9px;padding-bottom:9px}
+  .dv-grid .info .spec dd{flex:1 1 0}
+}
+/* 02 見出し：841〜1240pxでは、1行の見出しの右端が右の枠にかからないよう、字間だけ詰める */
+@media (min-width:841px) and (max-width:1240px){
+  #developer .sec-title{letter-spacing:.04em}
+}
+/* 02 の背景：ホームの REVERSE AGING と同じグラデーション */
+#developer{background:linear-gradient(180deg,#faf5e8 0%,#fbf8ef 45%,#fefdf9 100%)}
+/* 03 の背景：最初の画面と同じ生成り */
+#philosophy{background:var(--bg)}
+
+/* ---------- 03 研究所の3つの考え方：ホームの「3つの選ばれる理由」のカードと同じ作り（ホームのスタイルをそのまま持ってきたもの。上の六角形のアイコンはなし） ---------- */
+.line-grid{position:relative;z-index:1;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:20px;}
+.line-grid.cols3{grid-template-columns:repeat(3,1fr)}
+.cell{position:relative;
+  background:var(--white);
+  border:1px solid var(--gold);
+  padding:44px clamp(20px,2.4vw,34px) 38px;
+  text-align:center;}
+.cell::before{content:"";position:absolute;inset:6px;
+  border:1px solid rgba(181,147,59,.35);
+  pointer-events:none;
+  transition:border-color .5s;}
+.cell .big{display:block;
+  font-family:var(--serif-en);font-style:italic;font-weight:500;
+  font-size:52px;line-height:1;letter-spacing:.02em;
+  margin-bottom:14px;
+  color:var(--gold);}
+.cell .big .gold-text{display:inline-block;padding:.1em .22em .12em;font-family:"Pinyon Script",var(--serif-en);font-style:normal;font-weight:400}
+.cell .big .no{font-size:38px;letter-spacing:0;margin-right:6px}
+.cell .big .n{font-size:58px}
+.cell .big::after{content:"";display:block;width:64px;height:1px;
+  background:var(--gold);margin:-2.5px auto 0;}
+.cell h3{font-family:var(--mincho);
+  font-size:clamp(14px,1.42vw,18.5px);font-weight:600;letter-spacing:.05em;line-height:1.9;white-space:nowrap;
+  margin-bottom:12px;
+  color:var(--gold-deep);}
+.cell p{font-size:15px;color:var(--text);line-height:1.8;letter-spacing:.04em;text-align:justify;text-justify:inter-character;line-break:strict;overflow-wrap:normal;text-wrap:pretty}
+.cell p.c{text-align:center}
+@media (max-width:840px){
+  .line-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:840px){
+  .line-grid.cols3{grid-template-columns:1fr}
+}
+@media (max-width:540px){
+  .line-grid{grid-template-columns:1fr}
+}
+@media (max-width:1140px){
+  .cell p{text-align:left}
+}
+@media (max-width:840px){
+  .line-grid.cols3{row-gap:24px;max-width:460px;margin-left:auto;margin-right:auto}
+}
+@media (max-width:540px){
+  .cell h3{word-break:auto-phrase}
+}
+@media (max-width:1140px){
+  .cell h3{font-size:max(16px,1.42vw)}
+}
+@media (min-width:951px) and (max-width:1056px){
+  .cell h3{letter-spacing:.01em}
+}
+@media (min-width:841px) and (max-width:950px){
+  .cell h3{font-size:16px;letter-spacing:.02em;white-space:normal;text-wrap:balance;word-break:auto-phrase;line-height:1.5;min-height:3em;display:flex;align-items:center;justify-content:center;text-align:center}
+}
+@media (max-width:840px){
+  .cell h3{font-size:18px}
+}
+@media (max-width:393px){
+  .cell h3{font-size:17px}
+}
+.cell p{line-break:strict;overflow-wrap:normal;}
+.cell p{text-align:justify;text-justify:inter-character;}
+.cell p.c{text-align:center}
+@media (min-width:841px) and (max-width:1140px){
+  .cell p{text-align:left}
+}
+@media (max-width:540px){
+  .cell .big .no{font-size:41px}
+  .cell .big .n{font-size:61px}
+}
+
+.cell{border-radius:5px;box-shadow:0 8px 24px rgba(181,147,59,.22)}
+.cell::before{border-radius:3px}
+/* 04＝写真が左・文章が右／05＝文章が左・写真が右（05の箱は左を向いているので、文章のほうを向くように右に置く）。
+   05はHTMLの順番もこの並び。04だけは、読み上げで見出しが写真より先に読まれるよう、HTMLは「文章→写真」のまま、見た目だけ左右を入れ替える。
+   840px以下は、HTMLの順のまま縦に並ぶ */
+@media (min-width:841px){
+  #award .all-top{grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr)}
+  #award .all-top .hd{order:2}
+  #product .ov-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+  #product .ov-photo{margin-right:22px}
+  /* 04・05 の写真の始まり（上端）を、章番号の横の線と同じ高さにする（位置はJSで計算） */
+  #award .all-top,#product .ov-grid{align-items:start}
+}
+/* 05：上の段＝見出しと説明文（左）＋写真（右）。写真の下端は、説明文の最後の行にそろえる（JSで計算）。
+   下の段＝「名前の由来」と「開発の考え方」を、端から端までの幅で横に並べる（540px以下は縦に並べる） */
+#product .ov-body .sec-lead{margin-bottom:0}
+#product .cn{margin-top:clamp(48px,5vw,64px)}
+@media (min-width:541px){
+  #product .cn{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(32px,5vw,64px);border-bottom:none}
+  /* 下の線も、上の線と同じように2つに分けて、間をあける */
+  #product .cn-item{border-bottom:1px solid var(--line)}
+}
+#product .tc .link-more{margin-top:36px}
+/* 06 のカードのアイコン：商品・成分ページの05（お召し上がり方）のアイコンと同じ大きさ・同じ色 */
+.step img.ic{width:100px;height:76px;object-fit:contain;margin-bottom:14px}
+/* しずくだけ大きく見えるので、1.1分の1に縮める（枠の大きさと上下の位置は変えない） */
+.step img.ic[src*="ic-drop"]{transform:scale(.909)}
+/* 07 の下の案内（商品・成分／よくある質問）：サイトのほかのリンクと同じ「下線＋矢印」の形を、横に2つ並べる */
+.next-links{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:22px clamp(32px,6vw,72px);margin-top:clamp(36px,4vw,52px)}
+.next-links .link-more{margin-top:0}
+/* カードの中の文章は両端揃え（01 の2枚・06 の3枚）。商品・成分ページから持ってきた指定が左揃えだったので、このページでは上書きする */
+.step p,.role p.role-txt{text-align:justify;text-justify:inter-character;line-break:strict}
+/* 中央寄せの説明文（01・03・06・07）：幅が狭くなって行が折り返しても端がガタガタにならないよう、
+   両端揃えにして、最後の行（改行で区切った行も）だけ中央に置く。全幅共通 */
+.head-c .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:center}
+/* 06 のカード3枚：841px以上は1行が短く、両端揃えだと字の間が広がるので、左揃えにする（840px以下は両端揃えのまま） */
+@media (min-width:841px){.vals .step p{text-align:left}}
+/* 文字だけのリンク（パンくず、概要の表の中）：見た目は変えずに、押せる範囲だけ上下に広げる（高さ44px以上） */
+.txt-link,.ph-crumb a{display:inline-block;padding:13px 0;margin:-13px 0}
+/* 2行に折れるリンクでも、左の項目名は1行目の高さにそろえる */
+.info .spec .txt-link{vertical-align:top}
+/* 359px以下：03 のカードの見出しは、1行に入りきらないときは折り返す（カードからはみ出さないように） */
+@media (max-width:359px){#philosophy .cell h3{white-space:normal;text-wrap:balance;line-height:1.6}}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">本文へ移動</a>
+<header>
+  <a class="logo gold-text" href="Home/index4.html" aria-label="CHRONO-R ホームへ">CHRONO-R</a>
+  <div class="h-right">
+  <nav id="gnav" aria-label="メインメニュー">
+    <a class="navlink" href="product1.html">商品・成分</a>
+    <a class="navlink" href="about.html" aria-current="page">開発元・販売店について</a>
+    <a class="navlink" href="#">よくある質問</a>
+  </nav>
+    <a class="nav-cta" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）">ご購入はこちら</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ページの見出し＋目次（このページは中央寄せ。目次は横に並べる） -->
+<section class="phero phero-c">
+  <div class="wrap">
+    <nav aria-label="現在地">
+      <ol class="ph-crumb" role="list">
+        <li><a href="Home/index4.html">ホーム</a></li>
+        <li aria-current="page">開発元・販売店について</li>
+      </ol>
+    </nav>
+    <div class="phc">
+      <h1 class="ph-title"><span class="nw">クロノ・アール カプセルの</span><br><span class="nw">開発元・販売店について</span></h1>
+      <p class="ph-label" lang="en">DEVELOPER &amp; STORE</p>
+      <p class="ph-lead">クロノ・アール カプセルは、リエール再生医療研究所が開発し、東京・銀座の幹細胞育毛ラボ HATSUGA が販売しているリバースエイジング サプリメントです。誰がつくり、誰がお届けしているのか。購入の前に確かめておきたい開発元と販売店のことを、このページにまとめました。</p>
+    </div>
+    <nav class="toc-row" aria-label="このページの内容">
+      <p class="toc-ttl" lang="en">CONTENTS</p>
+      <ol role="list">
+        <li><a href="#roles"><span class="no">01</span>開発元と販売店の役割</a></li>
+        <li><a href="#developer"><span class="no">02</span>リエール再生医療研究所とは</a></li>
+        <li><a href="#philosophy"><span class="no">03</span>研究所の3つの考え方</a></li>
+        <li><a href="#award"><span class="no">04</span>受賞歴</a></li>
+        <li><a href="#product"><span class="no">05</span>商品に込めた想い</a></li>
+        <li><a href="#store"><span class="no">06</span>販売店 HATSUGA</a></li>
+        <li><a href="#contact"><span class="no">07</span>ご購入・お問い合わせ</a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- 01 開発元と販売店の役割 -->
+<section class="sect-a head-c" id="roles">
+  <div class="wrap">
+    <div class="hd reveal">
+      <p class="chap" aria-hidden="true"><span class="chap-no gold-text">01</span></p>
+      <h2 class="sec-title">開発はリエール再生医療研究所、<br>販売はHATSUGA</h2>
+      <p class="sec-en" lang="en">ABOUT US</p>
+      <p class="sec-lead">つくっているのは、再生医療の研究を土台にする研究所。お届けしているのは、東京・銀座のサロンです。<br class="br-pc">それぞれが担っている役割を紹介します。</p>
+    </div>
+    <ul class="roles" role="list">
+      <li class="role reveal">
+        <div class="hex"><img class="ic" src="Home/images/ic-microscope.png" alt="" width="400" height="400"></div>
+        <p class="role-tag">開発元</p>
+        <h3>リエール再生医療研究所</h3>
+        <p class="role-do">商品の企画・開発</p>
+        <p class="role-txt">クロノ・アール カプセルを開発した研究所です。成分の配合から製法まで、商品の設計を担っています。</p>
+        <a class="link-more" href="#developer">開発元について<span class="arrow"></span></a>
+      </li>
+      <li class="role reveal d1">
+        <div class="hex"><img class="ic" src="Home/images/ic-shop.png" alt="" width="400" height="400"></div>
+        <p class="role-tag">販売店</p>
+        <h3>幹細胞育毛ラボ HATSUGA</h3>
+        <p class="role-do">販売・お問い合わせの窓口</p>
+        <p class="role-txt">開発元と提携し、クロノ・アール カプセルを販売しています。このサイトの運営と、ご購入・お問い合わせの窓口を担っています。</p>
+        <a class="link-more" href="#store">販売店について<span class="arrow"></span></a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 02 開発元：リエール再生医療研究所 -->
+<section class="sect-c" id="developer">
+  <div class="wrap">
+    <div class="dv-grid">
+      <div class="reveal">
+        <p class="chap" aria-hidden="true"><span class="chap-no gold-text">02</span></p>
+        <h2 class="sec-title"><span class="nw">リエール再生医療研究所とは</span></h2>
+        <p class="sec-en" lang="en">DEVELOPER</p>
+        <p class="sec-lead">リエール再生医療研究所は、<strong>再生医療の技術を美容と健康の分野に生かし</strong>、商品の開発と販売を行っている研究所です。民間での再生医療の普及を目指して、日本から世界へ発信を続けています。</p>
+        <p class="sec-lead">開発しているのは、再生医療の技術を活用した、美容・健康の商品など、毎日の暮らしの中で使える商品です。再生医療の研究で積み重ねられてきた知見を、多くの人が手に取れる形にすることを大切にしています。</p>
+        <p class="sec-lead">2024年5月には、ニューヨークで開かれた Next Era Leaders Award で、Next Era Beauty部門を受賞しました。クロノ・アール カプセルは、この研究所が開発したサプリメントです。</p>
+      </div>
+      <div class="info reveal d1">
+        <h3>開発元の概要</h3>
+        <dl class="spec">
+          <div><dt>名称</dt><dd>リエール再生医療研究所</dd></div>
+          <div><dt>運営</dt><dd>リエールグループ株式会社</dd></div>
+          <div><dt>取り組み</dt><dd>再生医療の技術を活用した、美容・健康商品の開発と販売</dd></div>
+          <div><dt>受賞</dt><dd><span class="n">2024</span>年<span class="n">5</span>月 Next Era Leaders Award<br>Next Era Beauty部門</dd></div>
+          <div><dt>開発商品</dt><dd><a class="txt-link" href="product1.html">クロノ・アール カプセル（成分・全原材料一覧）</a></dd></div>
+          <div><dt>Webサイト</dt><dd><a class="txt-link" href="https://senolytics-rieir.jp/" target="_blank" rel="noopener" aria-label="リエール再生医療研究所のWebサイト（別の画面で開きます）">senolytics-rieir.jp</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 研究所の3つの考え方 -->
+<section class="sect-e head-c" id="philosophy">
+  <div class="wrap">
+    <div class="hd reveal">
+      <p class="chap" aria-hidden="true"><span class="chap-no gold-text">03</span></p>
+      <h2 class="sec-title">リエール再生医療研究所が<br>大切にしている3つの考え方</h2>
+      <p class="sec-en" lang="en">PHILOSOPHY</p>
+      <p class="sec-lead">年齢を重ねることは、衰えていくことだけではない。<br class="br-pc">そう考える研究所が、商品づくりの土台にしている3つの考え方です。</p>
+    </div>
+    <div class="line-grid cols3">
+      <div class="cell reveal">
+        <span class="big" aria-hidden="true"><span class="gold-text"><span class="no">No.</span><span class="n">1</span></span></span>
+        <h3>再生医療を、もっと身近なものに</h3>
+        <p>研究所が目指しているのは、民間での再生医療の普及です。再生医療の技術を生かした商品を開発し、毎日の暮らしの中で手に取れる形にして届けています。</p>
+      </div>
+      <div class="cell reveal d1">
+        <span class="big" aria-hidden="true"><span class="gold-text"><span class="no">No.</span><span class="n">2</span></span></span>
+        <h3>日本から、世界へ</h3>
+        <p>日本で培われた技術を、日本から世界へ発信していく。その先に見ているのは、多くの人が明るく朗らかに過ごせる「人生100年時代」です。</p>
+      </div>
+      <div class="cell reveal d2">
+        <span class="big" aria-hidden="true"><span class="gold-text"><span class="no">No.</span><span class="n">3</span></span></span>
+        <h3>科学的な根拠にもとづいた情報を</h3>
+        <p>うわべを整える「若作り」ではなく、年齢を重ねた今の体に内側から向き合うこと。そのために、科学的な根拠にもとづいた健康と美容の情報を届けていくことを大切にしています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 受賞歴 -->
+<section class="all" id="award">
+  <div class="wrap">
+    <div class="all-top">
+      <div class="hd reveal">
+        <p class="chap" aria-hidden="true"><span class="chap-no gold-text">04</span></p>
+        <h2 class="sec-title"><span class="gold-text">Next Era Beauty部門を<br>ニューヨークで受賞</span></h2>
+        <p class="sec-en" lang="en">AWARD</p>
+        <p class="sec-lead">2024年5月21日、リエール再生医療研究所は、ニューヨークで開かれた Next Era Leaders Award のセレモニーで、Next Era Beauty部門を受賞しました。Next Era Leaders Award は、世界が選ぶ次世代のリーダーを表彰する式典です。ウォール・ストリート・ジャーナル（WSJ）主催の「The Future of Everything」の中で行われました。</p>
+      </div>
+      <div class="all-photo aw-photo photo reveal d1">
+        <div class="pframe"></div>
+        <div class="pic"><img src="Home/images/award-collage.jpg" alt="4枚の写真を1枚にまとめた画像。左上は、Next Era Leaders の会場で盾を受け取る授賞式の様子。右上は、Next Era Leaders を紹介するページ。左下は、Next Era Beauty Award と書かれた盾とトロフィー。右下は、盾を手にした受賞時の記念写真。" width="1400" height="1202" loading="lazy"></div>
+      </div>
+    </div>
+    <dl class="aw-facts reveal">
+      <div><dt>受賞日</dt><dd>2024年5月21日</dd></div>
+      <div><dt>開催地</dt><dd>アメリカ・ニューヨーク</dd></div>
+      <div><dt>式典</dt><dd>Next Era Leaders Award<small>WSJ主催「The Future of Everything」にて</small></dd></div>
+      <div><dt>受賞部門</dt><dd>Next Era Beauty部門</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- 05 クロノ・アール カプセルに込めた想い -->
+<section class="sect-c" id="product">
+  <div class="wrap">
+    <div class="ov-grid cn-grid">
+      <div class="ov-body reveal">
+        <p class="chap" aria-hidden="true"><span class="chap-no gold-text">05</span></p>
+        <h2 class="sec-title"><span class="nw">クロノ・アール カプセルに</span><wbr><span class="nw">込めた想い</span></h2>
+        <p class="sec-en" lang="en">CHRONO-R CAPSULES</p>
+        <p class="sec-lead">クロノ・アール カプセルは、リエール再生医療研究所が、再生医療の研究で積み重ねられてきた知見に着目して開発したリバースエイジング サプリメントです。</p>
+      </div>
+      <div class="ov-photo photo reveal d1">
+        <div class="pframe"></div>
+        <div class="pic"><img src="Home/images/supplement.jpg" alt="クロノ・アール カプセルのパッケージ" width="720" height="826" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="cn reveal">
+      <div class="cn-item">
+        <h3>名前の由来</h3>
+        <p>「クロノ・アール」は、ギリシャ語で時間を意味する<strong>クロノス（Chronos）</strong>と、RIEIR（リエール）の頭文字<strong>「R」</strong>を組み合わせた名前です。開発元の名前が、そのまま商品名に入っています。</p>
+      </div>
+      <div class="cn-item">
+        <h3>開発の考え方</h3>
+        <p>年齢を重ねることは、衰えていくことだけではない。そう考える研究所が、成分の配合に独自の黄金比バランスを取り入れ、ナノテクノロジーを応用した「DDSリエール製法」で形にしました。研究の知見を、毎日続けられる1日1包にまとめています。</p>
+      </div>
+    </div>
+    <div class="tc"><a class="link-more" href="product1.html">成分・全原材料一覧を見る<span class="arrow"></span></a></div>
+  </div>
+</section>
+
+<!-- 06 販売店：幹細胞育毛ラボ HATSUGA -->
+<section class="sect-a head-c" id="store">
+  <div class="wrap">
+    <div class="hd reveal">
+      <p class="chap" aria-hidden="true"><span class="chap-no gold-text">06</span></p>
+      <h2 class="sec-title"><span class="nw">販売店</span><span class="bar">｜</span><span class="nw">幹細胞育毛ラボ HATSUGA</span></h2>
+      <p class="sec-en" lang="en">STORE</p>
+      <p class="sec-lead">幹細胞育毛ラボ HATSUGA は、東京・銀座にある完全個室のスカルプケアサロンです。<br class="br-pc">開発元のリエール再生医療研究所と提携し、クロノ・アール カプセルの販売店としてこのサイトを運営しています。<br class="br-pc">店名の「HATSUGA」は「発芽」から。芽吹く新芽のような生命力を、名前に込めています。</p>
+    </div>
+    <ul class="steps vals" role="list">
+      <li class="step reveal">
+        <img class="ic" src="Home/images/ic-shield.png" alt="" width="214" height="240" loading="lazy">
+        <h3>医療機関の監修</h3>
+        <p>再生医療を専門とする医療機関「GINZA中央クリニック」の監修を受けて、サロンを運営しています。</p>
+      </li>
+      <li class="step reveal d1">
+        <img class="ic" src="Home/images/ic-drop.png" alt="" width="252" height="240" loading="lazy">
+        <h3>幹細胞上清液 × エア導入技術</h3>
+        <p>1ccに約3000億個以上のエクソソームを含む、国産の幹細胞上清液を使用。針を使わないエア導入の技術で施術を行っています。</p>
+      </li>
+      <li class="step reveal d2">
+        <img class="ic" src="Home/images/ic-door.png" alt="" width="172" height="240" loading="lazy">
+        <h3>完全個室のプライベート空間</h3>
+        <p>お客様のプライバシーを最優先に考えた完全個室です。男性も女性も、人目を気にせずお過ごしいただけます。</p>
+      </li>
+    </ul>
+    <div class="info st-info reveal">
+      <h3>販売店の概要</h3>
+      <dl class="spec">
+        <div><dt>店名</dt><dd>幹細胞育毛ラボ HATSUGA</dd></div>
+        <div><dt>運営会社</dt><dd>株式会社ハタママ</dd></div>
+        <div><dt>所在地</dt><dd>〒104-0061 東京都中央区銀座2-12<small>※詳しい住所は、サロンのご予約時にお伝えしています。</small></dd></div>
+        <div><dt>営業時間</dt><dd><span class="n">11</span>時〜<span class="n">20</span>時</dd></div>
+        <div><dt>アクセス</dt><dd>
+          <ul role="list">
+            <li>都営浅草線「東銀座駅」A7・A8出口から徒歩<span class="n">3</span>分</li>
+            <li>東京メトロ日比谷線「東銀座駅」4番出口から徒歩<span class="n">6</span>分</li>
+            <li>東京メトロ「銀座駅」松屋デパート出口から徒歩<span class="n">8</span>分</li>
+            <li>「有楽町駅」「銀座一丁目駅」から徒歩<span class="n">10</span>分</li>
+          </ul>
+        </dd></div>
+        <div><dt>メール</dt><dd><a class="txt-link" href="mailto:hatsuga.scalp@gmail.com">hatsuga.scalp@gmail.com</a></dd></div>
+        <div><dt>Webサイト</dt><dd><a class="txt-link" href="https://hatsuga-scalp.jp/" target="_blank" rel="noopener" aria-label="幹細胞育毛ラボ HATSUGA のWebサイト（別の画面で開きます）">hatsuga-scalp.jp</a></dd></div>
+        <div><dt>Instagram</dt><dd><a class="txt-link" href="https://www.instagram.com/hatsuga.scalp/" target="_blank" rel="noopener" aria-label="幹細胞育毛ラボ HATSUGA のInstagram（別の画面で開きます）">@hatsuga.scalp</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- 07 ご購入・お問い合わせ -->
+<section class="sect-d head-c" id="contact">
+  <div class="wrap">
+    <div class="hd reveal">
+      <p class="chap" aria-hidden="true"><span class="chap-no gold-text">07</span></p>
+      <h2 class="sec-title">クロノ・アール カプセルの<br>ご購入・お問い合わせ</h2>
+      <p class="sec-en" lang="en">CONTACT</p>
+      <p class="sec-lead">成分や飲み方は「商品・成分」のページで、<br class="br-pc">ご購入の前の疑問は「よくある質問」のページでご案内しています。</p>
+    </div>
+    <div class="cta-btn reveal"><a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a></div>
+    <div class="next-links reveal">
+      <a class="link-more" href="product1.html">商品・成分<span class="arrow"></span></a>
+      <a class="link-more" href="#">よくある質問・お問い合わせ<span class="arrow"></span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="f-in">
+    <div class="f-left">
+      <p class="f-logo gold-text">CHRONO-R</p>
+      <p class="f-company">販売元：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）<br>開発元：リエール再生医療研究所</p>
+    </div>
+    <div class="f-links">
+      <a href="product1.html">商品・成分</a>
+      <a href="about.html">開発元・販売店について</a>
+      <a href="#">よくある質問・お問い合わせ</a>
+      <a href="#">会社概要</a>
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </div>
+  </div>
+  <p class="f-copy">© 2026 株式会社ハタママ</p>
+</footer>
+
+<script>
+/* ---- スマホ・タブレットのメニュー：開く・閉じる ---- */
+(function(){
+  const header=document.querySelector('header'),menuBtn=document.querySelector('.menu-btn');
+  function setMenu(open){
+    header.classList.toggle('open',open);
+    menuBtn.setAttribute('aria-expanded',open?'true':'false');
+    menuBtn.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く');
+  }
+  menuBtn.addEventListener('click',()=>setMenu(!header.classList.contains('open')));
+  document.querySelectorAll('#gnav a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+  window.addEventListener('resize',()=>{if(window.innerWidth>840)setMenu(false)});
+})();
+
+/* ---- 02 開発元：右の枠の上の線を、英字（DEVELOPER）の文字の上端にそろえる ---- */
+(function(){
+  const grid=document.querySelector('.dv-grid');
+  if(!grid)return;
+  const box=grid.querySelector('.info'),en=grid.querySelector('.sec-en');
+  function fitBox(){
+    box.style.marginTop='';
+    if(!window.matchMedia('(min-width:841px)').matches)return;
+    const cs=getComputedStyle(en),inset=(parseFloat(cs.lineHeight)-parseFloat(cs.fontSize)*.64)/2;
+    box.style.marginTop=Math.max(0,en.offsetTop+inset)+'px';
+  }
+  fitBox();
+  window.addEventListener('resize',fitBox);
+  window.addEventListener('load',fitBox);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitBox);
+})();
+
+/* ---- 写真の上端を章番号の横の線に、下端をとなりの文章の下端にそろえる（841px以上） ----
+   写真の高さは、となりの文章の高さになるべく合わせる。ただし写真が切れすぎないよう、もとの高さの85〜115%の間までにする
+   （文章がずっと長い・短いときは、そこで止める） */
+(function(){
+  const pairs=[['#award .all-top','.all-photo'],['#product .ov-grid','.ov-photo']];
+  function fit(){
+    pairs.forEach(([g,ph])=>{
+      const grid=document.querySelector(g);if(!grid)return;
+      const photo=grid.querySelector(ph),chap=grid.querySelector('.chap');
+      photo.style.marginTop='';photo.style.height='';photo.style.aspectRatio='';
+      if(!window.matchMedia('(min-width:841px)').matches)return;
+      // 線は章番号の行の上下の真ん中にある
+      const c=chap.getBoundingClientRect(),lineY=c.top+c.height/2;
+      photo.style.marginTop=Math.max(0,lineY-grid.getBoundingClientRect().top)+'px';
+      // となりの文章の下端（最後が文章の段落なら、行の下の空きを除いた文字の下端）
+      const col=[...grid.children].find(el=>el!==photo),last=col.lastElementChild;
+      let bottom=col.getBoundingClientRect().bottom;
+      if(last&&last.matches('p.sec-lead')){const cs=getComputedStyle(last);bottom-=(parseFloat(cs.lineHeight)-parseFloat(cs.fontSize))/2;}
+      const natural=photo.offsetHeight,h=Math.min(natural*1.15,Math.max(natural*.85,bottom-lineY));
+      photo.style.aspectRatio='auto';photo.style.height=h+'px';
+    });
+  }
+  fit();
+  window.addEventListener('resize',fit);
+  window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+
+/* ---- スクロール出現 ---- */
+(function(){
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>

@@ -328,6 +328,8 @@ nav a.navlink:hover::after{width:100%}
   background:var(--white);border:1px solid var(--line);border-radius:5px;
   padding:clamp(22px,2.6vw,32px) clamp(20px,2.6vw,32px) clamp(24px,2.6vw,32px);
 }
+/* 影：枠にはすべて同じ影をつける（名前の由来の枠・比較表と同じ量） */
+.vs-card{box-shadow:0 8px 24px rgba(181,147,59,.22)}
 .vs-card.is-main{
   background:linear-gradient(175deg,#fefcf5,#fcf6e6);
   border-color:rgba(181,147,59,.6);
@@ -672,6 +674,8 @@ section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
 }
 .cell.has-hex{padding-top:72px;border-radius:5px}
 .cell.has-hex::before{border-radius:3px}
+/* 影：名前の由来の枠・比較表と同じ量 */
+.cell.has-hex{box-shadow:0 8px 24px rgba(181,147,59,.22)}
 .cell .hex{position:absolute;top:-45.5px;left:50%;width:91px;height:91px;margin-left:-45.5px;z-index:2}
 .cell .hex .hexbg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .cell .hex .h1{fill:url(#hexgrad);stroke:none}
@@ -785,6 +789,8 @@ section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
   pointer-events:none;
 }
 .quote-card{display:flex;flex-direction:column;padding:54px clamp(26px,3.4vw,48px) 40px}
+/* 影：名前の由来の枠・比較表と同じ量 */
+.quote-card{box-shadow:0 8px 24px rgba(181,147,59,.22)}
 .quote-card .q-mark{
   position:absolute;top:26px;left:clamp(22px,3vw,40px);
   font-family:var(--serif-en);font-size:104px;line-height:.9;font-style:italic;
@@ -872,6 +878,8 @@ section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
 .news-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,3vw,44px);margin-top:64px}
 .news-card{display:flex;flex-direction:column;text-decoration:none;color:var(--head)}
 .news-card .thumb{aspect-ratio:3/2;border-radius:5px;overflow:hidden;background:var(--bg-deep)}
+/* 影：カードと同じ軽い影（名前の由来の枠・比較表と同じ量） */
+.news-card .thumb{box-shadow:0 8px 24px rgba(181,147,59,.22)}
 .news-card .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s cubic-bezier(.22,1,.36,1)}
 .news-card:hover .thumb img{transform:scale(1.04)}
 .news-card .body{display:flex;flex-direction:column;flex:1;padding:24px 4px 0;text-align:left}
@@ -1341,6 +1349,21 @@ footer{
   /* 「途中で折らない」指定を外して、行が右端まで入るようにする（字間が開くのを防ぐ） */
   .final-body .nw{white-space:normal}
 }
+/* ---- 540px以下：いちばん小さい文字を13pxにそろえる（商品・成分、開発元・販売店のページと同じ） ----
+   3つの証明：上の英字も下の日本語も13px。下段はいつも2行（「WSJアワード／受賞」など）にして、横3つ並びのまま収める。
+   2行になって高くなる分は、上下の余白を少しだけ詰める。比較表：文字を13pxにして、セルの左右の余白を1px詰める */
+@media (max-width:540px){
+  .hb-br{display:inline}
+  .hb .s{font-size:13px;letter-spacing:.06em;text-indent:.06em}
+  .hb .t,.hero-badges.hb-two .hb .t{font-size:13px;line-height:1.45}
+  .hb{padding:12px 0 11px}
+  .cmp-table thead th,.cmp-table tbody th,.cmp-table td,.cmp-table td.hl{font-size:13px}
+  .cmp-table thead th:last-child{font-size:13.5px}
+}
+@media (max-width:402px){
+  .cmp-table thead th,.cmp-table tbody th,.cmp-table td,.cmp-table td.hl{padding-left:4px;padding-right:4px}
+  .hb .s{letter-spacing:.03em;text-indent:.03em}
+}
 </style>
 </head>
 <body>
@@ -1376,8 +1399,8 @@ footer{
   <a class="logo gold-text" href="#top">CHRONO-R</a>
   <div class="h-right">
   <nav id="gnav" aria-label="メインメニュー">
-    <a class="navlink" href="#">商品・成分</a>
-    <a class="navlink" href="#">開発元・販売店について</a>
+    <a class="navlink" href="../product1.html">商品・成分</a>
+    <a class="navlink" href="../about.html">開発元・販売店について</a>
     <a class="navlink" href="#">よくある質問</a>
   </nav>
     <a class="nav-cta" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）">ご購入はこちら</a>
@@ -1571,7 +1594,7 @@ footer{
       <div class="ing-item"><div class="ring"><img class="ic-img" src="images/ic-grape.png" alt="" width="430" height="430" loading="lazy"></div><h3 class="nm">レスベラトロール</h3><p class="sub">赤ワインエキス</p></div>
     </div>
     <p class="ing-rest">ほか、全30種以上</p>
-    <div class="tc"><a class="link-more" href="#">全成分を見る<span class="arrow"></span></a></div>
+    <div class="tc"><a class="link-more" href="../product1.html#all">全成分を見る<span class="arrow"></span></a></div>
   </div>
 </section>
 
@@ -1592,7 +1615,7 @@ footer{
         <div class="pic"><img src="images/developer.jpg" alt="Next Era Leaders Award の授賞式で、Next Era Beauty Award の盾を手にした受賞時の様子" width="1566" height="1044" loading="lazy"></div>
       </div>
       <div class="dev-bottom">
-        <div><a class="link-more" href="#">開発元・販売店について詳しく<span class="arrow"></span></a></div>
+        <div><a class="link-more" href="../about.html">開発元・販売店について詳しく<span class="arrow"></span></a></div>
       </div>
     </div>
   </div>
@@ -1740,12 +1763,12 @@ footer{
       <p class="f-company">販売元：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）<br>開発元：リエール再生医療研究所</p>
     </div>
     <div class="f-links">
-      <a href="#">商品・成分</a>
-      <a href="#">開発元・販売店について</a>
+      <a href="../product1.html">商品・成分</a>
+      <a href="../about.html">開発元・販売店について</a>
       <a href="#">よくある質問・お問い合わせ</a>
       <a href="#">会社概要</a>
-      <a href="#">特定商取引法に基づく表記</a>
-      <a href="#">プライバシーポリシー</a>
+      <a href="../tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="../privacy.html">プライバシーポリシー</a>
     </div>
   </div>
   <p class="f-copy">© 2026 株式会社ハタママ</p>
