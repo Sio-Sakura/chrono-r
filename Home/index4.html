@@ -1325,6 +1325,22 @@ footer{
 @media (max-width:540px){
   .award-lead{text-wrap:wrap;word-break:normal;line-break:strict}
 }
+/* ---- 440px以下：口コミの一言は一つの文として、右端まで入れてから折る ---- */
+@media (max-width:440px){
+  .quote-card .q-title{text-wrap:wrap;word-break:normal;line-break:strict;letter-spacing:.02em}
+  .quote-card .q-title .nw{white-space:normal}
+  .quote-card .q-title br{display:none}
+}
+/* ---- ファーストビューの3つの証明：文字の左右に3px以上の空きが取れないとき（JSで判定・540px以下）は下段を2行にする ---- */
+.hb-br{display:none}
+.hero-badges.hb-two .hb-br{display:inline}
+.hero-badges.hb-two .hb .t{font-size:12px;line-height:1.5}
+/* ---- 540px以下：最後のセクションの文も両端揃え ---- */
+@media (max-width:540px){
+  .final-body{text-align:justify;text-justify:inter-character;text-align-last:center}
+  /* 「途中で折らない」指定を外して、行が右端まで入るようにする（字間が開くのを防ぐ） */
+  .final-body .nw{white-space:normal}
+}
 </style>
 </head>
 <body>
@@ -1391,11 +1407,11 @@ footer{
         <div class="pic"><img src="images/hero2.jpg" alt="クロノ・アール カプセル（CHRONO-R CAPSULES）のパッケージとカプセル。画像内の文字：内側から、未来の美しさを育てる。美容と健康の本質に着目し、厳選された成分を独自のバランスで配合。年齢を重ねるごとに、内側から輝く美しさをサポートします。" width="1672" height="941"></div>
       </div>
       <div class="hero-badges">
-        <div class="hb"><div class="hbw"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-award"/></svg><p class="s"><span>AWARD <span class="nb">2024</span></span></p><p class="t">WSJアワード受賞</p></div></div>
+        <div class="hb"><div class="hbw"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-award"/></svg><p class="s"><span>AWARD <span class="nb">2024</span></span></p><p class="t">WSJアワード<br class="hb-br">受賞</p></div></div>
         <div class="sep"></div>
-        <div class="hb"><div class="hbw"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-flask"/></svg><p class="s"><span>DEVELOPER</span></p><p class="t">再生医療研究所が開発</p></div></div>
+        <div class="hb"><div class="hbw"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-flask"/></svg><p class="s"><span>DEVELOPER</span></p><p class="t">再生医療研究所が<br class="hb-br">開発</p></div></div>
         <div class="sep"></div>
-        <div class="hb"><div class="hbw"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-leaf"/></svg><p class="s"><span>INGREDIENTS</span></p><p class="t"><span class="nb">30</span>種以上の成分</p></div></div>
+        <div class="hb"><div class="hbw"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-leaf"/></svg><p class="s"><span>INGREDIENTS</span></p><p class="t"><span class="nb">30</span>種以上の<br class="hb-br">成分</p></div></div>
       </div>
     </div>
   </div>
@@ -1779,6 +1795,21 @@ footer{
   window.addEventListener('resize',fitFV);
   window.addEventListener('load',fitFV);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitFV);
+
+  // 3つの証明：文字の左右の空き（区切り線・枠まで）が3px未満なら、下段を2行にする（540px以下）
+  const badges=document.querySelector('.hero-badges');
+  function fitBadges(){
+    if(!badges)return;
+    badges.classList.remove('hb-two');
+    if(!window.matchMedia('(max-width:540px)').matches)return;
+    const inner=badges.clientWidth;let sum=0;
+    badges.querySelectorAll('.hb').forEach(h=>{sum+=h.getBoundingClientRect().width});
+    if((inner-sum)/6<3)badges.classList.add('hb-two');
+  }
+  fitBadges();
+  window.addEventListener('resize',fitBadges);
+  window.addEventListener('load',fitBadges);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitBadges);
 
   // コンセプト：縦書きの高さを、右の本文の文字の高さに合わせる（文字の大きさで調整）
   function fitTate(){
