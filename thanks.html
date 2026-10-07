@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ご購入ありがとうございました | クロノ・アール カプセル</title>
+<meta name="description" content="クロノ・アール カプセルのご購入が完了しました。ご注文の確認、商品の発送、お問い合わせ先をご案内します。">
+<!-- 検索結果には出さないページ -->
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================
+   ホーム（index4.html）と共通の土台
+   ========================================================== */
+:root{
+  --bg:#f6f2e8;
+  --bg-deep:#efe9da;
+  --white:#fdfcf8;
+  --ink:#1f1b12;
+  --dim:#6a634e;
+  --text:#4d4634;
+  --head:#302c23;
+  --line:#ddd5c0;
+  --gold:#b5933b;
+  --gold-deep:#826a26;
+  --gold-bright:#e3c878;
+  --gold-pale:#f3ecdc;
+  --gold-ghost:rgba(181,147,59,.1);
+  --grad-gold:linear-gradient(105deg,#7a6120 0%,#9c7e2c 32%,#b8973c 44%,#cfae55 50%,#b8973c 56%,#9c7e2c 68%,#7a6120 100%);
+  --grad-gold-text:linear-gradient(125deg,#8a6d1e 0%,#c4a23f 9%,#d9bb5c 16%,#b8963a 24%,#8f7222 33%,#c9a844 42%,#d9bb5c 50%,#b8963a 58%,#8a6d1e 67%,#c4a23f 76%,#d9bb5c 84%,#b8963a 92%,#8a6d1e 100%);
+  --mincho:"Shippori Mincho","Hiragino Mincho ProN",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+  --serif-en:"Cormorant Garamond",serif;
+  --gutter:clamp(24px,6vw,110px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--head);
+  font-family:var(--sans);
+  font-size:15.5px;
+  line-height:2.15;
+  letter-spacing:.05em;
+  overflow-x:hidden;
+  font-feature-settings:"palt";
+}
+::selection{background:var(--gold);color:#fff}
+.gold-text{
+  background:var(--grad-gold-text);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+@keyframes sheen{
+  0%,100%{background-position:0% center}
+  50%{background-position:100% center}
+}
+.nw{white-space:nowrap}
+.n{font-size:calc(1em + 2px);line-height:1}
+
+/* ---------- ヘッダー ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--gutter);height:76px;
+  background:rgba(31,27,18,.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(181,147,59,.35);
+}
+.logo{
+  font-family:var(--serif-en);
+  font-size:23px;font-weight:600;letter-spacing:.16em;
+  text-decoration:none;
+}
+nav,.h-right{display:flex;align-items:center;gap:clamp(16px,3vw,44px)}
+.menu-btn{display:none}
+nav a.navlink{
+  color:#f0e8d6;text-decoration:none;
+  font-size:15px;font-weight:500;letter-spacing:.12em;
+  position:relative;padding:6px 0;
+  transition:color .4s;
+}
+nav a.navlink::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
+  background:var(--gold);transition:width .45s cubic-bezier(.22,1,.36,1);
+}
+nav a.navlink:hover{color:var(--gold-bright)}
+nav a.navlink:hover::after{width:100%}
+/* いま開いているページ */
+nav a.navlink[aria-current="page"]{color:var(--gold-bright)}
+nav a.navlink[aria-current="page"]::after{width:100%}
+.nav-cta{
+  font-size:16px;font-weight:400;letter-spacing:.16em;
+  color:#fff;text-decoration:none;
+  text-shadow:0 1px 3px rgba(143,116,42,.5);
+  background:var(--grad-gold);background-size:200% auto;
+  animation:sheen 6s ease-in-out infinite;
+  box-shadow:0 3px 14px rgba(181,147,59,.35);
+  padding:7px 28px;border-radius:5px;
+  transition:filter .35s,box-shadow .35s,transform .35s cubic-bezier(.22,1,.36,1);
+}
+.nav-cta:hover,.btn-gold:hover{
+  filter:brightness(1.1);
+  box-shadow:0 10px 28px rgba(143,116,42,.45);
+  transform:scale(1.06);
+}
+
+/* ---------- ボタン ---------- */
+.btn-gold{
+  position:relative;display:inline-block;
+  font-size:19px;font-weight:400;letter-spacing:.2em;text-indent:.1em;
+  color:#fff;text-decoration:none;text-align:center;
+  text-shadow:0 1px 3px rgba(143,116,42,.5);
+  background:var(--grad-gold);background-size:200% auto;
+  animation:sheen 6s ease-in-out infinite;
+  box-shadow:0 6px 26px rgba(181,147,59,.45),0 2px 8px rgba(181,147,59,.3);
+  padding:13px 45px;border-radius:5px;
+  overflow:hidden;
+  transition:filter .35s,box-shadow .35s,transform .35s cubic-bezier(.22,1,.36,1);
+}
+.btn-gold::after{
+  content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);
+  animation:btnSweep 3.6s ease-in-out infinite;
+}
+@keyframes btnSweep{
+  0%{left:-80%}
+  45%,100%{left:130%}
+}
+.btn-gold span{position:relative;z-index:1}
+
+/* 読み上げソフト専用（画面には出ない） */
+.sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.skip{position:fixed;left:16px;top:-80px;z-index:200;padding:12px 20px;background:#302c23;color:#f0e8d6;font-size:15px;letter-spacing:.08em;text-decoration:none;border:1px solid var(--gold);border-radius:5px}
+.skip:focus{top:14px}
+main:focus{outline:none}
+
+/* ---------- 共通セクション ---------- */
+section{position:relative;padding:120px var(--gutter);z-index:1;scroll-margin-top:76px}
+.wrap{max-width:1080px;margin:0 auto;position:relative}
+.ghost{
+  position:absolute;top:-24px;left:-8px;z-index:0;
+  font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:clamp(80px,13vw,170px);line-height:1;
+  color:rgba(181,147,59,.17);
+  pointer-events:none;user-select:none;white-space:nowrap;
+}
+.sec-head{
+  position:relative;z-index:1;
+  display:flex;align-items:baseline;gap:22px;
+  line-height:1;margin-bottom:50px;
+}
+.sec-head .label{
+  font-family:var(--serif-en);
+  font-size:20px;font-weight:600;letter-spacing:.44em;line-height:1;
+  color:#6f6853;
+}
+.sec-title{
+  position:relative;z-index:1;
+  font-family:var(--mincho);
+  font-size:clamp(24px,3.2vw,37px);
+  font-weight:600;letter-spacing:.12em;
+  line-height:1.9;
+  margin-bottom:44px;color:var(--head);
+}
+.sec-lead{
+  position:relative;z-index:1;
+  max-width:42em;
+  color:var(--text);font-size:16px;
+  margin-bottom:60px;line-height:2.25;letter-spacing:.06em;
+}
+.sec-lead strong{font-weight:500;color:var(--head)}
+.head-c .ghost{left:50%;transform:translateX(-50%)}
+.head-c .sec-head{justify-content:center}
+.head-c .sec-head .label{text-indent:.44em}
+.head-c .sec-title{text-align:center}
+.head-c .sec-lead{margin-left:auto;margin-right:auto;text-align:center}
+.head-r .ghost{left:auto;right:-8px}
+.head-r .sec-head{justify-content:flex-end}
+.head-r .sec-title{text-align:right}
+.tc{text-align:center}
+.link-more{
+  display:inline-block;position:relative;
+  margin-top:36px;padding:14px 26px 16px;text-indent:.18em;
+  color:var(--gold-deep);text-decoration:none;
+  font-family:var(--mincho);font-size:18px;font-weight:500;letter-spacing:.18em;line-height:1;
+}
+.link-more .arrow{
+  position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;
+  transition:right .35s;
+}
+.link-more .arrow::after{
+  content:"";position:absolute;right:0;top:0;
+  width:13px;height:1px;background:currentColor;
+  transform:rotate(36deg);transform-origin:right center;
+}
+.link-more:hover .arrow{right:-8px}
+
+.sect-a{background:var(--white)}
+.sect-b{background:var(--bg-deep)}
+.sect-c{background:var(--bg)}
+.sect-d{background:linear-gradient(180deg,#faf5e8 0%,#fbf8ef 45%,#fefdf9 100%)}
+/* ホームの「購入者の声」と同じ、淡い金の生成り（単色） */
+.sect-e{background:#faf5e8}
+
+/* 写真の金枠 */
+.pframe{
+  position:absolute;inset:0;
+  transform:translate(22px,22px);
+  border:1px solid var(--gold);
+  z-index:0;
+}
+.pframe::before{
+  content:"";position:absolute;top:-5px;left:-5px;
+  width:9px;height:9px;background:var(--gold);transform:rotate(45deg);
+}
+.pic{
+  position:relative;z-index:1;height:100%;overflow:hidden;
+  box-shadow:0 24px 70px rgba(31,27,18,.18);
+}
+.pic img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* スクロール出現 */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity 1.4s cubic-bezier(.3,.5,.3,1),transform 1.4s cubic-bezier(.3,.5,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.15s}
+.reveal.d2{transition-delay:.3s}
+.photo.reveal{transform:none;transition:opacity 1.8s cubic-bezier(.3,.5,.3,1)}
+@keyframes riseIn{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
+
+/* ---------- フッター ---------- */
+footer{
+  border-top:1px solid rgba(181,147,59,.35);
+  padding:64px var(--gutter) 44px;
+  background:#302c23;color:#f0e8d6;
+}
+.f-in{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start}
+.f-logo{font-family:var(--serif-en);font-size:23px;font-weight:600;letter-spacing:.16em;margin-bottom:16px}
+.f-company{font-size:13px;letter-spacing:.12em;color:rgba(240,232,214,.75);line-height:2.3}
+.f-links{display:grid;grid-template-columns:repeat(2,auto);gap:10px 44px}
+.f-links a{font-size:13px;font-weight:500;letter-spacing:.1em;color:#f0e8d6;text-decoration:none;transition:color .4s}
+.f-links a:hover{color:var(--gold-bright)}
+.f-copy{
+  max-width:1080px;margin:46px auto 0;
+  font-family:var(--serif-en);font-size:13px;letter-spacing:.3em;color:rgba(240,232,214,.6);
+  border-top:1px solid rgba(181,147,59,.35);padding-top:22px;
+}
+
+/* ==========================================================
+   このページ専用（お知らせだけの短いページ）
+   色・書体・文字の大きさは、ホームとほかのページのものだけを使う
+   ========================================================== */
+.txt-link{color:var(--gold-deep);text-underline-offset:.25em}
+.txt-link:hover{color:var(--gold)}
+/* 文字だけのリンク：見た目は変えずに、押せる範囲だけ上下に広げる（高さ44px以上）。開発元・販売店のページと同じ */
+.txt-link{display:inline-block;padding:13px 0;margin:-13px 0}
+/* 未確定の目印（特定商取引法のページと同じ。公開前に消す） */
+.kari{background:#fff1b8;color:#5c4300;font-size:13px;padding:1px 6px;margin:0 2px}
+.msg{
+  min-height:calc(100vh - 120px);display:flex;align-items:center;
+  padding:calc(76px + clamp(56px,7vw,96px)) var(--gutter) clamp(72px,8vw,110px);
+  background:var(--bg);
+}
+.msg .wrap{width:100%;text-align:center}
+.msg-en{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  font-family:var(--serif-en);font-size:17px;font-weight:600;letter-spacing:.36em;text-indent:.36em;line-height:1.2;
+  color:var(--gold-deep);margin-bottom:26px;
+  opacity:0;animation:riseIn 1.4s 0s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.msg-en::before,.msg-en::after{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:rotate(45deg);flex:none}
+.msg-no{
+  font-family:var(--serif-en);font-size:clamp(64px,8vw,96px);font-weight:500;line-height:1;letter-spacing:.04em;
+  font-variant-numeric:lining-nums;font-feature-settings:"lnum";margin-bottom:18px;
+  opacity:0;animation:riseIn 1.4s 0s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.msg-no .gold-text{display:inline-block;padding:.04em .06em .08em;background-image:linear-gradient(105deg,#8a6d1e 0%,#8f7222 26%,#b8963a 40%,#c9a844 46%,#d9bb5c 51%,#c4a23f 56%,#b8963a 62%,#8f7222 76%,#8a6d1e 100%);background-size:100% 100%}
+/* h1：ホームの大見出し（h2）と同じ大きさ・字間・行間 */
+.msg-title{
+  font-family:var(--mincho);font-size:clamp(24px,3.2vw,37px);font-weight:600;letter-spacing:.12em;line-height:1.9;color:var(--head);
+  margin-bottom:26px;
+  opacity:0;animation:riseIn 1.4s .15s cubic-bezier(.3,.5,.3,1) forwards;
+}
+/* 中央寄せの説明文：両端揃えにして、最後の行（改行で区切った行も）だけ中央に置く。全幅共通 */
+.msg-lead{
+  max-width:42em;margin:0 auto;font-size:16px;line-height:2.25;letter-spacing:.06em;color:var(--text);
+  text-align:justify;text-justify:inter-character;text-align-last:center;line-break:strict;overflow-wrap:normal;
+  opacity:0;animation:riseIn 1.4s .3s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.msg-rest{opacity:0;animation:riseIn 1.4s .45s cubic-bezier(.3,.5,.3,1) forwards}
+/* 枠：ホームのカードと同じ作り（金の線＋6px内側に薄い金の線、角丸5px／内側3px、同じ影） */
+.msg-box{
+  position:relative;max-width:720px;margin:clamp(40px,4.6vw,56px) auto 0;text-align:left;
+  background:var(--white);border:1px solid var(--gold);border-radius:5px;
+  box-shadow:0 8px 24px rgba(181,147,59,.22);
+  padding:clamp(26px,3vw,36px) clamp(24px,3.6vw,48px) clamp(14px,1.6vw,20px);
+}
+.msg-box::before{content:"";position:absolute;inset:6px;border:1px solid rgba(181,147,59,.35);border-radius:3px;pointer-events:none}
+.msg-box h2{font-family:var(--mincho);font-size:clamp(18px,1.7vw,21px);font-weight:600;letter-spacing:.1em;line-height:1.6;color:var(--gold-deep);padding-bottom:14px;border-bottom:1px solid rgba(181,147,59,.4)}
+.msg-box dl>div{display:flex;gap:24px;align-items:baseline;padding:13px 2px;border-bottom:1px solid rgba(181,147,59,.4)}
+.msg-box dl>div:last-child{border-bottom:none}
+.msg-box dt{flex:none;width:7.2em;font-family:var(--mincho);font-size:15px;font-weight:600;letter-spacing:.12em;line-height:1.7;color:var(--gold-deep)}
+.msg-box dd{min-width:0;font-size:15px;letter-spacing:.05em;line-height:1.9;color:var(--text);overflow-wrap:anywhere}
+.msg-btn{margin-top:clamp(40px,4.6vw,56px)}
+.msg-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px clamp(28px,5vw,60px);margin-top:clamp(30px,3.6vw,44px)}
+.msg-links .link-more{margin-top:0}
+@media (prefers-reduced-motion:reduce){
+  .msg-en,.msg-no,.msg-title,.msg-lead,.msg-rest{opacity:1!important;transform:none!important}
+}
+@media (max-width:1140px){.msg-title{word-break:auto-phrase}}
+@media (max-width:950px){
+  nav a.navlink{font-size:13px;letter-spacing:.08em}
+  nav,.h-right{gap:22px}
+}
+/* 840px以下：メニューは三本線のボタンで開く */
+@media (max-width:840px){
+  .h-right{gap:14px}
+  .menu-btn{
+    display:flex;flex-direction:column;justify-content:center;gap:6px;
+    width:44px;height:44px;padding:0 10px;margin-right:-10px;
+    background:none;border:0;cursor:pointer;
+  }
+  .menu-btn span{display:block;height:1px;background:#f0e8d6;transition:transform .3s,opacity .3s}
+  header.open .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  header.open .menu-btn span:nth-child(2){opacity:0}
+  header.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  #gnav{
+    display:none;position:fixed;left:0;right:0;top:76px;
+    flex-direction:column;align-items:stretch;gap:0;
+    padding:6px var(--gutter) 22px;
+    background:#302c23;border-bottom:1px solid rgba(181,147,59,.35);
+    box-shadow:0 18px 30px rgba(0,0,0,.25);
+  }
+  header.open #gnav{display:flex}
+  #gnav a.navlink{font-size:16px;letter-spacing:.12em;padding:18px 2px;border-bottom:1px solid rgba(240,232,214,.14)}
+  #gnav a.navlink::after{display:none}
+  .msg{padding-top:calc(76px + 56px);padding-bottom:72px}
+}
+@media (min-width:541px) and (max-width:840px){.msg-title{font-size:clamp(24px,3.5vw,27px)}}
+@media (max-width:540px){
+  header{padding:0 20px}
+  .logo{font-size:19px;letter-spacing:.14em}
+  .h-right{gap:8px}
+  .nav-cta{font-size:14px;letter-spacing:.08em;padding:7px 14px}
+  .msg-en{font-size:14px;letter-spacing:.24em;text-indent:.24em;margin-bottom:20px}
+  .msg-title{font-size:clamp(22px,5.35vw,24px);letter-spacing:.02em;line-height:1.65;margin-bottom:22px}
+  .msg-lead{letter-spacing:.03em;text-wrap:pretty}
+  .msg-box dl>div{flex-direction:column;gap:2px}
+  .msg-box dt{width:auto}
+  .f-in{flex-direction:column}
+  .f-links{grid-template-columns:1fr}
+}
+@media (max-width:440px){
+  .link-more{font-size:16px;letter-spacing:.08em}
+  .btn-gold{font-size:17px;padding:13px 30px}
+}
+@media (max-width:375px){.msg-title{font-size:20.5px}}
+@media (max-width:359px){.nav-cta{font-size:13px;padding:7px 10px}}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">本文へ移動</a>
+<header>
+  <a class="logo gold-text" href="Home/index4.html" aria-label="CHRONO-R ホームへ">CHRONO-R</a>
+  <div class="h-right">
+  <nav id="gnav" aria-label="メインメニュー">
+    <a class="navlink" href="ingredients.html">商品・成分</a>
+    <a class="navlink" href="about.html">開発元・販売店について</a>
+    <a class="navlink" href="faq.html">よくある質問</a>
+  </nav>
+    <a class="nav-cta" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）">ご購入はこちら</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+
+<main id="main" tabindex="-1">
+
+<!-- 購入が終わったあとに表示するページ（Stripeの支払いのあと、ここへ戻す） -->
+<section class="msg">
+  <div class="wrap">
+    <p class="msg-en" lang="en">THANK YOU</p>
+    <h1 class="msg-title"><span class="nw">ご購入</span><span class="nw">ありがとうございました</span></h1>
+    <p class="msg-lead">クロノ・アール カプセルをご購入いただき、ありがとうございます。<br>ご注文を承りました。</p>
+    <div class="msg-rest">
+      <div class="msg-box">
+        <h2>このあとの流れ</h2>
+        <dl>
+          <div><dt>ご注文の確認</dt><dd>ご注文の内容は、ご入力いただいたメールアドレスにお送りしています。</dd></div>
+          <div><dt>商品の発送</dt><dd>ご注文から〇営業日以内に発送します。<span class="kari">仮</span></dd></div>
+          <div><dt>お問い合わせ</dt><dd>ご注文についてのご質問は、販売店の幹細胞育毛ラボ HATSUGA が承ります。<br><a class="txt-link" href="mailto:hatsuga.scalp@gmail.com">hatsuga.scalp@gmail.com</a></dd></div>
+        </dl>
+      </div>
+      <div class="msg-links">
+        <a class="link-more" href="ingredients.html#howto">お召し上がり方<span class="arrow"></span></a>
+        <a class="link-more" href="faq.html">よくある質問<span class="arrow"></span></a>
+        <a class="link-more" href="Home/index4.html">ホームへ戻る<span class="arrow"></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="f-in">
+    <div class="f-left">
+      <p class="f-logo gold-text">CHRONO-R</p>
+      <p class="f-company">販売元：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）<br>開発元：リエール再生医療研究所</p>
+    </div>
+    <div class="f-links">
+      <a href="ingredients.html">商品・成分</a>
+      <a href="about.html">開発元・販売店について</a>
+      <a href="faq.html">よくある質問・お問い合わせ</a>
+      <a href="company.html">会社概要</a>
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </div>
+  </div>
+  <p class="f-copy">© 2026 株式会社ハタママ</p>
+</footer>
+
+<script>
+/* ---- スマホ・タブレットのメニュー：開く・閉じる ---- */
+(function(){
+  const header=document.querySelector('header'),menuBtn=document.querySelector('.menu-btn');
+  function setMenu(open){
+    header.classList.toggle('open',open);
+    menuBtn.setAttribute('aria-expanded',open?'true':'false');
+    menuBtn.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く');
+  }
+  menuBtn.addEventListener('click',()=>setMenu(!header.classList.contains('open')));
+  document.querySelectorAll('#gnav a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+  window.addEventListener('resize',()=>{if(window.innerWidth>840)setMenu(false)});
+})();
+</script>
+</body>
+</html>

@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>成分・全原材料一覧 - ウロリチン・スペルミジン・フィセチン配合 | クロノ・アール カプセル</title>
-<meta name="description" content="クロノ・アール カプセルの成分と全原材料を一覧で公開。ウロリチン・スペルミジン・フィセチンなど注目成分の解説、1日1包の飲み方、ご使用上の注意まで。再生医療の研究所が開発したインナーケア サプリメントです。">
+<title>会社概要 - 販売元 株式会社ハタママ | クロノ・アール カプセル</title>
+<meta name="description" content="クロノ・アール カプセルの販売サイトを運営する、株式会社ハタママの会社概要です。会社名、代表者、所在地、事業内容、運営店舗（幹細胞育毛ラボ HATSUGA）、連絡先をご確認いただけます。">
+<link rel="canonical" href="https://chrono-r-capsules.com/company/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -429,8 +430,6 @@ footer{
 .safe-grid .sec-lead{margin-bottom:0}
 .caution{
   background:var(--white);border:1px solid var(--gold);border-radius:5px;position:relative;
-  /* 影：最初の画面の CONTENTS の箱と同じ量 */
-  box-shadow:0 8px 24px rgba(181,147,59,.22);
   padding:clamp(30px,3.2vw,42px) clamp(24px,3.2vw,44px) clamp(28px,3vw,38px);
 }
 .caution::before{content:"";position:absolute;inset:6px;border:1px solid rgba(181,147,59,.35);border-radius:3px;pointer-events:none}
@@ -654,8 +653,6 @@ footer{
 .ki{
   position:relative;background:var(--white);
   border:1px solid var(--gold);border-radius:5px;
-  /* 影：最初の画面の CONTENTS の箱と同じ量 */
-  box-shadow:0 8px 24px rgba(181,147,59,.22);
   padding:clamp(32px,3.2vw,44px) clamp(26px,3vw,40px) clamp(30px,3vw,38px);
 }
 .ki::before{
@@ -737,8 +734,7 @@ footer{
 /* 03 全成分：見出しと説明文の右に写真（正方形・金の枠）。左右の割合と間の空きはホームの「文章＋写真」と同じ（52：48）。840px以下は説明文の下に置く */
 .all-top{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(32px,6vw,86px);align-items:center;margin-bottom:60px}
 .all-top .sec-lead{margin-bottom:0}
-/* 写真の縦横の割合は、開発元・販売店ページの04の写真と同じ（1400：1202）。文章の高さの真ん中に置く */
-.all-photo{position:relative;aspect-ratio:1400/1202;margin-right:22px}
+.all-photo{position:relative;aspect-ratio:1/1;margin-right:22px}
 .all .pframe{border-color:rgba(227,200,120,.5)}
 .all .pframe::before{background:var(--gold-bright)}
 @media (max-width:840px){
@@ -792,8 +788,6 @@ footer{
   .caution li:last-child{padding-bottom:0}
   .caution ul li::before{top:calc(8px + 1em - 3px)}
 }
-/* 05 お召し上がり方：3つのアイコンは、ホームの成分アイコンと同じ描き方の線画（金色・背景なしの画像） */
-.step img.ic{width:100px;height:76px;object-fit:contain;margin-bottom:14px}
 /* ==========================================================
    色と文字の大きさをホーム（Home/index4.html）にそろえる
    ========================================================== */
@@ -828,13 +822,324 @@ footer{
 @media (max-width:375px){
   .sec-title,.ph-title{font-size:20.5px}
 }
-/* 03 の写真の始まり（上端）を、章番号の横の線と同じ高さにする（開発元・販売店ページの04と同じ。位置はJSで計算） */
-@media (min-width:841px){#all .all-top{align-items:start}}
-/* 950px以下：中央寄せの説明文（02・04・05）は、行が折り返しても端がガタガタにならないよう、両端揃えにして最後の行だけ中央に置く
-   （540px以下は前からこの指定。541〜950pxにも広げる。951px以上は変えない） */
-@media (max-width:950px){.head-c .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:center}}
-/* 540px以下：成分カードの原材料名のラベルを12px→13pxに（スマホでいちばん小さい文字を、ホーム・ほかのページと同じ13pxにそろえる） */
-@media (max-width:540px){.ki .ki-name .ki-src{font-size:13px}}
+
+/* ==========================================================
+   「開発元・販売店について」のページ専用
+   色・書体・文字の大きさは、ホームと商品・成分ページのものだけを使う
+   ========================================================== */
+.txt-link{color:var(--gold-deep);text-underline-offset:.25em}
+.txt-link:hover{color:var(--gold)}
+.sec-lead+.sec-lead{margin-top:-28px}
+
+/* ---------- 01 開発元と販売店の役割 ---------- */
+.roles{position:relative;z-index:1;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(34px,5vw,64px);max-width:940px;margin:calc(var(--rs) / 2 + 20px) auto 0}
+.role{
+  position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;
+  background:var(--white);
+  border:1px solid var(--gold);border-radius:5px;
+  /* 影：商品・成分ページの CONTENTS の箱と同じ量 */
+  box-shadow:0 8px 24px rgba(181,147,59,.22);
+  padding:calc(var(--rs) / 2 + 28px) clamp(26px,3vw,40px) clamp(30px,3vw,38px);
+}
+/* 枠：商品・成分ページの02の成分カードと同じ作り（金の線＋6px内側に薄い金の線、角丸5px／内側3px） */
+.role::after{
+  content:"";position:absolute;inset:6px;
+  border:1px solid rgba(181,147,59,.35);border-radius:3px;
+  pointer-events:none;
+}
+/* 箱と箱の間の矢印 */
+.role+.role::before{
+  content:"";position:absolute;top:50%;left:calc(clamp(34px,5vw,64px) / -2 - 5px);
+  width:9px;height:9px;border-top:1px solid var(--gold);border-right:1px solid var(--gold);
+  transform:translateY(-50%) rotate(45deg);
+}
+.role-tag{font-family:var(--mincho);font-size:16px;font-weight:600;letter-spacing:.3em;text-indent:.3em;line-height:1;color:var(--gold-deep);margin-bottom:16px}
+/* アイコン：カードの上の線にまたがる丸。丸の大きさ・色・線、中のアイコンの大きさと色は、ホームの成分（ウロリチンなど）と同じ */
+.roles{--rs:clamp(84px,8.6vw,112px)}
+.role .hex{
+  position:absolute;top:calc(var(--rs) / -2);left:50%;width:var(--rs);height:var(--rs);margin-left:calc(var(--rs) / -2);z-index:2;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(175deg,#fdfaf1,#f7f0dd);
+  border:1px solid rgba(181,147,59,.6);
+}
+/* ホームのアイコン画像は、絵のまわりに余白がある（絵は画像の81%）。こちらの画像は余白がないので、その分だけ小さく置いて、絵の大きさをそろえる */
+.role .hex .ic{display:block;width:55%;height:55%;object-fit:contain}
+.role h3{font-family:var(--mincho);font-size:clamp(20px,2.1vw,25px);font-weight:600;letter-spacing:.08em;line-height:1.6;color:var(--head);margin-bottom:14px}
+.role-do{display:inline-block;font-size:13px;font-weight:500;letter-spacing:.06em;line-height:1.5;padding:6px 16px;border-radius:999px;background:#ece6d6;color:var(--head);margin-bottom:16px}
+.role p.role-txt{font-size:15px;line-height:1.8;letter-spacing:.04em;color:var(--text);text-align:left;line-break:strict}
+.role .link-more{margin-top:auto;font-size:16px;padding:14px 20px 14px}
+.role .role-txt{margin-bottom:10px}
+
+/* ---------- 02 開発元 ---------- */
+.dv-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);
+  gap:clamp(36px,6vw,86px);align-items:center;
+}
+.dv-grid .sec-lead{max-width:none}
+.dv-grid .sec-lead:last-child{margin-bottom:0}
+/* 概要の枠：ホームのカードと同じ作り（金の線＋6px内側に薄い金の線） */
+.info{
+  position:relative;z-index:1;
+  background:var(--white);border:1px solid var(--gold);border-radius:5px;
+  /* 影：CONTENTS の箱と同じ量 */
+  box-shadow:0 8px 24px rgba(181,147,59,.22);
+  padding:clamp(28px,3vw,38px) clamp(24px,3.2vw,44px) clamp(18px,2vw,24px);
+}
+.info::before{content:"";position:absolute;inset:6px;border:1px solid rgba(181,147,59,.35);border-radius:3px;pointer-events:none}
+.info h3{font-family:var(--mincho);font-size:clamp(18px,1.7vw,21px);font-weight:600;letter-spacing:.1em;line-height:1.6;color:var(--gold-deep);padding-bottom:14px}
+.info .spec>div:last-child{border-bottom:none}
+.info .spec dd{min-width:0;overflow-wrap:anywhere}
+.info .spec ul{list-style:none}
+.info .spec li+li{margin-top:4px}
+.info .spec small{display:block;font-size:13px;color:var(--dim);letter-spacing:.04em}
+
+/* ---------- 04 受賞（黒地） ---------- */
+/* 受賞の写真：4枚を1枚にまとめた画像。金の枠は、ほかの写真と同じ（写真と同じ大きさで、右と下へ22pxずらす。540px以下は12px） */
+.aw-photo{aspect-ratio:1400/1202}
+.aw-facts{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 clamp(20px,3vw,40px);
+}
+.aw-facts>div{border-top:1px solid rgba(227,200,120,.4);padding:18px 2px 0}
+.aw-facts dt{font-family:var(--mincho);font-size:14px;font-weight:500;letter-spacing:.2em;line-height:1.5;color:var(--gold-bright);margin-bottom:8px}
+.aw-facts dd{font-family:var(--mincho);font-size:16px;font-weight:600;letter-spacing:.06em;line-height:1.8;color:#f4f1ea}
+.aw-facts dd small{display:block;font-family:var(--sans);font-size:13px;font-weight:400;letter-spacing:.04em;line-height:1.7;color:rgba(244,241,234,.6)}
+
+/* ---------- 05 販売店 ---------- */
+.vals{margin-bottom:clamp(48px,5vw,64px)}
+.vals .step+.step::before{display:none}
+.st-info{max-width:860px;margin:0 auto}
+.st-info .spec dt{width:6.4em}
+
+/* ---------- 06 ご購入・お問い合わせ ---------- */
+.cta-btn{position:relative;z-index:1;text-align:center}
+#contact .sec-lead{margin-bottom:44px}
+
+@media (min-width:951px){
+  #roles .sec-lead,#philosophy .sec-lead,#store .sec-lead,#contact .sec-lead{max-width:none}
+}
+@media (max-width:1140px){
+  .aw-facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}
+}
+@media (max-width:840px){
+  .roles{grid-template-columns:1fr;max-width:460px;gap:100px}
+  .role+.role::before{top:-77px;left:50%;margin-left:-5px;transform:rotate(135deg)}
+  .dv-grid{grid-template-columns:1fr;gap:48px}
+  .sec-lead+.sec-lead{margin-top:-32px}
+}
+@media (max-width:540px){
+  .aw-facts{grid-template-columns:1fr;row-gap:22px}
+  .role h3{font-size:20px;letter-spacing:.04em}
+  .info .spec>div{flex-direction:column;gap:2px}
+  .info .spec dt,.st-info .spec dt{width:auto}
+}
+
+/* ---------- 最初の画面：商品・成分ページとは変える。中央寄せ＋目次は下に3列×2段 ---------- */
+.phero.phero-c{display:block;min-height:0;padding-top:calc(76px + clamp(40px,5vw,64px));padding-bottom:clamp(64px,7vw,96px)}
+.phero.phero-c .wrap{display:block}
+.phero.phero-c .ph-crumb{margin-bottom:clamp(44px,6vw,76px)}
+.phc{position:relative;z-index:1;text-align:center}
+.phc .ph-label{justify-content:center;text-indent:.36em;margin-bottom:34px}
+.phc .ph-label::after{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:rotate(45deg);flex:none}
+.phc .ph-title{margin-bottom:18px}
+/* 説明文：両端揃え。最後の行だけ中央に置く */
+.phc .ph-lead{max-width:41em;margin:0 auto;text-align:justify;text-justify:inter-character;text-align-last:center}
+/* 目次：商品・成分ページの CONTENTS の箱と同じ作り（淡い金の地・金の線・影・英字の見出し・数字は欧文書体）。並びだけ3列×2段 */
+.toc-row{
+  display:block;position:relative;z-index:1;margin-top:clamp(48px,6vw,72px);
+  background:linear-gradient(175deg,#fdfaf1,#f7f0dd);
+  border:1px solid rgba(181,147,59,.6);border-radius:5px;
+  box-shadow:0 8px 24px rgba(181,147,59,.22);
+  padding:clamp(22px,2.4vw,30px) clamp(22px,2.8vw,36px) clamp(14px,1.6vw,20px);
+  opacity:0;animation:riseIn 1.4s .6s cubic-bezier(.3,.5,.3,1) forwards;
+}
+.toc-row ol{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(20px,3vw,40px)}
+.toc-row li:nth-child(n+4){border-top:1px solid rgba(181,147,59,.22)}
+.toc-row a{
+  display:flex;align-items:baseline;gap:18px;height:100%;
+  padding:11px 2px;text-decoration:none;color:var(--head);
+  font-family:var(--mincho);font-size:16px;font-weight:600;letter-spacing:.1em;line-height:1.6;
+  transition:color .4s,padding-left .4s cubic-bezier(.22,1,.36,1);
+}
+.toc-row a .no{flex:none;width:1.6em;font-family:var(--serif-en);font-size:18px;font-weight:600;letter-spacing:.06em;color:var(--gold-deep)}
+.toc-row a:hover{color:var(--gold-deep);padding-left:8px}
+@media (prefers-reduced-motion:reduce){.toc-row{opacity:1!important}}
+@media (max-width:840px){
+  .toc-row ol{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .toc-row li:nth-child(n+3){border-top:1px solid rgba(181,147,59,.22)}
+}
+@media (max-width:540px){
+  .toc-row ol{grid-template-columns:1fr}
+  .toc-row li+li{border-top:1px solid rgba(181,147,59,.22)}
+}
+
+
+/* ---------- 05 クロノ・アール カプセルに込めた想い ---------- */
+.cn-grid{align-items:center}
+.cn{position:relative;z-index:1;border-bottom:1px solid var(--line)}
+.cn-item{padding:clamp(22px,2.4vw,28px) 2px;border-top:1px solid var(--line)}
+.cn-item h3{font-family:var(--mincho);font-size:clamp(18px,1.7vw,21px);font-weight:600;letter-spacing:.1em;line-height:1.7;color:var(--gold-deep);margin-bottom:8px}
+.cn-item p{font-size:16px;line-height:2.25;letter-spacing:.06em;color:var(--text);text-align:justify;text-justify:inter-character;line-break:strict}
+.cn-item strong{font-weight:500;color:var(--head)}
+#product .link-more{margin-top:30px}
+
+/* 02 開発元：見出しと右の枠の関係を、商品・成分ページの06（見出しと「ご使用上の注意」の枠）と同じにする。
+   枠の上端＝英字（DEVELOPER）の文字の上端（位置はJSで計算）。枠の下端＝左の文章の最後の行の文字の下端。
+   枠の中の行は、この高さに合わせて均等に広げる */
+@media (min-width:841px){
+  .dv-grid{align-items:stretch}
+  .dv-grid .info{margin-bottom:10px;display:flex;flex-direction:column}
+  .dv-grid .info .spec{flex:1;display:flex;flex-direction:column}
+  .dv-grid .info .spec>div{flex:1 1 auto;flex-wrap:wrap;align-content:center}
+  .dv-grid .info .spec dd{flex:1 1 0}
+}
+/* 02 見出し：841〜1240pxでは、1行の見出しの右端が右の枠にかからないよう、字間だけ詰める */
+@media (min-width:841px) and (max-width:1240px){
+  #developer .sec-title{letter-spacing:.04em}
+}
+/* 02 の背景：ホームの REVERSE AGING と同じグラデーション */
+#developer{background:linear-gradient(180deg,#faf5e8 0%,#fbf8ef 45%,#fefdf9 100%)}
+/* 03 の背景：最初の画面と同じ生成り */
+#philosophy{background:var(--bg)}
+
+/* ---------- 03 研究所の3つの考え方：ホームの「3つの選ばれる理由」のカードと同じ作り（ホームのスタイルをそのまま持ってきたもの。上の六角形のアイコンはなし） ---------- */
+.line-grid{position:relative;z-index:1;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:20px;}
+.line-grid.cols3{grid-template-columns:repeat(3,1fr)}
+.cell{position:relative;
+  background:var(--white);
+  border:1px solid var(--gold);
+  padding:44px clamp(20px,2.4vw,34px) 38px;
+  text-align:center;}
+.cell::before{content:"";position:absolute;inset:6px;
+  border:1px solid rgba(181,147,59,.35);
+  pointer-events:none;
+  transition:border-color .5s;}
+.cell .big{display:block;
+  font-family:var(--serif-en);font-style:italic;font-weight:500;
+  font-size:52px;line-height:1;letter-spacing:.02em;
+  margin-bottom:14px;
+  color:var(--gold);}
+.cell .big .gold-text{display:inline-block;padding:.1em .22em .12em;font-family:"Pinyon Script",var(--serif-en);font-style:normal;font-weight:400}
+.cell .big .no{font-size:38px;letter-spacing:0;margin-right:6px}
+.cell .big .n{font-size:58px}
+.cell .big::after{content:"";display:block;width:64px;height:1px;
+  background:var(--gold);margin:-2.5px auto 0;}
+.cell h3{font-family:var(--mincho);
+  font-size:clamp(14px,1.42vw,18.5px);font-weight:600;letter-spacing:.05em;line-height:1.9;white-space:nowrap;
+  margin-bottom:12px;
+  color:var(--gold-deep);}
+.cell p{font-size:15px;color:var(--text);line-height:1.8;letter-spacing:.04em;text-align:justify;text-justify:inter-character;line-break:strict;overflow-wrap:normal;text-wrap:pretty}
+.cell p.c{text-align:center}
+@media (max-width:840px){
+  .line-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:840px){
+  .line-grid.cols3{grid-template-columns:1fr}
+}
+@media (max-width:540px){
+  .line-grid{grid-template-columns:1fr}
+}
+@media (max-width:1140px){
+  .cell p{text-align:left}
+}
+@media (max-width:840px){
+  .line-grid.cols3{row-gap:24px;max-width:460px;margin-left:auto;margin-right:auto}
+}
+@media (max-width:540px){
+  .cell h3{word-break:auto-phrase}
+}
+@media (max-width:1140px){
+  .cell h3{font-size:max(16px,1.42vw)}
+}
+@media (min-width:951px) and (max-width:1056px){
+  .cell h3{letter-spacing:.01em}
+}
+@media (min-width:841px) and (max-width:950px){
+  .cell h3{font-size:16px;letter-spacing:.02em;white-space:normal;text-wrap:balance;word-break:auto-phrase;line-height:1.5;min-height:3em;display:flex;align-items:center;justify-content:center;text-align:center}
+}
+@media (max-width:840px){
+  .cell h3{font-size:18px}
+}
+@media (max-width:393px){
+  .cell h3{font-size:17px}
+}
+.cell p{line-break:strict;overflow-wrap:normal;}
+.cell p{text-align:justify;text-justify:inter-character;}
+.cell p.c{text-align:center}
+@media (min-width:841px) and (max-width:1140px){
+  .cell p{text-align:left}
+}
+@media (max-width:540px){
+  .cell .big .no{font-size:41px}
+  .cell .big .n{font-size:61px}
+}
+
+.cell{border-radius:5px;box-shadow:0 8px 24px rgba(181,147,59,.22)}
+.cell::before{border-radius:3px}
+/* 04 と 05 の左右を入れ替える（841px以上。縦に並ぶ840px以下は今までの順番のまま）。
+   04＝写真が左・文章が右／05＝文章が左・写真が右。05の箱は左を向いているので、文章のほうを向くように右に置く */
+@media (min-width:841px){
+  #award .all-top{grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr)}
+  #award .all-top .hd{order:2}
+  #product .ov-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+  #product .ov-photo{order:2;margin-right:22px}
+  /* 04・05 の写真の始まり（上端）を、章番号の横の線と同じ高さにする（位置はJSで計算） */
+  #award .all-top,#product .ov-grid{align-items:start}
+}
+/* 05：上の段＝見出しと説明文（左）＋写真（右）。写真の下端は、説明文の最後の行にそろえる（JSで計算）。
+   下の段＝「名前の由来」と「開発の考え方」を、端から端までの幅で横に並べる（540px以下は縦に並べる） */
+#product .ov-body .sec-lead{margin-bottom:0}
+#product .cn{margin-top:clamp(48px,5vw,64px)}
+@media (min-width:541px){
+  #product .cn{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(32px,5vw,64px);border-bottom:none}
+  /* 下の線も、上の線と同じように2つに分けて、間をあける */
+  #product .cn-item{border-bottom:1px solid var(--line)}
+}
+#product .tc .link-more{margin-top:36px}
+/* 06 のカードのアイコン：商品・成分ページの05（お召し上がり方）のアイコンと同じ大きさ・同じ色 */
+.step img.ic{width:100px;height:76px;object-fit:contain;margin-bottom:14px}
+/* しずくだけ大きく見えるので、1.1分の1に縮める（枠の大きさと上下の位置は変えない） */
+.step img.ic[src*="ic-drop"]{transform:scale(.909)}
+/* 07 の下の案内（商品・成分／よくある質問）：サイトのほかのリンクと同じ「下線＋矢印」の形を、横に2つ並べる */
+.next-links{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:8px clamp(32px,6vw,72px);margin-top:clamp(36px,4vw,52px)}
+.next-links .link-more{margin-top:0}
+/* カードの中の文章は両端揃え（01 の2枚・06 の3枚）。商品・成分ページから持ってきた指定が左揃えだったので、このページでは上書きする */
+.step p,.role p.role-txt{text-align:justify;text-justify:inter-character;line-break:strict}
+/* 中央寄せの説明文（01・03・06・07）：幅が狭くなって行が折り返しても端がガタガタにならないよう、
+   両端揃えにして、最後の行（改行で区切った行も）だけ中央に置く。全幅共通 */
+.head-c .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:center}
+
+/* ==========================================================
+   このページ（会社概要）だけの指定
+   特定商取引法に基づく表記のページと同じ
+   ヘッダーとフッターはほかのページと同じ。本文は白地・飾りなし
+   ========================================================== */
+body{background:#fff}
+.plain{background:#fff;color:#333;font-size:15px;line-height:1.9;letter-spacing:.02em;padding:calc(76px + 56px) 20px 80px}
+.plain-in{max-width:800px;margin:0 auto}
+.plain h1{font-family:var(--sans);font-size:22px;font-weight:700;line-height:1.5;letter-spacing:.04em;color:#222;margin-bottom:32px}
+.plain dl{border-top:1px solid #ddd}
+.plain dl>div{display:flex;gap:24px;padding:16px 4px;border-bottom:1px solid #ddd}
+.plain dt{flex:none;width:13em;font-weight:700;color:#222}
+.plain dd{flex:1;min-width:0;overflow-wrap:anywhere}
+.plain dd ul{list-style:none}
+.plain dd li+li{margin-top:6px}
+.plain dd small{display:block;font-size:13px;color:#666}
+.plain .date{font-size:13px;color:#666;text-align:right;margin-top:20px}
+/* 下書きの目印。公開前に、この目印がついた所をすべて確定した内容に書きかえて、目印を消す */
+/* 表の中のリンク：プライバシーポリシーのページと同じ */
+.plain a{color:#222;text-underline-offset:.2em}
+.plain a:hover{color:var(--gold-deep)}
+.kari{background:#fff1b8;color:#5c4300;font-size:13px;padding:1px 6px;margin:0 2px}
+@media (max-width:600px){
+  .plain{padding:calc(76px + 36px) 16px 56px}
+  .plain h1{font-size:20px}
+  .plain dl>div{flex-direction:column;gap:2px;padding:14px 2px}
+  .plain dt{width:auto}
+}
 </style>
 </head>
 <body>
@@ -844,330 +1149,36 @@ footer{
   <a class="logo gold-text" href="Home/index4.html" aria-label="CHRONO-R ホームへ">CHRONO-R</a>
   <div class="h-right">
   <nav id="gnav" aria-label="メインメニュー">
-    <a class="navlink" href="product1.html" aria-current="page">商品・成分</a>
+    <a class="navlink" href="ingredients.html">商品・成分</a>
     <a class="navlink" href="about.html">開発元・販売店について</a>
-    <a class="navlink" href="#">よくある質問</a>
+    <a class="navlink" href="faq.html">よくある質問</a>
   </nav>
     <a class="nav-cta" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）">ご購入はこちら</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main id="main" tabindex="-1">
-
-<!-- ページの見出し＋目次 -->
-<section class="phero">
-  <div class="wrap">
-    <nav aria-label="現在地">
-      <ol class="ph-crumb" role="list">
-        <li><a href="Home/index4.html">ホーム</a></li>
-        <li aria-current="page">商品・成分</li>
-      </ol>
-    </nav>
-    <div class="ph-grid">
-      <div>
-        <h1 class="ph-title"><span class="nw">クロノ・アール カプセルの</span><br><span class="nw">成分・全原材料一覧</span></h1>
-        <p class="ph-label" lang="en">PRODUCT &amp; INGREDIENTS</p>
-        <p class="ph-lead">ウロリチン、スペルミジン、フィセチン、NAD原料成分。エイジングケアの分野で名前が挙がる成分をはじめ、30種以上の成分を1日1包にまとめたリバースエイジング サプリメントです。何が入っているのか、どう飲むのか、気をつけることは何か。購入の前に確かめておきたいことを、このページにまとめました。</p>
-      </div>
-      <nav class="toc" aria-label="このページの内容">
-        <p class="toc-ttl" lang="en">CONTENTS</p>
-        <ol role="list">
-          <li><a href="#overview"><span class="no">01</span>商品概要</a></li>
-          <li><a href="#key"><span class="no">02</span>注目の6成分</a></li>
-          <li><a href="#all"><span class="no">03</span>全成分の一覧</a></li>
-          <li><a href="#design"><span class="no">04</span>設計のこだわり</a></li>
-          <li><a href="#howto"><span class="no">05</span>お召し上がり方</a></li>
-          <li><a href="#safety"><span class="no">06</span>品質とご使用上の注意</a></li>
-          <li><a href="#price"><span class="no">07</span>価格・ご購入</a></li>
-        </ol>
-      </nav>
-    </div>
-  </div>
-</section>
-
-<!-- 01 商品概要 -->
-<section class="sect-a" id="overview">
-  <div class="wrap">
-    <div class="ov-grid">
-      <div class="ov-photo photo reveal">
-        <div class="pframe"></div>
-        <div class="pic"><img src="Home/images/supplement.jpg" alt="クロノ・アール カプセルのパッケージ" width="720" height="826"></div>
-      </div>
-      <div class="ov-body reveal d1">
-        <p class="chap" aria-hidden="true"><span class="chap-no gold-text">01</span></p>
-        <h2 class="sec-title">クロノ・アール カプセルとは</h2>
-        <p class="sec-en" lang="en">OVERVIEW</p>
-        <p class="sec-lead">クロノ・アール カプセル（CHRONO-R CAPSULES）は、リエール再生医療研究所が開発した<strong>栄養補助食品</strong>です。再生医療の研究で積み重ねられてきた知見に着目し、30種以上の成分を1包に配合しました。1日分は<strong>1包（4カプセル）</strong>。1箱に30包が入った、約30日分のインナーケア サプリメントです。</p>
-        <dl class="spec">
-          <div><dt>商品名</dt><dd>クロノ・アール カプセル（CHRONO-R CAPSULES）</dd></div>
-          <div><dt>分類</dt><dd>栄養補助食品</dd></div>
-          <div><dt>内容量</dt><dd>0.4g × 4カプセル × <span class="n">30</span>包（約<span class="n">30</span>日分）</dd></div>
-          <div><dt>1日の目安</dt><dd><span class="n">1</span>包（<span class="n">4</span>カプセル）</dd></div>
-          <div><dt>製法</dt><dd>DDSリエール製法</dd></div>
-          <div><dt>開発元</dt><dd>リエール再生医療研究所</dd></div>
-        </dl>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 02 注目の6成分 -->
-<section class="sect-d head-c" id="key">
-  <div class="wrap">
-    <div class="hd reveal">
-      <p class="chap" aria-hidden="true"><span class="chap-no gold-text">02</span></p>
-      <h2 class="sec-title">ウロリチン・スペルミジン・フィセチンなど、<br>注目の6成分</h2>
-      <p class="sec-en" lang="en">KEY INGREDIENTS</p>
-      <p class="sec-lead">単体のサプリメントとしても販売されている成分を、クロノ・アール カプセルは1包にまとめています。<br class="br-pc">それぞれがどんな成分で、どの原材料として入っているのかを紹介します。</p>
-    </div>
-    <div class="key-banner photo reveal">
-      <div class="pic"><img src="Home/images/key-ingredients.jpg" alt="生成りの布の上に並べた、ザクロ、小麦の穂と小麦胚芽、いちご、カプセル、ビルベリー、ぶどう" width="1536" height="1024" loading="lazy"></div>
-    </div>
-    <div class="ki-grid">
-      <article class="ki reveal">
-        <div class="ki-head">
-          <div class="ring"><img src="Home/images/ic-pomegranate.png" alt="" width="430" height="430" loading="lazy"></div>
-          <div class="ki-name">
-            <p class="ki-en" lang="en">UROLITHIN</p>
-            <h3>ウロリチン</h3>
-            <p class="ki-src">原材料名：ザクロ抽出発酵物</p>
-          </div>
-        </div>
-        <p>ザクロやベリー類、ナッツなどに含まれるポリフェノール「エラグ酸」が、腸内細菌によって変換されてできる成分です。クロノ・アール カプセルには、ザクロ抽出発酵物として配合しています。</p>
-      </article>
-      <article class="ki reveal d1">
-        <div class="ki-head">
-          <div class="ring"><img src="Home/images/ic-wheat.png" alt="" width="430" height="430" loading="lazy"></div>
-          <div class="ki-name">
-            <p class="ki-en" lang="en">SPERMIDINE</p>
-            <h3>スペルミジン</h3>
-            <p class="ki-src">原材料名：小麦胚芽エキス末</p>
-          </div>
-        </div>
-        <p>小麦胚芽や大豆、納豆などの食品に含まれる、ポリアミンの一種です。小麦胚芽エキス末として配合しているほか、ポリアミンを含む大豆ペプチドもあわせて配合しています。</p>
-      </article>
-      <article class="ki reveal">
-        <div class="ki-head">
-          <div class="ring"><img src="Home/images/ic-molecule.png" alt="" width="430" height="430" loading="lazy"></div>
-          <div class="ki-name">
-            <p class="ki-en" lang="en">FISETIN</p>
-            <h3>フィセチン</h3>
-            <p class="ki-src">原材料名：フィセチン末</p>
-          </div>
-        </div>
-        <p>いちごやりんごなどに含まれる、フラボノイド（ポリフェノール）の一種です。セノリティクス研究で名前が挙がる成分のひとつで、フィセチン末として配合しています。</p>
-      </article>
-      <article class="ki reveal d1">
-        <div class="ki-head">
-          <div class="ring"><img src="Home/images/ic-capsule.png" alt="" width="430" height="430" loading="lazy"></div>
-          <div class="ki-name">
-            <p class="ki-en" lang="en">NIACINAMIDE</p>
-            <h3>NAD原料成分</h3>
-            <p class="ki-src">原材料名：ナイアシンアミド</p>
-          </div>
-        </div>
-        <p>ナイアシンアミドは、ビタミンB3（ナイアシン）の一種です。体内でNAD（ニコチンアミドアデニンジヌクレオチド）がつくられるときの材料になることから、成分表では「NAD原料成分」と記されています。</p>
-      </article>
-      <article class="ki reveal">
-        <div class="ki-head">
-          <div class="ring"><img src="Home/images/ic-bilberry.png" alt="" width="430" height="430" loading="lazy"></div>
-          <div class="ki-name">
-            <p class="ki-en" lang="en">ANTHOCYANIN</p>
-            <h3>アントシアニン</h3>
-            <p class="ki-src">原材料名：ビルベリーエキス末</p>
-          </div>
-        </div>
-        <p>ビルベリーやぶどうなどに含まれる、青紫色の天然の色素です。ポリフェノールの一種で、クロノ・アール カプセルにはビルベリーエキス末として配合しています。</p>
-      </article>
-      <article class="ki reveal d1">
-        <div class="ki-head">
-          <div class="ring"><img src="Home/images/ic-grape.png" alt="" width="430" height="430" loading="lazy"></div>
-          <div class="ki-name">
-            <p class="ki-en" lang="en">RESVERATROL</p>
-            <h3>レスベラトロール</h3>
-            <p class="ki-src">原材料名：赤ワインエキス</p>
-          </div>
-        </div>
-        <p>ぶどうの皮や赤ワインなどに含まれる、ポリフェノールの一種です。クロノ・アール カプセルには、赤ワインエキスとして配合しています。</p>
-      </article>
-    </div>
-    <p class="note c">※成分についての一般的な説明です。商品の効果・効能を示すものではありません。</p>
-  </div>
-</section>
-
-<!-- 03 全成分の一覧 -->
-<section class="all" id="all">
-  <div class="wrap">
-    <div class="all-top">
-      <div class="hd reveal">
-        <p class="chap" aria-hidden="true"><span class="chap-no gold-text">03</span></p>
-        <h2 class="sec-title"><span class="gold-text">クロノ・アール カプセルの<br>全成分・原材料一覧</span></h2>
-        <p class="sec-en" lang="en">ALL INGREDIENTS</p>
-        <p class="sec-lead">毎日口にするものだから、何が入っているのかを確かめてから選んでいただけるように。成分表に記載されている原材料を、記載の順にすべて掲載します。かっこの中は、その原材料に含まれる成分の名前です。</p>
-      </div>
-      <div class="all-photo photo reveal d1">
-        <div class="pframe"></div>
-        <div class="pic"><img src="Home/images/all-ingredients.jpg" alt="黒い天板に並べた小皿。クローブ、大豆、乾燥りんごの皮、青みかん、ブロッコリースプラウト、オリーブオイル、粉末、カプセルなどの素材" width="1254" height="1254" loading="lazy"></div>
-      </div>
-    </div>
-    <ol class="all-list reveal" role="list">
-      <li><span class="no">01</span><span><span class="nm">コガネバナエキス</span></span></li>
-      <li><span class="no">02</span><span><span class="nm">ベグアセンヤクエキス</span></span></li>
-      <li><span class="no">03</span><span><span class="nm">ナイアシンアミド</span><span class="sub">NAD原料成分</span></span></li>
-      <li><span class="no">04</span><span><span class="nm">青ミカンパウダー</span><span class="sub">ノビレチン</span></span></li>
-      <li><span class="no">05</span><span><span class="nm">大豆ペプチド</span><span class="sub">ポリアミン</span></span></li>
-      <li><span class="no">06</span><span><span class="nm">ラクトフェリン</span></span></li>
-      <li><span class="no">07</span><span><span class="nm">タウリン</span></span></li>
-      <li><span class="no">08</span><span><span class="nm">ジオスゲニン</span></span></li>
-      <li><span class="no">09</span><span><span class="nm">ケルセチン</span></span></li>
-      <li><span class="no">10</span><span><span class="nm">赤ワインエキス</span><span class="sub">レスベラトロール</span></span></li>
-      <li><span class="no">11</span><span><span class="nm">乾燥りんご皮末</span></span></li>
-      <li><span class="no">12</span><span><span class="nm">ベータグルカン</span></span></li>
-      <li><span class="no">13</span><span><span class="nm">葉酸</span></span></li>
-      <li><span class="no">14</span><span><span class="nm">シクロデキストリン</span></span></li>
-      <li><span class="no">15</span><span><span class="nm">グルタチオン</span></span></li>
-      <li><span class="no">16</span><span><span class="nm">セレン</span></span></li>
-      <li><span class="no">17</span><span><span class="nm">ビタミンC</span></span></li>
-      <li><span class="no">18</span><span><span class="nm">ビタミンB1</span></span></li>
-      <li><span class="no">19</span><span><span class="nm">ビタミンB2</span></span></li>
-      <li><span class="no">20</span><span><span class="nm">ビタミンB12</span></span></li>
-      <li><span class="no">21</span><span><span class="nm">ビタミンE</span></span></li>
-      <li><span class="no">22</span><span><span class="nm">ザクロ抽出発酵物</span><span class="sub">ウロリチン</span></span></li>
-      <li><span class="no">23</span><span><span class="nm">フィセチン末</span></span></li>
-      <li><span class="no">24</span><span><span class="nm">大豆レシチン</span><span class="sub">リセチン</span></span></li>
-      <li><span class="no">25</span><span><span class="nm">ブロッコリースプラウトエキス末</span><span class="sub">スルボラファン</span></span></li>
-      <li><span class="no">26</span><span><span class="nm">ビルベリーエキス末</span><span class="sub">アントシアニン</span></span></li>
-      <li><span class="no">27</span><span><span class="nm">オリーブオイル</span><span class="sub">オレオカンタール</span></span></li>
-      <li><span class="no">28</span><span><span class="nm">クローブ末</span><span class="sub">オイゲノール</span></span></li>
-      <li><span class="no">29</span><span><span class="nm">小麦胚芽エキス末</span><span class="sub">スペルミジン</span></span></li>
-      <li><span class="no">30</span><span><span class="nm">キハダ抽出物</span><span class="sub">ベルベリン</span></span></li>
-    </ol>
-    <p class="note">※食品アレルギーのある方は、原材料をご確認のうえ、ご使用をお控えください。</p>
-  </div>
-</section>
-
-<!-- 04 設計のこだわり -->
-<section class="sect-e head-c" id="design">
-  <div class="wrap">
-    <div class="hd reveal">
-      <p class="chap" aria-hidden="true"><span class="chap-no gold-text">04</span></p>
-      <h2 class="sec-title">30種以上の成分を、<br>1包にまとめるための設計</h2>
-      <p class="sec-en" lang="en">DESIGN</p>
-      <p class="sec-lead">成分の数を増やすだけでなく、どう組み合わせ、どう形にするか。開発元のリエール再生医療研究所が、設計で大切にしている3つの考え方です。</p>
-    </div>
-    <div class="dz">
-      <div class="dz-row reveal">
-        <p class="dz-no" aria-hidden="true"><span class="gold-text"><span class="pt">Point</span>1</span></p>
-        <div>
-          <h3>独自の「黄金比バランス」</h3>
-          <p>成分の配合と設計の考え方に、独自の黄金比バランスを採用しています。複数の有用成分が互いに補い合い、全体として調和がとれるように組み立てました。</p>
-        </div>
-      </div>
-      <div class="dz-row reveal">
-        <p class="dz-no" aria-hidden="true"><span class="gold-text"><span class="pt">Point</span>2</span></p>
-        <div>
-          <h3>DDSリエール製法</h3>
-          <p>成分表にも記されている、開発元独自の製法です。ナノテクノロジーを応用し、有用成分を超微細なレベルで設計しています。</p>
-        </div>
-      </div>
-      <div class="dz-row reveal">
-        <p class="dz-no" aria-hidden="true"><span class="gold-text"><span class="pt">Point</span>3</span></p>
-        <div>
-          <h3>再生医療研究の知見に着目</h3>
-          <p>開発の土台にあるのは、再生医療の研究で積み重ねられてきた知見です。その知見を、毎日続けられるサプリメントという形に落とし込みました。</p>
-        </div>
-      </div>
-    </div>
-    <div class="tc"><a class="link-more" href="about.html">開発元・販売店について詳しく<span class="arrow"></span></a></div>
-  </div>
-</section>
-
-<!-- 05 お召し上がり方 -->
-<section class="sect-a head-c" id="howto">
-  <div class="wrap">
-    <div class="hd reveal">
-      <p class="chap" aria-hidden="true"><span class="chap-no gold-text">05</span></p>
-      <h2 class="sec-title"><span class="nw">お召し上がり方（飲み方）</span><span class="bar">｜</span><span class="nw">1日1包を、毎日の習慣に</span></h2>
-      <p class="sec-en" lang="en">HOW TO TAKE</p>
-      <p class="sec-lead">栄養補助食品として、1日1包（4カプセル）を目安にお召し上がりください。</p>
-    </div>
-    <ol class="steps" role="list">
-      <li class="step reveal">
-        <p class="step-no" lang="en">STEP<span class="n">1</span></p>
-        <img class="ic" src="Home/images/ic-hand.png" alt="" width="300" height="192" loading="lazy">
-        <h3>1日1包を目安に</h3>
-        <p>1包に4カプセル入り。1日分が1包ずつに分かれているので、数える手間がありません。</p>
-      </li>
-      <li class="step reveal d1">
-        <p class="step-no" lang="en">STEP<span class="n">2</span></p>
-        <img class="ic" src="Home/images/ic-glass.png" alt="" width="171" height="228" loading="lazy">
-        <h3>水またはぬるま湯で</h3>
-        <p>コップ1杯ほどの水、またはぬるま湯と一緒にお召し上がりください。</p>
-      </li>
-      <li class="step reveal d2">
-        <p class="step-no" lang="en">STEP<span class="n">3</span></p>
-        <img class="ic" src="Home/images/ic-clock.png" alt="" width="226" height="228" loading="lazy">
-        <h3>続けやすい時間に</h3>
-        <p>決まったタイミングはありません。毎日続けやすい時間に取り入れてください。</p>
-      </li>
-    </ol>
-    <div class="tc"><a class="link-more" href="#">飲み方についてのよくある質問<span class="arrow"></span></a></div>
-  </div>
-</section>
-
-<!-- 06 品質とご使用上の注意 -->
-<section class="sect-c" id="safety">
-  <div class="wrap">
-    <div class="safe-grid">
-      <div class="reveal">
-        <p class="chap" aria-hidden="true"><span class="chap-no gold-text">06</span></p>
-        <h2 class="sec-title">毎日続けるものだから。<br>品質とご使用上の注意</h2>
-        <p class="sec-en" lang="en">SAFETY</p>
-        <p class="sec-lead">クロノ・アール カプセルは、毎日の習慣として続けていただくサプリメントです。だからこそ、原材料はすべてこのページで公開しています。お召し上がりの前に、ご使用上の注意と<a href="#all" style="color:var(--gold-deep)">全成分の一覧</a>をご確認ください。<br><br>【仮】製造は、国内の〇〇認定工場で行っています。</p>
-      </div>
-      <div class="caution reveal d1">
-        <h3>ご使用上の注意</h3>
-        <ul role="list">
-          <li>体質に合わない場合は、ご使用を中止してください。</li>
-          <li>薬を服用中の方、通院中の方、妊娠・授乳中の方は、お召し上がりの前に医師にご相談ください。</li>
-          <li>原材料をご確認のうえ、食品アレルギーのある方はご使用をお控えください。</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 07 価格・ご購入 -->
-<section class="sect-a head-c" id="price">
-  <div class="wrap">
-    <div class="hd reveal">
-      <p class="chap" aria-hidden="true"><span class="chap-no gold-text">07</span></p>
-      <h2 class="sec-title">クロノ・アール カプセルの<br>価格とご購入</h2>
-      <p class="sec-en" lang="en">PRICE</p>
-    </div>
-    <div class="buy reveal">
-      <p class="price-en" lang="en">CHRONO-R CAPSULES</p>
-      <p class="price-name">クロノ・アール カプセル</p>
-      <p class="price-amount"><span class="gold-text"><span class="yen">¥</span>150,000</span><span class="tax">（税込）</span></p>
-      <dl class="spec">
-        <div><dt>内容量</dt><dd>0.4g × 4カプセル × <span class="n">30</span>包（約<span class="n">30</span>日分）</dd></div>
-        <div><dt>目安</dt><dd><span class="n">1</span>日<span class="n">1</span>包（<span class="n">4</span>カプセル）</dd></div>
+<main id="main" tabindex="-1" class="plain">
+  <div class="plain-in">
+  <h1>会社概要</h1>
+  <dl>
+        <div><dt>会社名</dt><dd>株式会社ハタママ<span class="kari">要確認：登記どおりの正式な社名</span></dd></div>
+        <div><dt>代表者</dt><dd><span class="kari">要確認：肩書きと氏名（例：代表取締役 〇〇 〇〇）</span></dd></div>
+        <div><dt>所在地</dt><dd>〒104-0061 東京都中央区銀座2-12<span class="kari">要確認：番地・建物名・部屋番号まで</span></dd></div>
+        <div><dt>設立</dt><dd><span class="kari">要確認：設立の年月</span></dd></div>
+        <div><dt>資本金</dt><dd><span class="kari">要確認：金額（載せない場合はこの行を消す）</span></dd></div>
+        <div><dt>事業内容</dt><dd>
+          <ul>
+            <li>スカルプケアサロン「幹細胞育毛ラボ HATSUGA」の運営</li>
+            <li>サプリメント「クロノ・アール カプセル」の販売</li>
+          </ul>
+          <span class="kari">要確認：ほかに載せる事業があるか</span>
+        </dd></div>
+        <div><dt>運営店舗</dt><dd>幹細胞育毛ラボ HATSUGA<small><a href="https://hatsuga-scalp.jp/" target="_blank" rel="noopener" aria-label="幹細胞育毛ラボ HATSUGA のWebサイト（別の画面で開きます）">hatsuga-scalp.jp</a></small></dd></div>
+        <div><dt>電話番号</dt><dd><span class="kari">要確認：電話番号</span><small>受付時間：11時〜20時<span class="kari">要確認：受付時間と定休日</span></small></dd></div>
+        <div><dt>メールアドレス</dt><dd>hatsuga.scalp@gmail.com<span class="kari">要確認：このアドレスを載せてよいか</span></dd></div>
       </dl>
-      <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
-      <ul class="price-notes" role="list">
-        <li>【仮】送料：全国一律 無料</li>
-        <li>【仮】お支払い：クレジットカード・銀行振込</li>
-        <li>【仮】1回ごとのご購入です（定期購入ではありません）</li>
-      </ul>
-    </div>
-    <div class="next reveal">
-      <a href="about.html"><span class="en" lang="en">DEVELOPER</span><span class="jp">開発元・販売店について</span></a>
-      <a href="#"><span class="en" lang="en">FAQ</span><span class="jp">よくある質問・お問い合わせ</span></a>
-    </div>
   </div>
-</section>
-
 </main>
 
 <footer>
@@ -1177,10 +1188,10 @@ footer{
       <p class="f-company">販売元：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）<br>開発元：リエール再生医療研究所</p>
     </div>
     <div class="f-links">
-      <a href="product1.html">商品・成分</a>
+      <a href="ingredients.html">商品・成分</a>
       <a href="about.html">開発元・販売店について</a>
-      <a href="#">よくある質問・お問い合わせ</a>
-      <a href="#">会社概要</a>
+      <a href="faq.html">よくある質問・お問い合わせ</a>
+      <a href="company.html" aria-current="page">会社概要</a>
       <a href="tokushoho.html">特定商取引法に基づく表記</a>
       <a href="privacy.html">プライバシーポリシー</a>
     </div>
@@ -1201,80 +1212,6 @@ footer{
   document.querySelectorAll('#gnav a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
   document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
   window.addEventListener('resize',()=>{if(window.innerWidth>840)setMenu(false)});
-})();
-
-/* ---- 01 商品概要：写真の後ろの金の枠の上端を、右の英字（OVERVIEW）の文字の上端にそろえる ---- */
-(function(){
-  const grid=document.querySelector('.ov-grid');
-  if(!grid)return;
-  const photo=grid.querySelector('.ov-photo'),frame=grid.querySelector('.pframe'),en=grid.querySelector('.sec-en');
-  function fitPhoto(){
-    photo.style.marginTop='';
-    if(!window.matchMedia('(min-width:841px)').matches)return;
-    // 枠は写真より下にずれている（その分を引く）。英字は行の箱の中で、文字の上端が少し下にある（その分を足す）
-    const shift=new DOMMatrixReadOnly(getComputedStyle(frame).transform).m42;
-    const cs=getComputedStyle(en),inset=(parseFloat(cs.lineHeight)-parseFloat(cs.fontSize)*.64)/2;
-    photo.style.marginTop=Math.max(0,en.offsetTop+inset-shift)+'px';
-  }
-  fitPhoto();
-  window.addEventListener('resize',fitPhoto);
-  window.addEventListener('load',fitPhoto);
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitPhoto);
-})();
-
-/* ---- 06 品質・ご注意：右の枠の上端を、英字（SAFETY）の文字の上端より22px上に置く（01の写真の上端と同じ関係） ---- */
-(function(){
-  const grid=document.querySelector('.safe-grid');
-  if(!grid)return;
-  const box=grid.querySelector('.caution'),en=grid.querySelector('.sec-en');
-  function fitBox(){
-    box.style.marginTop='';
-    if(!window.matchMedia('(min-width:841px)').matches)return;
-    const cs=getComputedStyle(en),inset=(parseFloat(cs.lineHeight)-parseFloat(cs.fontSize)*.9)/2;
-    box.style.marginTop=Math.max(0,en.offsetTop+inset-22)+'px';
-  }
-  fitBox();
-  window.addEventListener('resize',fitBox);
-  window.addEventListener('load',fitBox);
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitBox);
-})();
-
-/* ---- 写真の上端を章番号の横の線に、下端をとなりの文章の下端にそろえる（841px以上） ----
-   写真の高さは、となりの文章の高さになるべく合わせる。ただし写真が切れすぎないよう、もとの高さの85〜115%の間までにする
-   （文章がずっと長い・短いときは、そこで止める） */
-(function(){
-  const pairs=[['#all .all-top','.all-photo']];
-  function fit(){
-    pairs.forEach(([g,ph])=>{
-      const grid=document.querySelector(g);if(!grid)return;
-      const photo=grid.querySelector(ph),chap=grid.querySelector('.chap');
-      photo.style.marginTop='';photo.style.height='';photo.style.aspectRatio='';
-      if(!window.matchMedia('(min-width:841px)').matches)return;
-      // 線は章番号の行の上下の真ん中にある
-      const c=chap.getBoundingClientRect(),lineY=c.top+c.height/2;
-      photo.style.marginTop=Math.max(0,lineY-grid.getBoundingClientRect().top)+'px';
-      // となりの文章の下端（最後が文章の段落なら、行の下の空きを除いた文字の下端）
-      const col=[...grid.children].find(el=>el!==photo),last=col.lastElementChild;
-      let bottom=col.getBoundingClientRect().bottom;
-      if(last&&last.matches('p.sec-lead')){const cs=getComputedStyle(last);bottom-=(parseFloat(cs.lineHeight)-parseFloat(cs.fontSize))/2;}
-      const natural=photo.offsetHeight,h=Math.min(natural*1.15,Math.max(natural*.85,bottom-lineY));
-      photo.style.aspectRatio='auto';photo.style.height=h+'px';
-    });
-  }
-  fit();
-  window.addEventListener('resize',fit);
-  window.addEventListener('load',fit);
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
-})();
-
-/* ---- スクロール出現 ---- */
-(function(){
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
-    });
-  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 })();
 </script>
 </body>
