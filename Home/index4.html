@@ -1289,6 +1289,42 @@ footer{
   .vs-graph text{font-size:19px}
   .vs-graph .lb{font-size:20px}
 }
+/* ---- 440px以下：ファーストビューの「1日1包・約30日分」を10px上げる（その下も10px上がる） ---- */
+@media (max-width:440px){
+  /* コンセプト：「あなたの時間を、再び動かすために」と枠の間を15px詰める */
+  .concept .concept-lead-jp{margin-bottom:45px}
+  .hero-cta-row{row-gap:13px}
+  /* 上げたぶん、流れる帯との間を広げる（帯の位置はそのまま） */
+  .hero .hero-main,.hero.fv-short .hero-main{padding-bottom:41px}
+}
+/* ---- コンセプトの1段落目（クロノ・アールという名前は…）も両端揃え。全サイズ共通 ---- */
+.concept .concept-body p:first-child{text-align:justify;text-justify:inter-character}
+/* 右端は下の段落（幅34em＝544px）と同じ位置で止める。840px以下は下の段落も枠いっぱいなので対象外 */
+@media (min-width:841px){.concept .concept-body p:first-child{max-width:544px}}
+/* 金の太字を「途中で折らない」ままだと行が早く折れて字間が開くので、この段落は折ってよいことにする */
+.concept .concept-body p:first-child strong,.concept .concept-body p:first-child .nw{white-space:normal}
+/* ---- 440px以下：縦の間を決まりで揃える
+   文章〜写真 48px／写真〜次のかたまり 64px／大見出し〜カード 64px／カード同士 32px／最後のリンクの上 44px／最後のボタンの上 48px ---- */
+@media (max-width:440px){
+  .rev .photo{margin-top:16px}
+  .rev .vs-grid{margin-top:-6px}
+  .split.ing-split .photo{margin-top:20px}
+  .ing .ing-grid{margin-top:-54px}
+  .award .photo{margin-top:19px}
+  .award .link-more{margin-top:12px}
+  .quote-grid{margin-top:57px!important;row-gap:32px}
+  .news-grid{margin-top:57px}
+  .faq-list{margin-top:56px}
+  .vs-grid{row-gap:32px}
+  .faq-list ~ .link-more,.news-grid ~ .tc .link-more{margin-top:58px}
+  .final-body{margin-bottom:38px}
+  /* 3つの理由：見出し〜六角形のアイコンを40pxに */
+  .line-grid.cols3{margin-top:84px!important}
+}
+/* ---- 540px以下：開発元の「ニューヨークで Next Era Beauty部門を受賞」は右端まで入れてから折る ---- */
+@media (max-width:540px){
+  .award-lead{text-wrap:wrap;word-break:normal;line-break:strict}
+}
 </style>
 </head>
 <body>
