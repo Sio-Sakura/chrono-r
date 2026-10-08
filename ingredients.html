@@ -829,6 +829,9 @@ footer{
 @media (max-width:375px){
   .sec-title,.ph-title{font-size:20.5px}
 }
+/* 07 の下の案内（開発元・販売店／よくある質問）：開発元・販売店ページの一番下と同じ「下線＋矢印」の形を、横に2つ並べる */
+.next-links{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:8px clamp(32px,6vw,72px);margin-top:clamp(36px,4vw,52px)}
+.next-links .link-more{margin-top:0}
 /* 03 の写真の始まり（上端）を、章番号の横の線と同じ高さにする（開発元・販売店ページの04と同じ。位置はJSで計算） */
 @media (min-width:841px){#all .all-top{align-items:start}}
 /* 950px以下：中央寄せの説明文（02・04・05）は、行が折り返しても端がガタガタにならないよう、両端揃えにして最後の行だけ中央に置く
@@ -1162,9 +1165,9 @@ footer{
         <li>【仮】1回ごとのご購入です（定期購入ではありません）</li>
       </ul>
     </div>
-    <div class="next reveal">
-      <a href="about.html"><span class="en" lang="en">DEVELOPER</span><span class="jp">開発元・販売店について</span></a>
-      <a href="faq.html"><span class="en" lang="en">FAQ</span><span class="jp">よくある質問・お問い合わせ</span></a>
+    <div class="next-links reveal">
+      <a class="link-more" href="about.html">開発元・販売店について<span class="arrow"></span></a>
+      <a class="link-more" href="faq.html">よくある質問・お問い合わせ<span class="arrow"></span></a>
     </div>
   </div>
 </section>
