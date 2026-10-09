@@ -1365,6 +1365,18 @@ footer{
   .cmp-table thead th,.cmp-table tbody th,.cmp-table td,.cmp-table td.hl{padding-left:4px;padding-right:4px}
   .hb .s{letter-spacing:.03em;text-indent:.03em}
 }
+/* ---- ファーストビューの3つの証明：アイコンを1.1倍に、英語の行を5px下げる（全サイズ） ---- */
+.hb .ic{width:29px;height:29px}
+/* メダルは31px、葉は30pxに見える大きさ（枠は29pxのまま、見た目だけ大きくする） */
+.hb .ic[src*="medal"]{transform:scale(1.069)}
+.hb .ic[src*="sprig"]{transform:scale(1.0345)}
+/* 英語の行と日本語の行は、行の高さの余白をなくして、文字と文字の間を約5pxにする */
+.hb .s{margin-top:8px;margin-bottom:calc(.3em + 2px);height:1em;line-height:1}
+.hb .t{line-height:1;padding-bottom:.3em}
+/* 540px以下は下段が2行なので、2行の行間（1.45）は残して、上の余白ぶんだけ詰める */
+@media (max-width:540px){
+  .hb .t,.hero-badges.hb-two .hb .t{line-height:1.45;margin-top:-.225em;padding-bottom:.08em}
+}
 </style>
 </head>
 <body>
@@ -1431,11 +1443,11 @@ footer{
         <div class="pic"><img src="images/hero2.jpg" alt="クロノ・アール カプセル（CHRONO-R CAPSULES）のパッケージとカプセル。画像内の文字：内側から、未来の美しさを育てる。美容と健康の本質に着目し、厳選された成分を独自のバランスで配合。年齢を重ねるごとに、内側から輝く美しさをサポートします。" width="1672" height="941"></div>
       </div>
       <div class="hero-badges">
-        <div class="hb"><div class="hbw"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-award"/></svg><p class="s"><span>AWARD <span class="nb">2024</span></span></p><p class="t">WSJアワード<br class="hb-br">受賞</p></div></div>
+        <div class="hb"><div class="hbw"><img class="ic" src="images/ic-medal.png" alt="" width="360" height="360"><p class="s"><span>AWARD <span class="nb">2024</span></span></p><p class="t">WSJアワード<br class="hb-br">受賞</p></div></div>
         <div class="sep"></div>
-        <div class="hb"><div class="hbw"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-flask"/></svg><p class="s"><span>DEVELOPER</span></p><p class="t">再生医療研究所が<br class="hb-br">開発</p></div></div>
+        <div class="hb"><div class="hbw"><img class="ic" src="images/ic-lab.png" alt="" width="360" height="360"><p class="s"><span>DEVELOPER</span></p><p class="t">再生医療研究所が<br class="hb-br">開発</p></div></div>
         <div class="sep"></div>
-        <div class="hb"><div class="hbw"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-leaf"/></svg><p class="s"><span>INGREDIENTS</span></p><p class="t"><span class="nb">30</span>種以上の<br class="hb-br">成分</p></div></div>
+        <div class="hb"><div class="hbw"><img class="ic" src="images/ic-sprig.png" alt="" width="360" height="360"><p class="s"><span>INGREDIENTS</span></p><p class="t"><span class="nb">30</span>種以上の<br class="hb-br">成分</p></div></div>
       </div>
     </div>
   </div>
