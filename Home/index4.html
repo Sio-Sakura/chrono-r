@@ -1391,34 +1391,37 @@ footer{
 /* ---- 540px以下：ヘッダーのロゴと購入ボタンを1.1倍に ---- */
 @media (max-width:540px){
   .logo{font-size:20.9px}
-  .nav-cta{font-size:15.4px;padding:7.7px 18.4px}
+  .nav-cta{font-size:16.4px;padding:7.7px 18.4px}
 }
 @media (max-width:389px){
-  .nav-cta{font-size:14.3px;padding:7.7px 14px}
+  .nav-cta{font-size:15.3px;padding:7.7px 14px}
 }
 @media (max-width:374px){
-  .nav-cta{font-size:13px;padding:7px 13px}
+  .nav-cta{font-size:14px;padding:7px 13px}
 }
-/* 350px以下の小さい端末は、ロゴも前の大きさにする */
-@media (max-width:350px){
+/* 356px以下の小さい端末は、ロゴも前の大きさにする */
+@media (max-width:356px){
   .logo{font-size:19px}
 }
-/* ---- 402px以下：CHRONO-R と CAPSULES を、左右の余白（24px）の内側いっぱいの幅にする。折り返さない ---- */
+@media (max-width:345px){
+  .nav-cta{font-size:13px}
+}
+/* ---- 402px以下：CHRONO-R を左右の余白（24px）の内側いっぱいの幅にする。CAPSULES は比率を保って一緒に広げる。折り返さない ---- */
 @media (max-width:402px){
   .hero-title{font-size:18.45cqw;white-space:nowrap}
-  .hero-h1 .hero-sub-en{font-size:11.58cqw;white-space:nowrap;margin-right:-.56em}
+  /* CAPSULES は、CHRONO-R との大きさの比率を前と同じ（60px：28px）のまま一緒に広げる。横いっぱいにはしない */
+  .hero-h1 .hero-sub-en{font-size:calc(18.45cqw * 28 / 60);white-space:nowrap}
 }
-/* ---- 540px以下：ページ内の「ご購入はこちら」ボタンの文字を4px大きく、太さを1段階上げる（ヘッダーのボタンは別） ---- */
+/* ---- 540px以下：ページ内の「ご購入はこちら」ボタンの文字を4px大きく（ヘッダーのボタンは別） ---- */
 @media (max-width:540px){
-  .btn-gold{font-size:23px;font-weight:500}
+  .btn-gold{font-size:23px}
 }
 /* ---- 540px以下：ファーストビューの文字サイズと「1日1包・約30日分」の位置 ----
    キャッチは18px（359px以下17px）、1行に入らない幅では字間を詰め、それでも入らなければ文字を小さくする。説明文は17px。
-   「1日1包・約30日分」はボタンの下・右端揃え（ボタンの幅の中に収める） */
+    */
 @media (max-width:540px){
   .hero-kicker{font-size:min(18px,calc(100cqw / 14.7));letter-spacing:min(.3em,calc((100cqw - 14em) / 14))}
   .hero-copy{font-size:17px}
-  .hero-cta-row{display:inline-flex;flex-direction:column;align-items:flex-end;flex-wrap:nowrap}
 }
 @media (max-width:359px){
   .hero-kicker{font-size:min(17px,calc(100cqw / 14.7))}
@@ -1426,6 +1429,11 @@ footer{
 /* ---- 540px以下：3つの証明の区切り線を上下に2pxずつ伸ばす ---- */
 @media (max-width:540px){
   .sep::before{top:calc(20% - 2px);bottom:calc(20% - 2px)}
+}
+/* ---- 540px以下：ファーストビューの説明文を両端揃えにし、行の途中で空かないよう「途中で折らない」指定を外す ---- */
+@media (max-width:540px){
+  .hero-copy{text-align:justify;text-justify:inter-character}
+  .hero-copy .nw{white-space:normal}
 }
 </style>
 </head>
