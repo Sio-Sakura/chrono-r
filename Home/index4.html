@@ -1391,20 +1391,20 @@ footer{
 /* ---- 540px以下：ヘッダーのロゴと購入ボタンを1.1倍に ---- */
 @media (max-width:540px){
   .logo{font-size:20.9px}
-  .nav-cta{font-size:16.4px;padding:7.7px 18.4px}
+  .nav-cta{font-size:17.4px;padding:7.7px 18.4px}
 }
 @media (max-width:389px){
-  .nav-cta{font-size:15.3px;padding:7.7px 14px}
+  .nav-cta{font-size:16.3px;padding:7.7px 14px}
 }
 @media (max-width:374px){
-  .nav-cta{font-size:14px;padding:7px 13px}
+  .nav-cta{font-size:15px;padding:7px 13px}
 }
 /* 356px以下の小さい端末は、ロゴも前の大きさにする */
 @media (max-width:356px){
   .logo{font-size:19px}
 }
 @media (max-width:345px){
-  .nav-cta{font-size:13px}
+  .nav-cta{font-size:14px}
 }
 /* ---- 402px以下：CHRONO-R を左右の余白（24px）の内側いっぱいの幅にする。CAPSULES は比率を保って一緒に広げる。折り返さない ---- */
 @media (max-width:402px){
@@ -1426,14 +1426,22 @@ footer{
 @media (max-width:359px){
   .hero-kicker{font-size:min(17px,calc(100cqw / 14.7))}
 }
-/* ---- 540px以下：3つの証明の区切り線を上下に2pxずつ伸ばす ---- */
+/* ---- 540px以下：3つの証明の区切り線を上下に4pxずつ伸ばす ---- */
 @media (max-width:540px){
-  .sep::before{top:calc(20% - 2px);bottom:calc(20% - 2px)}
+  .sep::before{top:calc(20% - 4px);bottom:calc(20% - 4px)}
 }
 /* ---- 540px以下：ファーストビューの説明文を両端揃えにし、行の途中で空かないよう「途中で折らない」指定を外す ---- */
 @media (max-width:540px){
   .hero-copy{text-align:justify;text-justify:inter-character}
   .hero-copy .nw{white-space:normal}
+}
+/* ---- 540px以下：ヘッダーのロゴとボタンは折り返さない。入りきらない幅ではJSで文字を小さくして、間を5px以上あける ---- */
+@media (max-width:540px){
+  .logo,.nav-cta{white-space:nowrap}
+}
+/* ---- 402px以下：アイブロウと「再生医療の研究所が開発した、」の間を7px詰める（その下が全部7px上がる） ---- */
+@media (max-width:402px){
+  .hero-eyebrow{margin-bottom:23px}
 }
 </style>
 </head>
@@ -1890,6 +1898,23 @@ footer{
   window.addEventListener('resize',fitFV);
   window.addEventListener('load',fitFV);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitFV);
+
+  // 540px以下：ヘッダーのロゴとボタンの間が5pxより狭くなる幅では、両方の文字を少しずつ小さくして1行に収める
+  const hdLogo=document.querySelector('header .logo'),hdCta=document.querySelector('header .nav-cta');
+  function fitHeader(){
+    if(!hdLogo||!hdCta)return;
+    hdLogo.style.fontSize='';hdCta.style.fontSize='';
+    if(!window.matchMedia('(max-width:540px)').matches)return;
+    const l0=parseFloat(getComputedStyle(hdLogo).fontSize),c0=parseFloat(getComputedStyle(hdCta).fontSize);
+    for(let i=0,k=1;i<30;i++){
+      if(hdCta.getBoundingClientRect().left-hdLogo.getBoundingClientRect().right>=5)break;
+      k-=.02;hdLogo.style.fontSize=(l0*k)+'px';hdCta.style.fontSize=(c0*k)+'px';
+    }
+  }
+  fitHeader();
+  window.addEventListener('resize',fitHeader);
+  window.addEventListener('load',fitHeader);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitHeader);
 
   // 3つの証明：文字の左右の空き（区切り線・枠まで）が3px未満なら、下段を2行にする（540px以下）
   const badges=document.querySelector('.hero-badges');
