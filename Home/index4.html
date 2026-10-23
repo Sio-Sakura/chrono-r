@@ -1469,6 +1469,49 @@ footer{
 @media (max-width:402px){
   .sec-title,.final-catch,.ing .sec-title{font-size:min(27px,calc((100vw - 48px) / 12.3))}
 }
+/* ---- 540px以下：「あなたの時間を、再び動かすために」を16pxに ---- */
+@media (max-width:540px){
+  .concept .concept-lead-jp{font-size:16px}
+}
+/* 英語の単語の中の「折ってよい位置」は、540px以下だけで使う */
+[lang="en"]{-webkit-hyphens:none;hyphens:none}
+/* ---- 540px以下：本文（ファーストビュー以外）の字間の開きを減らす ----
+   英語の単語は行の終わりでハイフン「-」を付けて折る（単語の中に折ってよい位置を入れてある。541px以上では使わない）。コンセプトの1段落目は、名前を途中で折らない指定を外す */
+@media (max-width:540px){
+  main section:not(.hero) [lang="en"]{-webkit-hyphens:manual;hyphens:manual}
+  /* 成分の名前（ウロリチンなど6つ）を16pxに */
+  .ing-item .nm{font-size:16px}
+  .concept .concept-body p:first-child strong,.concept .concept-body p:first-child .nw{white-space:normal}
+}
+/* ---- 402px以下：価格の英語名とコラムの日付・読む時間・記事を読むを18pxに ---- */
+@media (max-width:402px){
+  .price-en{font-size:18px}
+  .news-card .date,.news-card .cat,.news-card .more{font-size:18px}
+}
+/* ---- 540px以下：3つの証明の区切り線を2本とも真ん中（DEVELOPER）側へ2px寄せる。英語と日本語を1pxずつ大きく ---- */
+@media (max-width:540px){
+  .hero-badges .sep:nth-child(2)::before{transform:translateX(2px)}
+  .hero-badges .sep:nth-child(4)::before{transform:translateX(-2px)}
+  .hb .s{font-size:14px}
+  .hb .t,.hero-badges.hb-two .hb .t{font-size:14px}
+}
+/* 369px以下は、区切り線と文字がくっつかないよう13pxのまま */
+@media (max-width:369px){
+  .hb .s{font-size:13px}
+  .hb .t,.hero-badges.hb-two .hb .t{font-size:13px}
+}
+/* ---- 402px以下：コンセプトの1段落目の字間を少し詰めて、「クロノス」を同じ行に入れ4行に収める ---- */
+@media (max-width:402px){
+  .concept .concept-body p:first-child{letter-spacing:.05em}
+}
+/* 4行に収まる幅（388〜393px）だけ、さらに詰める。それより狭い幅は5行になるので詰めない */
+@media (min-width:388px) and (max-width:393px){
+  .concept .concept-body p:first-child{letter-spacing:.02em}
+}
+/* ---- 402px以下：コンセプトの2・3段落目の字間を少し詰めて、最後の行に「す。」などが1〜2文字だけ残らないようにする ---- */
+@media (max-width:402px){
+  .concept .concept-body p:not(:first-child){letter-spacing:.02em}
+}
 </style>
 </head>
 <body>
@@ -1563,7 +1606,7 @@ footer{
     <div class="concept-grid reveal">
       <p class="tate gold-text">未来の再生科学を、日常へ。</p>
       <div class="concept-body">
-        <p><strong>クロノ・アール</strong>という名前は、ギリシャ語で時間を意味する<strong>クロノス（Chronos）</strong>と、開発元RIEIRの頭文字<strong>（R）</strong><span class="nw">から生まれました。</span></p>
+        <p><strong>クロノ・アール</strong>という名前は、ギリシャ語で時間を意味する<strong>クロノス（<span lang="en">Chro­nos</span>）</strong>と、開発元<span lang="en">RIEIR</span>の頭文字<strong>（R）</strong><span class="nw">から生まれました。</span></p>
         <p>年齢を重ねることは、衰えていくことだけではない。開発元のリエール再生医療研究所はそう考え、再生医療の研究を美容と健康の分野に生かしてきました。目指すのは、<strong>人生100年時代を健やかに、自分らしく過ごせる毎日</strong>です。</p>
         <p>毎日の<strong>インナーケア</strong>に。そして、年齢とともに変わる女性の体を支える<strong>フェムケア</strong>にも。1日1包を、日々の習慣に。</p>
       </div>
@@ -1654,7 +1697,7 @@ footer{
         <div class="hex"><svg class="hexbg" viewBox="0 0 76 76" aria-hidden="true"><polygon class="h1" points="38,2 69.2,20 69.2,56 38,74 6.8,56 6.8,20"/></svg><img class="ic" src="images/ic-flask.png" alt="" width="600" height="600"></div>
         <span class="big"><span class="gold-text"><span class="no">No.</span><span class="n">3</span></span></span>
         <h3>再生医療の研究所が開発</h3>
-        <p>開発したのは、リエール再生医療研究所。人生100年時代を健やかに過ごすことを目指して、商品開発を続けています。2024年5月には、ニューヨークで開かれたウォール・ストリート・ジャーナル主催のアワードで、Next Era Beauty部門を受賞しました。</p>
+        <p>開発したのは、リエール再生医療研究所。人生100年時代を健やかに過ごすことを目指して、商品開発を続けています。2024年5月には、ニューヨークで開かれたウォール・ストリート・ジャーナル主催のアワードで、<span lang="en">Next</span> Era <span lang="en">Beau­ty</span>部門を受賞しました。</p>
       </div>
     </div>
     <div class="cmp-wrap reveal">
@@ -1711,7 +1754,7 @@ footer{
         <div class="sec-head"><span class="label">DEVELOPER</span></div>
         <h2 class="sec-title"><span class="gold-text">再生医療の研究所が<br>開発したサプリメント</span></h2>
         <p class="award-lead">ニューヨークで Next Era Beauty部門を受賞</p>
-        <p class="award-body">クロノ・アール カプセルを開発したのは、リエール再生医療研究所です。再生医療の技術を美容と健康の分野に生かし、人生100年時代を健やかに過ごすための商品開発を続けています。2024年5月には、ウォール・ストリート・ジャーナル（WSJ）主催の式典「The Future of Everything」で開かれた、世界が選ぶ次世代のリーダーを表彰する Next Era Leaders Award のセレモニーで、Next Era Beauty部門を受賞しました。</p>
+        <p class="award-body">クロノ・アール カプセルを開発したのは、リエール再生医療研究所です。再生医療の技術を美容と健康の分野に生かし、人生100年時代を健やかに過ごすための商品開発を続けています。2024年5月には、ウォール・ストリート・ジャーナル（WSJ）主催の式典「The <span lang="en">Fu­ture</span> of <span lang="en">Every­thing</span>」で開かれた、世界が選ぶ次世代のリーダーを表彰する <span lang="en">Next</span> Era <span lang="en">Lead­ers</span> <span lang="en">Award</span> のセレモニーで、<span lang="en">Next</span> Era <span lang="en">Beau­ty</span>部門を受賞しました。</p>
         <p class="award-date">NEXT ERA LEADERS AWARD — 2024</p>
       </div>
       <div class="photo reveal d1">
