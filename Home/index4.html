@@ -1377,6 +1377,17 @@ footer{
 @media (max-width:540px){
   .hb .t,.hero-badges.hb-two .hb .t{line-height:1.45;margin-top:-.225em;padding-bottom:.08em}
 }
+/* ---- ファーストビュー「30種以上の成分」の「30」を0.5px下げて、ほかの文字と下のラインを揃える ---- */
+.hb .t .nb{position:relative;top:.5px}
+/* ---- リバースエイジングの写真：左右を反転して、女性が文章の側（内側）を向くようにする。切り取る範囲は今のまま ---- */
+.rev .photo .pic img{transform:scaleX(-1)}
+/* ---- 540px以下：ファーストビューの並びを「写真 → 文字・ボタン → 3つの証明」にする ---- */
+@media (max-width:540px){
+  .hero-right{display:contents}
+  .hero-visual{order:-1}
+  .hero-inner{order:0}
+  .hero-badges{order:1;margin-top:0}
+}
 </style>
 </head>
 <body>
@@ -1455,7 +1466,6 @@ footer{
     <span>CHRONO-R CAPSULES</span><span class="dia">◆</span><span>REVERSE AGING SUPPLEMENT</span><span class="dia">◆</span><span>REGENERATE YOUR TIME</span><span class="dia">◆</span><span>INNER CARE</span><span class="dia">◆</span><span>FEMCARE</span><span class="dia">◆</span>
   </div></div>
 </section>
-</main>
 
 <!-- 2. コンセプト -->
 <section class="sect-a head-c concept">
@@ -1724,29 +1734,29 @@ footer{
       <h2 class="sec-title"><span class="ph">コラム｜</span><span class="ph">リバースエイジングと</span><br><span class="ph">エイジングケアの</span><span class="ph">基礎知識</span></h2>
     </div>
     <div class="news-grid">
-      <a class="news-card reveal" href="#">
+      <a class="news-card reveal" href="#" aria-labelledby="col1-title">
         <div class="thumb"><img src="images/column1.jpg" alt="半分に割ったザクロの実と、こぼれた粒" width="1100" height="733" loading="lazy"></div>
         <div class="body">
           <p class="meta"><time class="date" datetime="2026-10-04">2026.10.04</time><span class="cat">6 min read</span></p>
-          <h3>ウロリチンとは？ 含まれる食品と、注目される理由</h3>
+          <h3 id="col1-title">ウロリチンとは？ 含まれる食品と、注目される理由</h3>
           <p class="ex">ウロリチンがどんな成分なのか、含まれる食品とあわせて紹介します。</p>
           <span class="more">記事を読む<span class="arrow"></span></span>
         </div>
       </a>
-      <a class="news-card reveal d1" href="#">
+      <a class="news-card reveal d1" href="#" aria-labelledby="col2-title">
         <div class="thumb"><img src="images/column2.jpg" alt="小麦の穂と、木の器に入った小麦胚芽" width="1100" height="733" loading="lazy"></div>
         <div class="body">
           <p class="meta"><time class="date" datetime="2026-10-01">2026.10.01</time><span class="cat">5 min read</span></p>
-          <h3>スペルミジンとは？ ポリアミンの基礎知識</h3>
+          <h3 id="col2-title">スペルミジンとは？ ポリアミンの基礎知識</h3>
           <p class="ex">スペルミジンとポリアミンの関係を、基本から整理します。</p>
           <span class="more">記事を読む<span class="arrow"></span></span>
         </div>
       </a>
-      <a class="news-card reveal d2" href="#">
+      <a class="news-card reveal d2" href="#" aria-labelledby="col3-title">
         <div class="thumb"><img src="images/column3.jpg" alt="朝の光が入る部屋で、緑に囲まれて深呼吸をする女性" width="1100" height="733" loading="lazy"></div>
         <div class="body">
           <p class="meta"><time class="date" datetime="2026-09-28">2026.09.28</time><span class="cat">8 min read</span></p>
-          <h3>インナーケアとは？ 内側からのエイジングケアの考え方</h3>
+          <h3 id="col3-title">インナーケアとは？ 内側からのエイジングケアの考え方</h3>
           <p class="ex">インナーケアという言葉の意味と、毎日の取り入れ方を紹介します。</p>
           <span class="more">記事を読む<span class="arrow"></span></span>
         </div>
@@ -1768,6 +1778,8 @@ footer{
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="f-in">
