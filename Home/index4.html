@@ -1443,6 +1443,32 @@ footer{
 @media (max-width:402px){
   .hero-eyebrow{margin-bottom:23px}
 }
+/* ---- 540px以下：後ろの大きい英語（Concept・Reasons など）を20px大きく、1行で画面に収める ----
+   --gf＝その節の大きい英語の文字サイズ。長くて入らない語（Reverse Aging・Ingredients）は、画面に入る最大の大きさで止める。
+   小さい英語は大きい英語の上から29%、見出しは75%の位置に重なるよう、--gf から位置を計算する */
+@media (max-width:540px){
+  .wrap{--gf:calc(15vw + 30px)}
+  .rev .wrap{--gf:min(calc(15vw + 30px),calc((88vw + 16px) / 5.16))}
+  .ing .wrap{--gf:min(calc(15vw + 30px),calc((88vw + 16px) / 4.04))}
+  .ghost{font-size:var(--gf);top:calc(23.7px - .29 * var(--gf))}
+  .sec-head{margin-bottom:calc(.46 * var(--gf) - 18.5px)}
+}
+@media (max-width:402px){
+  .rev .wrap{--gf:min(calc(15vw + 30px),calc((100vw - 32px) / 5.16))}
+  .ing .wrap{--gf:min(calc(15vw + 30px),calc((100vw - 32px) / 4.04))}
+}
+/* ---- 540px以下：小さい英語（CONCEPT など）を5px大きく ---- */
+@media (max-width:540px){
+  .sec-head .label{font-size:19px}
+}
+/* ---- 540px以下：大見出し（h2）を5px大きく ---- */
+/* 12文字の行（「アンチエイジングとの違い」など）が1行に入る大きさを上限にする */
+@media (max-width:540px){
+  .sec-title,.final-catch,.ing .sec-title{font-size:min(clamp(27px,calc(5.35vw + 5px),29px),calc(88vw / 12.3))}
+}
+@media (max-width:402px){
+  .sec-title,.final-catch,.ing .sec-title{font-size:min(27px,calc((100vw - 48px) / 12.3))}
+}
 </style>
 </head>
 <body>
@@ -1551,7 +1577,7 @@ footer{
     <p class="ghost" aria-hidden="true">Reverse Aging</p>
     <div class="hd reveal">
       <div class="sec-head"><span class="label">REVERSE AGING</span></div>
-      <h2 class="sec-title">リバースエイジングとは？<br>アンチエイジングとの違い</h2>
+      <h2 class="sec-title"><span class="ph">リバースエイジングとは？</span><br><span class="ph">アンチエイジングとの違い</span></h2>
     </div>
     <div class="split" style="margin-bottom:70px">
       <div>
