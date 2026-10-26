@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>成分・全原材料一覧 - ウロリチン・スペルミジン・フィセチン配合 | クロノ・アール カプセル</title>
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="description" content="クロノ・アール カプセルの成分と全原材料を一覧で公開。ウロリチン・スペルミジン・フィセチンなど注目成分の解説、1日1包の飲み方、ご使用上の注意まで。再生医療の研究所が開発したインナーケア サプリメントです。">
 <link rel="canonical" href="https://chrono-r-capsules.com/ingredients/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,7 +128,7 @@ nav a.navlink[aria-current="page"]::after{width:100%}
 .btn-gold::after{
   content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
   background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);
-  animation:btnSweep 3.6s ease-in-out infinite;
+  animation:btnSweep 4s ease-in-out infinite;
 }
 @keyframes btnSweep{
   0%{left:-80%}
@@ -357,7 +360,7 @@ footer{
 .ki h3{font-family:var(--mincho);font-size:clamp(19px,1.8vw,22px);font-weight:600;letter-spacing:.08em;line-height:1.6;color:var(--head);margin-bottom:12px}
 .ki .ki-src{
   display:inline-block;font-size:13px;font-weight:500;letter-spacing:.06em;line-height:1.5;
-  padding:6px 14px;border-radius:999px;background:#ece6d6;color:var(--head);margin-bottom:14px;
+  padding:6px 14px;border-radius:999px;background:var(--bg-deep);color:var(--head);margin-bottom:14px;
 }
 .ki p{font-size:15px;line-height:2;letter-spacing:.05em;color:var(--text)}
 .note{position:relative;z-index:1;font-size:13px;letter-spacing:.06em;line-height:1.8;color:var(--dim);margin-top:26px}
@@ -839,6 +842,32 @@ footer{
 @media (max-width:950px){.head-c .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:center}}
 /* 540px以下：成分カードの原材料名のラベルを12px→13pxに（スマホでいちばん小さい文字を、ホーム・ほかのページと同じ13pxにそろえる） */
 @media (max-width:540px){.ki .ki-name .ki-src{font-size:13px}}
+/* ---- フッター：左右が横に並ぶ幅（1000px以上）では、右のリンク3行の上下を、左の3行（ロゴ〜2行目）の文字の上端・下端にそろえる ---- */
+@media (min-width:1000px){
+  .f-links{margin-top:9px;row-gap:16.5px}
+  footer{--flogo-mt:-5px;--flogo-mb:11px}
+}
+/* フッターのロゴを5px大きく（23px→28px）。左の3行の上端・下端は右のリンク3行とそろえたまま（値は実測で合わせる） */
+.f-logo{font-size:28px;margin-top:var(--flogo-mt,0px);margin-bottom:var(--flogo-mb,16px)}
+/* ---- 540px以下：ヘッダーのロゴと購入ボタンをホームと同じ大きさにし、折り返さない。入りきらない幅ではJSで文字を小さくして、間を5px以上あける ---- */
+@media (max-width:540px){
+  .logo{font-size:20.9px}
+  .nav-cta{font-size:17.4px;padding:7.7px 18.4px}
+  .logo,.nav-cta{white-space:nowrap}
+}
+@media (max-width:389px){.nav-cta{font-size:16.3px;padding:7.7px 14px}}
+@media (max-width:374px){.nav-cta{font-size:15px;padding:7px 13px}}
+@media (max-width:356px){.logo{font-size:19px}}
+@media (max-width:345px){.nav-cta{font-size:14px}}
+/* ---- 購入ボタンの光り方をそろえる：金のグラデーションの往復（左右から光が来るように見える）は止め、白い光が左から右へ4秒ごとに1回横切るだけにする。ヘッダーのボタンも同じ ---- */
+.nav-cta,.btn-gold{animation:none;background-position:0% center}
+.nav-cta{position:relative;overflow:hidden;isolation:isolate}
+.nav-cta::after{
+  content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;z-index:-1;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);
+  animation:btnSweep 4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion:reduce){.nav-cta::after{display:none}}
 </style>
 </head>
 <body>
@@ -1153,16 +1182,16 @@ footer{
     <div class="buy reveal">
       <p class="price-en" lang="en">CHRONO-R CAPSULES</p>
       <p class="price-name">クロノ・アール カプセル</p>
-      <p class="price-amount"><span class="gold-text"><span class="yen">¥</span>150,000</span><span class="tax">（税込）</span></p>
+      <p class="price-amount"><span class="gold-text"><span class="yen">¥</span>159,500</span><span class="tax">（税込）</span></p>
       <dl class="spec">
         <div><dt>内容量</dt><dd>0.4g × 4カプセル × <span class="n">30</span>包（約<span class="n">30</span>日分）</dd></div>
         <div><dt>目安</dt><dd><span class="n">1</span>日<span class="n">1</span>包（<span class="n">4</span>カプセル）</dd></div>
       </dl>
       <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
       <ul class="price-notes" role="list">
-        <li>【仮】送料：全国一律 無料</li>
-        <li>【仮】お支払い：クレジットカード・銀行振込</li>
-        <li>【仮】1回ごとのご購入です（定期購入ではありません）</li>
+        <li>送料：全国一律 無料</li>
+        <li>お支払い：クレジットカード・銀行振込</li>
+        <li>1回ごとのご購入です（定期購入ではありません）</li>
       </ul>
     </div>
     <div class="next-links reveal">
@@ -1178,7 +1207,7 @@ footer{
   <div class="f-in">
     <div class="f-left">
       <p class="f-logo gold-text">CHRONO-R</p>
-      <p class="f-company">販売元：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）<br>開発元：リエール再生医療研究所</p>
+      <p class="f-company">開発元：リエール再生医療研究所<br>正規販売店：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）</p>
     </div>
     <div class="f-links">
       <a href="ingredients.html">商品・成分</a>
@@ -1279,6 +1308,26 @@ footer{
     });
   },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+</script>
+<script>
+/* ---- 540px以下：ヘッダーのロゴとボタンの間が5pxより狭くなる幅では、両方の文字を少しずつ小さくして1行に収める（ホームと同じ） ---- */
+(function(){
+  const hdLogo=document.querySelector('header .logo'),hdCta=document.querySelector('header .nav-cta');
+  function fitHeader(){
+    if(!hdLogo||!hdCta)return;
+    hdLogo.style.fontSize='';hdCta.style.fontSize='';
+    if(!window.matchMedia('(max-width:540px)').matches)return;
+    const l0=parseFloat(getComputedStyle(hdLogo).fontSize),c0=parseFloat(getComputedStyle(hdCta).fontSize);
+    for(let i=0,k=1;i<30;i++){
+      if(hdCta.getBoundingClientRect().left-hdLogo.getBoundingClientRect().right>=5)break;
+      k-=.02;hdLogo.style.fontSize=(l0*k)+'px';hdCta.style.fontSize=(c0*k)+'px';
+    }
+  }
+  fitHeader();
+  window.addEventListener('resize',fitHeader);
+  window.addEventListener('load',fitHeader);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitHeader);
 })();
 </script>
 </body>

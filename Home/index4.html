@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>リバースエイジング サプリメント - アンチエイジングの一歩先へ | クロノ・アール カプセル</title>
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="description" content="再生医療の研究所が開発したリバースエイジング サプリメント「クロノ・アール カプセル」。ウロリチン・スペルミジン・フィセチンなど30種以上の成分を1日1包に。アンチエイジングの一歩先をいく、毎日のインナーケアに。">
 <link rel="canonical" href="https://chrono-r-capsules.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -223,7 +226,7 @@ nav a.navlink:hover::after{width:100%}
 .btn-gold::after{
   content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
   background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);
-  animation:btnSweep 3.6s ease-in-out infinite;
+  animation:btnSweep 4s ease-in-out infinite;
 }
 @keyframes btnSweep{
   0%{left:-80%}
@@ -342,9 +345,9 @@ nav a.navlink:hover::after{width:100%}
 .vs-tag{
   font-size:13px;font-weight:500;letter-spacing:.08em;line-height:1;
   padding:9px 16px;border-radius:999px;white-space:nowrap;
-  background:#ece6d6;color:#302c23;
+  background:var(--bg-deep);color:#302c23;
 }
-.vs-card.is-main .vs-tag{background:#302c23;color:#f0e8d6}
+.vs-card.is-main .vs-tag{background:rgba(181,147,59,.5);color:#302c23}
 .vs-graph{display:block;width:100%;height:auto;margin-bottom:16px;overflow:visible}
 .vs-graph .ax{fill:none;stroke:#d5ccb6;stroke-width:1.5}
 .vs-graph .base{fill:none;stroke:#c2b89e;stroke-width:1.6;stroke-dasharray:6 6}
@@ -460,13 +463,13 @@ section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
 .btn-center{margin-top:60px;text-align:center}
 
 /* スクロール出現 */
-.reveal{opacity:0;transform:translateY(14px);transition:opacity 1.4s cubic-bezier(.3,.5,.3,1),transform 1.4s cubic-bezier(.3,.5,.3,1)}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity 1s cubic-bezier(.3,.5,.3,1),transform 1s cubic-bezier(.3,.5,.3,1)}
 .reveal.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.15s}
 .reveal.d2{transition-delay:.3s}
 .reveal.d3{transition-delay:.45s}
 /* 写真は動かさず、ゆっくり浮かび上がるだけ */
-.photo.reveal{transform:none;transition:opacity 1.8s cubic-bezier(.3,.5,.3,1)}
+.photo.reveal{transform:none;transition:opacity 1.3s cubic-bezier(.3,.5,.3,1)}
 /* 「動きを減らす」設定の人には、動きを止める */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -1674,6 +1677,34 @@ footer{
   .btn-gold{white-space:nowrap;font-size:min(23px,calc((100vw - 138px) / 8.6))}
   .price-info .btn-gold{font-size:min(23px,calc((100vw - 92px) / 8.6))}
 }
+/* ---- フッター：左右が横に並ぶ幅（1000px以上）では、右のリンク3行の上下を、左の3行（ロゴ〜2行目）の文字の上端・下端にそろえる ---- */
+@media (min-width:1000px){
+  .f-links{margin-top:9px;row-gap:16.5px}
+  footer{--flogo-mt:-5px;--flogo-mb:11px}
+}
+/* フッターのロゴを5px大きく（23px→28px）。左の3行の上端・下端は右のリンク3行とそろえたまま（値は実測で合わせる） */
+.f-logo{font-size:28px;margin-top:var(--flogo-mt,0px);margin-bottom:var(--flogo-mb,16px)}
+/* ---- リバースエイジングとは？：リード文の「年齢を重ねた今の体に〜と捉えています」に、スクロールで左から蛍光ペンのような線を引く（色は後ろの大きい英語と同じ） ---- */
+.rev .sec-lead .hl{background-image:linear-gradient(rgba(181,147,59,.17),rgba(181,147,59,.17));background-repeat:no-repeat;background-position:0 88%;background-size:0% .5em;transition:background-size 1.6s cubic-bezier(.4,0,.2,1) .3s}
+.rev .sec-lead .hl.hl-2{transition-delay:1.1s}
+.rev .sec-lead .hl.on{background-size:100% .5em}
+@media (prefers-reduced-motion:reduce){.rev .sec-lead .hl{background-size:100% .5em;transition:none}}
+/* ---- 比較表：「一般的なサプリメント」の列のマスにも、白からクリーム色（サイトの背景色）へのグラデーションを付けて、「比較項目」の列（白）と分ける。クロノ・アールの列（金のグラデーション）と同じ向き ---- */
+.cmp-table td:not(.hl){background:linear-gradient(175deg,#fbf9f3,#f6f2e8)}
+/* ---- 540px以下：ファーストビューは上から順に出す（購入ボタン0.8秒 → 3つの証明0.95秒 → 帯1.1秒） ---- */
+@media (max-width:540px){
+  .hero-badges{animation-delay:.95s}
+  .marquee{animation-delay:1.1s}
+}
+/* ---- 購入ボタンの光り方をそろえる：金のグラデーションの往復（左右から光が来るように見える）は止め、白い光が左から右へ4秒ごとに1回横切るだけにする。ヘッダーのボタンも同じ ---- */
+.nav-cta,.btn-gold{animation:none;background-position:0% center}
+.nav-cta{position:relative;overflow:hidden;isolation:isolate}
+.nav-cta::after{
+  content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;z-index:-1;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);
+  animation:btnSweep 4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion:reduce){.nav-cta::after{display:none}}
 </style>
 </head>
 <body>
@@ -1786,7 +1817,7 @@ footer{
     </div>
     <div class="split" style="margin-bottom:70px">
       <div>
-        <p class="sec-lead reveal">アンチエイジングは、年齢による変化をゆるやかにして、今の状態を保とうとする<strong>「守りのケア」</strong>。それに対してリバースエイジングは、一般的に「若返り」を意味する言葉として、美容や健康の分野で使われています。リエール再生医療研究所では、これを「若作り」ではなく、年齢を重ねた今の体に内側から向き合い、これからの毎日を健やかに過ごすための<strong>「前向きなケア」</strong>と捉えています。<br><br>近年は、老化のしくみを細胞の単位から解き明かそうとする研究が世界中で進み、その知見が美容や健康の分野にも広がりはじめました。クロノ・アール カプセルは、こうした研究の流れに着目して開発されたリバースエイジング サプリメントです。</p>
+        <p class="sec-lead reveal">アンチエイジングは、年齢による変化をゆるやかにして、今の状態を保とうとする<strong>「守りのケア」</strong>。それに対してリバースエイジングは、一般的に「若返り」を意味する言葉として、美容や健康の分野で使われています。リエール再生医療研究所では、これを「若作り」ではなく、<span class="hl">年齢を重ねた今の体に内側から向き合い、これからの毎日を健やかに過ごすための<strong>「前向きなケア」</strong>と捉えています</span>。<br><br>近年は、老化のしくみを細胞の単位から解き明かそうとする研究が世界中で進み、その知見が美容や健康の分野にも広がりはじめました。クロノ・アール カプセルは、こうした研究の流れに着目して開発されたリバースエイジング サプリメントです。</p>
       </div>
       <div class="photo reveal d1">
         <div class="pframe"></div>
@@ -1969,16 +2000,16 @@ footer{
       <div class="price-info">
         <p class="price-en">CHRONO-R CAPSULES</p>
         <p class="price-name">クロノ・アール カプセル</p>
-        <p class="price-amount"><span class="gold-text"><span class="yen">¥</span>150,000</span><span class="tax">（税込）</span></p>
+        <p class="price-amount"><span class="gold-text"><span class="yen">¥</span>159,500</span><span class="tax">（税込）</span></p>
         <dl class="price-spec">
           <div><dt>内容量</dt><dd>0.4g × 4カプセル × <span class="n">30</span>包（約<span class="n">30</span>日分）</dd></div>
           <div><dt>目安</dt><dd><span class="n">1</span>日<span class="n">1</span>包（<span class="n">4</span>カプセル）</dd></div>
         </dl>
         <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
         <ul class="price-notes">
-          <li>【仮】送料：全国一律 無料</li>
-          <li>【仮】お支払い：クレジットカード・銀行振込</li>
-          <li>【仮】1回ごとのご購入です（定期購入ではありません）</li>
+          <li>送料：全国一律 無料</li>
+          <li>お支払い：クレジットカード・銀行振込</li>
+          <li>1回ごとのご購入です（定期購入ではありません）</li>
         </ul>
       </div>
     </div>
@@ -2071,7 +2102,7 @@ footer{
   <div class="f-in">
     <div class="f-left">
       <p class="f-logo gold-text">CHRONO-R</p>
-      <p class="f-company">販売元：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）<br>開発元：リエール再生医療研究所</p>
+      <p class="f-company">開発元：リエール再生医療研究所<br>正規販売店：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）</p>
     </div>
     <div class="f-links">
       <a href="../ingredients.html">商品・成分</a>
@@ -2247,5 +2278,19 @@ footer{
 })();
 </script>
 <!-- ▲▲ 一時的：画面サイズの表示 ここまで ▲▲ -->
+<script>
+/* ---- リバースエイジングとは？：スクロールして線を引く文が画面の下から15%の位置まで来たら、線を引く ---- */
+(function(){
+  const els=[...document.querySelectorAll('.rev .sec-lead .hl')];
+  function check(){
+    const line=window.innerHeight*.85;
+    els.forEach(e=>{if(!e.classList.contains('on')&&e.getBoundingClientRect().top<line)e.classList.add('on')});
+    if(els.every(e=>e.classList.contains('on')))window.removeEventListener('scroll',check);
+  }
+  window.addEventListener('scroll',check,{passive:true});
+  window.addEventListener('load',check);
+  check();
+})();
+</script>
 </body>
 </html>

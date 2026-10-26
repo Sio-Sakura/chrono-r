@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>開発元・販売店について - リエール再生医療研究所とHATSUGA | クロノ・アール カプセル</title>
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="description" content="クロノ・アール カプセルの開発元・リエール再生医療研究所と、販売店・幹細胞育毛ラボ HATSUGA（東京・銀座）を紹介します。研究所の考え方、ニューヨークでの Next Era Beauty部門の受賞、販売店の所在地やアクセスまで、購入の前に確かめられます。">
 <link rel="canonical" href="https://chrono-r-capsules.com/about/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,7 +128,7 @@ nav a.navlink[aria-current="page"]::after{width:100%}
 .btn-gold::after{
   content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
   background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);
-  animation:btnSweep 3.6s ease-in-out infinite;
+  animation:btnSweep 4s ease-in-out infinite;
 }
 @keyframes btnSweep{
   0%{left:-80%}
@@ -357,7 +360,7 @@ footer{
 .ki h3{font-family:var(--mincho);font-size:clamp(19px,1.8vw,22px);font-weight:600;letter-spacing:.08em;line-height:1.6;color:var(--head);margin-bottom:12px}
 .ki .ki-src{
   display:inline-block;font-size:13px;font-weight:500;letter-spacing:.06em;line-height:1.5;
-  padding:6px 14px;border-radius:999px;background:#ece6d6;color:var(--head);margin-bottom:14px;
+  padding:6px 14px;border-radius:999px;background:var(--bg-deep);color:var(--head);margin-bottom:14px;
 }
 .ki p{font-size:15px;line-height:2;letter-spacing:.05em;color:var(--text)}
 .note{position:relative;z-index:1;font-size:13px;letter-spacing:.06em;line-height:1.8;color:var(--dim);margin-top:26px}
@@ -865,7 +868,7 @@ footer{
 /* ホームのアイコン画像は、絵のまわりに余白がある（絵は画像の81%）。こちらの画像は余白がないので、その分だけ小さく置いて、絵の大きさをそろえる */
 .role .hex .ic{display:block;width:55%;height:55%;object-fit:contain}
 .role h3{font-family:var(--mincho);font-size:clamp(20px,2.1vw,25px);font-weight:600;letter-spacing:.08em;line-height:1.6;color:var(--head);margin-bottom:14px}
-.role-do{display:inline-block;font-size:13px;font-weight:500;letter-spacing:.06em;line-height:1.5;padding:6px 16px;border-radius:999px;background:#ece6d6;color:var(--head);margin-bottom:16px}
+.role-do{display:inline-block;font-size:13px;font-weight:500;letter-spacing:.06em;line-height:1.5;padding:6px 16px;border-radius:999px;background:var(--bg-deep);color:var(--head);margin-bottom:16px}
 .role p.role-txt{font-size:15px;line-height:1.8;letter-spacing:.04em;color:var(--text);text-align:left;line-break:strict}
 .role .link-more{margin-top:auto;font-size:16px;padding:14px 20px 14px}
 .role .role-txt{margin-bottom:10px}
@@ -1121,6 +1124,32 @@ footer{
 .info .spec .txt-link{vertical-align:top}
 /* 359px以下：03 のカードの見出しは、1行に入りきらないときは折り返す（カードからはみ出さないように） */
 @media (max-width:359px){#philosophy .cell h3{white-space:normal;text-wrap:balance;line-height:1.6}}
+/* ---- フッター：左右が横に並ぶ幅（1000px以上）では、右のリンク3行の上下を、左の3行（ロゴ〜2行目）の文字の上端・下端にそろえる ---- */
+@media (min-width:1000px){
+  .f-links{margin-top:9px;row-gap:16.5px}
+  footer{--flogo-mt:-5px;--flogo-mb:11px}
+}
+/* フッターのロゴを5px大きく（23px→28px）。左の3行の上端・下端は右のリンク3行とそろえたまま（値は実測で合わせる） */
+.f-logo{font-size:28px;margin-top:var(--flogo-mt,0px);margin-bottom:var(--flogo-mb,16px)}
+/* ---- 540px以下：ヘッダーのロゴと購入ボタンをホームと同じ大きさにし、折り返さない。入りきらない幅ではJSで文字を小さくして、間を5px以上あける ---- */
+@media (max-width:540px){
+  .logo{font-size:20.9px}
+  .nav-cta{font-size:17.4px;padding:7.7px 18.4px}
+  .logo,.nav-cta{white-space:nowrap}
+}
+@media (max-width:389px){.nav-cta{font-size:16.3px;padding:7.7px 14px}}
+@media (max-width:374px){.nav-cta{font-size:15px;padding:7px 13px}}
+@media (max-width:356px){.logo{font-size:19px}}
+@media (max-width:345px){.nav-cta{font-size:14px}}
+/* ---- 購入ボタンの光り方をそろえる：金のグラデーションの往復（左右から光が来るように見える）は止め、白い光が左から右へ4秒ごとに1回横切るだけにする。ヘッダーのボタンも同じ ---- */
+.nav-cta,.btn-gold{animation:none;background-position:0% center}
+.nav-cta{position:relative;overflow:hidden;isolation:isolate}
+.nav-cta::after{
+  content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;z-index:-1;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);
+  animation:btnSweep 4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion:reduce){.nav-cta::after{display:none}}
 </style>
 </head>
 <body>
@@ -1142,7 +1171,7 @@ footer{
 <main id="main" tabindex="-1">
 
 <!-- ページの見出し＋目次（このページは中央寄せ。目次は横に並べる） -->
-<section class="phero phero-c">
+<section class="phero">
   <div class="wrap">
     <nav aria-label="現在地">
       <ol class="ph-crumb" role="list">
@@ -1150,23 +1179,25 @@ footer{
         <li aria-current="page">開発元・販売店について</li>
       </ol>
     </nav>
-    <div class="phc">
-      <h1 class="ph-title"><span class="nw">クロノ・アール カプセルの</span><br><span class="nw">開発元・販売店について</span></h1>
-      <p class="ph-label" lang="en">DEVELOPER &amp; STORE</p>
-      <p class="ph-lead">クロノ・アール カプセルは、リエール再生医療研究所が開発し、東京・銀座の幹細胞育毛ラボ HATSUGA が販売しているリバースエイジング サプリメントです。誰がつくり、誰がお届けしているのか。購入の前に確かめておきたい開発元と販売店のことを、このページにまとめました。</p>
+    <div class="ph-grid">
+      <div>
+        <h1 class="ph-title"><span class="nw">クロノ・アール カプセルの</span><br><span class="nw">開発元・販売店について</span></h1>
+        <p class="ph-label" lang="en">DEVELOPER &amp; STORE</p>
+        <p class="ph-lead">クロノ・アール カプセルは、リエール再生医療研究所が開発し、東京・銀座の幹細胞育毛ラボ HATSUGA が販売しているリバースエイジング サプリメントです。誰がつくり、誰がお届けしているのか。購入の前に確かめておきたい開発元と販売店のことを、このページにまとめました。</p>
+      </div>
+      <nav class="toc" aria-label="このページの内容">
+        <p class="toc-ttl" lang="en">CONTENTS</p>
+        <ol role="list">
+          <li><a href="#roles"><span class="no">01</span>開発元と販売店の役割</a></li>
+          <li><a href="#developer"><span class="no">02</span>リエール再生医療研究所とは</a></li>
+          <li><a href="#philosophy"><span class="no">03</span>研究所の3つの考え方</a></li>
+          <li><a href="#award"><span class="no">04</span>受賞歴</a></li>
+          <li><a href="#product"><span class="no">05</span>商品に込めた想い</a></li>
+          <li><a href="#store"><span class="no">06</span>正規販売店 HATSUGA</a></li>
+          <li><a href="#contact"><span class="no">07</span>ご購入・お問い合わせ</a></li>
+        </ol>
+      </nav>
     </div>
-    <nav class="toc-row" aria-label="このページの内容">
-      <p class="toc-ttl" lang="en">CONTENTS</p>
-      <ol role="list">
-        <li><a href="#roles"><span class="no">01</span>開発元と販売店の役割</a></li>
-        <li><a href="#developer"><span class="no">02</span>リエール再生医療研究所とは</a></li>
-        <li><a href="#philosophy"><span class="no">03</span>研究所の3つの考え方</a></li>
-        <li><a href="#award"><span class="no">04</span>受賞歴</a></li>
-        <li><a href="#product"><span class="no">05</span>商品に込めた想い</a></li>
-        <li><a href="#store"><span class="no">06</span>販売店 HATSUGA</a></li>
-        <li><a href="#contact"><span class="no">07</span>ご購入・お問い合わせ</a></li>
-      </ol>
-    </nav>
   </div>
 </section>
 
@@ -1209,7 +1240,7 @@ footer{
         <h2 class="sec-title"><span class="nw">リエール再生医療研究所とは</span></h2>
         <p class="sec-en" lang="en">DEVELOPER</p>
         <p class="sec-lead">リエール再生医療研究所は、<strong>再生医療の技術を美容と健康の分野に生かし</strong>、商品の開発と販売を行っている研究所です。民間での再生医療の普及を目指して、日本から世界へ発信を続けています。</p>
-        <p class="sec-lead">開発しているのは、再生医療の技術を活用した、美容・健康の商品など、毎日の暮らしの中で使える商品です。再生医療の研究で積み重ねられてきた知見を、多くの人が手に取れる形にすることを大切にしています。</p>
+        <p class="sec-lead">開発しているのは、その技術を活用した、美容・健康の商品など、毎日の暮らしの中で使える商品です。研究で積み重ねられてきた知見を、多くの人が手に取れる形にすることを大切にしています。</p>
         <p class="sec-lead">2024年5月には、ニューヨークで開かれた Next Era Leaders Award で、Next Era Beauty部門を受賞しました。クロノ・アール カプセルは、この研究所が開発したサプリメントです。</p>
       </div>
       <div class="info reveal d1">
@@ -1217,8 +1248,12 @@ footer{
         <dl class="spec">
           <div><dt>名称</dt><dd>リエール再生医療研究所</dd></div>
           <div><dt>運営</dt><dd>リエール株式会社</dd></div>
+          <div><dt>代表</dt><dd>柴田リエール<small>リエールグループ代表</small></dd></div>
+          <div><dt>創業</dt><dd><span class="n">2003</span>年</dd></div>
           <div><dt>取り組み</dt><dd>再生医療の技術を活用した、美容・健康商品の開発と販売</dd></div>
           <div><dt>受賞</dt><dd><span class="n">2024</span>年<span class="n">5</span>月 Next Era Leaders Award<br>Next Era Beauty部門</dd></div>
+          <div><dt>主なメディア掲載</dt><dd><span class="nw">TOKYO MX「シゴト手帖」</span><span class="nw">（<span class="n">2023</span>年<span class="n">5</span>月）</span><br><span class="nw">ウォール・ストリート・ジャーナル</span> <span class="nw">世界版（<span class="n">2023</span>年<span class="n">6</span>月）</span><br><span class="nw">Newsweek日本版</span><span class="nw">（<span class="n">2023</span>年<span class="n">6</span>月）</span><br><span class="nw">雑誌「Qualitas」ほか</span></dd></div>
+          <div><dt>出店</dt><dd><span class="n">2023</span>年<span class="n">9</span>月 <span class="nw">羽田エアポートガーデン</span><span class="nw">（羽田空港第3ターミナル直結）</span></dd></div>
           <div><dt>開発商品</dt><dd><a class="txt-link" href="ingredients.html">クロノ・アール カプセル（成分・全原材料一覧）</a></dd></div>
           <div><dt>Webサイト</dt><dd><a class="txt-link" href="https://senolytics-rieir.jp/" target="_blank" rel="noopener" aria-label="リエール再生医療研究所のWebサイト（別の画面で開きます）">senolytics-rieir.jp</a></dd></div>
         </dl>
@@ -1240,7 +1275,7 @@ footer{
       <div class="cell reveal">
         <span class="big" aria-hidden="true"><span class="gold-text"><span class="no">No.</span><span class="n">1</span></span></span>
         <h3>再生医療を、もっと身近なものに</h3>
-        <p>研究所が目指しているのは、民間での再生医療の普及です。再生医療の技術を生かした商品を開発し、毎日の暮らしの中で手に取れる形にして届けています。</p>
+        <p>研究所が目指しているのは、民間での再生医療の普及です。その技術を生かした商品を開発し、毎日の暮らしの中で手に取れる形にして届けています。</p>
       </div>
       <div class="cell reveal d1">
         <span class="big" aria-hidden="true"><span class="gold-text"><span class="no">No.</span><span class="n">2</span></span></span>
@@ -1302,7 +1337,7 @@ footer{
       </div>
       <div class="cn-item">
         <h3>開発の考え方</h3>
-        <p>年齢を重ねることは、衰えていくことだけではない。そう考える研究所が、成分の配合に独自の黄金比バランスを取り入れ、ナノテクノロジーを応用した「DDSリエール製法」で形にしました。研究の知見を、毎日続けられる1日1包にまとめています。</p>
+        <p>この研究所が、成分の配合に独自の黄金比バランスを取り入れ、ナノテクノロジーを応用した「DDSリエール製法」で形にしました。研究の知見を、毎日続けられる1日1包にまとめています。</p>
       </div>
     </div>
     <div class="tc"><a class="link-more" href="ingredients.html">成分・全原材料一覧を見る<span class="arrow"></span></a></div>
@@ -1314,9 +1349,9 @@ footer{
   <div class="wrap">
     <div class="hd reveal">
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">06</span></p>
-      <h2 class="sec-title"><span class="nw">販売店</span><span class="bar">｜</span><span class="nw">幹細胞育毛ラボ HATSUGA</span></h2>
+      <h2 class="sec-title"><span class="nw">正規販売店</span><span class="bar">｜</span><span class="nw">幹細胞育毛ラボ HATSUGA</span></h2>
       <p class="sec-en" lang="en">STORE</p>
-      <p class="sec-lead">幹細胞育毛ラボ HATSUGA は、東京・銀座にある完全個室のスカルプケアサロンです。<br class="br-pc">開発元のリエール再生医療研究所と提携し、クロノ・アール カプセルの販売店としてこのサイトを運営しています。<br class="br-pc">店名の「HATSUGA」は「発芽」から。芽吹く新芽のような生命力を、名前に込めています。</p>
+      <p class="sec-lead">幹細胞育毛ラボ HATSUGA は、東京・銀座にある完全個室のスカルプケアサロンです。<br class="br-pc">開発元のリエール再生医療研究所と提携し、クロノ・アール カプセルの正規販売店としてこのサイトを運営しています。<br class="br-pc">店名の「HATSUGA」は「発芽」から。芽吹く新芽のような生命力を、名前に込めています。</p>
     </div>
     <ul class="steps vals" role="list">
       <li class="step reveal">
@@ -1381,7 +1416,7 @@ footer{
   <div class="f-in">
     <div class="f-left">
       <p class="f-logo gold-text">CHRONO-R</p>
-      <p class="f-company">販売元：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）<br>開発元：リエール再生医療研究所</p>
+      <p class="f-company">開発元：リエール再生医療研究所<br>正規販売店：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）</p>
     </div>
     <div class="f-links">
       <a href="ingredients.html">商品・成分</a>
@@ -1463,6 +1498,26 @@ footer{
     });
   },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+</script>
+<script>
+/* ---- 540px以下：ヘッダーのロゴとボタンの間が5pxより狭くなる幅では、両方の文字を少しずつ小さくして1行に収める（ホームと同じ） ---- */
+(function(){
+  const hdLogo=document.querySelector('header .logo'),hdCta=document.querySelector('header .nav-cta');
+  function fitHeader(){
+    if(!hdLogo||!hdCta)return;
+    hdLogo.style.fontSize='';hdCta.style.fontSize='';
+    if(!window.matchMedia('(max-width:540px)').matches)return;
+    const l0=parseFloat(getComputedStyle(hdLogo).fontSize),c0=parseFloat(getComputedStyle(hdCta).fontSize);
+    for(let i=0,k=1;i<30;i++){
+      if(hdCta.getBoundingClientRect().left-hdLogo.getBoundingClientRect().right>=5)break;
+      k-=.02;hdLogo.style.fontSize=(l0*k)+'px';hdCta.style.fontSize=(c0*k)+'px';
+    }
+  }
+  fitHeader();
+  window.addEventListener('resize',fitHeader);
+  window.addEventListener('load',fitHeader);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitHeader);
 })();
 </script>
 </body>

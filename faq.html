@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>よくある質問 - 飲み方・成分・ご購入について | クロノ・アール カプセル</title>
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="description" content="クロノ・アール カプセルのよくある質問をまとめました。飲み方やタイミング、成分・原材料、薬との飲み合わせ、価格・お支払い・お届け、開発元と販売店のことまで。ご購入の前に確かめておきたいことにお答えします。">
 <link rel="canonical" href="https://chrono-r-capsules.com/faq/">
 <!-- 構造化データ（よくある質問）。画面には出ない。
@@ -123,7 +126,7 @@
    "name": "クロノ・アール カプセルは、誰がつくって、誰が販売していますか？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "開発したのは、リエール再生医療研究所です。販売は、東京・銀座の幹細胞育毛ラボ HATSUGA が行っています。詳しくは、開発元・販売店についてのページで紹介しています。"
+    "text": "開発したのは、リエール再生医療研究所です。販売は、開発元の正規販売店である、東京・銀座の幹細胞育毛ラボ HATSUGA が行っています。詳しくは、開発元・販売店についてのページで紹介しています。"
    }
   },
   {
@@ -147,7 +150,7 @@
    "name": "商品についての問い合わせは、どこにすればいいですか？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "販売店の幹細胞育毛ラボ HATSUGA が承ります。下のメールアドレスまでお問い合わせください。hatsuga.scalp@gmail.com"
+    "text": "販売店の幹細胞育毛ラボ HATSUGA が承ります。下のメールアドレスまでお問い合わせください。kumiko.michiwa@hatamama.co.jp"
    }
   }
  ]
@@ -272,7 +275,7 @@ nav a.navlink[aria-current="page"]::after{width:100%}
 .btn-gold::after{
   content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
   background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);
-  animation:btnSweep 3.6s ease-in-out infinite;
+  animation:btnSweep 4s ease-in-out infinite;
 }
 @keyframes btnSweep{
   0%{left:-80%}
@@ -697,6 +700,32 @@ footer{
   .ct-box{padding:0 20px}
   .ct-mail{font-size:16.5px;letter-spacing:.01em}
 }
+/* ---- フッター：左右が横に並ぶ幅（1000px以上）では、右のリンク3行の上下を、左の3行（ロゴ〜2行目）の文字の上端・下端にそろえる ---- */
+@media (min-width:1000px){
+  .f-links{margin-top:9px;row-gap:16.5px}
+  footer{--flogo-mt:-5px;--flogo-mb:11px}
+}
+/* フッターのロゴを5px大きく（23px→28px）。左の3行の上端・下端は右のリンク3行とそろえたまま（値は実測で合わせる） */
+.f-logo{font-size:28px;margin-top:var(--flogo-mt,0px);margin-bottom:var(--flogo-mb,16px)}
+/* ---- 540px以下：ヘッダーのロゴと購入ボタンをホームと同じ大きさにし、折り返さない。入りきらない幅ではJSで文字を小さくして、間を5px以上あける ---- */
+@media (max-width:540px){
+  .logo{font-size:20.9px}
+  .nav-cta{font-size:17.4px;padding:7.7px 18.4px}
+  .logo,.nav-cta{white-space:nowrap}
+}
+@media (max-width:389px){.nav-cta{font-size:16.3px;padding:7.7px 14px}}
+@media (max-width:374px){.nav-cta{font-size:15px;padding:7px 13px}}
+@media (max-width:356px){.logo{font-size:19px}}
+@media (max-width:345px){.nav-cta{font-size:14px}}
+/* ---- 購入ボタンの光り方をそろえる：金のグラデーションの往復（左右から光が来るように見える）は止め、白い光が左から右へ4秒ごとに1回横切るだけにする。ヘッダーのボタンも同じ ---- */
+.nav-cta,.btn-gold{animation:none;background-position:0% center}
+.nav-cta{position:relative;overflow:hidden;isolation:isolate}
+.nav-cta::after{
+  content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;z-index:-1;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);
+  animation:btnSweep 4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion:reduce){.nav-cta::after{display:none}}
 </style>
 </head>
 <body>
@@ -865,13 +894,13 @@ footer{
           <details class="qa">
             <summary><span class="mark" aria-hidden="true">Q.</span><h3 class="q">価格はいくらですか？</h3><span class="tg" aria-hidden="true"></span></summary>
             <div class="a"><span class="mark" aria-hidden="true">A.</span><div class="a-body">
-              <p>1箱（約30日分）150,000円（税込）です。<span class="kari">要確認：販売価格</span></p>
+              <p>1箱（約30日分）159,500円（税込）です。</p>
             </div></div>
           </details>
           <details class="qa">
             <summary><span class="mark" aria-hidden="true">Q.</span><h3 class="q">お支払い方法は何がありますか？</h3><span class="tg" aria-hidden="true"></span></summary>
             <div class="a"><span class="mark" aria-hidden="true">A.</span><div class="a-body">
-              <p>クレジットカードでお支払いいただけます。<span class="kari">要確認：クレジットカード以外の支払い方法</span></p>
+              <p>クレジットカードと銀行振込でお支払いいただけます。ご購入ページでお選びください。銀行振込の振込手数料は、お客様のご負担となります。</p>
             </div></div>
           </details>
           <details class="qa">
@@ -883,19 +912,19 @@ footer{
           <details class="qa">
             <summary><span class="mark" aria-hidden="true">Q.</span><h3 class="q">送料はかかりますか？</h3><span class="tg" aria-hidden="true"></span></summary>
             <div class="a"><span class="mark" aria-hidden="true">A.</span><div class="a-body">
-              <p>送料は全国一律 無料です。<span class="kari">仮</span></p>
+              <p>送料は全国一律 無料です。</p>
             </div></div>
           </details>
           <details class="qa">
             <summary><span class="mark" aria-hidden="true">Q.</span><h3 class="q">注文してから、どのくらいで届きますか？</h3><span class="tg" aria-hidden="true"></span></summary>
             <div class="a"><span class="mark" aria-hidden="true">A.</span><div class="a-body">
-              <p>ご注文から〇営業日以内に発送します。<span class="kari">仮</span></p>
+              <p>ご注文から5営業日を目安に発送します。銀行振込の場合は、お振込みを確認してから5営業日が目安です。ご注文状況により前後する可能性があります。</p>
             </div></div>
           </details>
           <details class="qa">
             <summary><span class="mark" aria-hidden="true">Q.</span><h3 class="q">返品・交換・キャンセルはできますか？</h3><span class="tg" aria-hidden="true"></span></summary>
             <div class="a"><span class="mark" aria-hidden="true">A.</span><div class="a-body">
-              <p>商品に不良があった場合や、ご注文と違う商品が届いた場合は、交換または返金します。食品のため、お客様のご都合による返品・交換はお受けしていません。ご注文のキャンセルは、商品の発送前まで受け付けます。<span class="kari">仮</span></p>
+              <p>商品に不良があった場合や、ご注文と違う商品が届いた場合は、商品の到着から7日以内にご連絡ください。交換または返金します。食品のため、お客様のご都合による返品・交換はお受けしていません。ご注文のキャンセルは、商品の発送前まで受け付けます。</p>
               <p>詳しくは、<a class="txt-link" href="tokushoho.html">特定商取引法に基づく表記</a>をご確認ください。</p>
             </div></div>
           </details>
@@ -910,7 +939,7 @@ footer{
           <details class="qa">
             <summary><span class="mark" aria-hidden="true">Q.</span><h3 class="q">クロノ・アール カプセルは、誰がつくって、誰が販売していますか？</h3><span class="tg" aria-hidden="true"></span></summary>
             <div class="a"><span class="mark" aria-hidden="true">A.</span><div class="a-body">
-              <p>開発したのは、リエール再生医療研究所です。販売は、東京・銀座の幹細胞育毛ラボ HATSUGA が行っています。詳しくは、<a class="txt-link" href="about.html">開発元・販売店について</a>のページで紹介しています。</p>
+              <p>開発したのは、リエール再生医療研究所です。販売は、開発元の正規販売店である、東京・銀座の幹細胞育毛ラボ HATSUGA が行っています。詳しくは、<a class="txt-link" href="about.html">開発元・販売店について</a>のページで紹介しています。</p>
             </div></div>
           </details>
           <details class="qa">
@@ -930,7 +959,7 @@ footer{
             <summary><span class="mark" aria-hidden="true">Q.</span><h3 class="q">商品についての問い合わせは、どこにすればいいですか？</h3><span class="tg" aria-hidden="true"></span></summary>
             <div class="a"><span class="mark" aria-hidden="true">A.</span><div class="a-body">
               <p>販売店の幹細胞育毛ラボ HATSUGA が承ります。下のメールアドレスまでお問い合わせください。</p>
-              <p><a class="txt-link" href="mailto:hatsuga.scalp@gmail.com">hatsuga.scalp@gmail.com</a></p>
+              <p><a class="txt-link" href="mailto:kumiko.michiwa@hatamama.co.jp">kumiko.michiwa@hatamama.co.jp</a></p>
             </div></div>
           </details>
         </div>
@@ -952,7 +981,7 @@ footer{
       <div class="ct-col">
         <h3>メールでのお問い合わせ</h3>
         <p><span class="nw">商品やご注文についてのご質問は、</span><br><span class="nw">こちらのメールへお送りください。</span></p>
-        <div class="ct-act"><a class="ct-mail" href="mailto:hatsuga.scalp@gmail.com">hatsuga.scalp@gmail.com</a></div>
+        <div class="ct-act"><a class="ct-mail" href="mailto:kumiko.michiwa@hatamama.co.jp">kumiko.michiwa@hatamama.co.jp</a></div>
       </div>
       <div class="ct-col">
         <h3>ご購入</h3>
@@ -973,7 +1002,7 @@ footer{
   <div class="f-in">
     <div class="f-left">
       <p class="f-logo gold-text">CHRONO-R</p>
-      <p class="f-company">販売元：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）<br>開発元：リエール再生医療研究所</p>
+      <p class="f-company">開発元：リエール再生医療研究所<br>正規販売店：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）</p>
     </div>
     <div class="f-links">
       <a href="ingredients.html">商品・成分</a>
@@ -1027,6 +1056,26 @@ footer{
     });
   },{threshold:.05,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+</script>
+<script>
+/* ---- 540px以下：ヘッダーのロゴとボタンの間が5pxより狭くなる幅では、両方の文字を少しずつ小さくして1行に収める（ホームと同じ） ---- */
+(function(){
+  const hdLogo=document.querySelector('header .logo'),hdCta=document.querySelector('header .nav-cta');
+  function fitHeader(){
+    if(!hdLogo||!hdCta)return;
+    hdLogo.style.fontSize='';hdCta.style.fontSize='';
+    if(!window.matchMedia('(max-width:540px)').matches)return;
+    const l0=parseFloat(getComputedStyle(hdLogo).fontSize),c0=parseFloat(getComputedStyle(hdCta).fontSize);
+    for(let i=0,k=1;i<30;i++){
+      if(hdCta.getBoundingClientRect().left-hdLogo.getBoundingClientRect().right>=5)break;
+      k-=.02;hdLogo.style.fontSize=(l0*k)+'px';hdCta.style.fontSize=(c0*k)+'px';
+    }
+  }
+  fitHeader();
+  window.addEventListener('resize',fitHeader);
+  window.addEventListener('load',fitHeader);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitHeader);
 })();
 </script>
 </body>
