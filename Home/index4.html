@@ -511,8 +511,8 @@ section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
   .rev .split .pic img{object-position:left top}
 }
 .concept .concept-lead-jp{font-size:15px;letter-spacing:.24em;color:var(--text);margin-top:-20px;margin-bottom:60px}
-.concept .concept-lead-jp span{display:inline-flex;align-items:center;gap:16px;line-height:1}
-.concept .concept-lead-jp span::before{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:translateY(1.5px) rotate(45deg);flex:none}
+.concept .concept-lead-jp > span{display:inline-flex;align-items:center;gap:16px;line-height:1}
+.concept .concept-lead-jp > span::before{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:translateY(1.5px) rotate(45deg);flex:none}
 .concept .concept-grid{
   max-width:900px;box-sizing:border-box;gap:clamp(36px,6vw,84px);align-items:stretch;
   padding:clamp(22px,calc(4.4vw - 10px),46px) clamp(24px,5.4vw,70px);
@@ -1258,6 +1258,10 @@ footer{
 @media (max-width:393px){
   .concept .tate{font-size:18px}
 }
+/* 359px以下：「未来の再生科学を、日常へ。」が四角の中に入る大きさまで小さくする（文章が四角からはみ出さないように） */
+@media (max-width:359px){
+  .concept .tate{font-size:min(18px,calc((100vw - 96px) / 14.6))}
+}
 /* ---- 540px以下：3つの理由の「No.1〜No.3」を3px大きく ---- */
 @media (max-width:540px){
   .cell .big .no{font-size:41px}
@@ -1450,7 +1454,7 @@ footer{
   .wrap{--gf:calc(15vw + 30px)}
   .rev .wrap{--gf:min(calc(15vw + 30px),calc((88vw + 16px) / 5.16))}
   .ing .wrap{--gf:min(calc(15vw + 30px),calc((88vw + 16px) / 4.04))}
-  .ghost{font-size:var(--gf);top:calc(23.7px - .29 * var(--gf))}
+  .ghost{font-size:var(--gf);top:calc(23.7px - .36 * var(--gf))}
   .sec-head{margin-bottom:calc(.46 * var(--gf) - 18.5px)}
 }
 @media (max-width:402px){
@@ -1511,6 +1515,164 @@ footer{
 /* ---- 402px以下：コンセプトの2・3段落目の字間を少し詰めて、最後の行に「す。」などが1〜2文字だけ残らないようにする ---- */
 @media (max-width:402px){
   .concept .concept-body p:not(:first-child){letter-spacing:.02em}
+}
+/* ---- 540px以下：中央揃えの見出しで、行の最後の「、」は数えずに中央に置く（「、」は右にはみ出させる）。
+   行の最後に来ているときだけ（JSで判定）。行の途中にあるときは普通の「、」のまま ---- */
+@media (max-width:540px){
+  /* ひとかたまりの言葉（.ph）の中の「、」は、かたまりごと右へはみ出させる。それ以外は「、」だけはみ出させる */
+  .ph:has(> .hang.at-end){margin-right:-1.02em}
+  :not(.ph) > .hang.at-end{letter-spacing:0;margin-right:-1em}
+  .sec-title .hang-nl,.final-catch .hang-nl{display:block}
+  /* 次の言葉を1行にしたとき、その後の改行で空の行ができないようにする */
+  .sec-title .hang-nl + br{display:none}
+}
+/* ---- 540px以下：Regenerate Your Time を3px大きく（1行のまま。入らない幅では入る大きさで止める） ---- */
+@media (max-width:540px){
+  .concept .concept-lead{font-size:min(32px,calc((100vw - 48px) / 9.6));white-space:nowrap}
+}
+/* 360〜392pxは左右の線が消えないよう、文字との間を18pxにし、線を10px以上残す大きさで止める（359px以下は線がなくてもよい） */
+@media (min-width:360px) and (max-width:392px){
+  .concept .concept-lead{gap:18px;font-size:min(32px,calc((100vw - 48px - 56px) / 8.44))}
+}
+/* ---- 540px以下：比較図の「守りのケア」「前向きなケア」は、2枚とも見出しの下に置いて位置をそろえる ---- */
+@media (max-width:540px){
+  .vs-head{flex-direction:column;align-items:flex-start;gap:10px}
+}
+/* ---- 540px以下：成分の大見出しは言葉のかたまりで区切らず、行いっぱいまで使って折り返す ---- */
+@media (max-width:540px){
+  .ing .sec-title br{display:none}
+  .ing .sec-title .ph{display:inline}
+}
+/* 成分とコラムの大見出し：ほかの大見出しと同じ大きさにできるだけ揃え、14文字の行（「フィセチン配合。話題の成分を」「コラム｜リバースエイジングと」）が1行に入る大きさを上限にする。成分は3行、コラムは2行 */
+@media (min-width:403px) and (max-width:540px){
+  .ing .sec-title,.col-title{font-size:min(clamp(27px,calc(5.35vw + 5px),29px),calc(88vw / 12.3),calc(88vw / 14.4))}
+}
+@media (max-width:402px){
+  .ing .sec-title,.col-title{font-size:min(27px,calc((100vw - 48px) / 12.3),calc((100vw - 48px) / 14.4))}
+}
+/* ---- 540px以下：リバースエイジング・成分・開発元は「大見出し → 写真 → 文章」の順にする ---- */
+@media (max-width:540px){
+  .rev .split{display:flex;flex-direction:column;gap:0}
+  .rev .split .photo{order:-1}
+  .split.ing-split{display:flex;flex-direction:column;gap:0}
+  .ing .ing-head{display:contents}
+  .ing .ing-head .sec-head{order:0}
+  .ing .ing-head .sec-title{order:1}
+  .split.ing-split .photo{order:2}
+  .ing .ing-head .sec-lead{order:3}
+  .award .dev-split{display:flex;flex-direction:column;gap:0}
+  .award .dev-top{display:contents}
+  .award .dev-top .sec-head{order:0}
+  .award .dev-top .sec-title{order:1}
+  .award .dev-split .photo{order:2}
+  .award .award-lead{order:3}
+  .award .award-body{order:4}
+  .award .award-date{order:5}
+  .award .dev-bottom{order:6}
+  /* 写真の上下の間（大見出し〜写真、写真〜文章）。値は下で実測して合わせる */
+  .rev .split .photo,.split.ing-split .photo,.award .dev-split .photo{margin:var(--ph-top,0px) 0 var(--ph-bot,0px)}
+  /* 大見出し〜写真40px・写真の金の枠〜文章40px・文章〜次のかたまり40px（比較カード・成分のアイコン・開発元のリンク）になるよう実測で合わせた値 */
+  .rev .split .photo{--ph-top:-14px;--ph-bot:46px}
+  .split.ing-split .photo{--ph-top:-14px;--ph-bot:46px}
+  .award .dev-split .photo{--ph-top:-14px;--ph-bot:58px}
+  .rev .split{margin-bottom:0!important}
+  .rev .vs-grid{margin-top:33px}
+  .ing .ing-grid{margin-top:-71px}
+  .award .dev-bottom .link-more{margin-top:39px}
+}
+/* ---- 540px以下：3つの証明を縦並びにする（1つずつ横一行：アイコン → 英語 → 日本語。区切り線は横線） ---- */
+@media (max-width:540px){
+  .hero-badges{flex-direction:column;align-items:stretch;padding:4px 0}
+  .hero-badges::before,.hero-badges::after{display:none}
+  .hero-badges .hb{padding:5px 0}
+  /* アイコン〜英語の間は16px（文字の見た目で）。幅が足りないときは、左右の余白と同じだけ均等に縮める */
+  .hero-badges{--hbw-en:122px;--hbw-jp:8px;--hbw-c:355px}
+  .hero-badges .hb .hbw{--g:min(17px,calc((100cqw - var(--hbw-c)) / 4));width:calc(var(--hbw-c) + 2 * var(--g));margin:0 auto;display:grid;grid-template-columns:36px var(--hbw-en) auto;column-gap:var(--g);align-items:center;text-align:left}
+  /* アイコン36px */
+  .hero-badges .hb .hbw .ic{width:36px;height:36px;margin:0}
+  /* 英語17px（2024は26px）、日本語18px（30は22px）。英語と日本語の間は540pxで25px */
+  .hero-badges .hb .hbw .s{width:auto;justify-content:flex-start;margin:0;text-indent:0;font-size:17px}
+  .hero-badges .hb .hbw .t{line-height:1;margin-top:0;padding-bottom:0;font-size:18px;margin-left:var(--hbw-jp,5px)}
+  .hero-badges .hb .hbw .s .nb{font-size:26px}
+  .hero-badges .hb .hbw .t .nb{font-size:22px}
+  .hero-badges .hbw .hb-br{display:none}
+  .hero-badges .sep{flex:0 0 1px;height:1px}
+  .hero-badges .sep::before,.hero-badges .sep:nth-child(2)::before,.hero-badges .sep:nth-child(4)::before{top:0;bottom:auto;left:24px;right:24px;width:auto;height:1px;margin:0;transform:none}
+}
+@media (max-width:402px){
+  .hero-badges{--hbw-en:117px;--hbw-c:350px}
+}
+/* ---- 430px以下：3つの証明のアイコンと日本語を1px小さく（アイコン35px、日本語17px、30は21px） ---- */
+@media (max-width:430px){
+  .hero-badges .hb .hbw{grid-template-columns:35px var(--hbw-en) auto}
+  .hero-badges .hb .hbw .ic{width:35px;height:35px}
+  .hero-badges .hb .hbw .t{font-size:17px}
+  .hero-badges .hb .hbw .t .nb{font-size:21px}
+  .hero-badges{--hbw-c:344px}
+}
+@media (max-width:402px){
+  .hero-badges{--hbw-c:339px}
+}
+/* ---- 393px以下：3つの証明は、アイコンの右に英語、その下に日本語の2段にする ---- */
+@media (max-width:393px){
+  .hero-badges .hb{padding:10px 0}
+  /* アイコンは英語と日本語の2段と同じ高さ（41px） */
+  /* アイコンと文字の間は23px */
+  .hero-badges .hb .hbw{width:254px;grid-template-columns:41px auto;column-gap:24px}
+  .hero-badges .hb .hbw .ic{grid-row:1 / 3;width:41px;height:41px}
+  .hero-badges .hb .hbw .s{align-self:end;margin-bottom:7px}
+  .hero-badges .hb .hbw .t{align-self:start;margin-left:0}
+  /* 字間を少し広く（英語 .03em→.08em、日本語 .05em→.1em） */
+  .hero-badges .hb .hbw .s{letter-spacing:.08em}
+  .hero-badges .hb .hbw .t{letter-spacing:.1em;margin-right:-.1em}
+}
+/* ---- 360px以下：3つの証明のアイコンを右へ5pxずらし、アイコンと文字の間を5px狭くする（文字の位置はそのまま）。受賞の「2024」を英語と同じ高さの数字に ---- */
+@media (max-width:360px){
+  .hero-badges .hb .hbw{padding-left:5px;column-gap:19px}
+  .award-date{font-variant-numeric:lining-nums}
+}
+/* ---- 403〜540px：CHRONO-R・CAPSULES・キャッチ（再生医療の研究所が開発した、）を1.2倍に。入らない幅では横いっぱいの大きさで止める ---- */
+@media (min-width:403px) and (max-width:540px){
+  .hero-title{font-size:min(72px,18.45cqw)}
+  .hero-h1 .hero-sub-en{font-size:min(33.6px,calc(18.45cqw * 28 / 60))}
+  .hero-kicker{font-size:min(21.6px,calc(100cqw / 18.3));letter-spacing:.3em}
+}
+/* ---- 540px以下：文章の行の間隔を1.8倍に揃える ---- */
+@media (max-width:540px){
+  .hero-copy,.concept-body p,.sec-lead,.vs-text,.cell p,.award-body,.quote-card p:not(.q-title):not(.who),.faq-item .a,.news-card .ex,.final-body,.rev .sec-lead,.concept .concept-body p,.concept .concept-body p:first-child{line-height:1.8}
+}
+/* ---- 540px以下：「あなたの時間を、再び動かすために」のダイヤは、2行になっても1行目の文字の前に置く。2行のときは左詰めで行の端まで入れて折り返す。行の高さは1.5倍（1行のときの上下の位置は今のまま） ---- */
+@media (max-width:540px){
+  .concept .concept-lead-jp > span{align-items:flex-start;line-height:1.5;margin:-.25em 0}
+  .concept .concept-lead-jp > span::before{margin-top:calc(.75em - 3.6px)}
+}
+/* ---- 358px以下：3つの理由のカードの見出しを、1行のままカードの中に入る大きさにする（カードが右にはみ出して中央からずれないように） ---- */
+@media (max-width:358px){
+  .cell h3{font-size:min(17px,calc((100vw - 100px) / 14.75))}
+}
+/* 2行になるときも左揃えのまま折り返す */
+@media (max-width:540px){
+  .concept .concept-lead-jp .lj{text-align:left}
+}
+/* ---- 540px以下：1行で入れるもの（ほか、全30種以上／開発元・販売店について詳しく／価格の商品名／VOICEの見出しは2行）。入らない幅では文字を小さくする ---- */
+@media (max-width:540px){
+  .ing-rest{white-space:nowrap}
+  .award .link-more{white-space:nowrap}
+  .price-name{white-space:nowrap}
+  .voice .sec-title{white-space:nowrap;font-size:min(27px,calc((100vw - 48px) / 12.6))}
+  /* 成分のセクションの右に、ページの地の色（肌色）が出ないようにする */
+  section.ing{overflow-x:clip}
+  /* よくある質問：質問の文は途中で早めに折らず、左詰めで行の端まで入れる */
+  .faq-item .q{text-wrap:wrap;word-break:normal}
+}
+/* 344px以下：開発元・販売店について詳しく が入らないので、入る大きさまで小さくする */
+@media (max-width:344px){
+  .award .link-more{font-size:min(16px,calc((100vw - 100px) / 15.4))}
+}
+/* ---- 540px以下：ページ内の「ご購入はこちら」ボタンは必ず1行。入らない幅では文字を小さくする ---- */
+@media (max-width:540px){
+  .btn-gold{white-space:nowrap;font-size:min(23px,calc((100vw - 138px) / 8.6))}
+  .price-info .btn-gold{font-size:min(23px,calc((100vw - 92px) / 8.6))}
 }
 </style>
 </head>
@@ -1597,10 +1759,10 @@ footer{
     <p class="ghost" aria-hidden="true">Concept</p>
     <div class="hd reveal">
       <div class="sec-head"><span class="label">CONCEPT</span></div>
-      <h2 class="sec-title"><span class="ph">再生医療研究の</span><span class="ph">知見に着目した、</span><br><span class="ph">インナーケア</span> <span class="ph">サプリメント</span></h2>
+      <h2 class="sec-title"><span class="ph">再生医療研究の</span><span class="ph">知見に着目した<span class="hang">、</span></span><br><span class="ph">インナーケア</span> <span class="ph">サプリメント</span></h2>
       <div>
         <p class="concept-lead gold-text" style="margin-bottom:14px">Regenerate Your Time</p>
-        <p class="concept-lead-jp"><span>あなたの時間を、再び動かすために</span></p>
+        <p class="concept-lead-jp"><span><span class="lj">あなたの時間を、再び動かすために</span></span></p>
       </div>
     </div>
     <div class="concept-grid reveal">
@@ -1678,7 +1840,7 @@ footer{
     <p class="ghost" aria-hidden="true">Reasons</p>
     <div class="hd reveal">
       <div class="sec-head"><span class="label">WHY CHRONO-R</span></div>
-      <h2 class="sec-title"><span class="ph">ほかのサプリメントと、</span><span class="ph">何が違う？</span><br><span class="ph">3つの選ばれる理由</span></h2>
+      <h2 class="sec-title"><span class="ph">ほかのサプリメントと<span class="hang">、</span></span><span class="ph">何が違う？</span><br><span class="ph">3つの選ばれる理由</span></h2>
     </div>
     <div class="line-grid cols3" style="margin:110px 0 64px">
       <div class="cell has-hex reveal">
@@ -1855,7 +2017,7 @@ footer{
     <p class="ghost" aria-hidden="true">Column</p>
     <div class="hd reveal">
       <div class="sec-head"><span class="label">COLUMN</span></div>
-      <h2 class="sec-title"><span class="ph">コラム｜</span><span class="ph">リバースエイジングと</span><br><span class="ph">エイジングケアの</span><span class="ph">基礎知識</span></h2>
+      <h2 class="sec-title col-title"><span class="ph">コラム｜</span><span class="ph">リバースエイジングと</span><br><span class="ph">エイジングケアの</span><span class="ph">基礎知識</span></h2>
     </div>
     <div class="news-grid">
       <a class="news-card reveal" href="#" aria-labelledby="col1-title">
@@ -1896,7 +2058,7 @@ footer{
     <p class="ghost" aria-hidden="true">Chrono-R</p>
     <div class="hd reveal">
       <div class="sec-head"><span class="label">CHRONO-R</span></div>
-      <h2 class="final-catch"><span class="nw">アンチエイジングの、</span><span class="nw">その一歩先へ。</span></h2>
+      <h2 class="final-catch"><span class="nw">アンチエイジングの<span class="hang">、</span></span><span class="nw">その一歩先へ<span class="hang">。</span></span></h2>
       <p class="final-body">年齢を重ねることを、あきらめではなく、これからを楽しむきっかけに。<br>リエール再生医療研究所が開発したリバースエイジング サプリメント<span class="nw">「クロノ・アール</span> <span class="nw">カプセル」で、</span>内側からのインナーケアを始めませんか。</p>
       <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
     </div>
@@ -1984,6 +2146,29 @@ footer{
   window.addEventListener('resize',fitHeader);
   window.addEventListener('load',fitHeader);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitHeader);
+
+  // 見出しの「、」が行の最後に来ているかを調べて印を付ける（540px以下だけ使う）
+  const hangs=[...document.querySelectorAll('.hang')];
+  function fitHang(){
+    hangs.forEach(h=>h.classList.remove('at-end'));
+    document.querySelectorAll('.hang-nl').forEach(e=>e.classList.remove('hang-nl'));
+    if(!window.matchMedia('(max-width:540px)').matches)return;
+    const atEnd=h=>{
+      const r=h.getBoundingClientRect(),hd=h.closest('h2');
+      const tw=document.createTreeWalker(hd,NodeFilter.SHOW_TEXT);let n,after=false,nextTop=null;const rg=document.createRange();
+      while(n=tw.nextNode()){if(h.contains(n)){after=true;continue}if(!after)continue;const i=n.textContent.search(/\S/);if(i<0)continue;rg.setStart(n,i);rg.setEnd(n,i+1);nextTop=rg.getBoundingClientRect().top;break}
+      return nextTop===null||nextTop>r.top+r.height/2;
+    };
+    hangs.forEach(h=>{if(!atEnd(h))return;h.classList.add('at-end');
+      // 次の言葉は、はみ出させた後も必ず次の行に置く
+      const nx=h.parentElement.nextElementSibling;if(nx&&nx.tagName!=='BR')nx.classList.add('hang-nl');});
+    // はみ出させたことで次の言葉が同じ行に上がってきた場合は、はみ出させない（「、」が次の文字に重なるのを防ぐ）
+    hangs.forEach(h=>{if(h.classList.contains('at-end')&&!atEnd(h))h.classList.remove('at-end')});
+  }
+  fitHang();
+  window.addEventListener('resize',fitHang);
+  window.addEventListener('load',()=>{fitHang();setTimeout(fitHang,300)});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitHang);
 
   // 3つの証明：文字の左右の空き（区切り線・枠まで）が3px未満なら、下段を2行にする（540px以下）
   const badges=document.querySelector('.hero-badges');
