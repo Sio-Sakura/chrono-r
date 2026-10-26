@@ -1765,6 +1765,11 @@ footer{
   .cmp-table thead th:nth-child(1),.cmp-table tbody th{width:25%}
   .cmp-table thead th:nth-child(2),.cmp-table td{width:33%}
 }
+/* ---- 540px以下：「未来の再生科学を、日常へ。」を1px大きく（394〜540px：21px、393px以下：19px）。1行に入らない幅では、入る大きさまで自動で小さくする（四角の内側の幅÷文字1つあたりの幅。394〜540pxは字間が広いので15.1、393px以下は14.6） ---- */
+@media (max-width:540px){.concept .tate{font-size:min(21px,calc((100vw - 96px) / 15.1))}}
+@media (max-width:393px){.concept .tate{font-size:min(19px,calc((100vw - 96px) / 14.6))}}
+/* ---- 比較の図の「年齢」：文字の上端を、横の線の少し下（線の下端＋約3）に置く。文字の大きさが変わっても線にくっつかない ---- */
+.vs-graph .ax-lb{dominant-baseline:text-before-edge}
 </style>
 </head>
 <body>
@@ -1896,7 +1901,7 @@ footer{
           <path class="ln" d="M42 44C150 46 265 59 384 70"/>
           <circle class="dot" cx="42" cy="44" r="4.5"/><circle class="dot" cx="384" cy="70" r="4.5"/>
           <text x="30" y="12">コンディション</text>
-          <text x="392" y="134" text-anchor="end">年齢</text>
+          <text class="ax-lb" x="392" y="122" text-anchor="end">年齢</text>
           <text x="150" y="100">何もしない場合</text>
           <text class="lb" x="236" y="40">変化をゆるやかに</text>
         </svg>
@@ -1914,7 +1919,7 @@ footer{
           <path class="ln" d="M42 44C150 44 265 31 380 19" marker-end="url(#vs-arrow)"/>
           <circle class="dot" cx="42" cy="44" r="4.5"/>
           <text x="30" y="12">コンディション</text>
-          <text x="392" y="134" text-anchor="end">年齢</text>
+          <text class="ax-lb" x="392" y="122" text-anchor="end">年齢</text>
           <text x="150" y="100">何もしない場合</text>
           <text class="lb" x="256" y="58">内側から向き合う</text>
         </svg>
@@ -1960,7 +1965,7 @@ footer{
         </thead>
         <tbody>
           <tr><th scope="row">成分数</th><td><span class="n">1</span>〜数種類</td><td class="hl"><span class="n">30</span>種以上</td></tr>
-          <tr><th scope="row">注目<wbr>成分を<wbr>そろえる<wbr>には</th><td>何種類も購入・飲み分け</td><td class="hl"><span class="n">1</span>日<span class="n">1</span>包で完結</td></tr>
+          <tr><th scope="row">注目<wbr>成分の<wbr>取り方</th><td>何種類も購入・飲み分け</td><td class="hl"><span class="n">1</span>日<span class="n">1</span>包で完結</td></tr>
           <tr><th scope="row">設計</th><td>一般的な製法</td><td class="hl">独自の黄金比バランス設計</td></tr>
           <tr><th scope="row">開発</th><td>―</td><td class="hl">再生医療の研究所</td></tr>
         </tbody>
