@@ -1616,9 +1616,11 @@ footer{
 @media (max-width:402px){
   .hero-badges{--hbw-c:339px}
 }
-/* ---- 393px以下：3つの証明は、アイコンの右に英語、その下に日本語の2段にする ---- */
-@media (max-width:393px){
+/* ---- 440px以下：3つの証明は、アイコンの右に英語、その下に日本語の2段にする（もとは393px以下。Shio指示で440px以下に広げ、大きさも同じにする） ---- */
+@media (max-width:440px){
   .hero-badges .hb{padding:10px 0}
+  .hero-badges .hb .hbw .t{font-size:17px}
+  .hero-badges .hb .hbw .t .nb{font-size:21px}
   /* アイコンは英語と日本語の2段と同じ高さ（41px） */
   /* アイコンと文字の間は23px */
   .hero-badges .hb .hbw{width:254px;grid-template-columns:41px auto;column-gap:24px}
@@ -1705,6 +1707,11 @@ footer{
   animation:btnSweep 4s ease-in-out infinite;
 }
 @media (prefers-reduced-motion:reduce){.nav-cta::after{display:none}}
+/* ---- 540px以下：「1日1包・約30日分」がボタンの下に回ったときは、440px以下と同じ位置にする（ボタンとの間・下の帯との間）。回ったかはJSで判定して .cta-wrap を付ける ---- */
+@media (max-width:540px){
+  .hero-cta-row{row-gap:13px}
+  .hero.cta-wrap .hero-main,.hero.cta-wrap.fv-short .hero-main{padding-bottom:41px}
+}
 </style>
 </head>
 <body>
@@ -2290,6 +2297,18 @@ footer{
   window.addEventListener('scroll',check,{passive:true});
   window.addEventListener('load',check);
   check();
+})();
+</script>
+<script>
+/* ---- 「1日1包・約30日分」がボタンの下に回ったかを判定して、.hero に .cta-wrap を付ける ---- */
+(function(){
+  const hero=document.querySelector('.hero'),btn=document.querySelector('.hero-cta-row .btn-gold'),note=document.querySelector('.hero-cta-row .btn-note');
+  if(!hero||!btn||!note)return;
+  function check(){hero.classList.toggle('cta-wrap',note.getBoundingClientRect().top>=btn.getBoundingClientRect().bottom)}
+  check();
+  window.addEventListener('resize',check);
+  window.addEventListener('load',check);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(check);
 })();
 </script>
 </body>
