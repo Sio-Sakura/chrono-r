@@ -1746,6 +1746,25 @@ footer{
 @media (max-width:380px){
   .why .cell h3{font-size:min(19px,calc((100vw - 100px) / 14.75))}
 }
+/* ---- 540px以下：比較表。「比較項目」は「比較／項目」の2行にして1列目を狭くし、その分「一般的なサプリメント」の列を広げる ---- */
+.sp-br{display:none}
+@media (max-width:540px){
+  .cmp-table .sp-br{display:inline}
+  .cmp-table thead th:nth-child(1),.cmp-table tbody th{width:22%}
+  .cmp-table thead th:nth-child(2),.cmp-table td{width:36%}
+  .cmp-table thead th:nth-child(3),.cmp-table td.hl{width:42%}
+}
+/* ---- 540px以下：価格のリード文と、最後の文は、両端揃えで最後の行は左に置く ---- */
+@media (max-width:540px){
+  .sec-lead.price-lead,.final-body{text-align:justify;text-justify:inter-character;text-align-last:left}
+}
+/* 1列目の項目名は、言葉の区切り（<wbr>の位置）でだけ折る */
+@media (max-width:540px){.cmp-table tbody th,.cmp-table thead th{word-break:keep-all}}
+/* 380px以下は「そろえる」が1列目に入るよう、1列目を少し広げる */
+@media (max-width:380px){
+  .cmp-table thead th:nth-child(1),.cmp-table tbody th{width:25%}
+  .cmp-table thead th:nth-child(2),.cmp-table td{width:33%}
+}
 </style>
 </head>
 <body>
@@ -1937,11 +1956,11 @@ footer{
     <div class="cmp-wrap reveal">
       <table class="cmp-table">
         <thead>
-          <tr><th scope="col">比較項目</th><th scope="col">一般的なサプリメント</th><th scope="col">クロノ・アール カプセル</th></tr>
+          <tr><th scope="col">比較<br class="sp-br">項目</th><th scope="col">一般的な<wbr>サプリ<wbr>メント</th><th scope="col">クロノ・アール カプセル</th></tr>
         </thead>
         <tbody>
           <tr><th scope="row">成分数</th><td><span class="n">1</span>〜数種類</td><td class="hl"><span class="n">30</span>種以上</td></tr>
-          <tr><th scope="row">注目成分をそろえるには</th><td>何種類も購入・飲み分け</td><td class="hl"><span class="n">1</span>日<span class="n">1</span>包で完結</td></tr>
+          <tr><th scope="row">注目<wbr>成分を<wbr>そろえる<wbr>には</th><td>何種類も購入・飲み分け</td><td class="hl"><span class="n">1</span>日<span class="n">1</span>包で完結</td></tr>
           <tr><th scope="row">設計</th><td>一般的な製法</td><td class="hl">独自の黄金比バランス設計</td></tr>
           <tr><th scope="row">開発</th><td>―</td><td class="hl">再生医療の研究所</td></tr>
         </tbody>
@@ -2034,7 +2053,7 @@ footer{
     <div class="hd reveal">
       <div class="sec-head"><span class="label">PRICE</span></div>
       <h2 class="sec-title"><span class="ph">クロノ・アール</span> <span class="ph">カプセルの価格</span></h2>
-      <p class="sec-lead">話題の成分を一つずつそろえる手間を、1包に。30種以上の成分を配合した、約30日分のリバースエイジング サプリメントです。</p>
+      <p class="sec-lead price-lead">話題の成分を一つずつそろえる手間を、1包に。30種以上の成分を配合した、約30日分のリバースエイジング サプリメントです。</p>
     </div>
     <div class="price-box reveal">
       <div class="price-photo"><img src="images/supplement.jpg" alt="クロノ・アール カプセルのパッケージ" width="720" height="826" loading="lazy"></div>
