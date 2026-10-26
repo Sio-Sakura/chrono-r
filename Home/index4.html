@@ -515,7 +515,7 @@ section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
 }
 .concept .concept-lead-jp{font-size:15px;letter-spacing:.24em;color:var(--text);margin-top:-20px;margin-bottom:60px}
 .concept .concept-lead-jp > span{display:inline-flex;align-items:center;gap:16px;line-height:1}
-.concept .concept-lead-jp > span::before{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:translateY(1.5px) rotate(45deg);flex:none}
+.concept .concept-lead-jp > span::before{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:translateY(var(--dia-y,1.5px)) rotate(45deg);flex:none}
 .concept .concept-grid{
   max-width:900px;box-sizing:border-box;gap:clamp(36px,6vw,84px);align-items:stretch;
   padding:clamp(22px,calc(4.4vw - 10px),46px) clamp(24px,5.4vw,70px);
@@ -1649,7 +1649,7 @@ footer{
 /* ---- 540px以下：「あなたの時間を、再び動かすために」のダイヤは、2行になっても1行目の文字の前に置く。2行のときは左詰めで行の端まで入れて折り返す。行の高さは1.5倍（1行のときの上下の位置は今のまま） ---- */
 @media (max-width:540px){
   .concept .concept-lead-jp > span{align-items:flex-start;line-height:1.5;margin:-.25em 0}
-  .concept .concept-lead-jp > span::before{margin-top:calc(.75em - 3.6px)}
+  .concept .concept-lead-jp > span::before{margin-top:calc(.75em - 4.32px)}
 }
 /* ---- 358px以下：3つの理由のカードの見出しを、1行のままカードの中に入る大きさにする（カードが右にはみ出して中央からずれないように） ---- */
 @media (max-width:358px){
@@ -1711,6 +1711,40 @@ footer{
 @media (max-width:540px){
   .hero-cta-row{row-gap:13px}
   .hero.cta-wrap .hero-main,.hero.cta-wrap.fv-short .hero-main{padding-bottom:41px}
+}
+/* ---- 流れる帯：すき間の空白が入らないよう横並び（flex）にし、1まとまり分（JSで計算）だけ動かす。文字とひし形を1.1倍に（15px→16.5px） ---- */
+.marquee-in{display:flex;flex:none;animation:scrollXpx 30s linear infinite}
+.marquee-in span{font-size:16.5px;white-space:nowrap}
+@keyframes scrollXpx{from{transform:translateX(0)}to{transform:translateX(calc(-1 * var(--mq-shift,50%)))}}
+/* ---- 「あなたの時間を、再び動かすために」のひし形：1.2倍（7.2px→8.64px）にし、1行目の文字の上下の真ん中にそろえる（541px以上は1.5px上げる。実測） ---- */
+@media (min-width:541px){.concept .concept-lead-jp > span{--dia-y:0px}}
+/* ---- 440px以下：3つの証明のアイコンの絵の上下を、右の英語＋日本語の2段の文字の上端〜下端にそろえる（絵の上下の余白を見込んで44px。3つとも同じ大きさ） ---- */
+@media (max-width:440px){
+  .hero-badges .hb .hbw{width:257px;grid-template-columns:44px auto}
+  .hero-badges .hb .hbw .ic,.hero-badges .hb .hbw .ic[src*="medal"],.hero-badges .hb .hbw .ic[src*="sprig"]{width:44px;height:44px;transform:translateY(var(--ic-y,2px))}
+}
+@media (max-width:360px){
+  .hero-badges .hb .hbw{width:257px}
+}
+/* ---- 540px以下：文章の大きさをそろえる（Shio指示 2026-10-26）。文章は基本17px、15pxは比較の図だけ。
+   ヒーローの説明文18／あなたの時間を〜17／コンセプト1段落目18のまま・2〜3段落目17／リード文・開発元・価格・最後の文17／
+   3つの理由のカードの本文16・見出し+2px／比較表16／口コミ16／コラムの説明16／FAQの答え16のまま／比較の図・注意書き・成分名はそのまま ---- */
+@media (max-width:540px){
+  .hero .hero-copy{font-size:18px}
+  .concept .concept-lead-jp{font-size:17px}
+  .concept .concept-body p:not(:first-child){font-size:17px}
+  .rev .sec-lead,.ing .sec-lead,.sect-a .sec-lead,.sect-b .sec-lead,.sect-c .sec-lead,.sec-lead{font-size:17px}
+  .award .award-body{font-size:17px}
+  .final .final-body,.final-body{font-size:17px}
+  .why .cell p{font-size:16px}
+  .why .cell h3{font-size:19px}
+  .cmp-table thead th,.cmp-table tbody th,.cmp-table td,.cmp-table td.hl,.cmp-table thead th:last-child{font-size:16px}
+  .quote-card p:not(.q-title):not(.who){font-size:16px}
+  .news-card .ex{font-size:16px}
+}
+/* 19pxが1行で入らない幅（380px以下）は、カードの中に入る大きさまで小さくする */
+@media (max-width:380px){
+  .why .cell h3{font-size:min(19px,calc((100vw - 100px) / 14.75))}
 }
 </style>
 </head>
@@ -2254,8 +2288,23 @@ footer{
   document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
   window.addEventListener('resize',()=>{if(window.innerWidth>840)setMenu(false)});
 
+  /* 流れる帯：1周分（ひとまとまり）を、画面の幅より長くなるまでくり返して作り、それを2つ並べて、ちょうど1まとまり分だけ動かす。
+     これで、どの画面幅でも右に空白が出ず、つなぎ目でカクッと飛ばない。速さは画面幅によらず一定（約58px/秒） */
   const m=document.getElementById('marquee');
-  m.innerHTML=m.innerHTML+m.innerHTML;
+  const base=[...m.children].map(e=>e.outerHTML).join('');
+  function buildMarquee(){
+    m.innerHTML=base;
+    let unit=base;
+    while(m.getBoundingClientRect().width<window.innerWidth+200){unit+=base;m.innerHTML=unit}
+    const w=m.getBoundingClientRect().width;
+    m.innerHTML=unit+unit;
+    m.style.setProperty('--mq-shift',w+'px');
+    m.style.animationDuration=(w/57.8)+'s';
+  }
+  buildMarquee();
+  let mqW=window.innerWidth;
+  window.addEventListener('resize',()=>{if(window.innerWidth!==mqW){mqW=window.innerWidth;buildMarquee()}});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(buildMarquee);
 })();
 
 /* ---- スクロール出現 ---- */
