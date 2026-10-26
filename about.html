@@ -1150,6 +1150,18 @@ footer{
   animation:btnSweep 4s ease-in-out infinite;
 }
 @media (prefers-reduced-motion:reduce){.nav-cta::after{display:none}}
+/* ---- 試し：ページの一番上に、ページごとの写真（受賞の写真をまとめた画像）を淡く敷く。左（題名・説明文）は背景色で覆って読みやすく、右に向かって写真が見える ---- */
+.phero{position:relative}
+.phero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(90deg,var(--bg) 0%,var(--bg) 38%,rgba(246,242,232,.88) 58%,rgba(246,242,232,.72) 100%),url("Home/images/about-hero.jpg") right center/cover no-repeat}
+.phero .wrap{position:relative;z-index:1}
+@media (max-width:840px){
+  .phero::before{background:linear-gradient(180deg,rgba(246,242,232,.86) 0%,rgba(246,242,232,.94) 45%,var(--bg) 70%),url("Home/images/about-hero.jpg") center top/cover no-repeat}
+}
+/* ---- 841px以上：題名のかたまり（パンくずの下の左側：h1・英語・説明文）を20px下げる。右の目次の位置はそのまま ---- */
+@media (min-width:841px){
+  .phero .ph-grid>div:first-child{position:relative;top:20px}
+}
 </style>
 </head>
 <body>
