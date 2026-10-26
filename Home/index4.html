@@ -1770,6 +1770,72 @@ footer{
 @media (max-width:393px){.concept .tate{font-size:min(19px,calc((100vw - 96px) / 14.6))}}
 /* ---- 比較の図の「年齢」：文字の上端を、横の線の少し下（線の下端＋約3）に置く。文字の大きさが変わっても線にくっつかない ---- */
 .vs-graph .ax-lb{dominant-baseline:text-before-edge}
+/* ---- 540px以下：ファーストビューの「リバースエイジング サプリメント」と「再生医療の研究所が開発した、」を1px大きく。1行に入らない幅では入る大きさで止める ---- */
+@media (max-width:540px){.hero-eyebrow{font-size:16.5px}}
+/* 360px付近では1行に入らないので、字間だけ少し詰める */
+@media (max-width:362px){.hero-eyebrow{letter-spacing:.06em}}
+@media (max-width:355px){.hero-eyebrow{font-size:15.5px}}
+@media (min-width:403px) and (max-width:540px){.hero-kicker{font-size:min(22.6px,calc(100cqw / 18.3))}}
+@media (max-width:402px){.hero-kicker{font-size:min(19px,calc(100cqw / 14.7))}}
+@media (max-width:359px){.hero-kicker{font-size:min(18px,calc(100cqw / 14.7))}}
+/* ---- 540px以下：「あなたの時間を、再び動かすために」をなるべく1行に入れる。入らない幅では字間だけ詰める（最小.06em）。
+   字間＝（行の幅－ひし形と間24.64px－文字16字分）÷16。上限は今の字間（394〜540px：.24em、393px以下：.12em）。370px以下は文字を16.5pxに ---- */
+@media (max-width:540px){
+  .concept .concept-lead-jp .lj{letter-spacing:clamp(.06em,calc((100vw - 48px - 26px - 16em) / 16),.24em)}
+}
+@media (max-width:393px){
+  .concept .concept-lead-jp .lj{letter-spacing:clamp(.06em,calc((100vw - 48px - 26px - 16em) / 16),.12em)}
+}
+@media (max-width:370px){
+  .concept .concept-lead-jp .lj{font-size:16.5px}
+}
+/* ---- 句読点・かっこを半角幅に詰める（この書体は「半角の約物」の切り替えに対応していないため、JSで約物を囲んで半分だけ詰める） ---- */
+.yk-r{margin-right:-.5em}
+.yk-l{margin-left:-.5em}
+/* ---- ゴシック体の本文で、2桁以上続く半角数字（100、30など）は、数字の間と前後に少しだけ空きを足す（詰まって見えないように） ---- */
+.num{letter-spacing:.06em;margin:0 .06em}
+/* ---- 440px以下：3つの証明の英語（AWARD 2024・DEVELOPER・INGREDIENTS）の字間を少し広げる（.08em→.14em）。左揃えのまま ---- */
+@media (max-width:440px){.hero-badges .hb .hbw .s{letter-spacing:.14em}}
+/* ---- 540px以下：比較の図のカードの見出し（アンチエイジング・リバースエイジング）を3px大きく（18px→21px） ---- */
+@media (max-width:540px){.vs-card .vs-title{font-size:21px}}
+/* ---- 540px以下：比較の図の下の「※イメージ図です。効果・効能を示すものではありません。」を15pxに（13px→15px） ---- */
+@media (max-width:540px){.vs-note{font-size:15px}}
+/* ---- 540px以下：比較の図の札（守りのケア・前向きなケア）の文字を15pxに（13px→15px） ---- */
+@media (max-width:540px){.vs-card .vs-tag{font-size:15px}}
+/* ---- 540px以下：成分の名前18px、その下の説明15px（1行で入れる）、「ほか、全30種以上」15px ---- */
+@media (max-width:540px){
+  .ing-item .nm{font-size:18px}
+  .ing-item .sub{font-size:15px;white-space:nowrap}
+  .ing-rest{font-size:15px}
+}
+/* ---- 540px以下：開発元の「ニューヨークでNext Era Beauty部門を受賞」と「NEXT ERA LEADERS AWARD — 2024」を、コンセプトの「あなたの時間を〜」と同じ17px・ひし形8.64pxに。口コミの見出しは17px ---- */
+@media (max-width:540px){
+  .award .award-lead{font-size:17px;align-items:flex-start;line-height:1.5}
+  .award .award-lead::before{width:8.64px;height:8.64px;margin-top:calc(.75em - 4.32px)}
+  /* 1行に入らない幅では字間だけ詰める（文字だけの幅272.5px、29字） */
+  .award .award-date{font-size:17px;letter-spacing:min(.14em,calc((100vw - 48px - 275px) / 29))}
+  .quote-card .q-title{font-size:17px}
+}
+/* ---- 540px以下：口コミの見出しを20pxに。成分の名前は1行で入れる（入らないときはJSで字間→大きさの順に少しずつ詰める） ---- */
+@media (max-width:540px){
+  .quote-card .q-title{font-size:20px}
+  .ing-item{min-width:0}
+  .ing-item .nm{white-space:nowrap;max-width:100%}
+}
+/* ---- 540px以下：よくある質問の「Q.」「A.」を20pxに ---- */
+@media (max-width:540px){.faq-item .mark{font-size:20px}}
+/* ---- 540px以下：下線付きのリンク（全成分を見る・開発元・販売店について詳しく・よくある質問をもっと見る・コラム一覧を見る）を18pxにそろえる（記事を読むと同じ）。1行で入れる ---- */
+@media (max-width:540px){
+  main .link-more{font-size:18px;white-space:nowrap}
+  /* 一番長い「開発元・販売店について詳しく」は、入らない幅では入る大きさまで小さくする */
+  .award .link-more{font-size:min(18px,calc((100vw - 100px) / 15.4))}
+}
+/* ---- 540px以下：価格の箱。「内容量」「目安」16px、注意書き14px、目安の行は折り返さない ---- */
+@media (max-width:540px){
+  .price-spec dt{font-size:16px}
+  .price-notes li{font-size:14px}
+  .price-spec>div:nth-child(2) dd{white-space:nowrap}
+}
 </style>
 </head>
 <body>
@@ -1987,7 +2053,7 @@ footer{
       <div class="ing-head reveal d1">
         <div class="sec-head"><span class="label">INGREDIENTS</span></div>
         <h2 class="sec-title"><span class="ph">ウロリチン・</span><span class="ph">スペルミジン・</span><br><span class="ph">フィセチン配合。</span><span class="ph">話題の成分を</span><br><span class="ph">まとめて摂れる</span><span class="ph">サプリメント</span></h2>
-        <p class="sec-lead">セノリティクス研究で注目される成分をはじめ、30種以上の素材を配合。エイジングケアの分野で研究が進み、単体のサプリメントとしても販売されている成分を、クロノ・アール カプセルなら<span class="nw">1日1包</span><span class="nw">（4カプセル）</span>でまとめて取り入れられます。</p>
+        <p class="sec-lead">セノリティクス研究で注目される成分をはじめ、30種以上の素材を配合。エイジングケアの分野で研究が進み、単体のサプリメントとしても販売されている成分を、クロノ・アール カプセルなら<span class="nw">1日1包</span>（4カプセル）でまとめて取り入れられます。</p>
       </div>
     </div>
     <div class="ing-grid reveal">
@@ -2067,13 +2133,13 @@ footer{
         <p class="price-name">クロノ・アール カプセル</p>
         <p class="price-amount"><span class="gold-text"><span class="yen">¥</span>159,500</span><span class="tax">（税込）</span></p>
         <dl class="price-spec">
-          <div><dt>内容量</dt><dd>0.4g × 4カプセル × <span class="n">30</span>包（約<span class="n">30</span>日分）</dd></div>
+          <div><dt>内容量</dt><dd><span class="n">0.4</span>g × <span class="n">4</span>カプセル × <span class="n">30</span>包（約<span class="n">30</span>日分）</dd></div>
           <div><dt>目安</dt><dd><span class="n">1</span>日<span class="n">1</span>包（<span class="n">4</span>カプセル）</dd></div>
         </dl>
         <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
         <ul class="price-notes">
           <li>送料：全国一律 無料</li>
-          <li>お支払い：クレジットカード・銀行振込</li>
+          <li>お支払い：クレジットカード・<span class="nw">銀行振込</span></li>
           <li>1回ごとのご購入です（定期購入ではありません）</li>
         </ul>
       </div>
@@ -2366,6 +2432,82 @@ footer{
   window.addEventListener('resize',check);
   window.addEventListener('load',check);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(check);
+})();
+</script>
+<script>
+/* ---- 句読点・かっこを半角幅に詰める：本文の 、。」）』】 は右を、「（『【 は左を半分詰める。行末の句読点をはみ出させる仕組み（.hang）の中と、文字を横並びの部品にする箱（flex・grid）の直下は触らない（分けると箱の間隔が入るため） ---- */
+(function(){
+  const R=/[、。，．」』）】]/, L=/[「『（【]/;
+  const skip=el=>el.closest('script,style,svg,.ghost,.hang,.marquee,[aria-hidden="true"],.yk-r,.yk-l');
+  const w=document.createTreeWalker(document.querySelector('main')||document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>(/[、。，．」』）】「『（【]/.test(n.nodeValue)&&!skip(n.parentElement)&&!/flex|grid/.test(getComputedStyle(n.parentElement).display))?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT});
+  const nodes=[];while(w.nextNode())nodes.push(w.currentNode);
+  nodes.forEach(n=>{
+    const f=document.createDocumentFragment();let buf='';
+    for(const ch of n.nodeValue){
+      if(R.test(ch)||L.test(ch)){if(buf){f.appendChild(document.createTextNode(buf));buf=''}const s=document.createElement('span');s.className=R.test(ch)?'yk-r':'yk-l';s.textContent=ch;f.appendChild(s)}
+      else buf+=ch;
+    }
+    if(buf)f.appendChild(document.createTextNode(buf));
+    n.parentNode.replaceChild(f,n);
+  });
+})();
+</script>
+<script>
+/* ---- ゴシック体の本文の、2桁以上続く半角数字を .num で囲む（明朝体・英字の書体の数字、飾りの数字 .n は触らない） ---- */
+(function(){
+  const root=document.querySelector('main')||document.body;
+  const skip=el=>el.closest('script,style,svg,.ghost,.marquee,[aria-hidden="true"],.n,.nb,.num');
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{
+    if(!/\d{2,}/.test(n.nodeValue))return NodeFilter.FILTER_REJECT;
+    const el=n.parentElement;if(!el||skip(el)||/flex|grid/.test(getComputedStyle(el).display))return NodeFilter.FILTER_REJECT;
+    return /Zen Kaku Gothic/.test(getComputedStyle(el).fontFamily.split(',')[0])?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});
+  const nodes=[];while(w.nextNode())nodes.push(w.currentNode);
+  nodes.forEach(n=>{
+    const f=document.createDocumentFragment();
+    n.nodeValue.split(/(\d{2,})/).forEach((p,i)=>{
+      if(!p)return;
+      if(i%2){const s=document.createElement('span');s.className='num';s.textContent=p;f.appendChild(s)}
+      else f.appendChild(document.createTextNode(p));
+    });
+    n.parentNode.replaceChild(f,n);
+  });
+})();
+</script>
+<script>
+/* ---- 成分の名前（レスベラトロールなど）が1行に入らないときは、まず字間を0まで、それでも入らなければ文字を少しずつ小さくする ---- */
+(function(){
+  const els=[...document.querySelectorAll('.ing-item .nm')];
+  function fit(){
+    els.forEach(e=>{
+      e.style.letterSpacing='';e.style.fontSize='';
+      if(!window.matchMedia('(max-width:540px)').matches)return;
+      const box=()=>e.clientWidth, txt=()=>{const r=document.createRange();r.selectNodeContents(e);return r.getBoundingClientRect().width};
+      if(txt()<=box())return;
+      const ls=parseFloat(getComputedStyle(e).letterSpacing)||0;
+      for(let k=1;k<=10&&txt()>box();k++)e.style.letterSpacing=(ls*(1-k/10))+'px';
+      const fs=parseFloat(getComputedStyle(e).fontSize);
+      for(let k=1;k<=20&&txt()>box();k++)e.style.fontSize=(fs*(1-k*.01))+'px';
+    });
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* ---- 540px以下：価格の箱。英語の CHRONO-R CAPSULES と「クロノ・アール カプセル」は箱の幅いっぱいの大きさに、値段は1.2倍（入らない幅では入る大きさまで） ---- */
+(function(){
+  const box=document.querySelector('.price-info');if(!box)return;
+  const en=box.querySelector('.price-en'),nm=box.querySelector('.price-name'),am=box.querySelector('.price-amount');
+  const tw=e=>{const r=document.createRange();r.selectNodeContents(e);return r.getBoundingClientRect().width};
+  function fit(){
+    [en,nm,am].forEach(e=>e&&(e.style.fontSize=''));
+    if(!window.matchMedia('(max-width:540px)').matches)return;
+    const cs=getComputedStyle(box),inner=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+    [en,nm].forEach(e=>{if(!e)return;for(let i=0;i<3;i++){const fs=parseFloat(getComputedStyle(e).fontSize);e.style.fontSize=(fs*inner/tw(e)*.995)+'px'}});
+    if(am){const fs0=parseFloat(getComputedStyle(am).fontSize);am.style.fontSize=(fs0*1.2)+'px';for(let i=0;i<8&&tw(am)>inner-10;i++){const fs=parseFloat(getComputedStyle(am).fontSize);am.style.fontSize=(fs*((inner-10)/tw(am))*.99)+'px'}}
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>
 </body>
