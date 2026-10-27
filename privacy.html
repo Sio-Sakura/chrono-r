@@ -22,7 +22,7 @@
   --white:#fdfcf8;
   --ink:#1f1b12;
   --dim:#6a634e;
-  --text:#4d4634;
+  --text:#3d3729;
   --head:#302c23;
   --line:#ddd5c0;
   --gold:#b5933b;
@@ -1192,6 +1192,79 @@ body{background:#fff}
   animation:btnSweep 4s ease-in-out infinite;
 }
 @media (prefers-reduced-motion:reduce){.nav-cta::after{display:none}}
+/* ==== ホームに合わせる（2026-10-27）：文字の色・句読点の詰め・数字の空き（全幅） ==== */
+.yk-r{margin-right:-.5em}
+.yk-l{margin-left:-.5em}
+.yk-r.yk-p{margin-right:-.25em}
+.num{letter-spacing:.06em;margin:0 .06em}
+/* 会社概要・特商法・プライバシー：文字の色をサイトの色に、背景をほかのページと同じに */
+.plain{background:var(--bg);color:var(--text)}
+.plain h1,.plain h2,.plain dt,.plain a{color:var(--head)}
+.plain dd small,.plain .date{color:var(--dim)}
+/* ==== ホームに合わせる：540px以下の文字の大きさ・行間・余白 ==== */
+@media (max-width:540px){
+  /* ヘッダー */
+  .logo{font-size:21px}
+  /* フッター：ロゴ → メニュー → 開発元・正規販売店 → © */
+  footer .f-left{display:contents}
+  footer .f-logo{order:1;font-size:32px;margin-bottom:-20px}
+  footer .f-links{order:2}
+  footer .f-company{order:3;font-size:15px}
+  .f-links a{font-size:17px}
+  .f-copy{font-size:14px}
+  /* 大見出し（ページの題名・各章の見出し）：27px。1行12文字が入る大きさを上限に */
+  .ph-title,.sec-title,.msg-title{font-size:min(27px,calc((100vw - 48px) / 12.3));letter-spacing:.02em;line-height:1.65}
+  .plain h1{font-family:var(--mincho);font-weight:600;font-size:min(27px,calc((100vw - 48px) / 12.3));letter-spacing:.02em;line-height:1.65}
+  /* 見出しの下の英語 */
+  .ph-label,.sec-en,.msg-en{font-size:16px}
+  .toc-ttl,.fq-nav-ttl,.ki-en,.step-no{font-size:16px}
+  .fq-head .en{font-size:15px}
+  /* 小見出し */
+  .cell h3,.step h3,.dz-row h3,.cn-item h3,.info h3,.caution h3,.ct-col h3,.role h3{font-size:20px}
+  .fq-head h2{font-size:21px}
+  .plain h2{font-size:18px}
+  /* 本文：17px（リード文）・16px（カードの中）、行間1.8、色は本文の色 */
+  .ph-lead,.sec-lead,.msg-lead,.cn-item p,.dz-row p:not(.dz-no){font-size:17px;line-height:1.8}
+  .ki > p,.step > p:not(.step-no),.role-txt,.cell p,.a-body p,.ct-col p,.caution li,.st-info li,.plain,.plain p,.plain li,.plain dd{font-size:16px;line-height:1.8}
+  /* 表（商品概要・開発元の概要） */
+  .spec dt,.info dt{font-size:16px}
+  .spec dd,.info dd{font-size:16px}
+  .info dd small,.plain dd small{font-size:14px}
+  /* 目次・カテゴリー */
+  .toc li a,.fq-nav a{font-size:17px}
+  /* 小さい文字 */
+  .ph-crumb,.ph-crumb a{font-size:14px}
+  .note{font-size:15px}
+  .ki-src,.role-do{font-size:15px}
+  .all-list .nm{font-size:17px}
+  .all-list .sub{font-size:15px}
+  .plain .date{font-size:14px}
+  .txt-link{font-size:16px}
+  /* よくある質問 */
+  .qa .q{font-size:18px;line-height:1.8}
+  .qa .mark{font-size:26px}
+  /* 下線付きのリンク：18px・1行 */
+  main .link-more,.msg-links a{font-size:18px;white-space:nowrap}
+  /* 金色のボタン：23px・1行 */
+  .btn-gold{white-space:nowrap;font-size:min(23px,calc((100vw - 138px) / 8.6))}
+  /* 価格の箱（商品・成分）：ホームと同じ */
+  .buy .price-amount .yen{font-size:41px;vertical-align:baseline}
+  .buy .spec dt{font-size:16px}
+  .buy .spec dd{font-size:15px}
+  .buy .spec>div:nth-child(2) dd{white-space:nowrap}
+  .price-notes li{font-size:14px}
+  /* 会社概要・特商法・プライバシー：左右の余白をほかのページと同じに */
+  .plain{padding-left:max(24px,6vw);padding-right:max(24px,6vw)}
+}
+@media (min-width:390px) and (max-width:540px){.nav-cta{font-size:17.5px}}
+@media (max-width:356px){.logo{font-size:19px}}
+/* 540px以下：カードや表の箱が中の文字で広がらないようにする（ホームと同じ） */
+@media (max-width:540px){
+  .line-grid{grid-template-columns:minmax(0,1fr)}
+  .line-grid > .cell,.dv-grid > *{min-width:0}
+}
+/* 表の右の欄は残りの幅いっぱいに（句読点を詰めた分で折り返さないように） */
+.spec dd,.info dd{flex:1;min-width:0}
 </style>
 </head>
 <body>
@@ -1386,6 +1459,90 @@ body{background:#fff}
   window.addEventListener('resize',fitHeader);
   window.addEventListener('load',fitHeader);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitHeader);
+})();
+</script>
+<script>
+/* ==== ホームに合わせる（2026-10-27） ==== */
+/* 句読点・かっこを半角幅に詰める（「。」は4分の3）。flex・gridの箱の直下は触らない */
+(function(){
+  const R=/[、。，．」』）】]/, L=/[「『（【]/;
+  const skip=el=>el.closest('script,style,svg,.ghost,.hang,.marquee,[aria-hidden="true"],.yk-r,.yk-l');
+  const w=document.createTreeWalker(document.querySelector('main')||document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>(/[、。，．」』）】「『（【]/.test(n.nodeValue)&&!skip(n.parentElement)&&!/flex|grid/.test(getComputedStyle(n.parentElement).display))?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT});
+  const nodes=[];while(w.nextNode())nodes.push(w.currentNode);
+  nodes.forEach(n=>{
+    const f=document.createDocumentFragment();let buf='';
+    for(const ch of n.nodeValue){
+      if(R.test(ch)||L.test(ch)){if(buf){f.appendChild(document.createTextNode(buf));buf=''}const s=document.createElement('span');s.className=R.test(ch)?(ch==='。'?'yk-r yk-p':'yk-r'):'yk-l';s.textContent=ch;f.appendChild(s)}
+      else buf+=ch;
+    }
+    if(buf)f.appendChild(document.createTextNode(buf));
+    n.parentNode.replaceChild(f,n);
+  });
+})();
+/* ゴシック体の本文の、2桁以上続く半角数字に少し空きを足す */
+(function(){
+  const root=document.querySelector('main')||document.body;
+  const skip=el=>el.closest('script,style,svg,.ghost,.marquee,[aria-hidden="true"],.n,.nb,.num');
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{
+    if(!/\d{2,}/.test(n.nodeValue))return NodeFilter.FILTER_REJECT;
+    const el=n.parentElement;if(!el||skip(el)||/flex|grid/.test(getComputedStyle(el).display))return NodeFilter.FILTER_REJECT;
+    return /Zen Kaku Gothic/.test(getComputedStyle(el).fontFamily.split(',')[0])?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});
+  const nodes=[];while(w.nextNode())nodes.push(w.currentNode);
+  nodes.forEach(n=>{
+    const f=document.createDocumentFragment();
+    n.nodeValue.split(/(\d{2,})/).forEach((p,i)=>{
+      if(!p)return;
+      if(i%2){const s=document.createElement('span');s.className='num';s.textContent=p;f.appendChild(s)}
+      else f.appendChild(document.createTextNode(p));
+    });
+    n.parentNode.replaceChild(f,n);
+  });
+})();
+/* 540px以下：下線付きのリンクとボタンが1行に入らない幅では、入る大きさまで小さくする */
+(function(){
+  const els=[...document.querySelectorAll('main .link-more,.msg-links a,.btn-gold')];if(!els.length)return;
+  const room=e=>{let p=e.parentElement;while(p&&getComputedStyle(p).display==='inline')p=p.parentElement;const c=getComputedStyle(p);return p.clientWidth-parseFloat(c.paddingLeft)-parseFloat(c.paddingRight)};
+  function fit(){
+    els.forEach(e=>e.style.fontSize='');
+    if(!window.matchMedia('(max-width:540px)').matches)return;
+    els.forEach(e=>{for(let i=0;i<40&&e.getBoundingClientRect().width>room(e)+.5;i++){e.style.fontSize=(parseFloat(getComputedStyle(e).fontSize)-.25)+'px'}});
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+/* 540px以下：価格の箱（商品・成分）。英語22px・商品名26pxを字間で箱の幅いっぱいに、値段61px（入らない幅では入る大きさまで） */
+(function(){
+  const box=document.querySelector('.buy');if(!box)return;
+  const en=box.querySelector('.price-en'),nm=box.querySelector('.price-name'),am=box.querySelector('.price-amount .gold-text');
+  const tw=e=>{const r=document.createRange();r.selectNodeContents(e);return r.getBoundingClientRect().width};
+  function fit(){
+    [en,nm,am].forEach(e=>e&&(e.style.fontSize='',e.style.letterSpacing='',e.style.marginRight='',e.style.whiteSpace=''));
+    if(!window.matchMedia('(max-width:540px)').matches)return;
+    const cs=getComputedStyle(box),inner=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+    [[en,22],[nm,26]].forEach(([e,fs])=>{if(!e)return;e.style.fontSize=fs+'px';e.style.whiteSpace='nowrap';e.style.letterSpacing='0px';
+      const n=[...e.textContent.trim()].length,w0=tw(e),ls=(inner-w0)/(n-1);
+      e.style.letterSpacing=ls+'px';e.style.marginRight=(-ls)+'px'});
+    if(am){const row=am.parentElement;am.style.fontSize='61px';for(let i=0;i<8&&tw(row)>inner-10;i++){const fs=parseFloat(getComputedStyle(am).fontSize);am.style.fontSize=(fs*((inner-10)/tw(row))*.99)+'px'}}
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* 540px以下：大見出しと、カードの小見出し（1行で表示するもの）が入らない幅では、字間を0まで詰め、それでも入らなければ小さくする（ホームの3つの理由と同じ） */
+(function(){
+  const ts=[...document.querySelectorAll('.ph-title,.sec-title,.msg-title,.plain h1,.cell h3')];if(!ts.length)return;
+  const over=t=>{const r=document.createRange();r.selectNodeContents(t);const b=r.getBoundingClientRect();
+    let box=t.matches('.cell h3')?t.closest('.cell'):t;const c=getComputedStyle(box),bb=box.getBoundingClientRect();
+    return b.right>bb.right-parseFloat(c.paddingRight)-parseFloat(c.borderRightWidth)+.5||b.left<bb.left+parseFloat(c.paddingLeft)+parseFloat(c.borderLeftWidth)-.5};
+  function fit(){
+    ts.forEach(t=>{t.style.letterSpacing='';t.style.fontSize=''});
+    if(!window.matchMedia('(max-width:540px)').matches)return;
+    ts.forEach(t=>{for(let i=0;i<80&&over(t);i++){const c=getComputedStyle(t),ls=parseFloat(c.letterSpacing)||0,fs=parseFloat(c.fontSize);
+      if(ls>0)t.style.letterSpacing=Math.max(0,ls-.2)+'px';else t.style.fontSize=(fs-.25)+'px'}});
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>
 </body>
