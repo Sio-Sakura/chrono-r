@@ -1792,6 +1792,8 @@ footer{
 /* ---- 句読点・かっこを半角幅に詰める（この書体は「半角の約物」の切り替えに対応していないため、JSで約物を囲んで半分だけ詰める） ---- */
 .yk-r{margin-right:-.5em}
 .yk-l{margin-left:-.5em}
+/* 「。」は文の終わりなので詰めすぎない（全角と半角の中間：4分の3の幅） */
+.yk-r.yk-p{margin-right:-.25em}
 /* ---- ゴシック体の本文で、2桁以上続く半角数字（100、30など）は、数字の間と前後に少しだけ空きを足す（詰まって見えないように） ---- */
 .num{letter-spacing:.06em;margin:0 .06em}
 /* ---- 440px以下：3つの証明の英語（AWARD 2024・DEVELOPER・INGREDIENTS）の字間を少し広げる（.08em→.14em）。左揃えのまま ---- */
@@ -1870,6 +1872,11 @@ footer{
   /* 2024が大きくなった分、1行に入る字間の計算を直す */
   .award .award-date{letter-spacing:min(.14em,calc((100vw - 48px - 293px) / 29))}
 }
+/* 540px以下：よくある質問の質問文の行間を、ほかの文章と同じ1.8に */
+@media (max-width:540px){.faq-item .q{line-height:1.8}}
+/* 540px以下：ヒーローの説明文の字間を0.03emに。364px以下は5行に収めるため0.02em */
+@media (max-width:540px){.hero .hero-copy{letter-spacing:.03em}}
+@media (max-width:364px){.hero .hero-copy{letter-spacing:.02em}}
 </style>
 </head>
 <body>
@@ -2478,7 +2485,7 @@ footer{
   nodes.forEach(n=>{
     const f=document.createDocumentFragment();let buf='';
     for(const ch of n.nodeValue){
-      if(R.test(ch)||L.test(ch)){if(buf){f.appendChild(document.createTextNode(buf));buf=''}const s=document.createElement('span');s.className=R.test(ch)?'yk-r':'yk-l';s.textContent=ch;f.appendChild(s)}
+      if(R.test(ch)||L.test(ch)){if(buf){f.appendChild(document.createTextNode(buf));buf=''}const s=document.createElement('span');s.className=R.test(ch)?(ch==='。'?'yk-r yk-p':'yk-r'):'yk-l';s.textContent=ch;f.appendChild(s)}
       else buf+=ch;
     }
     if(buf)f.appendChild(document.createTextNode(buf));
