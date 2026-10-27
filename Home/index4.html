@@ -1841,6 +1841,35 @@ footer{
   .hero .hero-main .hero-eyebrow{margin-top:0;margin-bottom:15px}
   .hero .hero-main .hero-kicker{margin-bottom:5px}
 }
+/* ---- 540px以下：文字の大きさの調整（2026-10-27） ---- */
+@media (max-width:540px){
+  /* ヘッダー：ロゴ21px・ボタン17.5px（狭い端末用の小さい指定はそのまま） */
+  .logo{font-size:21px}
+  .price-amount .yen{font-size:41px}
+  .concept .tate{font-size:21px}
+  .faq-item .mark{font-size:26px}
+  .marquee-in span{font-size:17px}
+  .quote-card .who,.quote-card .who-age{font-size:16px}
+  .f-logo{font-size:32px}
+  .f-company{font-size:15px}
+  .f-links a{font-size:17px}
+  .f-copy{font-size:14px}
+}
+@media (min-width:390px) and (max-width:540px){.nav-cta{font-size:17.5px}}
+@media (max-width:356px){.logo{font-size:19px}}
+/* 402px以下：CAPSULES を32pxに。成分・コラムの大見出しを25pxに（14文字の行が入らない幅では字間を詰め、それでも入らなければ小さくする） */
+@media (max-width:402px){
+  .hero-h1 .hero-sub-en{font-size:32px}
+  /* CAPSULES の C の左端を、CHRONO-R の C の左端にそろえる（文字の形の左の余白の差。CHRONO-R の大きさに合わせて動かす） */
+  .hero-h1 .hero-sub-en{position:relative;left:calc(18.45cqw * .027)}
+  .ing .sec-title,.col-title{font-size:min(25px,calc((100vw - 48px) / 14.1));letter-spacing:clamp(0px,calc((100vw - 48px - 14em) / 14),.02em)}
+}
+/* 540px以下：開発元の「NEXT ERA LEADERS AWARD — 2024」の「2024」を26pxに */
+@media (max-width:540px){
+  .award .award-date .yr{font-size:26px}
+  /* 2024が大きくなった分、1行に入る字間の計算を直す */
+  .award .award-date{letter-spacing:min(.14em,calc((100vw - 48px - 293px) / 29))}
+}
 </style>
 </head>
 <body>
@@ -2084,7 +2113,7 @@ footer{
         <h2 class="sec-title"><span class="gold-text">再生医療の研究所が<br>開発したサプリメント</span></h2>
         <p class="award-lead">ニューヨークで Next Era Beauty部門を受賞</p>
         <p class="award-body">クロノ・アール カプセルを開発したのは、リエール再生医療研究所です。再生医療の技術を美容と健康の分野に生かし、人生100年時代を健やかに過ごすための商品開発を続けています。2024年5月には、ウォール・ストリート・ジャーナル（WSJ）主催の式典「The <span lang="en">Fu­ture</span> of <span lang="en">Every­thing</span>」で開かれた、世界が選ぶ次世代のリーダーを表彰する <span lang="en">Next</span> Era <span lang="en">Lead­ers</span> <span lang="en">Award</span> のセレモニーで、<span lang="en">Next</span> Era <span lang="en">Beau­ty</span>部門を受賞しました。</p>
-        <p class="award-date">NEXT ERA LEADERS AWARD — 2024</p>
+        <p class="award-date">NEXT ERA LEADERS AWARD — <span class="yr">2024</span></p>
       </div>
       <div class="photo reveal d1">
         <div class="pframe"></div>
@@ -2505,11 +2534,32 @@ footer{
   const en=box.querySelector('.price-en'),nm=box.querySelector('.price-name'),am=box.querySelector('.price-amount');
   const tw=e=>{const r=document.createRange();r.selectNodeContents(e);return r.getBoundingClientRect().width};
   function fit(){
-    [en,nm,am].forEach(e=>e&&(e.style.fontSize=''));
+    [en,nm,am].forEach(e=>e&&(e.style.fontSize='',e.style.letterSpacing='',e.style.marginRight='',e.style.whiteSpace=''));
     if(!window.matchMedia('(max-width:540px)').matches)return;
     const cs=getComputedStyle(box),inner=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
-    [en,nm].forEach(e=>{if(!e)return;for(let i=0;i<3;i++){const fs=parseFloat(getComputedStyle(e).fontSize);e.style.fontSize=(fs*inner/tw(e)*.995)+'px'}});
-    if(am){const fs0=parseFloat(getComputedStyle(am).fontSize);am.style.fontSize=(fs0*1.2)+'px';for(let i=0;i<8&&tw(am)>inner-10;i++){const fs=parseFloat(getComputedStyle(am).fontSize);am.style.fontSize=(fs*((inner-10)/tw(am))*.99)+'px'}}
+    // 英語22px・商品名26pxに固定し、字間で箱の幅いっぱい（左端〜右端）にそろえる。最後の字の後ろの字間は右へはみ出させる
+    [[en,22],[nm,26]].forEach(([e,fs])=>{if(!e)return;e.style.fontSize=fs+'px';e.style.whiteSpace='nowrap';e.style.letterSpacing='0px';
+      const n=[...e.textContent.trim()].length,w0=tw(e),ls=(inner-w0)/(n-1);
+      e.style.letterSpacing=ls+'px';e.style.marginRight=(-ls)+'px'});
+    // 値段は61px。入らない幅では入る大きさまで小さくする
+    if(am){am.style.fontSize='61px';for(let i=0;i<8&&tw(am)>inner-10;i++){const fs=parseFloat(getComputedStyle(am).fontSize);am.style.fontSize=(fs*((inner-10)/tw(am))*.99)+'px'}}
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* ---- 540px以下：「未来の再生科学を、日常へ。」は21pxのまま1行に入れる。入らない幅では字間を詰め、それでも入らなければ小さくする ---- */
+(function(){
+  const te=document.querySelector('.concept .tate');if(!te)return;
+  const tw=e=>{const r=document.createRange();r.selectNodeContents(e);return r.getBoundingClientRect().width};
+  function fit(){
+    te.style.letterSpacing='';te.style.fontSize='';
+    if(!window.matchMedia('(max-width:540px)').matches)return;
+    const pa=te.parentElement,pc=getComputedStyle(pa),right=pa.getBoundingClientRect().right-parseFloat(pc.paddingRight)-parseFloat(pc.borderRightWidth);
+    const over=()=>{const r=document.createRange();r.selectNodeContents(te);return r.getBoundingClientRect().right>right};
+    for(let i=0;i<60&&over();i++){const ls=parseFloat(getComputedStyle(te).letterSpacing),fs=parseFloat(getComputedStyle(te).fontSize);
+      if(ls>-.02*fs)te.style.letterSpacing=(ls-.25)+'px';else te.style.fontSize=(fs-.25)+'px'}
   }
   fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
