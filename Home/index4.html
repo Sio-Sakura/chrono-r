@@ -1877,6 +1877,19 @@ footer{
 /* 540px以下：ヒーローの説明文の字間を0.03emに。364px以下は5行に収めるため0.02em */
 @media (max-width:540px){.hero .hero-copy{letter-spacing:.03em}}
 @media (max-width:364px){.hero .hero-copy{letter-spacing:.02em}}
+/* 540px以下：ヒーローの「1日1包・約30日分」を16pxに */
+@media (max-width:540px){.hero .btn-note{font-size:16px}}
+/* 540px以下：3つの理由のカードの文章の字間を0.02emに（両端揃えで字の間が空きすぎる行を減らす） */
+@media (max-width:540px){.why .cell p{letter-spacing:.02em}}
+/* 540px以下：3つの理由の小見出しを22pxに（入らない幅ではJSで字間を詰め、それでも入らなければ小さくして1行に入れる） */
+@media (max-width:540px){
+  .why .cell h3{font-size:22px;white-space:nowrap}
+  /* 見出しの長さでカードが広がらないようにする */
+  .why .line-grid{grid-template-columns:minmax(0,1fr)}
+  .why .line-grid > .cell{min-width:0}
+}
+/* 540px以下：価格の「¥」を数字の下のラインにそろえる */
+@media (max-width:540px){.price-amount .yen{vertical-align:baseline}}
 </style>
 </head>
 <body>
@@ -2181,7 +2194,7 @@ footer{
         <ul class="price-notes">
           <li>送料：全国一律 無料</li>
           <li>お支払い：クレジットカード・<span class="nw">銀行振込</span></li>
-          <li>1回ごとのご購入です（定期購入ではありません）</li>
+          <li>定期購入ではありません</li>
         </ul>
       </div>
     </div>
@@ -2567,6 +2580,23 @@ footer{
     const over=()=>{const r=document.createRange();r.selectNodeContents(te);return r.getBoundingClientRect().right>right};
     for(let i=0;i<60&&over();i++){const ls=parseFloat(getComputedStyle(te).letterSpacing),fs=parseFloat(getComputedStyle(te).fontSize);
       if(ls>-.02*fs)te.style.letterSpacing=(ls-.25)+'px';else te.style.fontSize=(fs-.25)+'px'}
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* ---- 540px以下：3つの理由の小見出しを22pxのまま1行に入れる。入らない幅では字間を詰め（0まで）、それでも入らなければ小さくする ---- */
+(function(){
+  const hs=[...document.querySelectorAll('.why .cell h3')];if(!hs.length)return;
+  // カードの内側（左右の余白を除いた幅）に入っているかを見る
+  const over=h=>{const r=document.createRange();r.selectNodeContents(h);const b=r.getBoundingClientRect(),cell=h.closest('.cell'),cb=cell.getBoundingClientRect(),c=getComputedStyle(cell);
+    return b.width>cb.width-parseFloat(c.paddingLeft)-parseFloat(c.paddingRight)-parseFloat(c.borderLeftWidth)-parseFloat(c.borderRightWidth)+.5};
+  function fit(){
+    hs.forEach(h=>{h.style.letterSpacing='';h.style.fontSize=''});
+    if(!window.matchMedia('(max-width:540px)').matches)return;
+    hs.forEach(h=>{for(let i=0;i<80&&over(h);i++){const c=getComputedStyle(h),ls=parseFloat(c.letterSpacing)||0,fs=parseFloat(c.fontSize);
+      if(ls>0)h.style.letterSpacing=Math.max(0,ls-.2)+'px';else h.style.fontSize=(fs-.25)+'px'}});
   }
   fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
