@@ -985,7 +985,6 @@ footer{
   /* 開発元：写真の上下に間をあける */
   .dev-split .photo{margin-top:30px}
   /* 図：1列に並ぶとき、グラフが広がりすぎないようにする */
-  .vs-graph{max-width:460px;margin-left:auto;margin-right:auto}
 }
 @media (max-width:540px){
   .ghost{font-size:15vw;top:-14px}
@@ -1265,10 +1264,10 @@ footer{
 @media (max-width:359px){
   .concept .tate{font-size:min(18px,calc((100vw - 96px) / 14.6))}
 }
-/* ---- 540px以下：3つの理由の「No.1〜No.3」を3px大きく ---- */
+/* ---- 540px以下：3つの理由の「No.1〜No.3」を大きく（No. 48px・数字65px） ---- */
 @media (max-width:540px){
-  .cell .big .no{font-size:41px}
-  .cell .big .n{font-size:61px}
+  .cell .big .no{font-size:48px}
+  .cell .big .n{font-size:65px}
 }
 /* ---- 540px以下：価格の枠の写真を小さくして、枠の上から離す（iPad縦と同じ形） ---- */
 @media (max-width:540px){
@@ -1736,10 +1735,10 @@ footer{
   .rev .sec-lead,.ing .sec-lead,.sect-a .sec-lead,.sect-b .sec-lead,.sect-c .sec-lead,.sec-lead{font-size:17px}
   .award .award-body{font-size:17px}
   .final .final-body,.final-body{font-size:17px}
-  .why .cell p{font-size:16px}
+  .why .cell p{font-size:17px}
   .why .cell h3{font-size:19px}
   .cmp-table thead th,.cmp-table tbody th,.cmp-table td,.cmp-table td.hl,.cmp-table thead th:last-child{font-size:16px}
-  .quote-card p:not(.q-title):not(.who){font-size:16px}
+  .quote-card p:not(.q-title):not(.who){font-size:17px}
   .news-card .ex{font-size:16px}
 }
 /* 19pxが1行で入らない幅（380px以下）は、カードの中に入る大きさまで小さくする */
@@ -1897,6 +1896,24 @@ footer{
   footer .f-links{order:2}
   footer .f-company{order:3}
 }
+/* ---- 価格の箱の表：右の欄を残りの幅いっぱいに（句読点を詰める設定で欄が細く計算され、「1日1包（4カプセル）」などが折れるのを防ぐ）。狭い幅では「（約30日分）」を途中で折らない ---- */
+.price-spec dd{flex:1;min-width:0}
+/* ---- 540px以下：コラムの記事の題名を20pxに ---- */
+@media (max-width:540px){.news-card h3{font-size:20px}}
+/* ---- 540px以下：VOICEの見出しを、ほかの大見出しと同じ大きさに（1行目「クロノ・アール カプセルを」が入らない幅では字間を0まで詰める） ---- */
+@media (min-width:403px) and (max-width:540px){
+  .voice .sec-title{font-size:min(clamp(27px,calc(5.35vw + 5px),29px),calc(88vw / 12.3))}
+}
+@media (max-width:402px){
+  .voice .sec-title{font-size:min(27px,calc((100vw - 48px) / 12.3));letter-spacing:clamp(0px,calc((100vw - 48px - 12.27em) / 13),.02em)}
+}
+/* ---- 成分・コラムの大見出し：14文字の行が入る大きさまで大きく。441〜540pxは最大29px、440px以下は最大27px（入らない幅では小さくする） ---- */
+@media (min-width:441px) and (max-width:540px){
+  .ing .sec-title,.col-title{font-size:min(clamp(27px,calc(5.35vw + 5px),29px),calc(88vw / 14.05))}
+}
+@media (min-width:403px) and (max-width:440px){
+  .ing .sec-title,.col-title{font-size:min(27px,calc(88vw / 14.05))}
+}
 </style>
 </head>
 <body>
@@ -2022,7 +2039,7 @@ footer{
           <h3 class="vs-title">アンチエイジング</h3>
           <span class="vs-tag">守りのケア</span>
         </div>
-        <svg class="vs-graph" viewBox="0 0 400 138" role="img" aria-label="アンチエイジングの考え方のイメージ図">
+        <svg class="vs-graph" viewBox="21.25 0 370.75 138" role="img" aria-label="アンチエイジングの考え方のイメージ図">
           <path class="ax" d="M22 8V118H392"/>
           <path class="base" d="M42 44C150 48 255 74 384 106"/>
           <path class="ln" d="M42 44C150 46 265 59 384 70"/>
@@ -2039,7 +2056,7 @@ footer{
           <h3 class="vs-title">リバースエイジング</h3>
           <span class="vs-tag">前向きなケア</span>
         </div>
-        <svg class="vs-graph" viewBox="0 0 400 138" role="img" aria-label="リバースエイジングの考え方のイメージ図">
+        <svg class="vs-graph" viewBox="21.25 0 370.75 138" role="img" aria-label="リバースエイジングの考え方のイメージ図">
           <defs><marker id="vs-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#b5933b"/></marker></defs>
           <path class="ax" d="M22 8V118H392"/>
           <path class="base" d="M42 44C150 48 255 74 384 106"/>
@@ -2194,7 +2211,7 @@ footer{
         <p class="price-name">クロノ・アール カプセル</p>
         <p class="price-amount"><span class="gold-text"><span class="yen">¥</span>159,500</span><span class="tax">（税込）</span></p>
         <dl class="price-spec">
-          <div><dt>内容量</dt><dd><span class="n">0.4</span>g × <span class="n">4</span>カプセル × <span class="n">30</span>包（約<span class="n">30</span>日分）</dd></div>
+          <div><dt>内容量</dt><dd><span class="n">0.4</span>g × <span class="n">4</span>カプセル × <span class="n">30</span>包<span class="nw">（約<span class="n">30</span>日分）</span></dd></div>
           <div><dt>目安</dt><dd><span class="n">1</span>日<span class="n">1</span>包（<span class="n">4</span>カプセル）</dd></div>
         </dl>
         <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
@@ -2555,12 +2572,13 @@ footer{
 })();
 </script>
 <script>
-/* ---- 540px以下：価格の箱。英語の CHRONO-R CAPSULES と「クロノ・アール カプセル」は箱の幅いっぱいの大きさに、値段は1.2倍（入らない幅では入る大きさまで） ---- */
+/* ---- 540px以下：価格の箱。英語の CHRONO-R CAPSULES と「クロノ・アール カプセル」と値段の行は、箱の幅いっぱいの大きさに ---- */
 (function(){
   const box=document.querySelector('.price-info');if(!box)return;
   const en=box.querySelector('.price-en'),nm=box.querySelector('.price-name'),am=box.querySelector('.price-amount');
   const tw=e=>{const r=document.createRange();r.selectNodeContents(e);return r.getBoundingClientRect().width};
   function fit(){
+    {const y=am&&am.querySelector('.yen');if(y)y.style.fontSize=''}
     [en,nm,am].forEach(e=>e&&(e.style.fontSize='',e.style.letterSpacing='',e.style.marginRight='',e.style.whiteSpace=''));
     if(!window.matchMedia('(max-width:540px)').matches)return;
     const cs=getComputedStyle(box),inner=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
@@ -2568,8 +2586,10 @@ footer{
     [[en,22],[nm,26]].forEach(([e,fs])=>{if(!e)return;e.style.fontSize=fs+'px';e.style.whiteSpace='nowrap';e.style.letterSpacing='0px';
       const n=[...e.textContent.trim()].length,w0=tw(e),ls=(inner-w0)/(n-1);
       e.style.letterSpacing=ls+'px';e.style.marginRight=(-ls)+'px'});
-    // 値段は61px。入らない幅では入る大きさまで小さくする
-    if(am){am.style.fontSize='61px';for(let i=0;i<8&&tw(am)>inner-10;i++){const fs=parseFloat(getComputedStyle(am).fontSize);am.style.fontSize=(fs*((inner-10)/tw(am))*.99)+'px'}}
+    // 値段の行（¥159,500（税込））は、箱の幅いっぱい（左端〜右端）になる大きさにする。¥は数字との比（41:61）を保つ。（税込）は15pxのまま
+    if(am){am.style.whiteSpace='nowrap';const yen=am.querySelector('.yen');const set=fs=>{am.style.fontSize=fs+'px';if(yen)yen.style.fontSize=(fs*41/61)+'px'};
+      const g=am.querySelector('.gold-text'),tx=am.querySelector('.tax');const aw=()=>tx.getBoundingClientRect().right-g.getBoundingClientRect().left-parseFloat(getComputedStyle(tx).letterSpacing);
+      let lo=20,hi=200;for(let i=0;i<30;i++){const m=(lo+hi)/2;set(m);if(aw()>inner)hi=m;else lo=m}set(lo)}
   }
   fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
@@ -2606,6 +2626,29 @@ footer{
       if(ls>0)h.style.letterSpacing=Math.max(0,ls-.2)+'px';else h.style.fontSize=(fs-.25)+'px'}});
   }
   fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* 比較の図：図を文章の幅いっぱいに広げても、図の中の文字は前と同じ見た目の大きさにする
+   （前は viewBox の幅400、840px以下では図の幅が最大460px） */
+(function(){
+  var gs=document.querySelectorAll('.vs-graph');if(!gs.length)return;
+  function fit(){
+    var narrow=window.matchMedia('(max-width:840px)').matches;
+    gs.forEach(function(g){
+      var w=g.getBoundingClientRect().width;if(!w)return;
+      var vb=g.viewBox.baseVal.width;
+      var before=(narrow?Math.min(w,460):w)/400;
+      var now=w/vb;
+      g.querySelectorAll('text').forEach(function(t){
+        t.style.fontSize='';
+        var fs=parseFloat(getComputedStyle(t).fontSize);
+        t.style.fontSize=(fs*before/now)+'px';
+      });
+    });
+  }
+  fit();window.addEventListener('resize',fit);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>

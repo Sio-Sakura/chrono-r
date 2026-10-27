@@ -960,6 +960,8 @@ footer{
   .buy .price-en,.buy .price-name{text-align:left;text-indent:0}
   .buy .btn-gold{width:100%;padding:11px 20px;font-size:min(23px,calc((100vw - 92px) / 8.6))}
 }
+/* 価格の箱の表：右の欄を残りの幅いっぱいに（句読点を詰める設定で欄が細く計算され、折れるのを防ぐ） */
+.buy .spec dd{flex:1;min-width:0}
 </style>
 </head>
 <body>
@@ -1276,7 +1278,7 @@ footer{
       <p class="price-name">クロノ・アール カプセル</p>
       <p class="price-amount"><span class="gold-text"><span class="yen">¥</span>159,500</span><span class="tax">（税込）</span></p>
       <dl class="spec">
-        <div><dt>内容量</dt><dd><span class="n">0.4</span>g × <span class="n">4</span>カプセル × <span class="n">30</span>包（約<span class="n">30</span>日分）</dd></div>
+        <div><dt>内容量</dt><dd><span class="n">0.4</span>g × <span class="n">4</span>カプセル × <span class="n">30</span>包<span class="nw">（約<span class="n">30</span>日分）</span></dd></div>
         <div><dt>目安</dt><dd><span class="n">1</span>日<span class="n">1</span>包（<span class="n">4</span>カプセル）</dd></div>
       </dl>
       <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
@@ -1471,19 +1473,24 @@ footer{
   fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
-/* 540px以下：価格の箱（商品・成分）。英語22px・商品名26pxを字間で箱の幅いっぱいに、値段61px（入らない幅では入る大きさまで） */
+/* 540px以下：価格の箱（商品・成分）。英語22px・商品名26pxを字間で箱の幅いっぱいに、値段の行も箱の幅いっぱいの大きさに */
 (function(){
   const box=document.querySelector('.buy');if(!box)return;
   const en=box.querySelector('.price-en'),nm=box.querySelector('.price-name'),am=box.querySelector('.price-amount .gold-text');
   const tw=e=>{const r=document.createRange();r.selectNodeContents(e);return r.getBoundingClientRect().width};
   function fit(){
+    {const y=am&&am.querySelector('.yen');if(y)y.style.fontSize='';if(am)am.parentElement.style.whiteSpace=''}
     [en,nm,am].forEach(e=>e&&(e.style.fontSize='',e.style.letterSpacing='',e.style.marginRight='',e.style.whiteSpace=''));
     if(!window.matchMedia('(max-width:540px)').matches)return;
     const cs=getComputedStyle(box),inner=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
     [[en,22],[nm,26]].forEach(([e,fs])=>{if(!e)return;e.style.fontSize=fs+'px';e.style.whiteSpace='nowrap';e.style.letterSpacing='0px';
       const n=[...e.textContent.trim()].length,w0=tw(e),ls=(inner-w0)/(n-1);
       e.style.letterSpacing=ls+'px';e.style.marginRight=(-ls)+'px'});
-    if(am){const row=am.parentElement;am.style.fontSize='61px';for(let i=0;i<8&&tw(row)>inner-10;i++){const fs=parseFloat(getComputedStyle(am).fontSize);am.style.fontSize=(fs*((inner-10)/tw(row))*.99)+'px'}}
+    // 値段の行（¥159,500（税込））は、箱の幅いっぱい（左端〜右端）になる大きさにする。¥は数字との比（41:61）を保つ。（税込）は15pxのまま
+    if(am){const row=am.parentElement,yen=am.querySelector('.yen'),tx=row.querySelector('.tax');row.style.whiteSpace='nowrap';
+      const set=fs=>{am.style.fontSize=fs+'px';if(yen)yen.style.fontSize=(fs*41/61)+'px'};
+      const aw=()=>tx.getBoundingClientRect().right-am.getBoundingClientRect().left-parseFloat(getComputedStyle(tx).letterSpacing);
+      let lo=20,hi=200;for(let i=0;i<30;i++){const m=(lo+hi)/2;set(m);if(aw()>inner)hi=m;else lo=m}set(lo)}
   }
   fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
