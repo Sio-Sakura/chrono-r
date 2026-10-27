@@ -19,7 +19,7 @@
   --white:#fdfcf8;
   --ink:#1f1b12;
   --dim:#6a634e;
-  --text:#4d4634;
+  --text:#3d3729;
   --head:#302c23;
   --line:#ddd5c0;
   --gold:#b5933b;
@@ -275,7 +275,7 @@ nav a.navlink:hover::after{width:100%}
 .hb .t{
   font-family:var(--mincho);
   font-size:min(14.5px,calc(3.33cqw - 1.8px));font-weight:600;letter-spacing:.05em;margin-right:-.05em;line-height:1.7;
-  color:var(--head);white-space:nowrap;
+  color:var(--text);white-space:nowrap;
 }
 @keyframes visualIn{
   from{opacity:0;transform:translateY(14px)}
@@ -358,7 +358,7 @@ nav a.navlink:hover::after{width:100%}
 .vs-card.is-main .vs-graph .ln{stroke:#b5933b}
 .vs-card.is-main .vs-graph .dot{fill:#b5933b}
 .vs-card.is-main .vs-graph .lb{fill:var(--gold-deep)}
-.vs-text{font-size:15px;line-height:2;letter-spacing:.05em;color:#4d4634}
+.vs-text{font-size:15px;line-height:2;letter-spacing:.05em;color:var(--text)}
 .vs-text strong{font-weight:500;color:#302c23}
 .vs-note{position:relative;z-index:1;text-align:center;font-size:13px;letter-spacing:.06em;color:var(--dim);margin-top:26px}
 @media (max-width:840px){.vs-grid{grid-template-columns:1fr}}
@@ -503,7 +503,7 @@ section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
 }
 .rev + section{border-top:none}
 .sec-title{margin-bottom:44px;color:var(--head)}
-.rev .sec-lead{font-size:16px;line-height:2.25;letter-spacing:.06em;color:#4d4634}
+.rev .sec-lead{font-size:16px;line-height:2.25;letter-spacing:.06em;color:var(--text)}
 .rev .sec-lead strong{font-weight:500;color:var(--head)}
 @media (min-width:841px){
   .rev .split{align-items:stretch}
@@ -524,7 +524,7 @@ section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
   box-shadow:0 8px 24px rgba(181,147,59,.22);
 }
 .concept .tate{font-size:clamp(19px,2.2vw,25px);letter-spacing:.26em;padding:9.9px 0 0;border-left:none;align-self:start;margin-bottom:-2em}
-.concept .concept-body p{font-size:16px;line-height:2.25;letter-spacing:.06em;color:#4d4634;max-width:34em;margin-bottom:2em}
+.concept .concept-body p{font-size:16px;line-height:2.25;letter-spacing:.06em;color:var(--text);max-width:34em;margin-bottom:2em}
 .concept .concept-body p:first-child{
   font-family:var(--mincho);font-size:18px;font-weight:500;line-height:2.1;letter-spacing:.08em;color:var(--head);max-width:none;
   padding-bottom:1.6em;margin-bottom:1.7em;position:relative;
@@ -1890,6 +1890,13 @@ footer{
 }
 /* 540px以下：価格の「¥」を数字の下のラインにそろえる */
 @media (max-width:540px){.price-amount .yen{vertical-align:baseline}}
+/* 540px以下：フッターを「ロゴ → メニュー → 開発元・正規販売店 → ©」の順に（PCは左にロゴと開発元・販売店、右にメニューのまま） */
+@media (max-width:540px){
+  footer .f-left{display:contents}
+  footer .f-logo{order:1;margin-bottom:-20px}
+  footer .f-links{order:2}
+  footer .f-company{order:3}
+}
 </style>
 </head>
 <body>
