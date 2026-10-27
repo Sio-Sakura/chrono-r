@@ -963,6 +963,28 @@ footer{
 }
 /* 価格の箱の表：右の欄を残りの幅いっぱいに（句読点を詰める設定で欄が細く計算され、折れるのを防ぐ） */
 .buy .spec dd{flex:1;min-width:0}
+/* ---- 541〜840px（iPadの縦向きなど）：スマホ（540px以下）より小さくなっていた文字を、スマホと同じ大きさまで上げる ---- */
+@media (min-width:541px) and (max-width:840px){
+  .ph-title,.sec-title,.msg-title{font-size:27px}
+  .ph-lead,.sec-lead,.msg-lead{font-size:17px}
+  .ki > p,.step > p:not(.step-no),.role-txt,.cell p,.a-body p,.ct-col p,.caution li,.st-info li,.dz-row p:not(.dz-no),.qa .a,.qa .a p{font-size:16px}
+  .spec dt,.spec dd,.info dt,.info dd{font-size:16px}
+  .toc li a,.fq-nav a{font-size:17px}
+  .toc-ttl,.fq-nav-ttl,.ki-en,.step-no{font-size:16px}
+  .ph-crumb,.ph-crumb a{font-size:14px}
+  .note,.ki-src,.role-do{font-size:15px}
+  .all-list .nm{font-size:17px}
+  .all-list .sub{font-size:15px}
+  .price-notes li{font-size:14px}
+}
+/* ---- 541〜1140px：注目の成分の名前（ウロリチンなど）は22pxまで（タブレットで、章の見出しより大きくならないように） ---- */
+@media (min-width:541px) and (max-width:1140px){
+  .ki .ki-name h3{font-size:min(22px,clamp(18px,calc((100cqw - 122px) / 8.4),27px))}
+}
+/* ---- 1画面目を画面の高さいっぱいにするのは1141px以上だけ ---- */
+@media (min-width:841px) and (max-width:1140px){
+  .phero{min-height:0}
+}
 </style>
 </head>
 <body>

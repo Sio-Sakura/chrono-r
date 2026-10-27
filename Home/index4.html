@@ -1929,6 +1929,22 @@ footer{
 .cell h3 .ph2{display:inline-block;white-space:nowrap}
 /* ---- 951px以上：1画面目は画面の高さいっぱいのまま、写真と文章を上下の真ん中に置く（縦に長い画面で、ヘッダーの下だけが空かないように） ---- */
 @media (min-width:951px){.hero:not(.fv-short) .hero-main{align-content:center}}
+/* ---- 541〜840px（iPadの縦向きなど）：スマホ（540px以下）より小さくなっていた文字を、スマホと同じ大きさまで上げる ---- */
+@media (min-width:541px) and (max-width:840px){
+  .sec-title{font-size:27px}
+  .final-catch{font-size:max(29px,4vw)}
+  .hero .hero-copy{font-size:18px}
+  .hero .hero-kicker{font-size:19px}
+  .hb .s,.hb .t{font-size:16px}
+  .sec-lead,.rev .sec-lead,.ing .sec-lead,.sect-a .sec-lead,.sect-b .sec-lead,.sect-c .sec-lead,.concept .concept-lead-jp,.award .award-lead,.award .award-body,.final .final-body,.final-body{font-size:17px}
+  .concept .concept-body p,.why .cell p,.quote-card p:not(.q-title):not(.who){font-size:17px}
+  .quote-card .q-title{font-size:20px}
+  .quote-card .who,.news-card .ex{font-size:16px}
+  .ing-item .nm{font-size:18px}
+  .ing-item .sub,.ing-rest,.vs-note{font-size:15px}
+  .award .award-date{font-size:17px}
+  .price-notes li{font-size:14px}
+}
 </style>
 </head>
 <body>
@@ -2369,6 +2385,8 @@ footer{
     // 951〜1140px：説明文が4行以上になったら印をつける（上の間を詰めて、全体を上げる）
     hero.classList.toggle('copy-long',Math.round(heroCopy.getBoundingClientRect().height/parseFloat(getComputedStyle(heroCopy).lineHeight))>=4);
     hero.classList.remove('fv-short','fv-tight');heroMain.style.minHeight='';
+    // 1140px以下：1画面目を画面の高さいっぱいにしない（中身の高さのまま、帯はすぐ下に置く）
+    if(window.matchMedia('(max-width:1140px)').matches){hero.classList.add('fv-short');return}
     // 841〜950px：画面の高さが足りないときは、まず上下の間を詰めて流れる帯を1画面目に収める
     if(hero.getBoundingClientRect().height>window.innerHeight+.5&&window.matchMedia('(min-width:841px) and (max-width:950px)').matches){
       hero.classList.add('fv-tight');
