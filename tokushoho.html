@@ -605,9 +605,9 @@ footer{
   font-family:var(--serif-en);font-size:16px;font-weight:600;letter-spacing:.34em;line-height:1.2;
   color:var(--gold-deep);margin-bottom:44px;
 }
-.sec-en::before{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:rotate(45deg);flex:none}
+.sec-en::before{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:rotate(45deg);flex:none}
 .head-c .sec-en{justify-content:center;text-indent:.34em}
-.head-c .sec-en::after{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:rotate(45deg);flex:none}
+.head-c .sec-en::after{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:rotate(45deg);flex:none}
 .all .sec-en{color:var(--gold-bright)}
 .all-tag{margin:0 0 24px}
 /* 見出しの「｜」は、画面では改行に置きかえる（文字としては残る） */
@@ -620,7 +620,8 @@ footer{
     padding-top:calc(76px + clamp(22px,5vh,84px));padding-bottom:clamp(26px,6vh,110px);
   }
   .phero .wrap{flex:1;width:100%;display:flex;flex-direction:column}
-  .phero .ph-crumb{margin-bottom:clamp(18px,4vh,60px)}
+  /* パンくずの下の空きを、画面の下の空き（下の余白）と同じにして、中身をパンくずと画面の下のちょうど真ん中に置く（ホームの1画面目と同じ考え方） */
+  .phero .ph-crumb{margin-bottom:clamp(26px,6vh,110px)}
   .phero .ph-grid{margin-top:auto;margin-bottom:auto}
   .toc a{padding-top:clamp(6px,1.35vh,11px);padding-bottom:clamp(6px,1.35vh,11px)}
   .ph-grid{align-items:start}
@@ -629,7 +630,7 @@ footer{
 }
 .ph-title{margin-bottom:18px}
 .ph-label{margin-bottom:34px}
-.ph-label::before{width:7.2px;height:7.2px;transform:rotate(45deg)}
+.ph-label::before{width:8.64px;height:8.64px;transform:rotate(45deg)}
 @media (max-width:540px){
   .chap{margin-bottom:18px}
   .sec-en{font-size:14px;letter-spacing:.26em;margin-bottom:36px}
@@ -944,7 +945,7 @@ footer{
 .phero.phero-c .ph-crumb{margin-bottom:clamp(44px,6vw,76px)}
 .phc{position:relative;z-index:1;text-align:center}
 .phc .ph-label{justify-content:center;text-indent:.36em;margin-bottom:34px}
-.phc .ph-label::after{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:rotate(45deg);flex:none}
+.phc .ph-label::after{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:rotate(45deg);flex:none}
 .phc .ph-title{margin-bottom:18px}
 /* 説明文：両端揃え。最後の行だけ中央に置く */
 .phc .ph-lead{max-width:41em;margin:0 auto;text-align:justify;text-justify:inter-character;text-align-last:center}
@@ -1166,8 +1167,8 @@ body{background:#fff}
 }
 @media (prefers-reduced-motion:reduce){.nav-cta::after{display:none}}
 /* ==== ホームに合わせる（2026-10-27）：文字の色・句読点の詰め・数字の空き（全幅） ==== */
-.yk-r{margin-right:-.5em}
-.yk-l{margin-left:-.5em}
+.yk-r{margin-right:-.25em}
+.yk-l{margin-left:-.25em}
 .yk-r.yk-p{margin-right:-.25em}
 .num{letter-spacing:.06em;margin:0 .06em}
 /* 会社概要・特商法・プライバシー：文字の色をサイトの色に、背景をほかのページと同じに */
@@ -1339,7 +1340,7 @@ body{background:#fff}
 </script>
 <script>
 /* ==== ホームに合わせる（2026-10-27） ==== */
-/* 句読点・かっこを半角幅に詰める（「。」は4分の3）。flex・gridの箱の直下は触らない */
+/* 句読点・かっこを4分の3の幅に詰める（「。」も同じ）。flex・gridの箱の直下は触らない */
 (function(){
   const R=/[、。，．」』）】]/, L=/[「『（【]/;
   const skip=el=>el.closest('script,style,svg,.ghost,.hang,.marquee,[aria-hidden="true"],.yk-r,.yk-l');
@@ -1419,6 +1420,37 @@ body{background:#fff}
   }
   fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* ---- 最後の行が2文字以下になる文は、字間を少しずつ詰めて（もとの字間から最大0.06emまで）前の行に入れる。入らないときはもとのまま ---- */
+(function(){
+  const sel='main p, main li, main li a, main dd, main dd small, main h2, main h3, main .nm, footer p';
+  const skip=e=>e.closest('svg,.ghost,.marquee,[aria-hidden="true"]')||getComputedStyle(e).whiteSpace==='nowrap'||(e.style.letterSpacing&&!e.dataset.orph);
+  const r=document.createRange();
+  // 最後の行の文字数と行の数
+  function lastLine(e){
+    const tops=[];const w=document.createTreeWalker(e,NodeFilter.SHOW_TEXT);let n;
+    while(n=w.nextNode()){if(n.parentElement.closest('.ghost,[aria-hidden="true"]'))continue;for(let i=0;i<n.length;i++){if(/\s/.test(n.data[i]))continue;r.setStart(n,i);r.setEnd(n,i+1);const b=r.getBoundingClientRect();if(b.width||b.height)tops.push(b.top)}}
+    if(!tops.length)return{lines:0,last:0};
+    const lt=tops[tops.length-1];let k=0,lines=1;for(let i=tops.length-1;i>=0;i--){if(Math.abs(tops[i]-lt)<3)k++;else break}
+    for(let i=1;i<tops.length;i++)if(tops[i]-tops[i-1]>3)lines++;
+    return{lines,last:k};
+  }
+  function fit(){
+    document.querySelectorAll(sel).forEach(e=>{
+      if(e.dataset.orph){e.style.letterSpacing='';delete e.dataset.orph}
+      if(!e.offsetParent||skip(e))return;
+      let s=lastLine(e);if(s.lines<2||s.last>2)return;
+      const fs=parseFloat(getComputedStyle(e).fontSize),base=parseFloat(getComputedStyle(e).letterSpacing)||0;
+      e.dataset.orph='1';
+      for(let k=1;k<=12;k++){e.style.letterSpacing=(base-fs*.005*k)+'px';const t=lastLine(e);if(t.lines<s.lines)return}
+      e.style.letterSpacing='';delete e.dataset.orph;
+    });
+  }
+  let t;const run=()=>{clearTimeout(t);t=setTimeout(fit,60)};
+  window.addEventListener('load',run);window.addEventListener('resize',run);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
 })();
 </script>
 </body>

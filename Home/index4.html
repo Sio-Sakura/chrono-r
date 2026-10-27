@@ -515,7 +515,7 @@ section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
 }
 .concept .concept-lead-jp{font-size:15px;letter-spacing:.24em;color:var(--text);margin-top:-20px;margin-bottom:60px}
 .concept .concept-lead-jp > span{display:inline-flex;align-items:center;gap:16px;line-height:1}
-.concept .concept-lead-jp > span::before{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:translateY(var(--dia-y,1.5px)) rotate(45deg);flex:none}
+.concept .concept-lead-jp > span::before{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:translateY(var(--dia-y,.75px)) rotate(45deg);flex:none}
 .concept .concept-grid{
   max-width:900px;box-sizing:border-box;gap:clamp(36px,6vw,84px);align-items:stretch;
   padding:clamp(22px,calc(4.4vw - 10px),46px) clamp(24px,5.4vw,70px);
@@ -1715,8 +1715,8 @@ footer{
 .marquee-in{display:flex;flex:none;animation:scrollXpx 30s linear infinite}
 .marquee-in span{font-size:16.5px;white-space:nowrap}
 @keyframes scrollXpx{from{transform:translateX(0)}to{transform:translateX(calc(-1 * var(--mq-shift,50%)))}}
-/* ---- 「あなたの時間を、再び動かすために」のひし形：1.2倍（7.2px→8.64px）にし、1行目の文字の上下の真ん中にそろえる（541px以上は1.5px上げる。実測） ---- */
-@media (min-width:541px){.concept .concept-lead-jp > span{--dia-y:0px}}
+/* ---- 「あなたの時間を、再び動かすために」のひし形：1.2倍（7.2px→8.64px）にし、1行目の文字の上下の真ん中にそろえる（541px以上は1px、540px以下は0.75px下げる。Retina（2倍）で実測） ---- */
+@media (min-width:541px){.concept .concept-lead-jp > span{--dia-y:1px}}
 /* ---- 440px以下：3つの証明のアイコンの絵の上下を、右の英語＋日本語の2段の文字の上端〜下端にそろえる（絵の上下の余白を見込んで44px。3つとも同じ大きさ） ---- */
 @media (max-width:440px){
   .hero-badges .hb .hbw{width:257px;grid-template-columns:44px auto}
@@ -1788,9 +1788,9 @@ footer{
 @media (max-width:370px){
   .concept .concept-lead-jp .lj{font-size:16.5px}
 }
-/* ---- 句読点・かっこを半角幅に詰める（この書体は「半角の約物」の切り替えに対応していないため、JSで約物を囲んで半分だけ詰める） ---- */
-.yk-r{margin-right:-.5em}
-.yk-l{margin-left:-.5em}
+/* ---- 句読点・かっこを4分の3の幅に詰める（この書体は「半角の約物」の切り替えに対応していないため、JSで約物を囲んで4分の1だけ詰める） ---- */
+.yk-r{margin-right:-.25em}
+.yk-l{margin-left:-.25em}
 /* 「。」は文の終わりなので詰めすぎない（全角と半角の中間：4分の3の幅） */
 .yk-r.yk-p{margin-right:-.25em}
 /* ---- ゴシック体の本文で、2桁以上続く半角数字（100、30など）は、数字の間と前後に少しだけ空きを足す（詰まって見えないように） ---- */
@@ -1914,6 +1914,21 @@ footer{
 @media (min-width:403px) and (max-width:440px){
   .ing .sec-title,.col-title{font-size:min(27px,calc(88vw / 14.05))}
 }
+/* ---- 541px以上：開発元の「ニューヨークで Next Era Beauty部門を受賞」のひし形も、ほかと同じ8.64pxに ---- */
+@media (min-width:541px){.award-lead::before{width:8.64px;height:8.64px}}
+/* 840px以下では、ひし形が文字の真ん中より少し下に出るので0.75px上げる（Retinaで実測） */
+@media (max-width:840px){.award-lead::before{transform:translateY(.75px) rotate(45deg)}}
+/* ---- 402px以下：ヒーロー以外の本文で字間0.02emだったところを0.03emに（コンセプトの本文・3つの理由の文・成分名の下の文） ---- */
+@media (max-width:402px){
+  .concept .concept-body p:not(:first-child),.why .cell p,.ing-item .sub{letter-spacing:.03em}
+}
+@media (min-width:388px) and (max-width:393px){
+  .concept .concept-body p:first-child{letter-spacing:.03em}
+}
+/* ---- カードの小見出し：折り返すときは意味の切れ目で折る（「30種以上の成分を、／1日1包に」など） ---- */
+.cell h3 .ph2{display:inline-block;white-space:nowrap}
+/* ---- 951px以上：1画面目は画面の高さいっぱいのまま、写真と文章を上下の真ん中に置く（縦に長い画面で、ヘッダーの下だけが空かないように） ---- */
+@media (min-width:951px){.hero:not(.fv-short) .hero-main{align-content:center}}
 </style>
 </head>
 <body>
@@ -2086,7 +2101,7 @@ footer{
       <div class="cell has-hex reveal">
         <div class="hex"><svg class="hexbg" viewBox="0 0 76 76" aria-hidden="true"><defs><linearGradient id="hexgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a6d1e"/><stop offset=".3" stop-color="#c4a23f"/><stop offset=".5" stop-color="#d9bb5c"/><stop offset=".72" stop-color="#b8963a"/><stop offset="1" stop-color="#8a6d1e"/></linearGradient></defs><polygon class="h1" points="38,2 69.2,20 69.2,56 38,74 6.8,56 6.8,20"/></svg><img class="ic" src="images/ic-sachet.png" alt="" width="600" height="600"></div>
         <span class="big"><span class="gold-text"><span class="no">No.</span><span class="n">1</span></span></span>
-        <h3>30種以上の成分を、1日1包に</h3>
+        <h3><span><span class="ph2">30種以上の成分を、</span><span class="ph2">1日1包に</span></span></h3>
         <p>ウロリチン、スペルミジン、フィセチン、NAD原料成分。話題のエイジングケア成分を個別にそろえようとすると、何種類ものサプリメントを買い、飲み分ける必要があります。クロノ・アールなら、毎日1包でまとめて取り入れられます。</p>
       </div>
       <div class="cell has-hex reveal d1">
@@ -2513,7 +2528,7 @@ footer{
 })();
 </script>
 <script>
-/* ---- 句読点・かっこを半角幅に詰める：本文の 、。」）』】 は右を、「（『【 は左を半分詰める。行末の句読点をはみ出させる仕組み（.hang）の中と、文字を横並びの部品にする箱（flex・grid）の直下は触らない（分けると箱の間隔が入るため） ---- */
+/* ---- 句読点・かっこを4分の3の幅に詰める：本文の 、。」）』】 は右を、「（『【 は左を4分の1詰める。行末の句読点をはみ出させる仕組み（.hang）の中と、文字を横並びの部品にする箱（flex・grid）の直下は触らない（分けると箱の間隔が入るため） ---- */
 (function(){
   const R=/[、。，．」』）】]/, L=/[「『（【]/;
   const skip=el=>el.closest('script,style,svg,.ghost,.hang,.marquee,[aria-hidden="true"],.yk-r,.yk-l');
@@ -2650,6 +2665,61 @@ footer{
   }
   fit();window.addEventListener('resize',fit);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* ---- 最後の行が2文字以下になる文は、字間を少しずつ詰めて（もとの字間から最大0.06emまで）前の行に入れる。入らないときはもとのまま ---- */
+(function(){
+  const sel='main p, main li, main li a, main dd, main dd small, main h2, main h3, main .nm, footer p';
+  const skip=e=>e.closest('svg,.ghost,.marquee,[aria-hidden="true"]')||getComputedStyle(e).whiteSpace==='nowrap'||(e.style.letterSpacing&&!e.dataset.orph);
+  const r=document.createRange();
+  // 最後の行の文字数と行の数
+  function lastLine(e){
+    const tops=[];const w=document.createTreeWalker(e,NodeFilter.SHOW_TEXT);let n;
+    while(n=w.nextNode()){if(n.parentElement.closest('.ghost,[aria-hidden="true"]'))continue;for(let i=0;i<n.length;i++){if(/\s/.test(n.data[i]))continue;r.setStart(n,i);r.setEnd(n,i+1);const b=r.getBoundingClientRect();if(b.width||b.height)tops.push(b.top)}}
+    if(!tops.length)return{lines:0,last:0};
+    const lt=tops[tops.length-1];let k=0,lines=1;for(let i=tops.length-1;i>=0;i--){if(Math.abs(tops[i]-lt)<3)k++;else break}
+    for(let i=1;i<tops.length;i++)if(tops[i]-tops[i-1]>3)lines++;
+    return{lines,last:k};
+  }
+  function fit(){
+    document.querySelectorAll(sel).forEach(e=>{
+      if(e.dataset.orph){e.style.letterSpacing='';delete e.dataset.orph}
+      if(!e.offsetParent||skip(e))return;
+      let s=lastLine(e);if(s.lines<2||s.last>2)return;
+      const fs=parseFloat(getComputedStyle(e).fontSize),base=parseFloat(getComputedStyle(e).letterSpacing)||0;
+      e.dataset.orph='1';
+      for(let k=1;k<=12;k++){e.style.letterSpacing=(base-fs*.005*k)+'px';const t=lastLine(e);if(t.lines<s.lines)return}
+      e.style.letterSpacing='';delete e.dataset.orph;
+    });
+  }
+  let t;const run=()=>{clearTimeout(t);t=setTimeout(fit,60)};
+  window.addEventListener('load',run);window.addEventListener('resize',run);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
+})();
+</script>
+<script>
+/* ---- 951px以上：1画面目は画面の高さいっぱい。流れる帯の下の線は画面の一番下にそろえ（帯の下に空きを作らない）、
+   写真と文章は、ヘッダーの下端と帯の上端のちょうど真ん中に置く（上下の空きを同じにする） ---- */
+(function(){
+  const hero=document.querySelector('.hero'),main=document.querySelector('.hero-main'),hd=document.querySelector('header'),mq=document.querySelector('.hero .marquee');
+  if(!hero||!main||!hd||!mq)return;
+  function center(){
+    main.style.paddingTop='';main.style.paddingBottom='';
+    if(!window.matchMedia('(min-width:951px)').matches||hero.classList.contains('fv-short'))return;
+    // 動きの途中の位置ではなく、置かれている位置で測る
+    const kids=[...main.children],mt=main.getBoundingClientRect().top;
+    const top=mt+Math.min(...kids.map(c=>c.offsetTop)),bot=mt+Math.max(...kids.map(c=>c.offsetTop+c.offsetHeight));
+    const gapT=top-hd.getBoundingClientRect().bottom,gapB=mq.getBoundingClientRect().top-bot,d=gapB-gapT;
+    const cs=getComputedStyle(main);
+    if(d>0)main.style.paddingTop=(parseFloat(cs.paddingTop)+d)+'px';
+    else if(d<0)main.style.paddingBottom=(parseFloat(cs.paddingBottom)-d)+'px';
+    // 1画面に入らなくなったら戻す
+    if(hero.getBoundingClientRect().height>window.innerHeight+.5){main.style.paddingTop='';main.style.paddingBottom=''}
+  }
+  center();
+  window.addEventListener('resize',center);window.addEventListener('load',center);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(center);
 })();
 </script>
 </body>

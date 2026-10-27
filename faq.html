@@ -443,7 +443,7 @@ footer{
   color:var(--gold-deep);margin-bottom:22px;
   opacity:0;animation:riseIn 1.4s .15s cubic-bezier(.3,.5,.3,1) forwards;
 }
-.ph-label::before{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:rotate(45deg);flex:none}
+.ph-label::before{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:rotate(45deg);flex:none}
 /* h1：ホームの大見出し（h2）と同じ大きさ・字間・行間 */
 .ph-title{
   font-family:var(--mincho);
@@ -510,7 +510,7 @@ footer{
   display:flex;align-items:center;gap:16px;
   font-family:var(--mincho);font-size:clamp(21px,2.3vw,27px);font-weight:600;letter-spacing:.1em;line-height:1.6;color:var(--head);
 }
-.fq-head h2::before{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:rotate(45deg);flex:none}
+.fq-head h2::before{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:rotate(45deg);flex:none}
 .fq-head .en{
   font-family:var(--serif-en);font-size:15px;font-weight:600;letter-spacing:.3em;line-height:1.2;color:var(--gold-deep);white-space:nowrap;
 }
@@ -564,7 +564,7 @@ footer{
   font-family:var(--serif-en);font-size:16px;font-weight:600;letter-spacing:.34em;text-indent:.34em;line-height:1.2;
   color:var(--gold-deep);margin-bottom:24px;
 }
-#contact .sec-en::before,#contact .sec-en::after{content:"";width:7.2px;height:7.2px;background:var(--gold);transform:rotate(45deg);flex:none}
+#contact .sec-en::before,#contact .sec-en::after{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:rotate(45deg);flex:none}
 #contact .sec-title{margin-bottom:26px}
 /* 中央寄せの説明文：両端揃えにして、最後の行（改行で区切った行も）だけ中央に置く。全幅共通 */
 #contact .sec-lead{
@@ -727,8 +727,8 @@ footer{
 }
 @media (prefers-reduced-motion:reduce){.nav-cta::after{display:none}}
 /* ==== ホームに合わせる（2026-10-27）：文字の色・句読点の詰め・数字の空き（全幅） ==== */
-.yk-r{margin-right:-.5em}
-.yk-l{margin-left:-.5em}
+.yk-r{margin-right:-.25em}
+.yk-l{margin-left:-.25em}
 .yk-r.yk-p{margin-right:-.25em}
 .num{letter-spacing:.06em;margin:0 .06em}
 /* 会社概要・特商法・プライバシー：文字の色をサイトの色に、背景をほかのページと同じに */
@@ -1153,7 +1153,7 @@ footer{
 </script>
 <script>
 /* ==== ホームに合わせる（2026-10-27） ==== */
-/* 句読点・かっこを半角幅に詰める（「。」は4分の3）。flex・gridの箱の直下は触らない */
+/* 句読点・かっこを4分の3の幅に詰める（「。」も同じ）。flex・gridの箱の直下は触らない */
 (function(){
   const R=/[、。，．」』）】]/, L=/[「『（【]/;
   const skip=el=>el.closest('script,style,svg,.ghost,.hang,.marquee,[aria-hidden="true"],.yk-r,.yk-l');
@@ -1233,6 +1233,37 @@ footer{
   }
   fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* ---- 最後の行が2文字以下になる文は、字間を少しずつ詰めて（もとの字間から最大0.06emまで）前の行に入れる。入らないときはもとのまま ---- */
+(function(){
+  const sel='main p, main li, main li a, main dd, main dd small, main h2, main h3, main .nm, footer p';
+  const skip=e=>e.closest('svg,.ghost,.marquee,[aria-hidden="true"]')||getComputedStyle(e).whiteSpace==='nowrap'||(e.style.letterSpacing&&!e.dataset.orph);
+  const r=document.createRange();
+  // 最後の行の文字数と行の数
+  function lastLine(e){
+    const tops=[];const w=document.createTreeWalker(e,NodeFilter.SHOW_TEXT);let n;
+    while(n=w.nextNode()){if(n.parentElement.closest('.ghost,[aria-hidden="true"]'))continue;for(let i=0;i<n.length;i++){if(/\s/.test(n.data[i]))continue;r.setStart(n,i);r.setEnd(n,i+1);const b=r.getBoundingClientRect();if(b.width||b.height)tops.push(b.top)}}
+    if(!tops.length)return{lines:0,last:0};
+    const lt=tops[tops.length-1];let k=0,lines=1;for(let i=tops.length-1;i>=0;i--){if(Math.abs(tops[i]-lt)<3)k++;else break}
+    for(let i=1;i<tops.length;i++)if(tops[i]-tops[i-1]>3)lines++;
+    return{lines,last:k};
+  }
+  function fit(){
+    document.querySelectorAll(sel).forEach(e=>{
+      if(e.dataset.orph){e.style.letterSpacing='';delete e.dataset.orph}
+      if(!e.offsetParent||skip(e))return;
+      let s=lastLine(e);if(s.lines<2||s.last>2)return;
+      const fs=parseFloat(getComputedStyle(e).fontSize),base=parseFloat(getComputedStyle(e).letterSpacing)||0;
+      e.dataset.orph='1';
+      for(let k=1;k<=12;k++){e.style.letterSpacing=(base-fs*.005*k)+'px';const t=lastLine(e);if(t.lines<s.lines)return}
+      e.style.letterSpacing='';delete e.dataset.orph;
+    });
+  }
+  let t;const run=()=>{clearTimeout(t);t=setTimeout(fit,60)};
+  window.addEventListener('load',run);window.addEventListener('resize',run);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
 })();
 </script>
 </body>
