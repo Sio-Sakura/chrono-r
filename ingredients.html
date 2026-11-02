@@ -245,7 +245,7 @@ section{position:relative;padding:120px var(--gutter);z-index:1;scroll-margin-to
 /* ---------- フッター ---------- */
 footer{
   border-top:1px solid rgba(181,147,59,.35);
-  padding:64px var(--gutter) 44px;
+  padding:54px var(--gutter) 29px;
   background:#302c23;color:#f0e8d6;
 }
 .f-in{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start}
@@ -607,9 +607,9 @@ footer{
   font-family:var(--serif-en);font-size:16px;font-weight:600;letter-spacing:.34em;line-height:1.2;
   color:var(--gold-deep);margin-bottom:44px;
 }
-.sec-en::before{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:rotate(45deg);flex:none}
+.sec-en::before{content:"";width:9.5px;height:9.5px;background:var(--gold);transform:rotate(45deg);flex:none}
 .head-c .sec-en{justify-content:center;text-indent:.34em}
-.head-c .sec-en::after{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:rotate(45deg);flex:none}
+.head-c .sec-en::after{content:"";width:9.5px;height:9.5px;background:var(--gold);transform:rotate(45deg);flex:none}
 .all .sec-en{color:var(--gold-bright)}
 .all-tag{margin:0 0 24px}
 /* 見出しの「｜」は、画面では改行に置きかえる（文字としては残る） */
@@ -632,7 +632,7 @@ footer{
 }
 .ph-title{margin-bottom:18px}
 .ph-label{margin-bottom:34px}
-.ph-label::before{width:8.64px;height:8.64px;transform:rotate(45deg)}
+.ph-label::before{width:9.5px;height:9.5px;transform:rotate(45deg)}
 @media (max-width:540px){
   .chap{margin-bottom:18px}
   .sec-en{font-size:14px;letter-spacing:.26em;margin-bottom:36px}
@@ -1487,9 +1487,20 @@ footer{
   const tw=e=>{const r=document.createRange();r.selectNodeContents(e);return r.getBoundingClientRect().width};
   function fit(){
     {const y=am&&am.querySelector('.yen');if(y)y.style.fontSize='';if(am)am.parentElement.style.whiteSpace=''}
-    [en,nm,am].forEach(e=>e&&(e.style.fontSize='',e.style.letterSpacing='',e.style.marginRight='',e.style.whiteSpace=''));
-    if(!window.matchMedia('(max-width:540px)').matches)return;
+    [en,nm,am].forEach(e=>e&&(e.style.fontSize='',e.style.letterSpacing='',e.style.marginRight='',e.style.whiteSpace='',e.style.textIndent=''));
     const cs=getComputedStyle(box),inner=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+    // 541px以上：英語と商品名は今の大きさのまま字間で、値段の行（¥159,500（税込））は大きさで、箱の幅いっぱいにする（ホームと同じ）
+    if(!window.matchMedia('(max-width:540px)').matches){
+      // 字間は元の値（英字0.3em・商品名0.12em）に固定し、大きさを変えて箱の幅いっぱいにする（最後の字の後ろの字間は数えない）
+      [[en,.3],[nm,.12]].forEach(([e,lsem])=>{if(!e)return;e.style.whiteSpace='nowrap';e.style.textIndent='0';e.style.letterSpacing=lsem+'em';
+        const w=()=>tw(e)-parseFloat(getComputedStyle(e).letterSpacing);
+        let lo=8,hi=120;for(let i=0;i<30;i++){const m=(lo+hi)/2;e.style.fontSize=m+'px';if(w()>inner)hi=m;else lo=m}
+        e.style.fontSize=lo+'px';e.style.marginRight=(-parseFloat(getComputedStyle(e).letterSpacing))+'px'});
+      if(am){const row=am.parentElement,tx=row.querySelector('.tax');row.style.whiteSpace='nowrap';
+        const aw=()=>tx.getBoundingClientRect().right-am.getBoundingClientRect().left-parseFloat(getComputedStyle(tx).letterSpacing);
+        let lo=20,hi=200;for(let i=0;i<30;i++){const m=(lo+hi)/2;am.style.fontSize=m+'px';if(aw()>inner)hi=m;else lo=m}am.style.fontSize=lo+'px'}
+      return;
+    }
     [[en,22],[nm,26]].forEach(([e,fs])=>{if(!e)return;e.style.fontSize=fs+'px';e.style.whiteSpace='nowrap';e.style.letterSpacing='0px';
       const n=[...e.textContent.trim()].length,w0=tw(e),ls=(inner-w0)/(n-1);
       e.style.letterSpacing=ls+'px';e.style.marginRight=(-ls)+'px'});
@@ -1551,5 +1562,21 @@ footer{
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
 })();
 </script>
+<!-- ▼▼ 一時的：画面サイズの表示（確認用。公開前に、この目印の間をまるごと消す） ▼▼ -->
+<div id="vp-size" aria-hidden="true" style="position:fixed;left:10px;bottom:10px;z-index:9999;padding:6px 10px;background:rgba(48,44,35,.88);color:#f0e8d6;font:13px/1.2 ui-monospace,Menlo,monospace;letter-spacing:0;border-radius:5px;pointer-events:none"></div>
+<script>
+(function(){
+  const el=document.getElementById('vp-size');
+  function show(){
+    const w=window.innerWidth,h=window.innerHeight;
+    const bps=[359,393,402,440,540,840,950,1140,1280,1440];
+    const hit=bps.find(b=>w<=b);
+    const bp=hit?hit+'以下':'1440より上';
+    el.textContent=w+' × '+h+'　'+bp;
+  }
+  show();window.addEventListener('resize',show);
+})();
+</script>
+<!-- ▲▲ 一時的：画面サイズの表示 ここまで ▲▲ -->
 </body>
 </html>

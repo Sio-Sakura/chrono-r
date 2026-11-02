@@ -515,7 +515,7 @@ section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
 }
 .concept .concept-lead-jp{font-size:15px;letter-spacing:.24em;color:var(--text);margin-top:-20px;margin-bottom:60px}
 .concept .concept-lead-jp > span{display:inline-flex;align-items:center;gap:16px;line-height:1}
-.concept .concept-lead-jp > span::before{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:translateY(var(--dia-y,.75px)) rotate(45deg);flex:none}
+.concept .concept-lead-jp > span::before{content:"";width:9.5px;height:9.5px;background:var(--gold);transform:translateY(var(--dia-y,.75px)) rotate(45deg);flex:none}
 .concept .concept-grid{
   max-width:900px;box-sizing:border-box;gap:clamp(36px,6vw,84px);align-items:stretch;
   padding:clamp(22px,calc(4.4vw - 10px),46px) clamp(24px,5.4vw,70px);
@@ -633,7 +633,7 @@ section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
 .cmp-table .n{font-size:calc(1em + 2px);line-height:1}
 .cmp-table thead th:nth-child(2){border-left:1px solid rgba(240,232,214,.2)}
 .cmp-table td.hl{
-  color:var(--head);font-weight:500;font-size:15px;
+  color:var(--text);font-weight:500;font-size:15px;
   background:linear-gradient(175deg,#fdfaf1,#f7f0dd);
   border-left:1px solid rgba(181,147,59,.6);
   border-bottom-color:rgba(181,147,59,.28);
@@ -928,7 +928,7 @@ section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
 /* ---------- フッター ---------- */
 footer{
   border-top:1px solid rgba(181,147,59,.35);
-  padding:64px clamp(24px,6vw,110px) 44px;
+  padding:54px clamp(24px,6vw,110px) 29px;
   background:#302c23;color:#f0e8d6;
 }
 .f-in{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start}
@@ -1518,16 +1518,16 @@ footer{
 @media (max-width:402px){
   .concept .concept-body p:not(:first-child){letter-spacing:.02em}
 }
-/* ---- 540px以下：中央揃えの見出しで、行の最後の「、」は数えずに中央に置く（「、」は右にはみ出させる）。
-   行の最後に来ているときだけ（JSで判定）。行の途中にあるときは普通の「、」のまま ---- */
-@media (max-width:540px){
-  /* ひとかたまりの言葉（.ph）の中の「、」は、かたまりごと右へはみ出させる。それ以外は「、」だけはみ出させる */
-  .ph:has(> .hang.at-end){margin-right:-1.02em}
-  :not(.ph) > .hang.at-end{letter-spacing:0;margin-right:-1em}
-  .sec-title .hang-nl,.final-catch .hang-nl{display:block}
-  /* 次の言葉を1行にしたとき、その後の改行で空の行ができないようにする */
-  .sec-title .hang-nl + br{display:none}
-}
+/* ---- 全部の幅：中央揃えの見出しで、行の最後の「、」「。」は数えずに中央に置く（右にはみ出させる）。
+   行の最後に来ているときだけ（JSで判定）。行の途中にあるときは普通の「、」のまま（前は540px以下だけ） ---- */
+/* ひとかたまりの言葉（.ph）の中の「、」は、かたまりごと右へはみ出させる。それ以外は「、」だけはみ出させる */
+.ph:has(> .hang.at-end){margin-right:-1.02em}
+:not(.ph) > .hang.at-end{letter-spacing:0;margin-right:-1em}
+.sec-title .hang-nl,.final-catch .hang-nl{display:block}
+/* 次の言葉を1行にしたとき、その後の改行で空の行ができないようにする */
+.sec-title .hang-nl + br{display:none}
+/* 541px以上は見出しの字間が0.12emなので、その分も引く */
+@media (min-width:541px){.sec-title .ph:has(> .hang.at-end){margin-right:-1.12em}}
 /* ---- 540px以下：Regenerate Your Time を3px大きく（1行のまま。入らない幅では入る大きさで止める） ---- */
 @media (max-width:540px){
   .concept .concept-lead{font-size:min(32px,calc((100vw - 48px) / 9.6));white-space:nowrap}
@@ -1648,7 +1648,7 @@ footer{
 /* ---- 540px以下：「あなたの時間を、再び動かすために」のダイヤは、2行になっても1行目の文字の前に置く。2行のときは左詰めで行の端まで入れて折り返す。行の高さは1.5倍（1行のときの上下の位置は今のまま） ---- */
 @media (max-width:540px){
   .concept .concept-lead-jp > span{align-items:flex-start;line-height:1.5;margin:-.25em 0}
-  .concept .concept-lead-jp > span::before{margin-top:calc(.75em - 4.32px)}
+  .concept .concept-lead-jp > span::before{margin-top:calc(.75em - 4.75px)}
 }
 /* ---- 358px以下：3つの理由のカードの見出しを、1行のままカードの中に入る大きさにする（カードが右にはみ出して中央からずれないように） ---- */
 @media (max-width:358px){
@@ -1715,7 +1715,7 @@ footer{
 .marquee-in{display:flex;flex:none;animation:scrollXpx 30s linear infinite}
 .marquee-in span{font-size:16.5px;white-space:nowrap}
 @keyframes scrollXpx{from{transform:translateX(0)}to{transform:translateX(calc(-1 * var(--mq-shift,50%)))}}
-/* ---- 「あなたの時間を、再び動かすために」のひし形：1.2倍（7.2px→8.64px）にし、1行目の文字の上下の真ん中にそろえる（541px以上は1px、540px以下は0.75px下げる。Retina（2倍）で実測） ---- */
+/* ---- 「あなたの時間を、再び動かすために」のひし形：1.2倍（7.2px→8.64px）→さらに1.1倍（9.5px）にし、1行目の文字の上下の真ん中にそろえる（541px以上は1px、540px以下は0.75px下げる。Retina（2倍）で実測） ---- */
 @media (min-width:541px){.concept .concept-lead-jp > span{--dia-y:1px}}
 /* ---- 440px以下：3つの証明のアイコンの絵の上下を、右の英語＋日本語の2段の文字の上端〜下端にそろえる（絵の上下の余白を見込んで44px。3つとも同じ大きさ） ---- */
 @media (max-width:440px){
@@ -1809,10 +1809,10 @@ footer{
   .ing-item .sub{font-size:15px;white-space:nowrap}
   .ing-rest{font-size:15px}
 }
-/* ---- 540px以下：開発元の「ニューヨークでNext Era Beauty部門を受賞」と「NEXT ERA LEADERS AWARD — 2024」を、コンセプトの「あなたの時間を〜」と同じ17px・ひし形8.64pxに。口コミの見出しは17px ---- */
+/* ---- 540px以下：開発元の「ニューヨークでNext Era Beauty部門を受賞」と「NEXT ERA LEADERS AWARD — 2024」を、コンセプトの「あなたの時間を〜」と同じ17px・ひし形9.5pxに。口コミの見出しは17px ---- */
 @media (max-width:540px){
   .award .award-lead{font-size:17px;align-items:flex-start;line-height:1.5}
-  .award .award-lead::before{width:8.64px;height:8.64px;margin-top:calc(.75em - 4.32px)}
+  .award .award-lead::before{width:9.5px;height:9.5px;margin-top:calc(.75em - 4.75px)}
   /* 1行に入らない幅では字間だけ詰める（文字だけの幅272.5px、29字） */
   .award .award-date{font-size:17px;letter-spacing:min(.14em,calc((100vw - 48px - 275px) / 29))}
   .quote-card .q-title{font-size:17px}
@@ -1914,10 +1914,12 @@ footer{
 @media (min-width:403px) and (max-width:440px){
   .ing .sec-title,.col-title{font-size:min(27px,calc(88vw / 14.05))}
 }
-/* ---- 541px以上：開発元の「ニューヨークで Next Era Beauty部門を受賞」のひし形も、ほかと同じ8.64pxに ---- */
-@media (min-width:541px){.award-lead::before{width:8.64px;height:8.64px}}
+/* ---- 541px以上：開発元の「ニューヨークで Next Era Beauty部門を受賞」のひし形も、ほかと同じ9.5pxに ---- */
+@media (min-width:541px){.award-lead::before{width:9.5px;height:9.5px}}
 /* 840px以下では、ひし形が文字の真ん中より少し下に出るので0.75px上げる（Retinaで実測） */
 @media (max-width:840px){.award-lead::before{transform:translateY(.75px) rotate(45deg)}}
+/* ひし形を9.5pxにしたので、841px以上は1px下げる形に（前は1.5px） */
+@media (min-width:841px){.award-lead::before{transform:translateY(1px) rotate(45deg)}}
 /* ---- 402px以下：ヒーロー以外の本文で字間0.02emだったところを0.03emに（コンセプトの本文・3つの理由の文・成分名の下の文） ---- */
 @media (max-width:402px){
   .concept .concept-body p:not(:first-child),.why .cell p,.ing-item .sub{letter-spacing:.03em}
@@ -1945,6 +1947,225 @@ footer{
   .award .award-date{font-size:17px}
   .price-notes li{font-size:14px}
 }
+/* ---- 1281px以上（1441px以上で決めた値を1281pxから使う）：ヒーローの文字を大きく（ラベル18・一言26・説明18・ボタン23・ボタン横の注記16） ---- */
+@media (min-width:1281px){
+  .hero .hero-eyebrow{font-size:18px}
+  .hero .hero-kicker{font-size:26px}
+  .hero .hero-copy{font-size:18px}
+  /* 金のボタン（ヒーロー・価格の箱）を23pxに */
+  .hero .btn-gold,main .btn-gold{font-size:23px}
+  .hero .btn-note{font-size:16px}
+  /* アイブロウの上の余白（10px）をなくし、右の写真の上端とアイブロウの上端をそろえる（上下の空きが同じになる） */
+  .hero .hero-eyebrow{margin-top:0}
+  .hero .hero-title{font-size:94px}
+  .hero .hero-sub-en{font-size:40px}
+  /* ヘッダーのロゴをフッターのロゴと同じ28pxに */
+  header .logo{font-size:28px}
+  header .nav-cta{font-size:18px}
+  header nav a:not(.nav-cta){font-size:16px}
+  /* 注意書き（価格の箱の※、比較の図の※）を13px→14pxに */
+  .price-notes li,.vs-note{font-size:14px}
+  /* 流れる帯の英字を18px、章の英字ラベル（CONCEPTなど）を24pxに */
+  .marquee span{font-size:18px}
+  main .sec-head .label{font-size:24px}
+  /* 説明文とボタンの間を20px広げる（20px→40px） */
+  .hero .hero-copy{margin-bottom:40px}
+}
+/* ---- 1281px以上（1441px以上で決めた値を1281pxから使う）：章の見出し（h2）を40px、小見出し（h3：3つの理由・比較・コラム）を22pxに ---- */
+@media (min-width:1281px){
+  .sec-title,.ing .sec-title,.col-title{font-size:40px}
+  .why .cell h3,.vs-title,.vs-card.is-main .vs-title,.news-card h3{font-size:22px}
+}
+/* ---- 1281px以上（1441px以上で決めた値を1281pxから使う）：本文（カード・口コミ・比較・コラムの抜粋）を15px→16pxに ---- */
+@media (min-width:1281px){
+  .why .cell p,.quote-card p:not(.q-title):not(.who),.vs-text,.news-card .ex{font-size:16px}
+}
+/* ---- 1281px以上（1441px以上で決めた値を1281pxから使う）：「あなたの時間を、再び動かすために」を15px→18pxに ---- */
+@media (min-width:1281px){.concept .concept-lead-jp{font-size:18px}}
+/* ---- 1281px以上（1441px以上で決めた値を1281pxから使う）：開発元の「NEXT ERA LEADERS AWARD — 2024」を15px→17pxに（大文字なので17） ---- */
+@media (min-width:1281px){.award .award-date{font-size:17px}.award .award-date .yr{font-size:22px}}
+/* ---- 1281px以上（1441px以上で決めた値を1281pxから使う）：価格の数字を93px（¥は数字の半分のまま）、フッターの©の行を14px・年（2026）を18px ---- */
+@media (min-width:1281px){
+  .price-amount{font-size:93px}
+  .f-copy{font-size:14px}
+  .f-copy .f-yr{font-size:18px}
+  /* 3つの理由の飾りの番号：「No.」38→45px、数字58→70px */
+  .cell .big .no{font-size:45px}
+  .cell .big .n{font-size:70px}
+}
+/* ---- 1281px以上（1441px以上で決めた値を1281pxから使う）：3つの理由のカードは3つとも同じ幅（見出しを22pxにしても、長い見出しのカードだけ広がらないように） ---- */
+@media (min-width:1281px){.why .line-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.why .line-grid > .cell{min-width:0}}
+/* 見出し（22px）が1行に入らないカードは、意味の切れ目で2行に折る。3つとも2行分の高さにして、本文の始まりをそろえる（1行の見出しは上下の真ん中） */
+@media (min-width:1281px){.why .cell h3{white-space:normal;min-height:3.8em;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.9}}
+/* ---- 1281px以上（1441px以上で決めた値を1281pxから使う）：比較表の上の見出しの行を18px、項目と内容を16pxに ---- */
+@media (min-width:1281px){.cmp-table thead th{font-size:18px}.cmp-table tbody th,.cmp-table td,.cmp-table td.hl{font-size:16px}}
+/* ---- 951px以上：フッターのリンクを15px、会社名を14pxに。右のリンク3行の上下は、左の3行（ロゴ〜会社名2行目）の文字の上端・下端にそろえたまま（値は実測で合わせる） ---- */
+@media (min-width:951px){
+  .f-links a{font-size:15px}
+  .f-company{font-size:14px}
+}
+/* 左右に並ぶ幅（1000px以上）：右のリンクの位置と行の間を、15・14pxに合わせて調整 */
+@media (min-width:1000px){.f-links{margin-top:6.5px;row-gap:13.5px}}
+/* ---- 951〜1280px（951〜1140pxも1141〜1280pxと同じ値で始める）：3つの理由のカードの見出しを、1141px以下で19px→1200px以上で20pxに（1行）。カードは3つとも同じ幅。入らない見出しは字間だけ詰める（JS） ---- */
+@media (min-width:951px) and (max-width:1280px){
+  .why .cell h3{font-size:clamp(19px,calc(19px + (100vw - 1141px) / 59),20px)}
+  /* ヒーローの一言（再生医療の研究所が開発した、）を24pxに */
+  .hero .hero-kicker{font-size:24px}
+  /* H1の小さいラベル（リバースエイジング サプリメント）を15.5px→18pxに */
+  .hero .hero-eyebrow{font-size:18px}
+  /* ヒーローの説明文を16px→17pxに */
+  .hero .hero-copy{font-size:17px}
+  /* 金のボタン（ヒーロー・価格の箱）を23pxに */
+  .hero .btn-gold,main .btn-gold{font-size:23px}
+  /* ヘッダーのボタン17px・ナビ16px、注意書き14px */
+  header .nav-cta{font-size:17px}
+  header nav a:not(.nav-cta){font-size:16px}
+  .price-notes li,.vs-note{font-size:14px}
+  /* アイブロウと一言（再生医療の研究所が開発した、）の間を7px狭める */
+  .hero .hero-eyebrow{margin-bottom:23px}
+  /* 説明文とボタンの間を5px広げる（20px→25px） */
+  .hero .hero-copy{margin-bottom:25px}
+  /* ブランド名の下の英字（CAPSULES）を40pxに */
+  .hero .hero-sub-en{font-size:40px}
+  /* CHRONO-RとCAPSULESの間を5px狭める（下の余白5px→0） */
+  .hero .hero-title{margin-bottom:0}
+  /* 成分の「ほか、全30種以上」を15pxに */
+  .ing .ing-rest,.ing-rest{font-size:15px}
+  /* ヘッダーのロゴをフッターと同じ28pxに */
+  header .logo{font-size:28px}
+  /* 開発元の「NEXT ERA LEADERS AWARD — 2024」を16px、2024を22pxに */
+  .award .award-date{font-size:16px}
+  .award .award-date .yr{font-size:22px}
+  /* フッターの©の行は13pxのまま、年（2026）を16pxに */
+  .f-copy .f-yr{font-size:16px}
+  /* 比較表：上の見出しの行18px、項目と内容16px */
+  .cmp-table thead th{font-size:18px}
+  .cmp-table tbody th,.cmp-table td,.cmp-table td.hl{font-size:16px}
+  /* 「あなたの時間を、再び動かすために」を15px→18pxに */
+  .concept .concept-lead-jp{font-size:18px}
+  .why .line-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .why .line-grid > .cell{min-width:0}
+}
+/* ---- 1281px以上：成分の「ほか、全30種以上」を、注意書きと同じ14pxに（1141〜1280pxは15px） ---- */
+@media (min-width:1281px){.ing .ing-rest,.ing-rest{font-size:14px}}
+/* ---- 951〜1140px：画面の幅に合わせて変わる部品は、1141pxのときの大きさで止める（1141〜1280pxと同じ見た目で始める） ---- */
+@media (min-width:951px) and (max-width:1140px){
+  .hb .s,.hb .t{font-size:14px}
+  .sec-title,.col-title{font-size:36px}
+  .ing .sec-title{font-size:33.7px}
+  .concept .concept-lead{font-size:41px}
+  .concept .tate{font-size:25px}
+  .vs-title,.vs-card.is-main .vs-title,.quote-card .q-title{font-size:19.4px}
+  /* ヒーローの一言（再生医療の研究所が開発した、）を22pxに */
+  .hero .hero-kicker{font-size:22px}
+  /* 金のボタン（ヒーロー・価格の箱）を23pxに。ボタンの文字は1行。ボタンの大きさ（背景）は22pxのときのまま（内側の余白を減らす） */
+  .hero .btn-gold,main .btn-gold{font-size:23px;white-space:nowrap;padding:12px 41px}
+  /* ヒーローのボタンと「1日1包・約30日分」は1行に並べる（入らない幅はJSでボタンの左右の余白を減らす） */
+  .hero .btn-gold{flex:none}
+  .hero .hero-cta-row{flex-wrap:nowrap}
+  /* ヒーローの説明文は、言葉のまとまりで折れないようにする固定を外し、行の右端まで詰める（左揃え） */
+  .hero .hero-copy .nw{white-space:normal}
+  /* ヘッダーのボタン16px・ナビ15px */
+  header .nav-cta{font-size:16px}
+  header nav a:not(.nav-cta){font-size:15px}
+  /* ヘッダーのロゴを26pxに */
+  header .logo{font-size:26px}
+  /* 3つの理由のカード：見出しは1行に入らないときだけ意味の切れ目で2行（3つとも2行分の高さで、本文の始まりをそろえる）。文章は両端揃え */
+  .why .cell h3{white-space:normal;min-height:3.8em;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.9}
+  .cell p{text-align:justify;text-justify:inter-character}
+  /* ヒーローの間を5pxずつ狭める：アイブロウ→一言（20→15）、一言→CHRONO-R（一言の下10→5）、CAPSULES→説明文（-5） */
+  .hero.copy-long .hero-eyebrow,.hero .hero-main .hero-eyebrow{margin-bottom:15px}
+  .hero .hero-main .hero-kicker{margin-bottom:5px}
+  .hero .hero-main .hero-copy{margin-top:-5px}
+  /* ヒーローの右の列（写真と3つの証明）を、左の文章との間を5px詰めた分だけ大きくする */
+  .hero .hero-right{margin-left:-5px}
+  /* 開発元の「ニューヨークで Next Era Beauty部門を受賞」は左詰めで1行（入らない幅はJSで字間を詰める） */
+  .award .award-lead{white-space:nowrap;text-wrap:nowrap;justify-content:flex-start;text-align:left}
+}
+/* ---- 540px以下：カードの見出しの「意味の切れ目」の部品は使わない（1行に収める仕組みが正しく測れるように） ---- */
+@media (max-width:540px){.why .cell h3 .ph2{display:inline;white-space:inherit}}
+/* ---- カードの文章は全部の幅で両端揃え（841〜1140pxで左揃えになっていたのを直す） ---- */
+@media (min-width:841px) and (max-width:1140px){.cell p{text-align:justify;text-justify:inter-character}}
+/* 成分の名前・その下の文字：841〜1140pxは16・14px */
+@media (min-width:841px) and (max-width:1140px){.ing-item .nm{font-size:16px}.ing-item .sub{font-size:14px}}
+/* 951〜1140px：ヒーローの「1日1包・約30日分」は1行（入らない幅はJSでボタンの左右の余白を減らす） */
+@media (min-width:951px) and (max-width:1140px){.hero .btn-note{white-space:nowrap}}
+/* ==== 841〜950px：文字の大きさは951〜1140pxと同じ（並び方が同じ左右2列のため）。余白・写真の合わせ方は841〜950pxのまま ==== */
+@media (min-width:841px) and (max-width:950px){
+  .hero .hero-eyebrow{font-size:16px}
+  .hero .hero-kicker{font-size:20px}
+  .hero .hero-sub-en{font-size:40px}
+  /* 説明文は16px・両端揃え（最後の行は左揃え）・行間1.7（951pxの1.8から0.1詰める） */
+  .hero .hero-copy{font-size:16px;text-align:justify;text-justify:inter-character;text-align-last:left;line-height:1.7}
+  /* 説明文は、言葉のまとまりで折れないようにする固定を外し、行の右端まで詰める */
+  .hero .hero-copy .nw{white-space:normal}
+  /* 金のボタン：文字19px。背景は18pxのときの大きさ（223×59px）のまま（余白で調整） */
+  .hero .btn-gold,main .btn-gold{font-size:19px;white-space:nowrap;padding:9px 30.75px}
+  /* 価格の箱のボタン：文字19pxでも高さは18pxのときのまま */
+  main .price-info .btn-gold{padding-top:10px;padding-bottom:10px}
+  /* ヘッダーのボタン：背景の横幅を左右5pxずつ削る（28→23px） */
+  header .nav-cta{padding-left:23px;padding-right:23px}
+  /* 「1日1包・約30日分」はボタンの右に1行で置く：字間を詰め（.16em→.06em）、ボタンとの間は12px。入らない幅はJSでボタンの左右の余白を減らす（24pxまで） */
+  .hero .btn-note{letter-spacing:.06em;white-space:nowrap}
+  .hero .btn-gold{flex:none}
+  .hero .hero-cta-row{flex-wrap:nowrap;column-gap:12px}
+  /* 右の列の下端はボタンの下端にそろえる（下に回る並び方のための下の余白を外す） */
+  .hero .hero-right{margin-bottom:0}
+  /* 本文：リード文16px・文章（カード・比較・口コミ・コラム）15px。明朝の一文とFAQの答えは別 */
+  main .sec-lead,main .rev .sec-lead,main .award-body,main .final-body,main .concept .concept-body p:not(:first-child){font-size:16px}
+  /* FAQの答え16px */
+  main .faq-item .a{font-size:16px}
+  /* ヒーローの間を15pxずつ狭める：アイブロウ→一言（22→7、あとで3px戻して10）、一言→CHRONO-R（10→-5）、CAPSULES→説明文（15→0） */
+  .hero .hero-main .hero-eyebrow{margin-bottom:15px}
+  /* CHRONO-RとCAPSULESの間を10px狭める（5→-5） */
+  .hero .hero-main .hero-title{margin-bottom:-5px}
+  .hero .hero-main .hero-kicker{margin-bottom:3px}
+  /* CAPSULES→説明文：15→0に狭めたあと、5px戻す */
+  .hero .hero-main .hero-h1{margin-bottom:10px}
+  /* 説明文とボタンの間を7px広げる（20→27） */
+  .hero .hero-main .hero-copy{margin-bottom:27px}
+  main .vs-text,main .why .cell p,main .quote-card p:not(.q-title):not(.who),main .news-card .ex{font-size:15px}
+  /* 文章の行間：951pxの値から0.1だけ詰める（境で急に変わらないように。ヒーローの説明文も同じで1.7） */
+  main .sec-lead,main .rev .sec-lead,main .award-body,main .final-body,main .concept .concept-body p:not(:first-child){line-height:2.15}
+  main .vs-text,main .quote-card p:not(.q-title):not(.who){line-height:1.9}
+  main .why .cell p{line-height:1.7}
+  main .faq-item .a{line-height:1.95}
+  main .news-card .ex{line-height:1.8}
+  .hb .s,.hb .t{font-size:14px}
+  header .nav-cta{font-size:15px}
+  header nav a:not(.nav-cta){font-size:14px}
+  header .logo{font-size:24px}
+  /* H2 見出し32px（ページ最後の大きいキャッチも同じ） */
+  .sec-title,.col-title{font-size:32px}
+  main .final .final-catch{font-size:32px}
+  .ing .sec-title{font-size:32px}
+  .concept .concept-lead{font-size:41px}
+  .concept .tate{font-size:25px}
+  .concept .concept-lead-jp{font-size:18px}
+  /* H3 小見出し17px（3つの理由・比較・口コミ・コラム） */
+  .vs-title,.vs-card.is-main .vs-title,.quote-card .q-title{font-size:17px}
+  main .news-card h3{font-size:17px}
+  .why .cell h3{font-size:17px;letter-spacing:.01em;white-space:normal;text-wrap:wrap;word-break:normal;min-height:3.8em;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.9}
+  .price-notes li,.vs-note{font-size:14px}
+  .ing .ing-rest,.ing-rest{font-size:15px}
+  .award .award-date{font-size:16px}
+  .award .award-date .yr{font-size:22px}
+  .award .award-lead{white-space:nowrap;text-wrap:nowrap;justify-content:flex-start;text-align:left}
+  .cmp-table thead th{font-size:18px}
+  .cmp-table tbody th,.cmp-table td,.cmp-table td.hl{font-size:16px}
+  .f-copy .f-yr{font-size:16px}
+  .f-links a{font-size:15px}
+  .f-company{font-size:14px}
+  .award .award-lead{font-size:18px}
+  /* 証明の箱の文字は、930pxより狭い幅では画面の幅に合わせて小さくする */
+  .hb .s,.hb .t{font-size:min(14px,calc(100vw * 14 / 930))}
+  /* 証明の日本語（WSJアワード受賞など）は字間を少し詰めて、区切り線との左右に空きを作る（.05em→0） */
+  .hero .hb .t{letter-spacing:0}
+  /* 証明の英字（AWARD 2024・DEVELOPER・INGREDIENTS）は字間を気持ち詰める（.14em→.1em） */
+  .hero .hb .s{letter-spacing:.1em;text-indent:.1em}
+}
+/* コラムの見出し（3つとも）：どの幅でも「？」で改行せず、行の右端まで詰めて左揃え */
+.news-card h3[id]{text-wrap:wrap;word-break:normal;line-break:strict;text-align:left}
 </style>
 </head>
 <body>
@@ -2123,13 +2344,13 @@ footer{
       <div class="cell has-hex reveal d1">
         <div class="hex"><svg class="hexbg" viewBox="0 0 76 76" aria-hidden="true"><polygon class="h1" points="38,2 69.2,20 69.2,56 38,74 6.8,56 6.8,20"/></svg><img class="ic" src="images/ic-balance.png" alt="" width="600" height="600"></div>
         <span class="big"><span class="gold-text"><span class="no">No.</span><span class="n">2</span></span></span>
-        <h3>独自の「黄金比バランス」設計</h3>
+        <h3><span><span class="ph2">独自の</span><span class="ph2">「黄金比バランス」設計</span></span></h3>
         <p>成分配合と設計思想にこだわった、独自の黄金比バランス。30種以上の成分を1包にまとめるにあたり、複数の有用成分が互いに補い合うよう、ナノテクノロジーを応用した超微細なレベルで設計しています。</p>
       </div>
       <div class="cell has-hex reveal d2">
         <div class="hex"><svg class="hexbg" viewBox="0 0 76 76" aria-hidden="true"><polygon class="h1" points="38,2 69.2,20 69.2,56 38,74 6.8,56 6.8,20"/></svg><img class="ic" src="images/ic-flask.png" alt="" width="600" height="600"></div>
         <span class="big"><span class="gold-text"><span class="no">No.</span><span class="n">3</span></span></span>
-        <h3>再生医療の研究所が開発</h3>
+        <h3><span><span class="ph2">再生医療の</span><span class="ph2">研究所が開発</span></span></h3>
         <p>開発したのは、リエール再生医療研究所。人生100年時代を健やかに過ごすことを目指して、商品開発を続けています。2024年5月には、ニューヨークで開かれたウォール・ストリート・ジャーナル主催のアワードで、<span lang="en">Next</span> Era <span lang="en">Beau­ty</span>部門を受賞しました。</p>
       </div>
     </div>
@@ -2353,7 +2574,7 @@ footer{
       <a href="../privacy.html">プライバシーポリシー</a>
     </div>
   </div>
-  <p class="f-copy">© 2026 株式会社ハタママ</p>
+  <p class="f-copy">© <span class="f-yr">2026</span> 株式会社ハタママ</p>
 </footer>
 
 <script>
@@ -2420,12 +2641,11 @@ footer{
   window.addEventListener('load',fitHeader);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitHeader);
 
-  // 見出しの「、」が行の最後に来ているかを調べて印を付ける（540px以下だけ使う）
+  // 見出しの「、」「。」が行の最後に来ているかを調べて印を付ける（全部の幅）
   const hangs=[...document.querySelectorAll('.hang')];
   function fitHang(){
     hangs.forEach(h=>h.classList.remove('at-end'));
     document.querySelectorAll('.hang-nl').forEach(e=>e.classList.remove('hang-nl'));
-    if(!window.matchMedia('(max-width:540px)').matches)return;
     const atEnd=h=>{
       const r=h.getBoundingClientRect(),hd=h.closest('h2');
       const tw=document.createTreeWalker(hd,NodeFilter.SHOW_TEXT);let n,after=false,nextTop=null;const rg=document.createRange();
@@ -2613,8 +2833,20 @@ footer{
   function fit(){
     {const y=am&&am.querySelector('.yen');if(y)y.style.fontSize=''}
     [en,nm,am].forEach(e=>e&&(e.style.fontSize='',e.style.letterSpacing='',e.style.marginRight='',e.style.whiteSpace=''));
-    if(!window.matchMedia('(max-width:540px)').matches)return;
     const cs=getComputedStyle(box),inner=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+    // 541px以上：英語と商品名は今の大きさのまま、字間で箱の幅いっぱい（左端〜右端）にそろえる
+    if(!window.matchMedia('(max-width:540px)').matches){
+      // 字間は元の値（英字0.3em・商品名0.12em）に固定し、大きさを変えて箱の幅いっぱいにする（最後の字の後ろの字間は数えない）
+      [[en,.3],[nm,.12]].forEach(([e,lsem])=>{if(!e)return;e.style.whiteSpace='nowrap';e.style.letterSpacing=lsem+'em';
+        const w=()=>tw(e)-parseFloat(getComputedStyle(e).letterSpacing);
+        let lo=8,hi=120;for(let i=0;i<30;i++){const m=(lo+hi)/2;e.style.fontSize=m+'px';if(w()>inner)hi=m;else lo=m}
+        e.style.fontSize=lo+'px';e.style.marginRight=(-parseFloat(getComputedStyle(e).letterSpacing))+'px'});
+      // 値段の行（¥159,500（税込））も、箱の幅いっぱいになる大きさに（¥は数字の半分のまま）
+      if(am){am.style.whiteSpace='nowrap';const g=am.querySelector('.gold-text'),tx=am.querySelector('.tax');
+        const aw=()=>tx.getBoundingClientRect().right-g.getBoundingClientRect().left-parseFloat(getComputedStyle(tx).letterSpacing);
+        let lo=20,hi=200;for(let i=0;i<30;i++){const m=(lo+hi)/2;am.style.fontSize=m+'px';if(aw()>inner)hi=m;else lo=m}am.style.fontSize=lo+'px'}
+      return;
+    }
     // 英語22px・商品名26pxに固定し、字間で箱の幅いっぱい（左端〜右端）にそろえる。最後の字の後ろの字間は右へはみ出させる
     [[en,22],[nm,26]].forEach(([e,fs])=>{if(!e)return;e.style.fontSize=fs+'px';e.style.whiteSpace='nowrap';e.style.letterSpacing='0px';
       const n=[...e.textContent.trim()].length,w0=tw(e),ls=(inner-w0)/(n-1);
@@ -2717,27 +2949,221 @@ footer{
 })();
 </script>
 <script>
+/* ---- 1281px以上（1441px以上で決めた値を1281pxから使う）：ヒーローの右の列（写真＋3つの証明）を、左の列（文字）と同じ高さにする。
+   写真は縦横の比を保って大きくし、その分だけ右の列を広げる（左の列の幅は変えない） ---- */
+(function(){
+  const main=document.querySelector('.hero-main'),inner=document.querySelector('.hero-inner'),vis=document.querySelector('.hero-visual'),bad=document.querySelector('.hero-badges');
+  if(!main||!inner||!vis||!bad)return;
+  const AR=1672/941;
+  window.fitHeroRight=function(){
+    main.style.gridTemplateColumns='';main.style.maxWidth='';
+    if(!window.matchMedia('(min-width:1281px)').matches)return;
+    const lw=inner.offsetWidth,gap=parseFloat(getComputedStyle(main).columnGap)||0;
+    const hero=main.closest('.hero'),hc=getComputedStyle(hero),avail=hero.clientWidth-parseFloat(hc.paddingLeft)-parseFloat(hc.paddingRight);
+    for(let i=0;i<3;i++){
+      const vh=inner.offsetHeight-bad.offsetHeight-parseFloat(getComputedStyle(bad).marginTop);
+      const vw=Math.min(vh*AR,avail-lw-gap);
+      main.style.gridTemplateColumns=lw+'px '+vw+'px';main.style.maxWidth=(lw+gap+vw)+'px';
+    }
+  };
+  fitHeroRight();
+  window.addEventListener('resize',fitHeroRight);window.addEventListener('load',fitHeroRight);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitHeroRight);
+})();
+</script>
+<script>
+/* ---- 841〜1140px：ヒーローのボタンの横の「1日1包・約30日分」が左の列に入らないときは、ボタンの左右の余白を減らす（24pxまで） ---- */
+(function(){
+  const b=document.querySelector('.hero .btn-gold'),n=document.querySelector('.hero .btn-note'),inn=document.querySelector('.hero-inner');if(!b||!n||!inn)return;
+  function fit(){
+    if(b.dataset.pfit){b.style.paddingLeft='';b.style.paddingRight='';delete b.dataset.pfit}
+    if(!window.matchMedia('(min-width:841px) and (max-width:1140px)').matches)return;
+    // 入れる範囲の右端：951〜1140pxはヒーローの内側の右端、841〜950pxは左の列（説明文）の右端
+    const cp=document.querySelector('.hero .hero-copy'),lim=()=>(window.matchMedia('(max-width:950px)').matches&&cp)?cp.getBoundingClientRect().right:inn.getBoundingClientRect().right;
+    // 余白の下限：951〜1140pxは24px、841〜950px（ボタンの文字20px）は16px
+    const pmin=window.matchMedia('(max-width:950px)').matches?16:24;
+    let p=parseFloat(getComputedStyle(b).paddingLeft);
+    for(let i=0;i<40&&n.getBoundingClientRect().right>lim()+.5&&p>pmin;i++){p-=1;b.style.paddingLeft=p+'px';b.style.paddingRight=p+'px';b.dataset.pfit='1'}
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* ---- 951〜1140px：右の写真の上端を「再生医療の研究所が開発した、」の文字の上端にそろえる。下端は左の列とそろえたまま、足りない高さは写真と証明の間と、証明の箱の縦幅に半分ずつ回す ---- */
+(function(){
+  const k=document.querySelector('.hero-kicker'),rt=document.querySelector('.hero-right'),hbs=[...document.querySelectorAll('.hero-badges .hb')];
+  if(!k||!rt||!hbs.length)return;
+  window.fitHeroBadges=function(){
+    hbs.forEach(h=>{if(h.dataset.padfit){h.style.paddingTop='';h.style.paddingBottom='';delete h.dataset.padfit}});
+    const bx=document.querySelector('.hero-badges');if(bx.dataset.mtfit){bx.style.marginTop='';delete bx.dataset.mtfit}
+    if(!window.matchMedia('(min-width:841px) and (max-width:1140px)').matches)return;
+    const kc=getComputedStyle(k),ktop=k.getBoundingClientRect().top+(parseFloat(kc.lineHeight)-parseFloat(kc.fontSize))/2;
+    const d=rt.getBoundingClientRect().top-ktop;
+    // 足す高さの半分は写真と証明の間に、残りの半分は証明の箱の縦幅（上下に4分の1ずつ）に回す
+    // 右の列が高すぎるとき（d<0）は、同じ配分で間と箱の縦幅を詰める（間は0、箱の上下の空きは6pxまで）
+    if(Math.abs(d)>.5){const c=getComputedStyle(hbs[0]),pt=parseFloat(c.paddingTop),pb=parseFloat(c.paddingBottom),mt=parseFloat(getComputedStyle(bx).marginTop);
+      bx.style.marginTop=Math.max(0,mt+d/2)+'px';bx.dataset.mtfit='1';
+      hbs.forEach(h=>{h.style.paddingTop=Math.max(6,pt+d/4)+'px';h.style.paddingBottom=Math.max(6,pb+d/4)+'px';h.dataset.padfit='1'})}
+  };
+})();
+</script>
+<script>
 /* ---- 951px以上：1画面目は画面の高さいっぱい。流れる帯の下の線は画面の一番下にそろえ（帯の下に空きを作らない）、
    写真と文章は、ヘッダーの下端と帯の上端のちょうど真ん中に置く（上下の空きを同じにする） ---- */
 (function(){
   const hero=document.querySelector('.hero'),main=document.querySelector('.hero-main'),hd=document.querySelector('header'),mq=document.querySelector('.hero .marquee');
   if(!hero||!main||!hd||!mq)return;
   function center(){
-    main.style.paddingTop='';main.style.paddingBottom='';
-    if(!window.matchMedia('(min-width:951px)').matches||hero.classList.contains('fv-short'))return;
+    main.style.paddingTop='';main.style.paddingBottom='';main.style.transform='';hero.style.paddingTop='';
+    if(window.fitHeroRight)window.fitHeroRight();
+    if(window.fitHeroBadges)window.fitHeroBadges();
+    // 951px以上で使う（1140px以下は1画面目の高さを画面に合わせないが、上下の空きは同じにする）
+    if(!window.matchMedia('(min-width:841px)').matches)return;
     // 動きの途中の位置ではなく、置かれている位置で測る
     const kids=[...main.children],mt=main.getBoundingClientRect().top;
-    const top=mt+Math.min(...kids.map(c=>c.offsetTop)),bot=mt+Math.max(...kids.map(c=>c.offsetTop+c.offsetHeight));
-    const gapT=top-hd.getBoundingClientRect().bottom,gapB=mq.getBoundingClientRect().top-bot,d=gapB-gapT;
-    const cs=getComputedStyle(main);
-    if(d>0)main.style.paddingTop=(parseFloat(cs.paddingTop)+d)+'px';
-    else if(d<0)main.style.paddingBottom=(parseFloat(cs.paddingBottom)-d)+'px';
-    // 1画面に入らなくなったら戻す
-    if(hero.getBoundingClientRect().height>window.innerHeight+.5){main.style.paddingTop='';main.style.paddingBottom=''}
+    // 上端はアイブロウ（リバースエイジング サプリメント）の上端、下端はボタンの下端で測る（左の列の余白は数えない）。右の列も含める
+    const ey=main.querySelector('.hero-eyebrow'),bt=main.querySelector('.btn-gold'),nt=main.querySelector('.btn-note'),rt=main.querySelector('.hero-right');
+    const absTop=e=>{let t=0;while(e&&e!==main){t+=e.offsetTop;e=e.offsetParent}return t};
+    const tops=[rt?rt.offsetTop:1e9,ey?absTop(ey):1e9],bots=[rt?rt.offsetTop+rt.offsetHeight:-1e9,bt?absTop(bt)+bt.offsetHeight:-1e9,nt?absTop(nt)+nt.offsetHeight:-1e9];
+    const top=mt+Math.min(...tops),bot=mt+Math.max(...bots);
+    const gapT=top-hd.getBoundingClientRect().bottom,gapB=mq.getBoundingClientRect().top-bot,d=(gapB-gapT)/2;
+    // 841〜1140px（1画面目を画面の高さに合わせない幅）：上下の空きを固定する
+    if(window.matchMedia('(max-width:1140px)').matches){
+      const ht=parseFloat(getComputedStyle(hero).paddingTop),mb=parseFloat(getComputedStyle(main).paddingBottom);
+      // 上下の空き：951〜1140pxは50px、841〜950pxは40px
+      const G=window.matchMedia('(max-width:950px)').matches?40:50;
+      hero.style.paddingTop=(ht+G-gapT)+'px';main.style.paddingBottom=(mb+G-gapB)+'px';
+      return;
+    }
+    // 中の間隔は変えずに、写真と文章のまとまりごと上下にずらして、上下の空きを同じにする（高さは変わらないので、低い画面でもそろう）
+    if(Math.abs(d)>.25)main.style.transform='translateY('+d+'px)';
   }
   center();
   window.addEventListener('resize',center);window.addEventListener('load',center);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(center);
+})();
+</script>
+<!-- ▼▼ 一時的：画面サイズの表示（確認用。公開前に、この目印の間をまるごと消す） ▼▼ -->
+<div id="vp-size" aria-hidden="true" style="position:fixed;left:10px;bottom:10px;z-index:9999;padding:6px 10px;background:rgba(48,44,35,.88);color:#f0e8d6;font:13px/1.2 ui-monospace,Menlo,monospace;letter-spacing:0;border-radius:5px;pointer-events:none"></div>
+<script>
+(function(){
+  const el=document.getElementById('vp-size');
+  function show(){
+    const w=window.innerWidth,h=window.innerHeight;
+    const bps=[359,393,402,440,540,840,950,1140,1280,1440];
+    const hit=bps.find(b=>w<=b);
+    const bp=hit?hit+'以下':'1440より上';
+    el.textContent=w+' × '+h+'　'+bp;
+  }
+  show();window.addEventListener('resize',show);
+})();
+</script>
+<!-- ▲▲ 一時的：画面サイズの表示 ここまで ▲▲ -->
+<script>
+/* ---- 1281px以上：成分の章の見出し（改行しない）は40pxまで。右の列に入らない幅では、入る大きさまで小さくする ---- */
+(function(){
+  const h=document.querySelector('.ing .sec-title');if(!h)return;
+  function fit(){
+    if(h.dataset.fsfit){h.style.fontSize='';h.style.letterSpacing='';delete h.dataset.fsfit}
+    if(!window.matchMedia('(min-width:841px)').matches)return;
+    const col=h.parentElement.getBoundingClientRect().right;
+    const over=()=>{const r=document.createRange();r.selectNodeContents(h);return r.getBoundingClientRect().right>col+.5};
+    // 文字は27px（541〜840pxと同じ）までしか小さくしない。それでも入らない分は字間を詰める（-0.04emまで）
+    for(let i=0;i<40&&over()&&parseFloat(getComputedStyle(h).fontSize)>27;i++){h.style.fontSize=Math.max(27,parseFloat(getComputedStyle(h).fontSize)-.25)+'px';h.dataset.fsfit='1'}
+    const fs=parseFloat(getComputedStyle(h).fontSize);let ls=(parseFloat(getComputedStyle(h).letterSpacing)||0)/fs;
+    for(let i=0;i<40&&over()&&ls>-.04;i++){ls=Math.max(-.04,ls-.005);h.style.letterSpacing=ls+'em';h.dataset.fsfit='1'}
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* ---- 1141〜1280px：3つの理由のカードの見出しが1行に入らないときは、字間を0.005emずつ詰める（0まで） ---- */
+(function(){
+  const hs=[...document.querySelectorAll('.why .cell h3')];if(!hs.length)return;
+  function fit(){
+    // 自分が変えたときだけ元に戻す（ほかの幅の仕組みが変えた字間は消さない）
+    hs.forEach(h=>{if(h.dataset.lsfit){h.style.letterSpacing='';delete h.dataset.lsfit}});
+    if(!window.matchMedia('(min-width:841px) and (max-width:1280px)').matches)return;
+    hs.forEach(h=>{
+      const c=h.closest('.cell'),cc=getComputedStyle(c);
+      const inner=c.getBoundingClientRect().width-parseFloat(cc.paddingLeft)-parseFloat(cc.paddingRight)-parseFloat(cc.borderLeftWidth)-parseFloat(cc.borderRightWidth);
+      const fs=parseFloat(getComputedStyle(h).fontSize);let ls=parseFloat(getComputedStyle(h).letterSpacing)/fs;
+      const tw=()=>{const r=document.createRange();r.selectNodeContents(h);return r.getBoundingClientRect().width};
+      for(let i=0;i<20&&tw()>inner&&ls>0;i++){ls=Math.max(0,ls-.005);h.style.letterSpacing=ls+'em';h.dataset.lsfit='1'}
+    });
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* ---- 1141〜1280px：ヒーローの一言（24px）が1行に入らない幅では、字間を少しずつ詰めて1行に入れる ---- */
+(function(){
+  const k=document.querySelector('.hero-kicker');if(!k)return;
+  // 行の数：文字の上端が行の高さの半分以上ちがうものを別の行と数える
+  // 文字が下から上がる動きの途中でも正しく数えられるよう、動きに影響されない位置（offsetTop）で数える
+  const lines=()=>{const cs=[...k.querySelectorAll('.char')];const lh=parseFloat(getComputedStyle(k).fontSize);let ts;if(cs.length){ts=cs.map(c=>c.offsetTop)}else{const r=document.createRange();r.selectNodeContents(k);ts=[...r.getClientRects()].map(x=>x.top)}ts.sort((a,b)=>a-b);let n=ts.length?1:0;for(let i=1;i<ts.length;i++)if(ts[i]-ts[i-1]>lh/2)n++;return n};
+  function fit(){
+    if(k.dataset.lsfit){k.style.letterSpacing='';delete k.dataset.lsfit}
+    if(!window.matchMedia('(min-width:841px) and (max-width:1280px)').matches)return;
+    let ls=parseFloat(getComputedStyle(k).letterSpacing)/parseFloat(getComputedStyle(k).fontSize);
+    for(let i=0;i<40&&lines()>1&&ls>.05;i++){ls-=.01;k.style.letterSpacing=ls+'em';k.dataset.lsfit='1'}
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* ---- 951〜1140px：「リバースエイジングとは？／アンチエイジングとの違い」（36px）が右の写真に近づく幅では、写真との間が24px空くまで字間を詰める（0まで） ---- */
+(function(){
+  const h=[...document.querySelectorAll('main h2')].find(x=>x.textContent.includes('アンチエイジングとの違い'));if(!h)return;
+  const sec=h.closest('section');
+  function fit(){
+    if(h.dataset.lsfit){h.style.letterSpacing='';delete h.dataset.lsfit}
+    if(!window.matchMedia('(min-width:841px) and (max-width:1140px)').matches)return;
+    const ph=sec.querySelector('.photo, .pic');if(!ph)return;
+    // 写真との間：951〜1140pxは24px空ける。841〜950pxは重ならなければよい
+    const lim=()=>ph.getBoundingClientRect().left-(window.matchMedia('(max-width:950px)').matches?0:24);
+    const right=()=>{const r=document.createRange();r.selectNodeContents(h);return r.getBoundingClientRect().right-parseFloat(getComputedStyle(h).letterSpacing)};
+    const fs=parseFloat(getComputedStyle(h).fontSize);let ls=parseFloat(getComputedStyle(h).letterSpacing)/fs;
+    for(let i=0;i<40&&right()>lim()&&ls>0;i++){ls=Math.max(0,ls-.005);h.style.letterSpacing=ls+'em';h.dataset.lsfit='1'}
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* ---- 951〜1140px：開発元の「ニューヨークで Next Era Beauty部門を受賞」が1行に入らない幅では、字間を少しずつ詰める ---- */
+(function(){
+  const e=document.querySelector('.award .award-lead');if(!e)return;
+  function fit(){
+    if(e.dataset.lsfit){e.style.letterSpacing='';delete e.dataset.lsfit}
+    if(!window.matchMedia('(min-width:841px) and (max-width:1140px)').matches)return;
+    const right=()=>{const r=document.createRange();r.selectNodeContents(e);return r.getBoundingClientRect().right};
+    const lim=()=>{const b=e.getBoundingClientRect(),c=getComputedStyle(e);return b.right-parseFloat(c.paddingRight)};
+    const fs=parseFloat(getComputedStyle(e).fontSize);let ls=parseFloat(getComputedStyle(e).letterSpacing)/fs;
+    for(let i=0;i<40&&right()>lim()+.5&&ls>0;i++){ls=Math.max(0,ls-.005);e.style.letterSpacing=ls+'em';e.dataset.lsfit='1'}
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* ---- 841〜950px：開発元の見出し「再生医療の研究所が／開発したサプリメント」が3行になる幅では、字間を詰めて2行に収める（字間0まで。それでも入らなければ文字を少し小さくする） ---- */
+(function(){
+  const h=[...document.querySelectorAll('main h2')].find(x=>x.textContent.includes('開発したサプリメント'));if(!h)return;
+  const lines=()=>{const r=document.createRange();r.selectNodeContents(h);const fs=parseFloat(getComputedStyle(h).fontSize);const ts=[...r.getClientRects()].filter(x=>x.width>1).map(x=>x.top).sort((a,b)=>a-b);let n=ts.length?1:0;for(let i=1;i<ts.length;i++)if(ts[i]-ts[i-1]>fs/2)n++;return n};
+  function fit(){
+    if(h.dataset.lsfit){h.style.letterSpacing='';h.style.fontSize='';delete h.dataset.lsfit}
+    if(!window.matchMedia('(min-width:841px) and (max-width:950px)').matches)return;
+    const fs=parseFloat(getComputedStyle(h).fontSize);let ls=parseFloat(getComputedStyle(h).letterSpacing)/fs;
+    for(let i=0;i<40&&lines()>2&&ls>0;i++){ls=Math.max(0,ls-.005);h.style.letterSpacing=ls+'em';h.dataset.lsfit='1'}
+    for(let i=0;i<40&&lines()>2;i++){h.style.fontSize=(parseFloat(getComputedStyle(h).fontSize)-.25)+'px';h.dataset.lsfit='1'}
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>
 </body>

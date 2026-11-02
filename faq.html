@@ -392,7 +392,7 @@ section{position:relative;padding:120px var(--gutter);z-index:1;scroll-margin-to
 /* ---------- フッター ---------- */
 footer{
   border-top:1px solid rgba(181,147,59,.35);
-  padding:64px var(--gutter) 44px;
+  padding:54px var(--gutter) 29px;
   background:#302c23;color:#f0e8d6;
 }
 .f-in{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start}
@@ -443,7 +443,7 @@ footer{
   color:var(--gold-deep);margin-bottom:22px;
   opacity:0;animation:riseIn 1.4s .15s cubic-bezier(.3,.5,.3,1) forwards;
 }
-.ph-label::before{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:rotate(45deg);flex:none}
+.ph-label::before{content:"";width:9.5px;height:9.5px;background:var(--gold);transform:rotate(45deg);flex:none}
 /* h1：ホームの大見出し（h2）と同じ大きさ・字間・行間 */
 .ph-title{
   font-family:var(--mincho);
@@ -510,7 +510,7 @@ footer{
   display:flex;align-items:center;gap:16px;
   font-family:var(--mincho);font-size:clamp(21px,2.3vw,27px);font-weight:600;letter-spacing:.1em;line-height:1.6;color:var(--head);
 }
-.fq-head h2::before{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:rotate(45deg);flex:none}
+.fq-head h2::before{content:"";width:9.5px;height:9.5px;background:var(--gold);transform:rotate(45deg);flex:none}
 .fq-head .en{
   font-family:var(--serif-en);font-size:15px;font-weight:600;letter-spacing:.3em;line-height:1.2;color:var(--gold-deep);white-space:nowrap;
 }
@@ -564,7 +564,7 @@ footer{
   font-family:var(--serif-en);font-size:16px;font-weight:600;letter-spacing:.34em;text-indent:.34em;line-height:1.2;
   color:var(--gold-deep);margin-bottom:24px;
 }
-#contact .sec-en::before,#contact .sec-en::after{content:"";width:8.64px;height:8.64px;background:var(--gold);transform:rotate(45deg);flex:none}
+#contact .sec-en::before,#contact .sec-en::after{content:"";width:9.5px;height:9.5px;background:var(--gold);transform:rotate(45deg);flex:none}
 #contact .sec-title{margin-bottom:26px}
 /* 中央寄せの説明文：両端揃えにして、最後の行（改行で区切った行も）だけ中央に置く。全幅共通 */
 #contact .sec-lead{
@@ -1288,5 +1288,21 @@ footer{
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
 })();
 </script>
+<!-- ▼▼ 一時的：画面サイズの表示（確認用。公開前に、この目印の間をまるごと消す） ▼▼ -->
+<div id="vp-size" aria-hidden="true" style="position:fixed;left:10px;bottom:10px;z-index:9999;padding:6px 10px;background:rgba(48,44,35,.88);color:#f0e8d6;font:13px/1.2 ui-monospace,Menlo,monospace;letter-spacing:0;border-radius:5px;pointer-events:none"></div>
+<script>
+(function(){
+  const el=document.getElementById('vp-size');
+  function show(){
+    const w=window.innerWidth,h=window.innerHeight;
+    const bps=[359,393,402,440,540,840,950,1140,1280,1440];
+    const hit=bps.find(b=>w<=b);
+    const bp=hit?hit+'以下':'1440より上';
+    el.textContent=w+' × '+h+'　'+bp;
+  }
+  show();window.addEventListener('resize',show);
+})();
+</script>
+<!-- ▲▲ 一時的：画面サイズの表示 ここまで ▲▲ -->
 </body>
 </html>
