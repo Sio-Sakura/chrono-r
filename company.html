@@ -1243,6 +1243,18 @@ body{background:#fff}
 }
 /* 表の右の欄は残りの幅いっぱいに（句読点を詰めた分で折り返さないように） */
 .spec dd,.info dd{flex:1;min-width:0}
+/* ---- フッターが縦に並ぶ幅（999px以下）：「メニュー → ロゴ → 開発元・正規販売店 → ©」の順に（場所の入れ替えだけ。文字の大きさは変えない） ---- */
+@media (max-width:999px){
+  footer .f-in{flex-direction:column}
+  footer .f-links{order:-1}
+  /* ロゴと開発元・正規販売店の間を15px詰める */
+  footer .f-company{margin-top:-15px}
+}
+@media (max-width:540px){
+  footer .f-links{order:0}
+  footer .f-logo{order:1}
+  footer .f-company{order:3}
+}
 </style>
 </head>
 <body>
