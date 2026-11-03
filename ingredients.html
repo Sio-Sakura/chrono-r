@@ -181,6 +181,10 @@ section{position:relative;padding:120px var(--gutter);z-index:1;scroll-margin-to
 .head-c .sec-head{justify-content:center}
 .head-c .sec-head .label{text-indent:.44em}
 .head-c .sec-title{text-align:center}
+/* 見出しの行末の「、」を幅ゼロにして右にはみ出させる＝「、」を数えずに中央に置く（02「…フィセチンなど、」04「30種以上の成分を、」。全サイズ。2026-11-03 Shio指示） */
+.sec-title .hang{display:inline-block;width:0;white-space:nowrap;overflow:visible;letter-spacing:0}
+/* 行末の「）」は文字の箱の右側が空いて左にずれて見えるので、箱をインクの幅（.32em・実測）にして右の空きを数えない（05「お召し上がり方（飲み方）」） */
+.sec-title .hang.paren{width:.32em}
 .head-c .sec-lead{margin-left:auto;margin-right:auto;text-align:center}
 .head-r .ghost{left:auto;right:-8px}
 .head-r .sec-head{justify-content:flex-end}
@@ -997,6 +1001,89 @@ footer{
   footer .f-logo{order:1}
   footer .f-company{order:3}
 }
+
+/* ==========================================================
+   ホームにそろえる（840px以下＝タブレット・スマホだけ。841px以上のパソコンは変えない）2026-11-02
+   ホーム（Home/index4.html）の文字の大きさ・行間・字間・見出しの下の間隔を、下層ページでも同じにする。
+   <style> の最後に置いて、上の指定を上書きする。
+   ========================================================== */
+/* ---- 541〜840px（ホームの541〜840pxと同じ値） ---- */
+@media (min-width:541px) and (max-width:840px){
+  header .logo{font-size:21px}
+  header .nav-cta{font-size:17.5px}
+  /* 章の見出し（h2）・ページの題名（h1）：ホームの章の見出しと同じ大きさ（29〜32px） */
+  .ph-title,.sec-title,.msg-title{font-size:min(32px,max(29px,4.88vw))}
+  /* ページ最初の説明文：ホームの1画面目の説明文と同じ（18px・行間1.8・字間.02em） */
+  .ph-lead,.msg-lead{font-size:18px;line-height:1.8;letter-spacing:.02em}
+  /* カードの小見出し：ホームの「3つの理由」と同じ22px。その他の小見出しはスマホと同じ20px */
+  .cell h3{font-size:22px}
+  .step h3,.dz-row h3,.cn-item h3,.info h3,.caution h3,.ct-col h3,.role h3{font-size:20px}
+  /* 本文：ホームの本文（3つの理由・口コミ）と同じ17px・行間1.8・字間.04em */
+  .ki > p,.step > p:not(.step-no),.role-txt,.cell p,.ct-col p,.caution li,.st-info li,.dz-row p:not(.dz-no){font-size:17px;line-height:1.8;letter-spacing:.04em}
+  /* よくある質問：質問の行間2.15・答えの行間2.05（ホームのFAQと同じ） */
+  .qa .q{line-height:2.15}
+  .qa .a,.qa .a p,.qa .a-body p{line-height:2.05}
+  main .link-more,.role .link-more{font-size:18px}
+  main .btn-gold,.btn-gold{font-size:23px}
+  footer .f-logo{font-size:32px}
+  footer .f-company{font-size:15px}
+  .f-copy,.f-copy .f-yr{font-size:14px}
+  footer .f-links a{font-size:16px}
+  /* 価格の表（商品・成分ページ）：ホームの価格の表と同じ行間・字間 */
+  .buy .spec dt{line-height:2.15;letter-spacing:.12em}
+  .buy .spec dd{font-size:15px;line-height:1.6}
+  .buy .price-notes li{line-height:1.65}
+  /* 会社概要・特商法・プライバシー：スマホ（540px以下）と同じ大きさに（ホームと同じ考え方＝タブレットはスマホと同じ文字の大きさ） */
+  .plain h1{font-family:var(--mincho);font-weight:600;font-size:27px;letter-spacing:.02em;line-height:1.65}
+  .plain h2{font-size:18px}
+  .plain,.plain p,.plain li,.plain dd{font-size:16px;line-height:1.8}
+  .plain dd small{font-size:14px}
+  .plain .date{font-size:14px}
+}
+/* 541〜600px：見出しの最後の文字だけが次の行に落ちないよう、入る分だけ字間を詰める（ホームと同じ式） */
+@media (min-width:541px) and (max-width:600px){
+  .ph-title,.sec-title,.msg-title{letter-spacing:max(.02em,min(.12em,calc(.02em + (100vw - 556px) * .058)))}
+}
+/* ---- 541px以上：07 価格の箱。1280pxで決めた見た目（箱680px・左右の余白44px・英語26.4px・商品名36.96px・値段105.6px・線とボタンと注意書きの幅465px）を、箱が狭くなる幅では同じ比率で縮める。文字と幅は箱の中身の幅（1280pxで588px＝680−余白44×2−枠2×2）を基準にした単位cqwで指定（2026-11-03 Shio指示） ---- */
+@media (min-width:541px){
+  .buy{container-type:inline-size;max-width:680px;padding-left:min(44px,calc(4.41vw + 6.9px));padding-right:min(44px,calc(4.41vw + 6.9px))}
+  .buy .price-en{font-size:min(26.4px,4.490cqw)}
+  .buy .price-name{font-size:min(36.96px,6.286cqw)}
+  .buy .price-amount{font-size:min(105.6px,17.959cqw)}
+  .buy .price-amount .tax{font-size:min(15px,2.551cqw)}
+  /* 内容量・目安の線の長さ＝一番幅のある「クロノ・アール カプセル」の見た目の幅465px（実測）に合わせて中央に。ご購入ボタンと注意書きも同じ幅・同じ左端 */
+  .buy .spec,.buy .btn-gold,.buy .price-notes{width:min(465px,79.08cqw);max-width:100%;margin-left:auto;margin-right:auto}
+  .buy .spec dt{font-size:min(16px,2.721cqw)}
+  .buy .spec dd{font-size:min(15px,2.551cqw)}
+  .buy .btn-gold{font-size:min(19px,3.231cqw)}
+  .buy .price-notes li{font-size:min(13px,2.211cqw)}
+}
+/* ---- 540px以下（ホームの540px以下と同じ値） ---- */
+@media (max-width:540px){
+  .ph-lead,.msg-lead{font-size:18px;line-height:1.8;letter-spacing:.03em}
+  .sec-lead,.head-c .sec-lead,#contact .sec-lead{letter-spacing:.06em}
+  .buy .spec dt{line-height:2.15;letter-spacing:.12em}
+  .buy .spec dd{line-height:1.6}
+  .buy .price-notes li{line-height:1.65}
+  .cell h3{font-size:22px}
+  .ki > p,.step > p:not(.step-no),.role-txt,.cell p,.ct-col p,.caution li,.st-info li,.dz-row p:not(.dz-no){font-size:17px;line-height:1.8;letter-spacing:.02em}
+  .qa .q{font-size:17px;letter-spacing:.08em;line-height:1.8}
+  .qa .a-body p{font-size:16px;line-height:1.8}
+  /* 見出し（h2＋その下の英字）のすぐ下に文章が来るところ：間を25pxに（ホームの価格・よくある質問と同じ） */
+  .sec-en{margin-bottom:25px}
+  .msg-title{margin-bottom:25px} /* 購入完了・404の題名とその下の文章の間も25px */
+}
+/* 403〜540px：見出しはホームと同じ式（27〜29px、12.3文字が1行に入る上限） */
+@media (min-width:403px) and (max-width:540px){
+  .ph-title,.sec-title,.msg-title{font-size:min(clamp(27px,calc(5.35vw + 5px),29px),calc(88vw / 12.3))}
+}
+/* 402px以下：本文の字間.03em（ホームと同じ） */
+@media (max-width:402px){
+  .ki > p,.step > p:not(.step-no),.role-txt,.cell p,.ct-col p,.caution li,.st-info li,.dz-row p:not(.dz-no){letter-spacing:.03em}
+}
+@media (max-width:364px){
+  .ph-lead,.msg-lead{letter-spacing:.02em}
+}
 </style>
 </head>
 <body>
@@ -1079,7 +1166,7 @@ footer{
   <div class="wrap">
     <div class="hd reveal">
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">02</span></p>
-      <h2 class="sec-title">ウロリチン・スペルミジン・フィセチンなど、<br>注目の6成分</h2>
+      <h2 class="sec-title">ウロリチン・スペルミジン・フィセチンなど<span class="hang">、</span><br>注目の6成分</h2>
       <p class="sec-en" lang="en">KEY INGREDIENTS</p>
       <p class="sec-lead">単体のサプリメントとしても販売されている成分を、クロノ・アール カプセルは1包にまとめています。<br class="br-pc">それぞれがどんな成分で、どの原材料として入っているのかを紹介します。</p>
     </div>
@@ -1098,7 +1185,7 @@ footer{
         </div>
         <p>ザクロやベリー類、ナッツなどに含まれるポリフェノール「エラグ酸」が、腸内細菌によって変換されてできる成分です。クロノ・アール カプセルには、ザクロ抽出発酵物として配合しています。</p>
       </article>
-      <article class="ki reveal d1">
+      <article class="ki reveal">
         <div class="ki-head">
           <div class="ring"><img src="Home/images/ic-wheat.png" alt="" width="430" height="430" loading="lazy"></div>
           <div class="ki-name">
@@ -1120,7 +1207,7 @@ footer{
         </div>
         <p>いちごやりんごなどに含まれる、フラボノイド（ポリフェノール）の一種です。セノリティクス研究で名前が挙がる成分のひとつで、フィセチン末として配合しています。</p>
       </article>
-      <article class="ki reveal d1">
+      <article class="ki reveal">
         <div class="ki-head">
           <div class="ring"><img src="Home/images/ic-capsule.png" alt="" width="430" height="430" loading="lazy"></div>
           <div class="ki-name">
@@ -1142,7 +1229,7 @@ footer{
         </div>
         <p>ビルベリーやぶどうなどに含まれる、青紫色の天然の色素です。ポリフェノールの一種で、クロノ・アール カプセルにはビルベリーエキス末として配合しています。</p>
       </article>
-      <article class="ki reveal d1">
+      <article class="ki reveal">
         <div class="ki-head">
           <div class="ring"><img src="Home/images/ic-grape.png" alt="" width="430" height="430" loading="lazy"></div>
           <div class="ki-name">
@@ -1214,7 +1301,7 @@ footer{
   <div class="wrap">
     <div class="hd reveal">
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">04</span></p>
-      <h2 class="sec-title">30種以上の成分を、<br>1包にまとめるための設計</h2>
+      <h2 class="sec-title">30種以上の成分を<span class="hang">、</span><br>1包にまとめるための設計</h2>
       <p class="sec-en" lang="en">DESIGN</p>
       <p class="sec-lead">成分の数を増やすだけでなく、どう組み合わせ、どう形にするか。開発元のリエール再生医療研究所が、設計で大切にしている3つの考え方です。</p>
     </div>
@@ -1250,7 +1337,7 @@ footer{
   <div class="wrap">
     <div class="hd reveal">
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">05</span></p>
-      <h2 class="sec-title"><span class="nw">お召し上がり方（飲み方）</span><span class="bar">｜</span><span class="nw">1日1包を、毎日の習慣に</span></h2>
+      <h2 class="sec-title"><span class="nw">お召し上がり方（飲み方<span class="hang paren">）</span></span><span class="bar">｜</span><span class="nw">1日1包を、毎日の習慣に</span></h2>
       <p class="sec-en" lang="en">HOW TO TAKE</p>
       <p class="sec-lead">栄養補助食品として、1日1包（4カプセル）を目安にお召し上がりください。</p>
     </div>
@@ -1415,7 +1502,14 @@ footer{
 
 /* ---- スクロール出現 ---- */
 (function(){
+  let kiEnd=0,kiTime=-1e9;
   const io=new IntersectionObserver(entries=>{
+    // 02 注目の成分の6つの箱：同時に見えた箱に、左上から順（左→右、次の行の左→右）に0.15秒ずつ遅れを付ける。列が2つでも3つでも順番が崩れない
+    // 2行が同時に見えたときは通知が行ごとに分かれて届くことがあるので、直前（0.2秒以内）の通知の続き番号から数える
+    const kis=entries.filter(e=>e.isIntersecting&&e.target.classList.contains('ki')).map(e=>e.target)
+      .sort((a,b)=>(a.compareDocumentPosition(b)&Node.DOCUMENT_POSITION_FOLLOWING)?-1:1);
+    if(kis.length){const now=performance.now(),base=(now-kiTime<200)?kiEnd:0;
+      kis.forEach((el,i)=>{el.style.transitionDelay=((base+i)*.15)+'s'});kiEnd=base+kis.length;kiTime=now}
     entries.forEach(e=>{
       if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
     });
@@ -1503,6 +1597,8 @@ footer{
     const cs=getComputedStyle(box),inner=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
     // 541px以上：英語と商品名は今の大きさのまま字間で、値段の行（¥159,500（税込））は大きさで、箱の幅いっぱいにする（ホームと同じ）
     if(!window.matchMedia('(max-width:540px)').matches){
+      // 541px以上は箱の幅いっぱいにしない。CSSで決めた大きさ（英語26.4px・商品名36.96px・値段105.6px）のまま（2026-11-03 Shio指示。1280pxで決めた値を541px以上すべてに）
+      return;
       // 字間は元の値（英字0.3em・商品名0.12em）に固定し、大きさを変えて箱の幅いっぱいにする（最後の字の後ろの字間は数えない）
       [[en,.3],[nm,.12]].forEach(([e,lsem])=>{if(!e)return;e.style.whiteSpace='nowrap';e.style.textIndent='0';e.style.letterSpacing=lsem+'em';
         const w=()=>tw(e)-parseFloat(getComputedStyle(e).letterSpacing);
@@ -1587,6 +1683,27 @@ footer{
     el.textContent=w+' × '+h+'　'+bp;
   }
   show();window.addEventListener('resize',show);
+})();
+</script>
+<script>
+/* 全幅：03「クロノ・アール カプセルの／全成分・原材料一覧」と06「毎日続けるものだから。／品質とご使用上の注意」の見出しを2行に収める。
+   入らない幅では字間を.12emから0まで少しずつ詰め、それでも入らなければ文字を最大3px小さくする */
+(function(){
+  const hs=[...document.querySelectorAll('#all .sec-title, #safety .sec-title')];if(!hs.length)return;
+  const lines=h=>{const r=document.createRange();r.selectNodeContents(h);const tops=new Set();[...r.getClientRects()].forEach(b=>{if(b.width>0)tops.add(Math.round(b.top/4))});return tops.size};
+  function fit(){
+    hs.forEach(h=>{
+      if(h.dataset.fit2){h.style.letterSpacing='';h.style.fontSize='';delete h.dataset.fit2}
+      if(lines(h)<=2)return;
+      h.dataset.fit2='1';
+      let ls=parseFloat(getComputedStyle(h).letterSpacing)/parseFloat(getComputedStyle(h).fontSize);
+      while(lines(h)>2&&ls>0){ls=Math.max(0,Math.round((ls-.01)*100)/100);h.style.letterSpacing=ls+'em'}
+      const fs=parseFloat(getComputedStyle(h).fontSize);let f=fs;
+      while(lines(h)>2&&f>fs-3){f-=.5;h.style.fontSize=f+'px'}
+    });
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>
 <!-- ▲▲ 一時的：画面サイズの表示 ここまで ▲▲ -->
