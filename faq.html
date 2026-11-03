@@ -751,7 +751,7 @@ footer{
   footer .f-logo{order:1;font-size:32px;margin-bottom:-20px}
   footer .f-links{order:2}
   footer .f-company{order:3;font-size:15px}
-  .f-links a{font-size:17px}
+  .f-links a{font-size:16px} /* 540px以下：フッターのメニューを1px小さく（17→16px）（2026-11-03 Shio指示） */
   .f-copy{font-size:14px}
   /* 大見出し（ページの題名・各章の見出し）：27px。1行12文字が入る大きさを上限に */
   .ph-title,.sec-title,.msg-title{font-size:min(27px,calc((100vw - 48px) / 12.3));letter-spacing:.02em;line-height:1.65}
@@ -971,6 +971,41 @@ footer{
 /* 両端揃え＋最後の行は中央にするのは840px以下だけ。841px以上は普通の中央揃え（ホームと同じ） */
 @media (max-width:840px){.head-c .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:center}}
 @media (min-width:841px){.head-c .sec-lead,#contact .sec-lead{text-align:center;text-align-last:auto}}
+</style>
+<style>
+/* 540px以下：中央揃えの文章（p）は、左からの両端揃え（最後の行は左）にする。ホームの540px以下と同じ（2026-11-03 Shio指示） */
+@media (max-width:540px){
+  .head-c .sec-lead,#contact .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:left}
+  #contact .ct-col p{align-self:stretch;text-align:justify;text-justify:inter-character;text-align-last:left}
+  /* 改行と「途中で折らない」指定があると1行目が短くなり、両端揃えで字間が大きく開くので、541〜840pxと同じく改行せずに続けて流す */
+  #contact .ct-col p br{display:none}
+  #contact .ct-col p .nw{white-space:normal}
+}
+/* ---- 540px以下：縦の間を全ページ共通の決まりにそろえる（ホームと同じ。2026-11-03 Shio指示）
+   見出し・文章の下 → 写真・箱（カード・アイコン） 40px／写真の下 → 文章・箱 48px／箱と箱の間 35px（2026-11-03 Shio指示で32→35px）
+   文字は文字の下端から、写真は写真の端（金の枠ではなく）から、上にアイコンが出ている箱はアイコンの上端までで測る ---- */
+@media (max-width:540px){
+  /* 07：説明文〜お問い合わせの箱 40px */
+  #contact .hd .sec-lead{margin-bottom:36px}
+}
+/* ---- 540px以下：07 の箱の中は「ご購入」を上、「メールでのお問い合わせ」を下にする。間の線も入れ替える（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  #contact .ct-box .ct-col:last-child{order:-1}
+  #contact .ct-box .ct-col+.ct-col{border-top:none}
+  #contact .ct-box .ct-col:first-child{border-top:1px solid rgba(181,147,59,.4)}
+}
+</style>
+<style>
+/* ---- 540px以下：左右の余白を24pxにそろえる（ヘッダー・フッター・メニューも。全ページ共通）（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  :root{--gutter:24px}
+  .plain{padding-left:24px;padding-right:24px}
+  header{padding-left:24px;padding-right:24px}
+}
+/* ---- 540px以下：ページ最初の列の幅を画面の内側に固定する（題名の折らない1行目は、はみ出す分だけ字間を詰める＝既存のJS）（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  .phero .fh-grid{grid-template-columns:minmax(0,1fr)}
+}
 </style>
 </head>
 <body>

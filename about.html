@@ -1189,7 +1189,7 @@ footer{
   footer .f-logo{order:1;font-size:32px;margin-bottom:-20px}
   footer .f-links{order:2}
   footer .f-company{order:3;font-size:15px}
-  .f-links a{font-size:17px}
+  .f-links a{font-size:16px} /* 540px以下：フッターのメニューを1px小さく（17→16px）（2026-11-03 Shio指示） */
   .f-copy{font-size:14px}
   /* 大見出し（ページの題名・各章の見出し）：27px。1行12文字が入る大きさを上限に */
   .ph-title,.sec-title,.msg-title{font-size:min(27px,calc((100vw - 48px) / 12.3));letter-spacing:.02em;line-height:1.65}
@@ -1437,6 +1437,59 @@ footer{
 @media (max-width:840px){.head-c .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:center}}
 @media (min-width:841px){.head-c .sec-lead{text-align:center;text-align-last:auto}}
 </style>
+<style>
+/* 540px以下：01 の説明文〜開発元・販売店の箱のアイコンの丸を40pxに（25→40px。文字の下端から）（2026-11-03 Shio指示） */
+@media (max-width:540px){#roles .roles{margin-top:calc(var(--rs) / 2 + 35px)}}
+/* 540px以下：中央揃えの文章（p）は、左からの両端揃え（最後の行は左）にする。ホームの540px以下と同じ（2026-11-03 Shio指示） */
+@media (max-width:540px){
+  .head-c .sec-lead,#roles .sec-lead,#philosophy .sec-lead,#store .sec-lead,#contact .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:left}
+}
+/* ---- 540px以下：縦の間を全ページ共通の決まりにそろえる（ホームと同じ。2026-11-03 Shio指示）
+   見出し・文章の下 → 写真・箱（カード・アイコン） 40px／写真の下 → 文章・箱 48px／箱と箱の間 35px（2026-11-03 Shio指示で32→35px）
+   文字は文字の下端から、写真は写真の端（金の枠ではなく）から、上にアイコンが出ている箱はアイコンの上端までで測る ---- */
+@media (max-width:540px){
+  /* ページの最初：説明文〜目次の枠 40px */
+  .phero .ph-grid{row-gap:37px}
+  /* 01：開発元・販売店の箱同士 35px（下の箱のアイコンの丸の上端まで） */
+  #roles .roles{row-gap:76px}
+  /* 箱の間の矢印「∨」は、上の箱〜矢印の上端と、矢印の先〜下の箱のアイコンを同じ（13.6px）にして真ん中に */
+  #roles .role+.role::before{top:-67.68px}
+  /* 02：説明文〜研究所の情報の箱 40px */
+  #developer .dv-grid{row-gap:36px}
+  /* 03：説明文〜カード 40px／カード同士 35px */
+  #philosophy .hd .sec-lead{margin-bottom:36px}
+  #philosophy .line-grid.cols3{row-gap:35px}
+  /* 04：説明文〜写真 40px／写真〜受賞の情報 48px */
+  #award .all-top{row-gap:36px;margin-bottom:48px}
+  /* 05：説明文〜写真 40px（写真〜下の枠は48pxのまま） */
+  #product .ov-grid{row-gap:36px}
+  /* 06：説明文〜カード 40px／カード同士 35px／カード〜販売店の情報の箱 35px */
+  #store .hd .sec-lead{margin-bottom:36px}
+  #store .steps.vals{row-gap:35px;margin-bottom:35px}
+}
+/* ---- 540px以下：05 の写真も、商品・成分ページの01（クロノ・アール カプセルとは）と同じ写真・同じ切り取り・同じ大きさにする（541〜840pxと同じ写真。HTMLの<picture>で840px以下を差し替え）（2026-11-03 Shio指示）
+   横1400：縦1202、写真は右の金の枠の分（12px）を残して幅いっぱい、枠の中の写真は40px上げる ---- */
+@media (max-width:540px){
+  #product .ov-photo{max-width:none;width:calc(100% - 12px);margin:0 12px 0 0;aspect-ratio:1400/1202}
+  #product .ov-photo .pic img{object-position:center calc(50% - 40px)}
+  /* 列の幅を画面の内側に固定する（折らない見出しの1行目が長いと、列ごと右に広がって写真と文章が右の余白にはみ出すため） */
+  #product .ov-grid{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+<style>
+/* ---- 540px以下：左右の余白を24pxにそろえる（ヘッダー・フッター・メニューも。全ページ共通）（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  :root{--gutter:24px}
+  .plain{padding-left:24px;padding-right:24px}
+  header{padding-left:24px;padding-right:24px}
+}
+/* ---- 540px以下：01・06 の箱は最大幅460pxの指定を外して、ほかの箱と同じく端まで伸ばす／ページ最初の列の幅を画面の内側に固定する（題名の折らない1行目は、はみ出す分だけ字間を詰める＝既存のJS）／02 の表の右の欄が、折らない語で広がらないようにする（入りきらない語は折る＝既存のJS）（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  #roles .roles,#store .steps.vals{max-width:none}
+  .phero .ph-grid{grid-template-columns:minmax(0,1fr)}
+  #developer .info dd{min-width:0;max-width:100%}
+}
+</style>
 </head>
 <body>
 
@@ -1613,7 +1666,7 @@ footer{
       </div>
       <div class="ov-photo photo reveal d1">
         <div class="pframe"></div>
-        <div class="pic"><picture><source media="(min-width:541px) and (max-width:840px)" srcset="Home/images/supplement2.jpg" width="1069" height="1472"><img src="Home/images/supplement.jpg" alt="クロノ・アール カプセルのパッケージ" width="720" height="826" loading="lazy"></picture></div>
+        <div class="pic"><picture><source media="(max-width:840px)" srcset="Home/images/supplement2.jpg" width="1069" height="1472"><img src="Home/images/supplement.jpg" alt="クロノ・アール カプセルのパッケージ" width="720" height="826" loading="lazy"></picture></div>
       </div>
     </div>
     <div class="cn reveal">

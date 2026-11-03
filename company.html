@@ -1190,7 +1190,7 @@ body{background:#fff}
   footer .f-logo{order:1;font-size:32px;margin-bottom:-20px}
   footer .f-links{order:2}
   footer .f-company{order:3;font-size:15px}
-  .f-links a{font-size:17px}
+  .f-links a{font-size:16px} /* 540px以下：フッターのメニューを1px小さく（17→16px）（2026-11-03 Shio指示） */
   .f-copy{font-size:14px}
   /* 大見出し（ページの題名・各章の見出し）：27px。1行12文字が入る大きさを上限に */
   .ph-title,.sec-title,.msg-title{font-size:min(27px,calc((100vw - 48px) / 12.3));letter-spacing:.02em;line-height:1.65}
@@ -1335,6 +1335,24 @@ body{background:#fff}
 /* ---- ホームと同じ文字詰めのルール 2026-11-03 ---- */
 /* リード文：841〜950pxの行間はホームと同じ2.15 */
 @media (min-width:841px) and (max-width:950px){main .sec-lead{line-height:2.15}}
+</style>
+<style>
+/* ---- 540px以下：縦の間を全ページ共通の決まりにそろえる（ホームと同じ。2026-11-03 Shio指示）
+   見出し・文章の下 → 写真・箱（カード・アイコン・線で区切った一覧） 40px。文字は文字の下端から測る ---- */
+@media (max-width:540px){
+  /* ページの題名〜表の上の線 40px */
+  .plain h1{margin-bottom:36.5px}
+}
+/* 359px以下：題名の文字が小さくなる分、1px足りないところを足す */
+@media (max-width:359px){.plain h1{margin-bottom:37.5px}}
+</style>
+<style>
+/* ---- 540px以下：左右の余白を24pxにそろえる（ヘッダー・フッター・メニューも。全ページ共通）（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  :root{--gutter:24px}
+  .plain{padding-left:24px;padding-right:24px}
+  header{padding-left:24px;padding-right:24px}
+}
 </style>
 </head>
 <body>

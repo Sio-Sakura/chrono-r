@@ -1326,7 +1326,8 @@ footer{
 /* 金の太字を「途中で折らない」ままだと行が早く折れて字間が開くので、この段落は折ってよいことにする */
 .concept .concept-body p:first-child strong,.concept .concept-body p:first-child .nw{white-space:normal}
 /* ---- 440px以下：縦の間を決まりで揃える
-   文章〜写真 48px／写真〜次のかたまり 64px／大見出し〜カード 64px／カード同士 32px／最後のリンクの上 44px／最後のボタンの上 48px ---- */
+   文章〜写真 48px／写真〜次のかたまり 64px／大見出し〜カード 64px／カード同士 32px／最後のリンクの上 44px／最後のボタンの上 48px
+   （2026-11-03：写真・箱まわりの間は、head の最後の「540px以下：縦の間を全ページ共通の決まりにそろえる」で上書き） ---- */
 @media (max-width:440px){
   .rev .photo{margin-top:16px}
   .rev .vs-grid{margin-top:-6px}
@@ -1901,7 +1902,7 @@ footer{
   .quote-card .who,.quote-card .who-age{font-size:16px}
   .f-logo{font-size:32px}
   .f-company{font-size:15px}
-  .f-links a{font-size:17px}
+  .f-links a{font-size:16px} /* 540px以下：フッターのメニューを1px小さく（17→16px）（2026-11-03 Shio指示） */
   .f-copy{font-size:14px}
 }
 @media (min-width:390px) and (max-width:540px){.nav-cta{font-size:17.5px}}
@@ -2271,6 +2272,8 @@ footer{
 }
 /* ---- 840px以下：よくある質問の「Q」と「A」の間を15px詰める ---- */
 @media (max-width:840px){main .faq-item .a{margin-top:-15px}}
+/* ---- 540px以下：中央揃えの文章（比較図の下の※の注意書き）も、左からの両端揃え（最後の行は左）に（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){.vs-note{text-align:justify;text-justify:inter-character;text-align-last:left}}
 /* ---- 441〜540px：3つの理由の見出し〜六角形のアイコンを40pxに（440px以下と同じ。66→40px）（2026-11-03 Shio指示） ---- */
 @media (min-width:441px) and (max-width:540px){.why .line-grid.cols3{margin-top:84px!important}}
 /* ---- 841px以上：よくある質問の答えは、線の幅の95%までに収める（2026-11-03 Shio指示） ---- */
@@ -2305,6 +2308,68 @@ footer{
 /* 3つの小見出し：3つとも1行のときは普通の1行（1280pxと同じ間隔）、1つでも2行のときは3つとも言葉の区切りで2行（下のJSが印を付ける）2026-11-03 */
 .why .cell h3.h3-one{display:block;min-height:0}
 .why .cell h3.h3-brk .ph2{display:block}
+</style>
+<style>
+/* ---- 540px以下：縦の間を全ページ共通の決まりにそろえる（2026-11-03 Shio指示）
+   見出し・文章の下 → 写真・箱（カード・アイコン） 40px／写真の下 → 文章・箱 48px／箱と箱の間 35px（2026-11-03 Shio指示で32→35px）
+   文字は文字の下端から、写真は写真の端（金の枠ではなく）から、上にアイコンが出ている箱はアイコンの上端までで測る ---- */
+@media (max-width:540px){
+  /* コンセプト：「あなたの時間を、再び動かすために」〜枠 40px（文字の下端から。行の高さの分を引いて36px） */
+  .concept .concept-lead-jp{margin-bottom:36px}
+  /* リバースエイジング：見出し〜写真 40px／文章〜比較図 40px／比較図2枚の間 35px */
+  .rev .split .photo{--ph-top:-4px}
+  .rev .vs-grid{margin-top:36px;row-gap:35px}
+  /* 3つの理由：カード同士 35px（六角形の上端まで）／最後のカード〜比較表 35px */
+  .why .line-grid.cols3{row-gap:79px;margin-bottom:35px!important}
+  /* 成分：見出し〜写真 40px／文章〜成分のアイコン 40px */
+  .split.ing-split .photo{--ph-top:-8px}
+  .ing .ing-grid{margin-top:-68px}
+  /* 開発元：見出し〜写真 40px */
+  .award .dev-split .photo{--ph-top:-8px}
+  /* 口コミ：見出し〜カード 40px／カード同士 35px */
+  .voice .quote-grid{margin-top:40px!important;row-gap:35px}
+  /* 価格：説明文〜価格の箱 40px */
+  .head-c .sec-lead.price-lead{margin-bottom:36px}
+  /* コラム：見出し〜写真 40px／カード同士（「記事を読む」〜次の写真）48px（2026-11-03 Shio指示：コラムだけ48px） */
+  .hd .sec-title.col-title{margin-bottom:0}
+  .head-c .news-grid{margin-top:40px;row-gap:41px}
+  /* 口コミ：見出しの下の余白（44px）が上のカードの間に重なるので消す */
+  .voice .hd .sec-title{margin-bottom:0}
+  /* よくある質問：見出し〜1問目の上の線 40px */
+  .hd .sec-title.faq-title{margin-bottom:36.5px}
+}
+/* ---- 540px以下：写真の大きさをそろえる（2026-11-03 Shio指示）
+   リバースエイジング・成分・開発元の写真は、開発元・販売店／商品・成分のページの写真と同じ形（横1400：縦1202。右に金の枠の分12pxを残して幅いっぱい。375pxで315×270）
+   コラムの写真は横16：縦9（375pxで327×184）。ファーストビューと価格の箱の中の写真はそのまま ---- */
+@media (max-width:540px){
+  .rev .split .photo,.split.ing-split .photo,.award .dev-split .photo{width:calc(100% - 12px);max-width:none;height:auto;min-height:0;aspect-ratio:1400/1202;margin-left:0;margin-right:12px;align-self:flex-start}
+  .head-c .news-card .thumb{aspect-ratio:16/9}
+}
+/* ---- 540px以下：成分の説明文（セノリティクス研究で…）も両端揃え（最後の行は左）。ほかの章の説明文と同じ（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  .head-r.ing .ing-head .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:left}
+}
+/* 狭い幅で見出しの文字が小さくなる分、40pxから1〜2px欠けるところを足す */
+@media (max-width:400px){
+  .split.ing-split .photo{--ph-top:-7px}
+}
+/* 402px以下：「記事を読む」の文字が小さくなる分、1px足す */
+@media (max-width:402px){.head-c .news-grid{row-gap:42px}}
+@media (max-width:389px){.split.ing-split .photo{--ph-top:-6px}}
+@media (max-width:375px){.award .dev-split .photo{--ph-top:-7px}}
+@media (max-width:359px){.hd .sec-title.faq-title{margin-bottom:37.5px}}
+/* 349px以下：「あなたの時間を、再び動かすために」が2行になると文字の下端が下がるので、その分足す */
+@media (max-width:349px){.concept .concept-lead-jp{margin-bottom:43.5px}}
+</style>
+<style>
+/* ---- 540px以下：左右の余白を24pxにそろえる（ヘッダー・ファーストビュー・各章・フッター・メニュー。全ページ共通）（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  header,.hero,section,footer,#gnav{padding-left:24px;padding-right:24px}
+  /* 価格の箱：中身の列が、1行に固定した商品名の長さで箱の外まで広がらないようにする（入らない幅では下のJSが文字を小さくする） */
+  .price-box .price-info{min-width:0}
+  /* 「よくある質問をもっと見る」：1行のまま入らない幅では文字を小さくする（文字の幅14.75字分＋矢印の26px） */
+  .faq-list ~ .link-more{font-size:min(18px,calc((100vw - 48px - 26px) / 14.75))}
+}
 </style>
 </head>
 <body>
@@ -2998,8 +3063,10 @@ footer{
       return;
     }
     // 英語22px・商品名26pxに固定し、字間で箱の幅いっぱい（左端〜右端）にそろえる。最後の字の後ろの字間は右へはみ出させる
-    [[en,22],[nm,26]].forEach(([e,fs])=>{if(!e)return;e.style.fontSize=fs+'px';e.style.whiteSpace='nowrap';e.style.letterSpacing='0px';
-      const n=[...e.textContent.trim()].length,w0=tw(e),ls=(inner-w0)/(n-1);
+    // 字間を詰められる下限（英語0・商品名-0.17em）を超える幅では、字間は下限のままで文字を小さくして箱に収める（2026-11-03 Shio指示）
+    [[en,22,0],[nm,26,-.17]].forEach(([e,fs,minEm])=>{if(!e)return;e.style.fontSize=fs+'px';e.style.whiteSpace='nowrap';e.style.letterSpacing='0px';
+      const n=[...e.textContent.trim()].length,w0=tw(e);let ls=(inner-w0)/(n-1);
+      if(ls<minEm*fs){const f=inner/(w0/fs+minEm*(n-1));e.style.fontSize=f+'px';ls=minEm*f}
       e.style.letterSpacing=ls+'px';e.style.marginRight=(-ls)+'px'});
     // 値段の行（¥159,500（税込））は、箱の幅いっぱい（左端〜右端）になる大きさにする。¥は数字との比（41:61）を保つ。（税込）は15pxのまま
     if(am){am.style.whiteSpace='nowrap';const yen=am.querySelector('.yen');const set=fs=>{am.style.fontSize=fs+'px';if(yen)yen.style.fontSize=(fs*41/61)+'px'};

@@ -417,7 +417,7 @@ footer{
   footer .f-logo{order:1;font-size:32px;margin-bottom:-20px}
   footer .f-links{order:2}
   footer .f-company{order:3;font-size:15px}
-  .f-links a{font-size:17px}
+  .f-links a{font-size:16px} /* 540px以下：フッターのメニューを1px小さく（17→16px）（2026-11-03 Shio指示） */
   .f-copy{font-size:14px}
   /* 大見出し（ページの題名・各章の見出し）：27px。1行12文字が入る大きさを上限に */
   .ph-title,.sec-title,.msg-title{font-size:min(27px,calc((100vw - 48px) / 12.3));letter-spacing:.02em;line-height:1.65}
@@ -562,6 +562,27 @@ footer{
 /* ---- ホームと同じ文字詰めのルール 2026-11-03 ---- */
 /* リード文：841〜950pxの行間はホームと同じ2.15 */
 @media (min-width:841px) and (max-width:950px){main .sec-lead{line-height:2.15}}
+</style>
+<style>
+/* 540px以下：中央揃えの文章（p）は、左からの両端揃え（最後の行は左）にする。ホームの540px以下と同じ（2026-11-03 Shio指示） */
+@media (max-width:540px){
+  .msg-lead{text-align:justify;text-justify:inter-character;text-align-last:left}
+}
+/* ---- 540px以下：縦の間を全ページ共通の決まりにそろえる（ホームと同じ。2026-11-03 Shio指示）
+   見出し・文章の下 → 写真・箱（カード・アイコン） 40px／写真の下 → 文章・箱 48px／箱と箱の間 35px（2026-11-03 Shio指示で32→35px）
+   文字は文字の下端から、写真は写真の端（金の枠ではなく）から、上にアイコンが出ている箱はアイコンの上端までで測る ---- */
+@media (max-width:540px){
+  /* 説明文〜ご注文内容の箱 40px */
+  .msg-rest .msg-box{margin-top:37px}
+}
+</style>
+<style>
+/* ---- 540px以下：左右の余白を24pxにそろえる（ヘッダー・フッター・メニューも。全ページ共通）（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  :root{--gutter:24px}
+  .plain{padding-left:24px;padding-right:24px}
+  header{padding-left:24px;padding-right:24px}
+}
 </style>
 </head>
 <body>
