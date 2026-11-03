@@ -1491,6 +1491,13 @@ footer{
 }
 /* ---- 540px以下：06 の小見出しの「エア導入技術」「プライベート空間」は途中で折らない（Safariでも同じ折れ方に）（2026-11-03） ---- */
 @media (max-width:540px){.sp-nw{white-space:nowrap}}
+/* ---- 540px以下：01 の見出し（開発はリエール再生医療研究所、／販売はHATSUGA）は中央揃えのまま、言葉ごとに改行せず行の端まで詰めて折る（言葉の途中で折れてよい）（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  #roles .sec-title{word-break:normal}
+  #roles .sec-title .nw{white-space:normal}
+}
+/* ---- 540px以下：いちばん小さい補足の文字を13→14pxに（02 の表の補足・04 の受賞の補足・06 の住所の※）（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){#developer .info .spec small,#store .info .spec small,#award .aw-facts dd small{font-size:14px}}
 </style>
 <style>
 /* ---- 540px以下：ページ最初の目次の番号（01〜07）を3px大きく（18→21px）（2026-11-03 Shio指示） ---- */
