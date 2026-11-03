@@ -1351,6 +1351,14 @@ footer{
   .quote-card .q-title .nw{white-space:normal}
   .quote-card .q-title br{display:none}
 }
+/* ---- 540px以下：口コミの一言は「、」の後で必ず折る（1行目＝「、」まで（.q1）、2行目＝残り（.nw））。1行目が右端に入らない幅では字間を0まで詰め、それでも入らなければ小さくする（下のJS）。541px以上は変えない（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  /* 折り返さない1行目でカードが広がらないように（カードの幅は画面幅のまま） */
+  .quote-grid{grid-template-columns:minmax(0,1fr)}
+  .quote-card{min-width:0}
+  .quote-card .q-title .q1,.quote-card .q-title .nw{display:block;white-space:nowrap}
+  .quote-card .q-title br{display:none}
+}
 /* ---- ファーストビューの3つの証明：文字の左右に3px以上の空きが取れないとき（JSで判定・540px以下）は下段を2行にする ---- */
 .hb-br{display:none}
 .hero-badges.hb-two .hb-br{display:inline}
@@ -2539,13 +2547,13 @@ footer{
     <div class="quote-grid" style="margin-top:64px">
       <div class="quote-card reveal">
         <span class="q-mark gold-text" aria-hidden="true">“</span>
-        <p class="q-title">何種類もそろえなくていいのが、<span class="nw">助かっています。</span></p>
+        <p class="q-title"><span class="q1">何種類もそろえなくていいのが、</span><span class="nw">助かっています。</span></p>
         <p>成分ごとに別々のサプリメントを買っていたので、1包にまとまっているのが決め手でした。個包装なので、朝のスムージーと一緒に続けています。</p>
         <p class="who"><span class="who-age"><span class="n">40</span>代</span>女性</p>
       </div>
       <div class="quote-card reveal d1">
         <span class="q-mark gold-text" aria-hidden="true">“</span>
-        <p class="q-title">出張にも、1包ずつ持っていけて、<span class="nw">とても便利です。</span></p>
+        <p class="q-title"><span class="q1">出張にも、1包ずつ持っていけて、</span><span class="nw">とても便利です。</span></p>
         <p>成分表を見て選びました。1日分が1包に分かれているので、数える手間がありません。かばんに入れておけるので、助かっています。</p>
         <p class="who"><span class="who-age"><span class="n">50</span>代</span>男性</p>
       </div>
@@ -3307,6 +3315,16 @@ footer{
   }
   fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* ---- 540px以下：口コミの一言の1行目（.q1）が右端に入らない幅では、字間を0まで詰め、それでも入らなければ文字を小さくする（2行とも同じ大きさ）。541px以上では何もしない ---- */
+(function(){
+  const ts=[...document.querySelectorAll('.quote-card .q-title')];if(!ts.length)return;
+  const over=t=>{const q=t.querySelector('.q1');if(!q)return false;const r=document.createRange();r.selectNodeContents(q);const b=r.getBoundingClientRect();const c=getComputedStyle(t),tb=t.getBoundingClientRect();return b.right>tb.right-parseFloat(c.paddingRight)+.5};
+  function fit(){ts.forEach(t=>{t.style.letterSpacing='';t.style.fontSize=''});if(!window.matchMedia('(max-width:540px)').matches)return;
+    ts.forEach(t=>{for(let i=0;i<80&&over(t);i++){const c=getComputedStyle(t),ls=parseFloat(c.letterSpacing)||0,fs=parseFloat(c.fontSize);if(ls>0)t.style.letterSpacing=Math.max(0,ls-.2)+'px';else t.style.fontSize=(fs-.25)+'px'}})}
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>
 </body>
