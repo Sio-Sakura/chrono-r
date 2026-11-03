@@ -1084,6 +1084,11 @@ footer{
 @media (max-width:364px){
   .ph-lead,.msg-lead{letter-spacing:.02em}
 }
+/* ---- 05 お召し上がり方の小見出し（1日1包を目安に など）：ホームの「3つの理由」の小見出しと同じ大きさ（全幅）2026-11-03 ---- */
+#howto .step h3{font-size:22px}
+@media (min-width:1141px) and (max-width:1280px){#howto .step h3{font-size:clamp(19px,calc(19px + (100vw - 1141px) / 59),20px)}}
+@media (min-width:951px) and (max-width:1140px){#howto .step h3{font-size:19px}}
+@media (min-width:841px) and (max-width:950px){#howto .step h3{font-size:17px}}
 </style>
 </head>
 <body>

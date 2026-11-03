@@ -1278,6 +1278,75 @@ body{background:#fff}
   footer .f-logo{order:1}
   footer .f-company{order:3}
 }
+
+/* ==========================================================
+   ホームにそろえる（840px以下＝タブレット・スマホだけ。841px以上のパソコンは変えない）2026-11-02
+   ホーム（Home/index4.html）の文字の大きさ・行間・字間・見出しの下の間隔を、下層ページでも同じにする。
+   <style> の最後に置いて、上の指定を上書きする。
+   ========================================================== */
+/* ---- 541〜840px（ホームの541〜840pxと同じ値） ---- */
+@media (min-width:541px) and (max-width:840px){
+  header .logo{font-size:21px}
+  header .nav-cta{font-size:17.5px}
+  /* 章の見出し（h2）・ページの題名（h1）：ホームの章の見出しと同じ大きさ（29〜32px） */
+  .ph-title,.sec-title,.msg-title{font-size:min(32px,max(29px,4.88vw))}
+  /* ページ最初の説明文：ホームの1画面目の説明文と同じ（18px・行間1.8・字間.02em） */
+  .ph-lead,.msg-lead{font-size:18px;line-height:1.8;letter-spacing:.02em}
+  /* カードの小見出し：ホームの「3つの理由」と同じ22px。その他の小見出しはスマホと同じ20px */
+  .cell h3{font-size:22px}
+  .step h3,.dz-row h3,.cn-item h3,.info h3,.caution h3,.ct-col h3,.role h3{font-size:20px}
+  /* 本文：ホームの本文（3つの理由・口コミ）と同じ17px・行間1.8・字間.04em */
+  .ki > p,.step > p:not(.step-no),.role-txt,.cell p,.ct-col p,.caution li,.st-info li,.dz-row p:not(.dz-no){font-size:17px;line-height:1.8;letter-spacing:.04em}
+  /* よくある質問：質問の行間2.15・答えの行間2.05（ホームのFAQと同じ） */
+  .qa .q{line-height:2.15}
+  .qa .a,.qa .a p,.qa .a-body p{line-height:2.05}
+  main .link-more,.role .link-more{font-size:18px}
+  main .btn-gold,.btn-gold{font-size:23px}
+  footer .f-logo{font-size:32px}
+  footer .f-company{font-size:15px}
+  .f-copy,.f-copy .f-yr{font-size:14px}
+  footer .f-links a{font-size:16px}
+  /* 価格の表（商品・成分ページ）：ホームの価格の表と同じ行間・字間 */
+  .buy .spec dt{line-height:2.15;letter-spacing:.12em}
+  .buy .spec dd{font-size:15px;line-height:1.6}
+  .buy .price-notes li{line-height:1.65}
+  /* 会社概要・特商法・プライバシー：スマホ（540px以下）と同じ大きさに（ホームと同じ考え方＝タブレットはスマホと同じ文字の大きさ） */
+  .plain h1{font-family:var(--mincho);font-weight:600;font-size:27px;letter-spacing:.02em;line-height:1.65}
+  .plain h2{font-size:18px}
+  .plain,.plain p,.plain li,.plain dd{font-size:16px;line-height:1.8}
+  .plain dd small{font-size:14px}
+  .plain .date{font-size:14px}
+}
+/* 541〜600px：見出しの最後の文字だけが次の行に落ちないよう、入る分だけ字間を詰める（ホームと同じ式） */
+@media (min-width:541px) and (max-width:600px){
+  .ph-title,.sec-title,.msg-title{letter-spacing:max(.02em,min(.12em,calc(.02em + (100vw - 556px) * .058)))}
+}
+/* ---- 540px以下（ホームの540px以下と同じ値） ---- */
+@media (max-width:540px){
+  .ph-lead,.msg-lead{font-size:18px;line-height:1.8;letter-spacing:.03em}
+  .sec-lead,.head-c .sec-lead,#contact .sec-lead{letter-spacing:.06em}
+  .buy .spec dt{line-height:2.15;letter-spacing:.12em}
+  .buy .spec dd{line-height:1.6}
+  .buy .price-notes li{line-height:1.65}
+  .cell h3{font-size:22px}
+  .ki > p,.step > p:not(.step-no),.role-txt,.cell p,.ct-col p,.caution li,.st-info li,.dz-row p:not(.dz-no){font-size:17px;line-height:1.8;letter-spacing:.02em}
+  .qa .q{font-size:17px;letter-spacing:.08em;line-height:1.8}
+  .qa .a-body p{font-size:16px;line-height:1.8}
+  /* 見出し（h2＋その下の英字）のすぐ下に文章が来るところ：間を25pxに（ホームの価格・よくある質問と同じ） */
+  .sec-en{margin-bottom:25px}
+  .msg-title{margin-bottom:25px} /* 購入完了・404の題名とその下の文章の間も25px */
+}
+/* 403〜540px：見出しはホームと同じ式（27〜29px、12.3文字が1行に入る上限） */
+@media (min-width:403px) and (max-width:540px){
+  .ph-title,.sec-title,.msg-title{font-size:min(clamp(27px,calc(5.35vw + 5px),29px),calc(88vw / 12.3))}
+}
+/* 402px以下：本文の字間.03em（ホームと同じ） */
+@media (max-width:402px){
+  .ki > p,.step > p:not(.step-no),.role-txt,.cell p,.ct-col p,.caution li,.st-info li,.dz-row p:not(.dz-no){letter-spacing:.03em}
+}
+@media (max-width:364px){
+  .ph-lead,.msg-lead{letter-spacing:.02em}
+}
 </style>
 </head>
 <body>
