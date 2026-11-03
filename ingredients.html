@@ -1778,8 +1778,12 @@ footer{
         let lo=20,hi=200;for(let i=0;i<30;i++){const m=(lo+hi)/2;am.style.fontSize=m+'px';if(aw()>inner)hi=m;else lo=m}am.style.fontSize=lo+'px'}
       return;
     }
-    [[en,22],[nm,26]].forEach(([e,fs])=>{if(!e)return;e.style.fontSize=fs+'px';e.style.whiteSpace='nowrap';e.style.letterSpacing='0px';
-      const n=[...e.textContent.trim()].length,w0=tw(e),ls=(inner-w0)/(n-1);
+    // 字間が開きすぎる幅（英語0.2em・商品名0.06emより広くなる幅）では、字間をその値（541〜840pxと同じ）に止めて、文字を大きくして箱の幅いっぱいにする。
+    // 字間を詰められる下限（英語0・商品名-0.17em）を超える幅では、字間は下限のままで文字を小さくする（ホームの価格の箱と同じ）（2026-11-03 Shio指示）
+    [[en,22,0,.2],[nm,26,-.17,.06]].forEach(([e,fs,minEm,maxEm])=>{if(!e)return;e.style.fontSize=fs+'px';e.style.whiteSpace='nowrap';e.style.letterSpacing='0px';
+      const n=[...e.textContent.trim()].length,w0=tw(e);let ls=(inner-w0)/(n-1);
+      if(ls>maxEm*fs){const f=inner/(w0/fs+maxEm*(n-1));e.style.fontSize=f+'px';ls=maxEm*f}
+      else if(ls<minEm*fs){const f=inner/(w0/fs+minEm*(n-1));e.style.fontSize=f+'px';ls=minEm*f}
       e.style.letterSpacing=ls+'px';e.style.marginRight=(-ls)+'px'});
     // 値段の行（¥159,500（税込））は、箱の幅いっぱい（左端〜右端）になる大きさにする。¥は数字との比（41:61）を保つ。（税込）は15pxのまま
     if(am){const row=am.parentElement,yen=am.querySelector('.yen'),tx=row.querySelector('.tax');row.style.whiteSpace='nowrap';

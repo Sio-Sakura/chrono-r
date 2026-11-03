@@ -2369,7 +2369,13 @@ footer{
   .price-box .price-info{min-width:0}
   /* 「よくある質問をもっと見る」：1行のまま入らない幅では文字を小さくする（文字の幅14.75字分＋矢印の26px） */
   .faq-list ~ .link-more{font-size:min(18px,calc((100vw - 48px - 26px) / 14.75))}
+  /* 価格の箱の写真：商品・成分ページの01（クロノ・アール カプセルとは）と同じ写真・同じ切り取り（横1400：縦1202、写真を40px上げる）。
+     幅は箱の中の文字・線・ボタンと同じ（箱の中の左右の余白の分だけ内側。403〜540pxは26px、402px以下は22px）（2026-11-03 Shio指示。写真の差し替えは HTML の <picture> で540px以下だけ） */
+  .price-box .price-photo{aspect-ratio:1400/1202;max-width:none;width:calc(100% - 52px)}
+  .price-box .price-photo img{object-position:center calc(50% - 40px)}
 }
+@media (max-width:402px){.price-box .price-photo{width:calc(100% - 44px)}}
+.price-photo picture{display:contents}
 </style>
 </head>
 <body>
@@ -2661,7 +2667,7 @@ footer{
       <p class="sec-lead price-lead">話題の成分を一つずつそろえる手間を、1包に。30種以上の成分を配合した、約30日分のリバースエイジング サプリメントです。</p>
     </div>
     <div class="price-box reveal">
-      <div class="price-photo"><img src="images/supplement.jpg" alt="クロノ・アール カプセルのパッケージ" width="720" height="826" loading="lazy"></div>
+      <div class="price-photo"><picture><source media="(max-width:540px)" srcset="images/supplement2.jpg" width="1069" height="1472"><img src="images/supplement.jpg" alt="クロノ・アール カプセルのパッケージ" width="720" height="826" loading="lazy"></picture></div>
       <div class="price-info">
         <p class="price-en">CHRONO-R CAPSULES</p>
         <p class="price-name">クロノ・アール カプセル</p>
@@ -3064,9 +3070,11 @@ footer{
     }
     // 英語22px・商品名26pxに固定し、字間で箱の幅いっぱい（左端〜右端）にそろえる。最後の字の後ろの字間は右へはみ出させる
     // 字間を詰められる下限（英語0・商品名-0.17em）を超える幅では、字間は下限のままで文字を小さくして箱に収める（2026-11-03 Shio指示）
-    [[en,22,0],[nm,26,-.17]].forEach(([e,fs,minEm])=>{if(!e)return;e.style.fontSize=fs+'px';e.style.whiteSpace='nowrap';e.style.letterSpacing='0px';
+    // 字間が開きすぎる幅（英語0.2em・商品名0.06emより広くなる幅）では、字間をその値（541〜840pxと同じ）に止めて、文字を大きくして箱の幅いっぱいにする（2026-11-03 Shio指示）
+    [[en,22,0,.2],[nm,26,-.17,.06]].forEach(([e,fs,minEm,maxEm])=>{if(!e)return;e.style.fontSize=fs+'px';e.style.whiteSpace='nowrap';e.style.letterSpacing='0px';
       const n=[...e.textContent.trim()].length,w0=tw(e);let ls=(inner-w0)/(n-1);
-      if(ls<minEm*fs){const f=inner/(w0/fs+minEm*(n-1));e.style.fontSize=f+'px';ls=minEm*f}
+      if(ls>maxEm*fs){const f=inner/(w0/fs+maxEm*(n-1));e.style.fontSize=f+'px';ls=maxEm*f}
+      else if(ls<minEm*fs){const f=inner/(w0/fs+minEm*(n-1));e.style.fontSize=f+'px';ls=minEm*f}
       e.style.letterSpacing=ls+'px';e.style.marginRight=(-ls)+'px'});
     // 値段の行（¥159,500（税込））は、箱の幅いっぱい（左端〜右端）になる大きさにする。¥は数字との比（41:61）を保つ。（税込）は15pxのまま
     if(am){am.style.whiteSpace='nowrap';const yen=am.querySelector('.yen');const set=fs=>{am.style.fontSize=fs+'px';if(yen)yen.style.fontSize=(fs*41/61)+'px'};
