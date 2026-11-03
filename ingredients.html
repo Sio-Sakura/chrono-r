@@ -1800,7 +1800,10 @@ footer{
 /* 540px以下：大見出しと、カードの小見出し（1行で表示するもの）が入らない幅では、字間を0まで詰め、それでも入らなければ小さくする（ホームの3つの理由と同じ） */
 (function(){
   const ts=[...document.querySelectorAll('.ph-title,.sec-title,.msg-title,.plain h1,.cell h3')];if(!ts.length)return;
-  const over=t=>{const r=document.createRange();r.selectNodeContents(t);const b=r.getBoundingClientRect();
+  // 行末で数えない約物（.hang の「、」「）」）は、はみ出しの判定に入れない（字面の右半分は空白なので、入れると入る見出しまで小さくなる）（2026-11-03 Shio指示）
+  const over=t=>{const r=document.createRange();let L=1e9,R=-1e9;const w=document.createTreeWalker(t,NodeFilter.SHOW_TEXT);let n;
+    while(n=w.nextNode()){if(n.parentElement.closest('.hang'))continue;r.selectNodeContents(n);const x=r.getBoundingClientRect();if(x.width<1)continue;L=Math.min(L,x.left);R=Math.max(R,x.right)}
+    const b={left:L,right:R};
     let box=t.matches('.cell h3')?t.closest('.cell'):t;const c=getComputedStyle(box),bb=box.getBoundingClientRect();
     return b.right>bb.right-parseFloat(c.paddingRight)-parseFloat(c.borderRightWidth)+.5||b.left<bb.left+parseFloat(c.paddingLeft)+parseFloat(c.borderLeftWidth)-.5};
   function fit(){

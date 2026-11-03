@@ -1510,13 +1510,7 @@ footer{
 @media (max-width:402px){
   .sec-title,.final-catch,.ing .sec-title{font-size:min(27px,calc((100vw - 48px) / 12.3))}
 }
-/* ---- 540px以下：価格の見出し（クロノ・アール カプセルの価格）だけ、ほかのh2より1px大きく ---- */
-@media (max-width:540px){
-  .price-title{font-size:calc(min(clamp(27px,calc(5.35vw + 5px),29px),calc(88vw / 12.3)) + 1px)}
-}
-@media (max-width:402px){
-  .price-title{font-size:calc(min(27px,calc((100vw - 48px) / 12.3)) + 1px)}
-}
+/* ---- 540px以下：価格の見出しをほかのh2より1px大きくする指定は外した（ほかの見出しと同じ大きさ）（2026-11-03 Shio指示） ---- */
 /* ---- 540px以下：よくある質問の見出しと、下の線（faq-listの上の線）の間を25pxに（440px以下の56pxも打ち消す） ---- */
 @media (max-width:540px){
   .faq-title{margin-bottom:25px}
