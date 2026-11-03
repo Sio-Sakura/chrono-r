@@ -1495,6 +1495,14 @@ footer{
 @media (max-width:540px){
   #roles .sec-title{word-break:normal}
   #roles .sec-title .nw{white-space:normal}
+  /* 「販売はHATSUGA」はひとかたまりで切らない */
+  #roles .sec-title .nw:last-child{white-space:nowrap}
+  /* 03：中央揃えのまま、言葉ごとに改行せず行の端まで詰めて折る */
+  #philosophy .sec-title{word-break:normal}
+  #philosophy .sec-title .nw{white-space:normal}
+  /* 06：1行に入らないときは「正規販売店｜幹細胞／育毛ラボ HATSUGA」で折る（「｜」を見せる。折ってよいのは幹細胞と育毛ラボのあいだだけ＝HTMLの<wbr>） */
+  #store .sec-title .bar{display:inline;height:auto;overflow:visible}
+  /* 07：1行目に「クロノ・アール カプセルの」まで入れる（入らない幅では、見出しの字間を詰める既存の処理で収める） */
 }
 /* ---- 540px以下：いちばん小さい補足の文字を13→14pxに（02 の表の補足・04 の受賞の補足・06 の住所の※）（2026-11-03 Shio指示） ---- */
 @media (max-width:540px){#developer .info .spec small,#store .info .spec small,#award .aw-facts dd small{font-size:14px}}
@@ -1701,7 +1709,7 @@ footer{
   <div class="wrap">
     <div class="hd reveal">
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">06</span></p>
-      <h2 class="sec-title"><span class="nw">正規販売店</span><span class="bar">｜</span><span class="nw">幹細胞育毛ラボ HATSUGA</span></h2>
+      <h2 class="sec-title"><span class="sp-nw"><span class="nw">正規販売店</span><span class="bar">｜</span><span class="nw">幹細胞</span></span><wbr><span class="nw">育毛ラボ HATSUGA</span></h2>
       <p class="sec-en" lang="en">STORE</p>
       <p class="sec-lead">幹細胞育毛ラボ HATSUGA は、東京・銀座にある完全個室のスカルプケアサロンです。開発元のリエール再生医療研究所と提携し、クロノ・アール カプセルの正規販売店としてこのサイトを運営しています。店名の「HATSUGA」は「発芽」から。芽吹く新芽のような生命力を、名前に込めています。</p>
     </div>
@@ -1750,7 +1758,7 @@ footer{
   <div class="wrap">
     <div class="hd reveal">
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">07</span></p>
-      <h2 class="sec-title"><span class="nw">クロノ・アール</span> <span class="nw">カプセルの</span><br><span class="nw">ご購入・お問い合わせ</span></h2>
+      <h2 class="sec-title"><span class="nw">クロノ・アール カプセルの</span><br><span class="nw">ご購入・お問い合わせ</span></h2>
       <p class="sec-en" lang="en">CONTACT</p>
       <p class="sec-lead">成分や飲み方は「商品・成分」のページで、ご購入の前の疑問は「よくある質問」のページでご案内しています。</p>
     </div>

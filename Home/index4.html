@@ -2356,6 +2356,16 @@ footer{
   .ing .sec-title br{display:inline}
   .ing .sec-title,.col-title{white-space:nowrap}
 }
+/* ---- 540px以下：コンセプトと3つの理由の見出しは、決めた位置でだけ折る（2026-11-03 Shio指示）
+   コンセプト「再生医療研究の知見に／着目した、インナーケア／サプリメント」、3つの理由「ほかのサプリメントと、／何が違う？3つの／選ばれる理由」
+   540px以下だけの改行は <br class="sp540">、541px以上だけの改行は <br class="pc540">（541px以上は今までどおり） ---- */
+.sec-title .sp540{display:none}
+@media (max-width:540px){
+  .sec-title .sp540{display:inline}
+  .sec-title .pc540{display:none}
+  .concept .sec-title,.why .sec-title{white-space:nowrap}
+  .concept .sec-title .ph,.why .sec-title .ph{display:inline}
+}
 @media (max-width:389px){.split.ing-split .photo{--ph-top:-6px}}
 @media (max-width:375px){.award .dev-split .photo{--ph-top:-7px}}
 @media (max-width:359px){.hd .sec-title.faq-title{margin-bottom:37.5px}}
@@ -2462,7 +2472,7 @@ footer{
     <p class="ghost" aria-hidden="true">Concept</p>
     <div class="hd reveal">
       <div class="sec-head"><span class="label">CONCEPT</span></div>
-      <h2 class="sec-title"><span class="ph">再生医療研究の</span><span class="ph">知見に着目した<span class="hang">、</span></span><br><span class="ph">インナーケア</span> <span class="ph">サプリメント</span></h2>
+      <h2 class="sec-title"><span class="ph">再生医療研究の</span><span class="ph">知見に<br class="sp540">着目した<span class="hang">、</span></span><br class="pc540"><span class="ph">インナーケア</span><br class="sp540"> <span class="ph">サプリメント</span></h2>
       <div>
         <p class="concept-lead gold-text" style="margin-bottom:14px">Regenerate Your Time</p>
         <p class="concept-lead-jp"><span><span class="lj">あなたの時間を、再び動かすために</span></span></p>
@@ -2543,7 +2553,7 @@ footer{
     <p class="ghost" aria-hidden="true">Reasons</p>
     <div class="hd reveal">
       <div class="sec-head"><span class="label">WHY CHRONO-R</span></div>
-      <h2 class="sec-title"><span class="ph">ほかのサプリメントと<span class="hang">、</span></span><span class="ph">何が違う？</span><br><span class="ph">3つの選ばれる理由</span></h2>
+      <h2 class="sec-title"><span class="ph">ほかのサプリメントと<span class="hang">、</span></span><br class="sp540"><span class="ph">何が違う？</span><br class="pc540"><span class="ph">3つの<br class="sp540">選ばれる理由</span></h2>
     </div>
     <div class="line-grid cols3" style="margin:110px 0 64px">
       <div class="cell has-hex reveal">
