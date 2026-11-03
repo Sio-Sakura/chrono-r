@@ -919,6 +919,7 @@ section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
   margin-bottom:44px;line-height:1.9;
   color:#302c23;
 }
+@media (max-width:540px){.final-catch{margin-bottom:25px}} /* 540px以下：最後の章の見出しと下の文章の間も25pxに（2026-11-02 Shio指示） */
 .final-body{
   position:relative;z-index:1;
   max-width:38em;margin:0 auto 50px;
@@ -1492,6 +1493,11 @@ footer{
 }
 @media (max-width:402px){
   .price-title{font-size:calc(min(27px,calc((100vw - 48px) / 12.3)) + 1px)}
+}
+/* ---- 540px以下：よくある質問の見出しと、下の線（faq-listの上の線）の間を25pxに（440px以下の56pxも打ち消す） ---- */
+@media (max-width:540px){
+  .faq-title{margin-bottom:25px}
+  .sect-c .faq-list{margin-top:0}
 }
 /* ---- 540px以下：「あなたの時間を、再び動かすために」を16pxに ---- */
 @media (max-width:540px){
@@ -2583,7 +2589,7 @@ footer{
     <p class="ghost" aria-hidden="true">FAQ</p>
     <div class="hd reveal">
       <div class="sec-head"><span class="label">FAQ</span></div>
-      <h2 class="sec-title">よくある質問</h2>
+      <h2 class="sec-title faq-title">よくある質問</h2>
     </div>
     <div class="faq-list reveal">
       <div class="faq-item">
