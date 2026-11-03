@@ -2405,6 +2405,19 @@ footer{
 @media (max-width:370px){
   .concept .concept-lead-jp > span{gap:clamp(8px,calc(100vw - 48px - 11px - 280.5px),16px)}
 }
+/* ---- 540px以下：成分の名前（カタカナ）を1px大きく（18→19px）。NAD原料成分は今のまま。「ほか、全30種以上」も1px大きく（15→16px）。
+   入りきらない名前は、既存の処理で字間→文字の大きさの順に詰める（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  .ing-grid .ing-item .nm:not(.nm-nad){font-size:19px}
+  .ing .ing-rest{font-size:16px}
+}
+/* ---- 540px以下：価格の箱の値（0.4g × 4カプセル…・1日1包…）を15→16px（中の数字は自動で+2px＝18px）。商品・成分07の価格の箱と同じ。よくある質問の質問の文を17→18px（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  .price-box .price-spec dd{font-size:16px}
+  .faq-list .faq-item .q{font-size:18px}
+}
+/* ---- 540px以下：価格の箱の「目安」は、1行に入らない幅（320px前後）では「1日1包／（4カプセル）」とかっこの前で折る（箱からはみ出さない）（2026-11-03） ---- */
+@media (max-width:540px){.price-box .price-spec>div:nth-child(2) dd{white-space:normal}}
 </style>
 </head>
 <body>
@@ -2629,7 +2642,7 @@ footer{
       <div class="ing-item"><div class="ring"><img class="ic-img" src="images/ic-pomegranate.png" alt="" width="430" height="430" loading="lazy"></div><h3 class="nm">ウロリチン</h3><p class="sub">ザクロ抽出発酵物</p></div>
       <div class="ing-item"><div class="ring"><img class="ic-img" src="images/ic-wheat.png" alt="" width="430" height="430" loading="lazy"></div><h3 class="nm">スペルミジン</h3><p class="sub">小麦胚芽エキス末</p></div>
       <div class="ing-item"><div class="ring"><img class="ic-img" src="images/ic-molecule.png" alt="" width="430" height="430" loading="lazy"></div><h3 class="nm">フィセチン</h3><p class="sub">フラボノイドの一種</p></div>
-      <div class="ing-item"><div class="ring"><img class="ic-img" src="images/ic-capsule.png" alt="" width="430" height="430" loading="lazy"></div><h3 class="nm">NAD原料成分</h3><p class="sub">ナイアシンアミド</p></div>
+      <div class="ing-item"><div class="ring"><img class="ic-img" src="images/ic-capsule.png" alt="" width="430" height="430" loading="lazy"></div><h3 class="nm nm-nad">NAD原料成分</h3><p class="sub">ナイアシンアミド</p></div>
       <div class="ing-item"><div class="ring"><img class="ic-img" src="images/ic-bilberry.png" alt="" width="430" height="430" loading="lazy"></div><h3 class="nm">アントシアニン</h3><p class="sub">ビルベリーエキス末</p></div>
       <div class="ing-item"><div class="ring"><img class="ic-img" src="images/ic-grape.png" alt="" width="430" height="430" loading="lazy"></div><h3 class="nm">レスベラトロール</h3><p class="sub">赤ワインエキス</p></div>
     </div>
@@ -2703,7 +2716,7 @@ footer{
         <p class="price-amount"><span class="gold-text"><span class="yen">¥</span>159,500</span><span class="tax">（税込）</span></p>
         <dl class="price-spec">
           <div><dt>内容量</dt><dd><span class="n">0.4</span>g × <span class="n">4</span>カプセル × <span class="n">30</span>包<span class="nw">（約<span class="n">30</span>日分）</span></dd></div>
-          <div><dt>目安</dt><dd><span class="n">1</span>日<span class="n">1</span>包（<span class="n">4</span>カプセル）</dd></div>
+          <div><dt>目安</dt><dd><span class="nw"><span class="n">1</span>日<span class="n">1</span>包</span><wbr><span class="nw">（<span class="n">4</span>カプセル）</span></dd></div>
         </dl>
         <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
         <ul class="price-notes">

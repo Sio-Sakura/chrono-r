@@ -1269,6 +1269,10 @@ footer{
   /* 章の番号（01〜07）は53px */
   .chap .chap-no{font-size:53px}
 }
+/* ---- 540px以下：07 の価格の箱の値（0.4g × 4カプセル…・1日1包…）を15→16px（中の数字は自動で+2px＝18px）。ホームの価格の箱と同じ（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){#price .buy .spec dd{font-size:16px}}
+/* ---- 540px以下：価格の箱の「目安」は、1行に入らない幅（320px前後）では「1日1包／（4カプセル）」とかっこの前で折る（箱からはみ出さない）（2026-11-03） ---- */
+@media (max-width:540px){#price .buy .spec>div:nth-child(2) dd{white-space:normal}}
 </style>
 </head>
 <body>
@@ -1587,7 +1591,7 @@ footer{
       <p class="price-amount"><span class="gold-text"><span class="yen">¥</span>159,500</span><span class="tax">（税込）</span></p>
       <dl class="spec">
         <div><dt>内容量</dt><dd><span class="n">0.4</span>g × <span class="n">4</span>カプセル × <span class="n">30</span>包<span class="nw">（約<span class="n">30</span>日分）</span></dd></div>
-        <div><dt>目安</dt><dd><span class="n">1</span>日<span class="n">1</span>包（<span class="n">4</span>カプセル）</dd></div>
+        <div><dt>目安</dt><dd><span class="nw"><span class="n">1</span>日<span class="n">1</span>包</span><wbr><span class="nw">（<span class="n">4</span>カプセル）</span></dd></div>
       </dl>
       <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
       <ul class="price-notes" role="list">
