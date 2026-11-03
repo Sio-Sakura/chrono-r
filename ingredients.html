@@ -1886,21 +1886,6 @@ footer{
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>
-<!-- ▼▼ 一時的：画面サイズの表示（確認用。公開前に、この目印の間をまるごと消す） ▼▼ -->
-<div id="vp-size" aria-hidden="true" style="position:fixed;left:10px;bottom:10px;z-index:9999;padding:6px 10px;background:rgba(48,44,35,.88);color:#f0e8d6;font:13px/1.2 ui-monospace,Menlo,monospace;letter-spacing:0;border-radius:5px;pointer-events:none"></div>
-<script>
-(function(){
-  const el=document.getElementById('vp-size');
-  function show(){
-    const w=window.innerWidth,h=window.innerHeight;
-    const bps=[359,393,402,440,540,840,950,1140,1280,1440];
-    const hit=bps.find(b=>w<=b);
-    const bp=hit?hit+'以下':'1440より上';
-    el.textContent=w+' × '+h+'　'+bp;
-  }
-  show();window.addEventListener('resize',show);
-})();
-</script>
 <script>
 /* 全幅：03「クロノ・アール カプセルの／全成分・原材料一覧」と06「毎日続けるものだから。／品質とご使用上の注意」の見出しを2行に収める。
    入らない幅では字間を.12emから0まで少しずつ詰め、それでも入らなければ文字を最大3px小さくする */
@@ -1923,6 +1908,5 @@ footer{
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>
-<!-- ▲▲ 一時的：画面サイズの表示 ここまで ▲▲ -->
 </body>
 </html>
