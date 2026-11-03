@@ -2,6 +2,13 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<script>
+/* スマホでスクロールすると、アドレスバーが出入りして画面の「高さだけ」が変わり、resize の合図が出る。
+   文字の大きさ・字間・改行を合わせ直す処理は、画面の「横幅」が変わったときだけ動かす（スクロール中のチカチカ・改行のずれを防ぐ）2026-11-03 */
+(function(){const add=window.addEventListener;window.addEventListener=function(type,fn,opt){
+  if(type==='resize'&&typeof fn==='function'){let w=window.innerWidth;const g=function(e){const nw=window.innerWidth;if(nw===w)return;w=nw;return fn.call(this,e)};return add.call(this,type,g,opt)}
+  return add.call(this,type,fn,opt)}})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ページが見つかりません | クロノ・アール カプセル</title>
 <link rel="icon" href="favicon.ico" sizes="32x32">

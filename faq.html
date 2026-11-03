@@ -2,6 +2,13 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<script>
+/* スマホでスクロールすると、アドレスバーが出入りして画面の「高さだけ」が変わり、resize の合図が出る。
+   文字の大きさ・字間・改行を合わせ直す処理は、画面の「横幅」が変わったときだけ動かす（スクロール中のチカチカ・改行のずれを防ぐ）2026-11-03 */
+(function(){const add=window.addEventListener;window.addEventListener=function(type,fn,opt){
+  if(type==='resize'&&typeof fn==='function'){let w=window.innerWidth;const g=function(e){const nw=window.innerWidth;if(nw===w)return;w=nw;return fn.call(this,e)};return add.call(this,type,g,opt)}
+  return add.call(this,type,fn,opt)}})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>よくある質問 - 飲み方・成分・ご購入について | クロノ・アール カプセル</title>
 <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -1005,6 +1012,13 @@ footer{
 /* ---- 540px以下：ページ最初の列の幅を画面の内側に固定する（題名の折らない1行目は、はみ出す分だけ字間を詰める＝既存のJS）（2026-11-03 Shio指示） ---- */
 @media (max-width:540px){
   .phero .fh-grid{grid-template-columns:minmax(0,1fr)}
+}
+/* ---- 540px以下：英語のラベルを17pxに・ダイヤを11×11pxに（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  .ph-label,.sec-en,#contact .sec-en,.fq-nav-ttl{font-size:17px}
+  /* 答えの分類の英語（HOW TO TAKE など） */
+  main p.en[lang="en"]{font-size:17px}
+  .ph-label::before,#contact .sec-en::before,#contact .sec-en::after{width:11px;height:11px}
 }
 </style>
 </head>

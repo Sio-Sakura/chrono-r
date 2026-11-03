@@ -2,6 +2,13 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<script>
+/* スマホでスクロールすると、アドレスバーが出入りして画面の「高さだけ」が変わり、resize の合図が出る。
+   文字の大きさ・字間・改行を合わせ直す処理は、画面の「横幅」が変わったときだけ動かす（スクロール中のチカチカ・改行のずれを防ぐ）2026-11-03 */
+(function(){const add=window.addEventListener;window.addEventListener=function(type,fn,opt){
+  if(type==='resize'&&typeof fn==='function'){let w=window.innerWidth;const g=function(e){const nw=window.innerWidth;if(nw===w)return;w=nw;return fn.call(this,e)};return add.call(this,type,g,opt)}
+  return add.call(this,type,fn,opt)}})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>開発元・販売店について - リエール再生医療研究所とHATSUGA | クロノ・アール カプセル</title>
 <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -1510,6 +1517,14 @@ footer{
 <style>
 /* ---- 540px以下：ページ最初の目次の番号（01〜07）を3px大きく（18→21px）（2026-11-03 Shio指示） ---- */
 @media (max-width:540px){.toc a .no{font-size:21px;width:28.8px}} /* 番号の欄の幅は元のまま（項目の文字の位置を動かさない） */
+/* ---- 540px以下：英語のラベルを17pxに・ダイヤを11×11pxに（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  .ph-label,.sec-en,.toc-ttl{font-size:17px}
+  .ph-label::before,.phc .ph-label::after,.sec-en::before,.head-c .sec-en::after{width:11px;height:11px}
+  /* 章の番号（01〜07）は53px、01 の「開発元」「販売店」（明朝体）は18px */
+  .chap .chap-no{font-size:53px}
+  #roles .role-tag{font-size:18px}
+}
 </style>
 </head>
 <body>
@@ -2101,6 +2116,33 @@ footer{
   let t;const run=()=>{fit();clearTimeout(t);t=setTimeout(fit,200)};
   run();window.addEventListener('resize',run);window.addEventListener('load',run);
   if(document.fonts){if(document.fonts.ready)document.fonts.ready.then(run);document.fonts.addEventListener('loadingdone',run)}
+})();
+</script>
+<script>
+/* ---- 540px以下：英語のラベル（17px）が1行に入らない・枠からはみ出す幅では、文字の大きさはそのままで字間だけ詰める（最小0.04em）。
+   02 のカードの英語は、いちばん長いものに合わせて6枚とも同じ字間にする（2026-11-03 Shio指示） ---- */
+(function(){
+  const mq=window.matchMedia('(max-width:540px)');
+  const labels=[...document.querySelectorAll('.ph-label,.sec-en')];
+  const cards=[...document.querySelectorAll('#key .ki .ki-en')];
+  const r=document.createRange();
+  const textBox=e=>{r.selectNodeContents(e);const rs=[...r.getClientRects()].filter(b=>b.width>1);return {lines:new Set(rs.map(b=>Math.round(b.top/3))).size,right:Math.max(...rs.map(b=>b.right))}};
+  const limit=e=>{const box=e.closest('.ki');if(box){const b=box.getBoundingClientRect(),c=getComputedStyle(box);return b.right-parseFloat(c.paddingRight)-parseFloat(c.borderRightWidth)}
+    const b=e.getBoundingClientRect(),c=getComputedStyle(e);return b.right-parseFloat(c.paddingRight)};
+  const bad=e=>{const t=textBox(e);return t.lines>1||t.right>limit(e)+.5};
+  function shrink(e,minEm){const fs=parseFloat(getComputedStyle(e).fontSize);let ls=parseFloat(getComputedStyle(e).letterSpacing)||0;
+    while(bad(e)&&ls>fs*minEm){ls=Math.max(fs*minEm,ls-fs*.01);e.style.letterSpacing=ls+'px'}return ls}
+  function fit(){
+    labels.concat(cards).forEach(e=>e.style.letterSpacing='');
+    if(!mq.matches)return;
+    labels.forEach(e=>{if(bad(e))shrink(e,.04)});
+    // カードの英語：いちばん詰めたものに6枚ともそろえる
+    let m=null;cards.forEach(e=>{if(bad(e)){const ls=shrink(e,0);m=m===null?ls:Math.min(m,ls)}});
+    if(m!==null)cards.forEach(e=>e.style.letterSpacing=m+'px');
+  }
+  let t;const run=()=>{fit();clearTimeout(t);t=setTimeout(fit,250)};
+  run();window.addEventListener('resize',run);window.addEventListener('load',run);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
 })();
 </script>
 </body>

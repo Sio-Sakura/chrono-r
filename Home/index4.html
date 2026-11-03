@@ -2,6 +2,13 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<script>
+/* スマホでスクロールすると、アドレスバーが出入りして画面の「高さだけ」が変わり、resize の合図が出る。
+   文字の大きさ・字間・改行を合わせ直す処理は、画面の「横幅」が変わったときだけ動かす（スクロール中のチカチカ・改行のずれを防ぐ）2026-11-03 */
+(function(){const add=window.addEventListener;window.addEventListener=function(type,fn,opt){
+  if(type==='resize'&&typeof fn==='function'){let w=window.innerWidth;const g=function(e){const nw=window.innerWidth;if(nw===w)return;w=nw;return fn.call(this,e)};return add.call(this,type,g,opt)}
+  return add.call(this,type,fn,opt)}})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>リバースエイジング サプリメント - アンチエイジングの一歩先へ | クロノ・アール カプセル</title>
 <link rel="icon" href="../favicon.ico" sizes="32x32">
@@ -2387,6 +2394,17 @@ footer{
 }
 @media (max-width:402px){.price-box .price-photo{width:calc(100% - 44px)}}
 .price-photo picture{display:contents}
+/* ---- 540px以下：「あなたの時間を、再び動かすために」のダイヤを11×11pxに。1行に入らない幅では、ダイヤと文字のあいだ（16px）を最小8pxまで狭める（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  .concept .concept-lead-jp > span::before{width:11px;height:11px;margin-top:calc(.75em - 5.5px)}
+  .concept .concept-lead-jp .lj{letter-spacing:clamp(.06em,calc((100vw - 48px - 27.5px - 16em) / 16),.24em)}
+}
+@media (max-width:393px){
+  .concept .concept-lead-jp .lj{letter-spacing:clamp(.06em,calc((100vw - 48px - 27.5px - 16em) / 16),.12em)}
+}
+@media (max-width:370px){
+  .concept .concept-lead-jp > span{gap:clamp(8px,calc(100vw - 48px - 11px - 280.5px),16px)}
+}
 </style>
 </head>
 <body>
