@@ -653,7 +653,7 @@ footer{
 @media (max-width:540px){
   .head-c .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:center}
   /* 最後の行が1〜2文字だけにならないよう、字間を少し詰める */
-  .head-c .sec-lead{letter-spacing:.03em;text-wrap:pretty}
+  .head-c .sec-lead{letter-spacing:.03em;text-wrap:wrap}
 }
 /* 02 成分カードの枠：ホームの「3つの理由」のカードと同じ作り（金の線＋6px内側に薄い金の線、角丸5px／内側3px） */
 .ki{
@@ -1040,7 +1040,7 @@ footer{
   font-size:clamp(14px,1.42vw,18.5px);font-weight:600;letter-spacing:.05em;line-height:1.9;white-space:nowrap;
   margin-bottom:12px;
   color:var(--gold-deep);}
-.cell p{font-size:15px;color:var(--text);line-height:1.8;letter-spacing:.04em;text-align:justify;text-justify:inter-character;line-break:strict;overflow-wrap:normal;text-wrap:pretty}
+.cell p{font-size:15px;color:var(--text);line-height:1.8;letter-spacing:.04em;text-align:justify;text-justify:inter-character;line-break:strict;overflow-wrap:normal;text-wrap:wrap}
 .cell p.c{text-align:center}
 @media (max-width:840px){
   .line-grid{grid-template-columns:1fr 1fr}
@@ -1420,7 +1420,7 @@ footer{
 /* リード文：841〜950pxの行間はホームと同じ2.15 */
 @media (min-width:841px) and (max-width:950px){main .sec-lead{line-height:2.15}}
 /* 箱の中の文章：ホームと同じく両端揃え（文字単位）、最後の行を整える */
-#philosophy .cell p,#product .cn-item p,#store .step > p{text-align:justify;text-justify:inter-character;text-wrap:pretty}
+#philosophy .cell p,#product .cn-item p,#store .step > p{text-align:justify;text-justify:inter-character;text-wrap:wrap}
 /* 箱の小見出し：540px以下は、ホームと同じく言葉の区切りで改行する */
 @media (max-width:540px){#philosophy .cell h3,#developer .info h3,#product .cn-item h3,#store .step h3{word-break:auto-phrase}}
 /* 05 名前の由来・開発の考え方の文章：540px以下はホームの箱の文章と同じ（17px・行間1.8・字間.02em、402px以下.03em） */
@@ -1489,6 +1489,8 @@ footer{
   .phero .ph-grid{grid-template-columns:minmax(0,1fr)}
   #developer .info dd{min-width:0;max-width:100%}
 }
+/* ---- 540px以下：06 の小見出しの「エア導入技術」「プライベート空間」は途中で折らない（Safariでも同じ折れ方に）（2026-11-03） ---- */
+@media (max-width:540px){.sp-nw{white-space:nowrap}}
 </style>
 </head>
 <body>
@@ -1545,7 +1547,7 @@ footer{
   <div class="wrap">
     <div class="hd reveal">
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">01</span></p>
-      <h2 class="sec-title">開発はリエール再生医療研究所、<br>販売はHATSUGA</h2>
+      <h2 class="sec-title"><span class="nw">開発は</span><span class="nw">リエール再生医療研究所、</span><br><span class="nw">販売はHATSUGA</span></h2>
       <p class="sec-en" lang="en">ABOUT US</p>
       <p class="sec-lead">つくっているのは、再生医療の研究を土台にする研究所。お届けしているのは、東京・銀座のサロンです。それぞれが担っている役割を紹介します。</p>
     </div>
@@ -1606,7 +1608,7 @@ footer{
   <div class="wrap">
     <div class="hd reveal">
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">03</span></p>
-      <h2 class="sec-title">リエール再生医療研究所が<br>大切にしている3つの考え方</h2>
+      <h2 class="sec-title"><span class="nw">リエール再生医療研究所が</span><br><span class="nw">大切にしている3つの</span><span class="nw">考え方</span></h2>
       <p class="sec-en" lang="en">PHILOSOPHY</p>
       <p class="sec-lead">年齢を重ねることは、衰えていくことだけではない。そう考える研究所が、商品づくりの土台にしている3つの考え方です。</p>
     </div>
@@ -1700,12 +1702,12 @@ footer{
       </li>
       <li class="step reveal d1">
         <img class="ic" src="Home/images/ic-drop.png" alt="" width="252" height="240" loading="lazy">
-        <h3>幹細胞上清液 <span class="st-l2">× エア導入技術</span></h3>
+        <h3><span class="nw">幹細胞上清液</span> <span class="st-l2"><span class="nw">×</span> <span class="sp-nw"><span class="nw">エア導入</span><span class="nw">技術</span></span></span></h3>
         <p>1ccに約3000億個以上のエクソソームを含む、国産の幹細胞上清液を使用。針を使わないエア導入の技術で施術を行っています。</p>
       </li>
       <li class="step reveal d2">
         <img class="ic" src="Home/images/ic-door.png" alt="" width="172" height="240" loading="lazy">
-        <h3>完全個室の<span class="st-l2">プライベート空間</span></h3>
+        <h3><span class="nw">完全個室の</span><span class="st-l2"><span class="sp-nw"><span class="nw">プライベート</span><span class="nw">空間</span></span></span></h3>
         <p>お客様のプライバシーを最優先に考えた完全個室です。男性も女性も、人目を気にせずお過ごしいただけます。</p>
       </li>
     </ul>
@@ -1737,7 +1739,7 @@ footer{
   <div class="wrap">
     <div class="hd reveal">
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">07</span></p>
-      <h2 class="sec-title">クロノ・アール カプセルの<br>ご購入・お問い合わせ</h2>
+      <h2 class="sec-title"><span class="nw">クロノ・アール</span> <span class="nw">カプセルの</span><br><span class="nw">ご購入・お問い合わせ</span></h2>
       <p class="sec-en" lang="en">CONTACT</p>
       <p class="sec-lead">成分や飲み方は「商品・成分」のページで、ご購入の前の疑問は「よくある質問」のページでご案内しています。</p>
     </div>
