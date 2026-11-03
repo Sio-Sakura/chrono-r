@@ -1239,6 +1239,16 @@ footer{
 <style>
 /* ---- 540px以下：ページ最初の目次の番号（01〜07）を3px大きく（18→21px）（2026-11-03 Shio指示） ---- */
 @media (max-width:540px){.toc a .no{font-size:21px;width:28.8px}} /* 番号の欄の幅は元のまま（項目の文字の位置を動かさない） */
+/* ---- 540px以下：02 の見出しは成分名ごとに改行せず、行の端まで詰めて折る（言葉の途中で折れてよい）。中央揃えのまま。ChromeとSafariで同じ折れ方になるよう、言葉の区切りの指定も外す（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  #key .sec-title{word-break:normal}
+  #key .sec-title .nw{white-space:normal}
+}
+/* ---- 540px以下：02 の成分カードの名前（カタカナ）を1px大きく。NAD原料成分だけは今のまま（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){#key .ki .ki-name h3:not(.ki-nad){font-size:calc(clamp(18px,calc((100cqw - 112px) / 8.4),22px) + 1px)}}
+@media (max-width:359px){#key .ki .ki-name h3:not(.ki-nad){font-size:calc(clamp(15.5px,calc((100cqw - 112px) / 8.4),22px) + 1px)}}
+/* ---- 540px以下：03 の全成分の一覧の番号（01〜30）も、目次の番号と同じ21pxに（16→21px）。番号の欄の幅と行の高さは元のまま（成分名の位置と行の高さを動かさない）（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){#all .all-list .no{font-size:21px;width:27.2px;line-height:25.6px}}
 </style>
 </head>
 <body>
@@ -1300,7 +1310,7 @@ footer{
       </div>
       <div class="ov-body reveal d1">
         <p class="chap" aria-hidden="true"><span class="chap-no gold-text">01</span></p>
-        <h2 class="sec-title"><span class="nw">クロノ・アール</span> <span class="nw">カプセルとは</span></h2>
+        <h2 class="sec-title"><span class="nw">クロノ・アール カプセル</span><wbr><span class="nw">とは</span></h2>
         <p class="sec-en" lang="en">OVERVIEW</p>
         <p class="sec-lead">クロノ・アール カプセル（CHRONO-R CAPSULES）は、リエール再生医療研究所が開発した<strong>栄養補助食品</strong>です。再生医療の研究で積み重ねられてきた知見に着目し、<strong>30種以上の成分を1包に配合</strong>しました。1日分は1包（4カプセル）。1箱に30包が入った、約30日分のインナーケア サプリメントです。</p>
         <div class="ov-photo-sp photo"><div class="pframe"></div><div class="pic"><img src="Home/images/supplement2.jpg" alt="クロノ・アール カプセルのパッケージ" width="1069" height="1472" loading="lazy"></div></div>
@@ -1368,7 +1378,7 @@ footer{
           <div class="ring"><img src="Home/images/ic-capsule.png" alt="" width="430" height="430" loading="lazy"></div>
           <div class="ki-name">
             <p class="ki-en" lang="en">NIACINAMIDE</p>
-            <h3>NAD原料成分</h3>
+            <h3 class="ki-nad">NAD原料成分</h3>
             <p class="ki-src">原材料名：ナイアシンアミド</p>
           </div>
         </div>
