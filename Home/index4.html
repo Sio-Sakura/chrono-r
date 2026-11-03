@@ -1439,9 +1439,9 @@ footer{
 @media (max-width:540px){
   .sep::before{top:calc(20% - 4px);bottom:calc(20% - 4px)}
 }
-/* ---- 540px以下：ファーストビューの説明文を両端揃えにし、行の途中で空かないよう「途中で折らない」指定を外す ---- */
+/* ---- 540px以下：ファーストビューの説明文は左揃え（両端揃えだと行ごとの引き伸ばしがバラついて間延びして見えるため。2026-11-02）。「途中で折らない」指定は外す ---- */
 @media (max-width:540px){
-  .hero-copy{text-align:justify;text-justify:inter-character}
+  .hero-copy{text-align:left}
   .hero-copy .nw{white-space:normal}
 }
 /* ---- 540px以下：ヘッダーのロゴとボタンは折り返さない。入りきらない幅ではJSで文字を小さくして、間を5px以上あける ---- */
@@ -1773,9 +1773,10 @@ footer{
 /* ---- 比較の図の「年齢」：文字の上端を、横の線の少し下（線の下端＋約3）に置く。文字の大きさが変わっても線にくっつかない ---- */
 .vs-graph .ax-lb{dominant-baseline:text-before-edge}
 /* ---- 540px以下：ファーストビューの「リバースエイジング サプリメント」と「再生医療の研究所が開発した、」を1px大きく。1行に入らない幅では入る大きさで止める ---- */
-@media (max-width:540px){.hero-eyebrow{font-size:16.5px}}
+@media (max-width:540px){.hero-eyebrow{font-size:16.5px;letter-spacing:.14em}}
+@media (max-width:393px){.hero-eyebrow{letter-spacing:.08em}}
 /* 360px付近では1行に入らないので、字間だけ少し詰める */
-@media (max-width:362px){.hero-eyebrow{letter-spacing:.06em}}
+@media (max-width:362px){.hero-eyebrow{letter-spacing:.05em}}
 @media (max-width:355px){.hero-eyebrow{font-size:15.5px}}
 @media (min-width:403px) and (max-width:540px){.hero-kicker{font-size:min(22.6px,calc(100cqw / 18.3))}}
 @media (max-width:402px){.hero-kicker{font-size:min(19px,calc(100cqw / 14.7))}}
@@ -2171,15 +2172,15 @@ footer{
 .news-card h3[id]{text-wrap:wrap;word-break:normal;line-break:strict;text-align:left}
 /* ==== 541〜840px（iPad縦）：文字の大きさはすべてスマホ（540px）と同じにする（2026-11-02 Shio指示） ==== */
 @media (min-width:541px) and (max-width:840px){
-  .sec-title,.ing .sec-title,.col-title,.voice .sec-title,main .final .final-catch{font-size:29px}
+  .sec-title,.ing .sec-title,.col-title,.voice .sec-title,main .final .final-catch{font-size:min(32px,max(29px,4.88vw))}
   .why .cell h3{font-size:22px}
   .vs-title,.vs-card.is-main .vs-title{font-size:21px}
   .vs-card .vs-tag{font-size:15px}
   main .news-card h3,.quote-card .q-title{font-size:20px}
   .hero .hero-eyebrow{font-size:16.5px}
   .hero .hero-kicker{font-size:22.6px;letter-spacing:.3em}
-  .hero .hero-title{font-size:72px}
-  .hero .hero-h1 .hero-sub-en{font-size:33.6px}
+  .hero .hero-title{font-size:min(94px,16.2vw)}
+  .hero .hero-h1 .hero-sub-en{font-size:40px}
   .hero .hero-copy{font-size:18px}
   .hero .btn-gold,main .btn-gold{font-size:23px}
   .hero .btn-note{font-size:16px}
@@ -2928,10 +2929,12 @@ footer{
       if(window.matchMedia('(max-width:840px)').matches){
         // 英語と商品名は、541pxでは今の大きさのまま、840pxで5px小さく（その間は幅に合わせて少しずつ）
         const cut=5*Math.min(1,Math.max(0,(window.innerWidth-541)/(840-541)));
-        if(en){en.style.letterSpacing='.2em';en.style.marginRight='';en.style.fontSize=(parseFloat(en.style.fontSize)-cut)+'px'}
-        if(nm){nm.style.letterSpacing='.06em';nm.style.marginRight='';nm.style.fontSize=(parseFloat(nm.style.fontSize)-cut)+'px'}
+        // 700〜840pxはさらに引いて、840pxで英語35px・商品名43px・値段130pxにする（700以下は変えない）
+        const ex=Math.min(1,Math.max(0,(window.innerWidth-700)/(840-700)));
+        if(en){en.style.letterSpacing='.2em';en.style.marginRight='';en.style.fontSize=(parseFloat(en.style.fontSize)-cut-3.7*ex)+'px'}
+        if(nm){nm.style.letterSpacing='.06em';nm.style.marginRight='';nm.style.fontSize=(parseFloat(nm.style.fontSize)-cut-4.6*ex)+'px'}
         // 値段は、541pxでは箱いっぱいから10px小さく、840pxで20px小さく（その間は幅に合わせて少しずつ）
-        if(am)am.style.fontSize=(parseFloat(am.style.fontSize)-10-cut*2)+'px';
+        if(am)am.style.fontSize=(parseFloat(am.style.fontSize)-10-cut*2-25.2*ex)+'px';
       }
       return;
     }
