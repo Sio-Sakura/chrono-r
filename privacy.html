@@ -1349,6 +1349,15 @@ body{background:#fff}
 @media (max-width:364px){
   .ph-lead,.msg-lead{letter-spacing:.02em}
 }
+
+/* ---- 章の見出し（h2）とページの題名（h1）：ホームの章の見出しと同じ大きさ（1281px以上 40px／951〜1140px 36px／841〜950px 32px。1141〜1280px と 840px以下は元から同じ）2026-11-03 ---- */
+@media (min-width:1281px){.sec-title,.ph-title,.msg-title{font-size:40px}}
+@media (min-width:951px) and (max-width:1140px){.sec-title,.ph-title,.msg-title{font-size:36px}}
+@media (min-width:841px) and (max-width:950px){.sec-title,.ph-title,.msg-title{font-size:32px}}
+
+/* ---- ホームと同じ文字詰めのルール 2026-11-03 ---- */
+/* リード文：841〜950pxの行間はホームと同じ2.15 */
+@media (min-width:841px) and (max-width:950px){main .sec-lead{line-height:2.15}}
 </style>
 </head>
 <body>

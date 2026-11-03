@@ -759,6 +759,18 @@ footer{
 @media (max-width:540px){
   .all-photo{max-width:none;width:calc(100% - 12px);margin:0 12px 0 0}
 }
+/* ---- 840px以下：01の写真は文章の下・表（商品名の線）の上に置く（03の全成分の写真と同じ縦横の大きさ、空き方も03と同じ＝文章の箱の下端から48px、写真の下端から表まで56px）。841px以上は今までどおり左の列の写真（2026-11-03 Shio指示） ---- */
+.ov-photo-sp{display:none}
+@media (max-width:840px){
+  .ov-grid>.ov-photo{display:none}
+  .ov-photo-sp{display:block;position:relative;aspect-ratio:1400/1202;width:100%;max-width:420px;margin:48px auto 56px}
+  .ov-photo-sp .pic{background:#0d0b07}
+  /* 枠の中の写真を40px上げる（真ん中基準の切り取りから、写真だけ40px上へ。下のカプセルが見えるように）（2026-11-03 Shio指示） */
+  .ov-photo-sp .pic img{object-position:center calc(50% - 40px)}
+}
+@media (max-width:540px){
+  .ov-photo-sp{max-width:none;width:calc(100% - 12px);margin:48px 12px 56px 0}
+}
 /* 03 全成分リスト：どの行も同じ高さにして、列どうしの横の線をそろえる（成分名が2段の行に合わせる）。
    上から下へ番号順に、10行×3列（701〜1140pxは15行×2列）。700px以下は1列なので、行ごとの自然な高さのまま */
 @media (min-width:701px){
@@ -1060,6 +1072,28 @@ footer{
   .buy .btn-gold{font-size:min(19px,3.231cqw)}
   .buy .price-notes li{font-size:min(13px,2.211cqw)}
 }
+/* 541〜840px：07 価格の箱も、ほかの箱と同じく端まで広げる（680pxで止めない）。文字の大きさは変えない（2026-11-03 Shio指示） */
+@media (min-width:541px) and (max-width:840px){.buy{max-width:none}}
+/* 541〜840px：07 価格の箱の上下の余白を10pxずつ増やす（上34→44px、下30→40px）（2026-11-03 Shio指示） */
+@media (min-width:541px) and (max-width:840px){.buy{padding-top:calc(clamp(34px,4vw,50px) + 10px);padding-bottom:calc(clamp(30px,3.6vw,44px) + 10px)}}
+/* 541〜840px：07 価格の箱の中身（英語・商品名・値段・内容量と目安・ボタン・注意書き）を、ホームの価格の箱（写真の右側）と同じにする（2026-11-03 Shio指示）
+   左右の余白もホームと同じにして、中身の幅をそろえる。中身は一番幅のある行（商品名）と同じ幅の列にして真ん中に。線・ボタン・注意書きはその列の幅いっぱい。
+   英語・商品名・値段の大きさは、下のJSでホームと同じ計算をする。上下の余白は上の指定（ホームより10px多い）のまま */
+@media (min-width:541px) and (max-width:840px){
+  .buy{padding-left:clamp(26px,4.4vw,56px);padding-right:clamp(26px,4.4vw,56px);display:grid;grid-template-columns:fit-content(100%);justify-content:center}
+  .buy .price-en{text-indent:.2em;margin-bottom:10px}
+  .buy .price-name{text-indent:.06em;margin-bottom:12px}
+  .buy .price-amount{margin-bottom:16px}
+  .buy .price-amount .tax{font-size:15px}
+  .buy .spec,.buy .btn-gold,.buy .price-notes{width:auto;max-width:none;margin-left:0;margin-right:0}
+  .buy .spec{margin-bottom:22px}
+  .buy .spec>div{padding:9px 0;gap:20px}
+  .buy .spec dt{font-size:16px}
+  .buy .spec dd{font-size:15px}
+  .buy .btn-gold{font-size:23px;padding:11px 20px}
+  .buy .price-notes{margin-top:14px}
+  .buy .price-notes li{font-size:14px}
+}
 /* ---- 540px以下（ホームの540px以下と同じ値） ---- */
 @media (max-width:540px){
   .ph-lead,.msg-lead{font-size:18px;line-height:1.8;letter-spacing:.03em}
@@ -1087,10 +1121,74 @@ footer{
   .ph-lead,.msg-lead{letter-spacing:.02em}
 }
 /* ---- 05 お召し上がり方の小見出し（1日1包を目安に など）：ホームの「3つの理由」の小見出しと同じ大きさ（全幅）2026-11-03 ---- */
+/* 05 お召し上がり方の「STEP 1〜3」：全幅で3px大きく（STEP 15→18px、数字 26→29px）（2026-11-03 Shio指示） */
+#howto .step .step-no{font-size:18px}
+#howto .step .step-no .n{font-size:29px}
 #howto .step h3{font-size:22px}
 @media (min-width:1141px) and (max-width:1280px){#howto .step h3{font-size:clamp(19px,calc(19px + (100vw - 1141px) / 59),20px)}}
 @media (min-width:951px) and (max-width:1140px){#howto .step h3{font-size:19px}}
 @media (min-width:841px) and (max-width:950px){#howto .step h3{font-size:17px}}
+/* ---- 541〜840px：箱の中の文章（注目成分・お召し上がり方・設計のこだわり・注意の箱）は、リード文（17px）より1px小さい16pxに 2026-11-03 ---- */
+@media (min-width:541px) and (max-width:840px){#key .ki > p,#howto .step > p:not(.step-no),#design .dz-row p:not(.dz-no),#safety .caution li{font-size:16px}}
+
+/* ==========================================================
+   ホームの「3つの選ばれる理由」の箱にそろえる（全幅）2026-11-03
+   小見出し・箱の中の文章・箱の左右の余白を、ホームと同じ値にする
+   ========================================================== */
+#design .dz-row h3,#safety .caution h3{font-size:22px;letter-spacing:.05em;line-height:1.9}
+@media (min-width:1141px) and (max-width:1280px){#design .dz-row h3,#safety .caution h3{font-size:clamp(19px,calc(19px + (100vw - 1141px) / 59),20px)}}
+@media (min-width:951px) and (max-width:1140px){#design .dz-row h3,#safety .caution h3{font-size:19px}}
+@media (min-width:951px) and (max-width:1056px){#design .dz-row h3,#safety .caution h3{letter-spacing:.01em}}
+@media (min-width:841px) and (max-width:950px){#design .dz-row h3,#safety .caution h3{font-size:17px;letter-spacing:.01em}}
+/* 箱の中の文章（541〜840px：16px、540px以下：17px は前の指定のまま） */
+@media (min-width:1281px){#key .ki > p,#design .dz-row p:not(.dz-no),#howto .step > p:not(.step-no),#safety .caution li{font-size:16px;line-height:1.8;letter-spacing:.02em}}
+@media (min-width:1141px) and (max-width:1280px){#key .ki > p,#design .dz-row p:not(.dz-no),#howto .step > p:not(.step-no),#safety .caution li{font-size:15px;line-height:1.8;letter-spacing:.02em}}
+@media (min-width:1197px) and (max-width:1280px){#key .ki > p,#design .dz-row p:not(.dz-no),#howto .step > p:not(.step-no),#safety .caution li{letter-spacing:.03em}}
+@media (min-width:951px) and (max-width:1140px){#key .ki > p,#design .dz-row p:not(.dz-no),#howto .step > p:not(.step-no),#safety .caution li{font-size:15px;line-height:1.8;letter-spacing:.04em}}
+@media (min-width:841px) and (max-width:950px){#key .ki > p,#design .dz-row p:not(.dz-no),#howto .step > p:not(.step-no),#safety .caution li{font-size:15px;line-height:1.7;letter-spacing:.04em}}
+@media (min-width:541px) and (max-width:840px){#key .ki > p,#design .dz-row p:not(.dz-no),#howto .step > p:not(.step-no),#safety .caution li{font-size:16px;line-height:1.8;letter-spacing:.04em}}
+/* 541〜840px：05 お召し上がり方の3つの箱を、ホームの3つの理由と同じく端まで広げる（左右の余白44px）（2026-11-03 Shio指示） */
+@media (min-width:541px) and (max-width:840px){#howto .steps{max-width:none}#howto .step{padding-left:44px;padding-right:44px}}
+/* 箱の左右の余白 */
+@media (min-width:1281px){#key .ki,#safety .caution{padding-left:24px;padding-right:24px}}
+@media (min-width:1141px) and (max-width:1280px){#key .ki,#safety .caution{padding-left:24px;padding-right:24px}}
+@media (min-width:1197px) and (max-width:1280px){#key .ki,#safety .caution{padding-left:26px;padding-right:26px}}
+@media (min-width:951px) and (max-width:1140px){#key .ki,#safety .caution{padding-left:18px;padding-right:18px}}
+@media (min-width:841px) and (max-width:950px){#key .ki,#safety .caution{padding-left:20px;padding-right:20px}}
+@media (min-width:541px) and (max-width:840px){#safety .caution{padding-left:44px;padding-right:44px}}
+/* 02の箱：ホームの44pxは「1列で幅いっぱいの箱」の値なので、1列になる541〜760pxだけ。2列の761〜840pxは前の余白のまま（成分名が縮むため） */
+@media (min-width:541px) and (max-width:760px){#key .ki{padding-left:44px;padding-right:44px}}
+/* 05 お召し上がり方の小見出し：字間もホームと同じ（951〜1056px・841〜950pxは.01em） */
+@media (min-width:951px) and (max-width:1056px){#howto .step h3{letter-spacing:.01em}}
+@media (min-width:841px) and (max-width:950px){#howto .step h3{letter-spacing:.01em}}
+@media (max-width:540px){#key .ki,#safety .caution{padding-left:26px;padding-right:26px}}
+/* 04 Point 1〜3 の番号：ホームの No. と同じ大きさ（1281px以上 45px・70px／841〜1280px 38px・58px／840px以下 48px・65px） */
+@media (min-width:1281px){#design .dz-no .pt{font-size:45px}#design .dz-row .dz-no{font-size:70px}}
+@media (max-width:840px){#design .dz-no .pt{font-size:48px}#design .dz-row .dz-no{font-size:65px}}
+/* 06 注意の箱：行間を変えたので、◆の位置を1行目の真ん中に合わせ直す */
+#safety .caution li::before{top:calc(15px + .9em - 3px)}
+@media (min-width:841px){#safety .caution ul li::before{top:calc(8px + .9em - 3px)}}
+@media (min-width:841px) and (max-width:950px){#safety .caution ul li::before{top:calc(8px + .85em - 3px)}}
+
+/* ---- 章の見出し（h2）とページの題名（h1）：ホームの章の見出しと同じ大きさ（1281px以上 40px／951〜1140px 36px／841〜950px 32px。1141〜1280px と 840px以下は元から同じ）2026-11-03 ---- */
+@media (min-width:1281px){.sec-title,.ph-title,.msg-title{font-size:40px}}
+@media (min-width:951px) and (max-width:1140px){.sec-title,.ph-title,.msg-title{font-size:36px}}
+@media (min-width:841px) and (max-width:950px){.sec-title,.ph-title,.msg-title{font-size:32px}}
+
+/* ---- ホームと同じ文字詰めのルール 2026-11-03 ---- */
+/* リード文：841〜950pxの行間はホームと同じ2.15 */
+@media (min-width:841px) and (max-width:950px){main .sec-lead{line-height:2.15}}
+/* 箱の中の文章：ホームと同じく両端揃え（文字単位）、最後の行を整える */
+#key .ki > p,#howto .step > p:not(.step-no),#design .dz-row p:not(.dz-no),#safety .caution li{text-align:justify;text-justify:inter-character;text-wrap:pretty}
+/* 箱の小見出し：540px以下は、ホームと同じく言葉の区切りで改行する */
+@media (max-width:540px){#howto .step h3,#design .dz-row h3,#safety .caution h3{word-break:auto-phrase}}
+
+/* ---- 中央に置く説明文（章の見出しの下）：ホームと同じく最大42字分の幅にし、両端揃え＋最後の行は中央（全幅）2026-11-03 ---- */
+@media (min-width:951px){.head-c .sec-lead{max-width:42em}}
+@media (min-width:951px){#key .sec-lead{max-width:42em}} /* 前の「幅の制限なし」の指定を上書き */
+/* 両端揃え＋最後の行は中央にするのは840px以下だけ。841px以上は普通の中央揃え（ホームと同じ） */
+@media (max-width:840px){.head-c .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:center}}
+@media (min-width:841px){.head-c .sec-lead{text-align:center;text-align-last:auto}}
 </style>
 </head>
 <body>
@@ -1154,7 +1252,8 @@ footer{
         <p class="chap" aria-hidden="true"><span class="chap-no gold-text">01</span></p>
         <h2 class="sec-title">クロノ・アール カプセルとは</h2>
         <p class="sec-en" lang="en">OVERVIEW</p>
-        <p class="sec-lead">クロノ・アール カプセル（CHRONO-R CAPSULES）は、リエール再生医療研究所が開発した<strong>栄養補助食品</strong>です。再生医療の研究で積み重ねられてきた知見に着目し、30種以上の成分を1包に配合しました。1日分は<strong>1包（4カプセル）</strong>。1箱に30包が入った、約30日分のインナーケア サプリメントです。</p>
+        <p class="sec-lead">クロノ・アール カプセル（CHRONO-R CAPSULES）は、リエール再生医療研究所が開発した<strong>栄養補助食品</strong>です。再生医療の研究で積み重ねられてきた知見に着目し、<strong>30種以上の成分を1包に配合</strong>しました。1日分は1包（4カプセル）。1箱に30包が入った、約30日分のインナーケア サプリメントです。</p>
+        <div class="ov-photo-sp photo"><div class="pframe"></div><div class="pic"><img src="Home/images/supplement2.jpg" alt="クロノ・アール カプセルのパッケージ" width="1069" height="1472" loading="lazy"></div></div>
         <dl class="spec">
           <div><dt>商品名</dt><dd>クロノ・アール カプセル（CHRONO-R CAPSULES）</dd></div>
           <div><dt>分類</dt><dd>栄養補助食品</dd></div>
@@ -1175,7 +1274,7 @@ footer{
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">02</span></p>
       <h2 class="sec-title">ウロリチン・スペルミジン・フィセチンなど<span class="hang">、</span><br>注目の6成分</h2>
       <p class="sec-en" lang="en">KEY INGREDIENTS</p>
-      <p class="sec-lead">単体のサプリメントとしても販売されている成分を、クロノ・アール カプセルは1包にまとめています。<br class="br-pc">それぞれがどんな成分で、どの原材料として入っているのかを紹介します。</p>
+      <p class="sec-lead">単体のサプリメントとしても販売されている成分を、クロノ・アール カプセルは1包にまとめています。それぞれがどんな成分で、どの原材料として入っているのかを紹介します。</p>
     </div>
     <div class="key-banner photo reveal">
       <div class="pic"><img src="Home/images/key-ingredients.jpg" alt="生成りの布の上に並べた、ザクロ、小麦の穂と小麦胚芽、いちご、カプセル、ビルベリー、ぶどう" width="1536" height="1024" loading="lazy"></div>
@@ -1599,10 +1698,28 @@ footer{
   const en=box.querySelector('.price-en'),nm=box.querySelector('.price-name'),am=box.querySelector('.price-amount .gold-text');
   const tw=e=>{const r=document.createRange();r.selectNodeContents(e);return r.getBoundingClientRect().width};
   function fit(){
-    {const y=am&&am.querySelector('.yen');if(y)y.style.fontSize='';if(am)am.parentElement.style.whiteSpace=''}
+    {const y=am&&am.querySelector('.yen');if(y)y.style.fontSize='';if(am){am.parentElement.style.whiteSpace='';am.parentElement.style.fontSize=''}}
     [en,nm,am].forEach(e=>e&&(e.style.fontSize='',e.style.letterSpacing='',e.style.marginRight='',e.style.whiteSpace='',e.style.textIndent=''));
     const cs=getComputedStyle(box),inner=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
-    // 541px以上：英語と商品名は今の大きさのまま字間で、値段の行（¥159,500（税込））は大きさで、箱の幅いっぱいにする（ホームと同じ）
+    // 541〜840px：ホームの価格の箱と同じ計算（2026-11-03 Shio指示）。
+    // 英語（字間.3em）・商品名（字間.12em）・値段の行を箱の中身の幅いっぱいの大きさにしてから、ホームと同じだけ小さくし、字間を英語.2em・商品名.06emにする
+    if(window.matchMedia('(min-width:541px) and (max-width:840px)').matches){
+      [[en,.3],[nm,.12]].forEach(([e,lsem])=>{if(!e)return;e.style.whiteSpace='nowrap';e.style.letterSpacing=lsem+'em';
+        const w=()=>tw(e)-parseFloat(getComputedStyle(e).letterSpacing);
+        let lo=8,hi=120;for(let i=0;i<30;i++){const m=(lo+hi)/2;e.style.fontSize=m+'px';if(w()>inner)hi=m;else lo=m}
+        e.style.fontSize=lo+'px'});
+      const row=am&&am.parentElement;
+      if(row){row.style.whiteSpace='nowrap';const tx=row.querySelector('.tax');
+        const aw=()=>tx.getBoundingClientRect().right-am.getBoundingClientRect().left-parseFloat(getComputedStyle(tx).letterSpacing);
+        let lo=20,hi=200;for(let i=0;i<30;i++){const m=(lo+hi)/2;row.style.fontSize=m+'px';if(aw()>inner)hi=m;else lo=m}row.style.fontSize=lo+'px'}
+      const cut=5*Math.min(1,Math.max(0,(window.innerWidth-541)/(840-541)));
+      const ex=Math.min(1,Math.max(0,(window.innerWidth-700)/(840-700)));
+      if(en){en.style.letterSpacing='.2em';en.style.fontSize=(parseFloat(en.style.fontSize)-cut-3.7*ex)+'px'}
+      if(nm){nm.style.letterSpacing='.06em';nm.style.fontSize=(parseFloat(nm.style.fontSize)-cut-4.6*ex)+'px'}
+      if(row)row.style.fontSize=(parseFloat(row.style.fontSize)-10-cut*2-25.2*ex)+'px';
+      return;
+    }
+    // 841px以上：CSSで決めた大きさのまま
     if(!window.matchMedia('(max-width:540px)').matches){
       // 541px以上は箱の幅いっぱいにしない。CSSで決めた大きさ（英語26.4px・商品名36.96px・値段105.6px）のまま（2026-11-03 Shio指示。1280pxで決めた値を541px以上すべてに）
       return;
@@ -1677,6 +1794,45 @@ footer{
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
 })();
 </script>
+<script>
+/* 841px以上：章の見出し（h2）とページの題名（h1）は、ホームと同じ大きさ（40／36／32px）にしたうえで、元の大きさのときと同じ行数に収める 2026-11-03
+   ホームの大きさで行が増える・枠からはみ出すときだけ、字間を.12emから.04emまで詰め、それでも入らなければ文字を元の大きさ（min(37px, 3.2vw)）まで小さくする */
+(function(){
+  const hs=[...document.querySelectorAll('main .sec-title, main .ph-title, main .msg-title')];if(!hs.length)return;
+  const mq=window.matchMedia('(min-width:841px)');
+  // 行数：文字の箱の上下の真ん中が、文字の大きさの半分以上離れていたら別の行
+  const lines=h=>{const r=document.createRange();r.selectNodeContents(h);const fs=parseFloat(getComputedStyle(h).fontSize);
+    const cs=[...r.getClientRects()].filter(b=>b.width>1&&b.height>1).map(b=>b.top+b.height/2).sort((a,b)=>a-b);
+    let n=cs.length?1:0;for(let i=1;i<cs.length;i++)if(cs[i]-cs[i-1]>fs*.5)n++;return n};
+  // はみ出しの判定：ページの題名（1画面目）は左の列、章の見出しはページの枠（.wrap）からはみ出したら詰める
+  const over=h=>{const w=h.matches('.ph-title')?h.parentElement:h.closest('.wrap');if(!w)return false;const r=document.createRange();r.selectNodeContents(h);return r.getBoundingClientRect().right>w.getBoundingClientRect().right+1};
+  function fit(){
+    hs.forEach(h=>{
+      if(h.dataset.fitPc){h.style.letterSpacing='';h.style.fontSize='';delete h.dataset.fitPc}
+      if(!mq.matches)return;
+      const fs0=parseFloat(getComputedStyle(h).fontSize),ls0=(parseFloat(getComputedStyle(h).letterSpacing)||0)/fs0,min=Math.min(fs0,37,window.innerWidth*.032);
+      // 元の大きさのときの行数を、決めた行数にする
+      // 改行（<br>）がある見出しは「改行の数＋1行」、ない見出しは元の大きさのときの行数を、決めた行数にする
+      const brs=[...h.querySelectorAll('br')].filter(b=>getComputedStyle(b).display!=='none').length;
+      h.style.fontSize=min+'px';const t=brs?brs+1:lines(h);h.style.fontSize='';
+      const ok=()=>lines(h)<=t&&!over(h);
+      if(ok())return;
+      h.dataset.fitPc='1';
+      for(let f=fs0;f>=min-.01;f=Math.max(min,f-.5)){
+        h.style.fontSize=f+'px';
+        for(let ls=ls0;ls>=.04-.001;ls=Math.round((ls-.01)*100)/100){h.style.letterSpacing=ls+'em';if(ok())return}
+        if(f===min)break;
+      }
+      // 元の大きさでも入らないときは、元の大きさのまま字間を0まで詰める。それでも入らなければ元の大きさ・元の字間に戻す
+      h.style.fontSize=min+'px';
+      for(let ls=.04;ls>=-.001;ls=Math.round((ls-.01)*100)/100){h.style.letterSpacing=Math.max(0,ls)+'em';if(ok())return}
+      h.style.letterSpacing='';
+    });
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
 <!-- ▼▼ 一時的：画面サイズの表示（確認用。公開前に、この目印の間をまるごと消す） ▼▼ -->
 <div id="vp-size" aria-hidden="true" style="position:fixed;left:10px;bottom:10px;z-index:9999;padding:6px 10px;background:rgba(48,44,35,.88);color:#f0e8d6;font:13px/1.2 ui-monospace,Menlo,monospace;letter-spacing:0;border-radius:5px;pointer-events:none"></div>
 <script>
@@ -1701,6 +1857,7 @@ footer{
   function fit(){
     hs.forEach(h=>{
       if(h.dataset.fit2){h.style.letterSpacing='';h.style.fontSize='';delete h.dataset.fit2}
+      if(window.matchMedia('(min-width:841px)').matches)return; /* 841px以上は下の「章の見出しを決めた行数に収める」処理にまかせる */
       if(lines(h)<=2)return;
       h.dataset.fit2='1';
       let ls=parseFloat(getComputedStyle(h).letterSpacing)/parseFloat(getComputedStyle(h).fontSize);

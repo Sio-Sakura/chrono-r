@@ -909,6 +909,68 @@ footer{
 @media (max-width:364px){
   .ph-lead,.msg-lead{letter-spacing:.02em}
 }
+
+/* ==========================================================
+   ホームの「3つの選ばれる理由」の箱にそろえる（全幅）2026-11-03
+   小見出し・箱の中の文章・箱の左右の余白を、ホームと同じ値にする
+   ========================================================== */
+@media (min-width:841px){#contact .ct-col h3{font-size:22px;letter-spacing:.05em;line-height:1.9}}
+@media (min-width:1141px) and (max-width:1280px){#contact .ct-col h3{font-size:clamp(19px,calc(19px + (100vw - 1141px) / 59),20px)}}
+@media (min-width:951px) and (max-width:1140px){#contact .ct-col h3{font-size:19px}}
+@media (min-width:951px) and (max-width:1056px){#contact .ct-col h3{letter-spacing:.01em}}
+@media (min-width:841px) and (max-width:950px){#contact .ct-col h3{font-size:17px;letter-spacing:.01em}}
+/* 箱の中の文章（541〜840px：16px、540px以下：17px は前の指定のまま） */
+@media (min-width:1281px){#contact .ct-col p{font-size:16px;line-height:1.8;letter-spacing:.02em}}
+@media (min-width:1141px) and (max-width:1280px){#contact .ct-col p{font-size:15px;line-height:1.8;letter-spacing:.02em}}
+@media (min-width:1197px) and (max-width:1280px){#contact .ct-col p{letter-spacing:.03em}}
+@media (min-width:951px) and (max-width:1140px){#contact .ct-col p{font-size:15px;line-height:1.8;letter-spacing:.04em}}
+@media (min-width:841px) and (max-width:950px){#contact .ct-col p{font-size:15px;line-height:1.7;letter-spacing:.04em}}
+@media (min-width:541px) and (max-width:840px){#contact .ct-col p{font-size:16px;line-height:1.8;letter-spacing:.04em}}
+/* 541〜840px：問い合わせ欄（2列）が狭い幅で崩れないようにする（2026-11-03 Shio指示）
+   文章は改行せずに続けて、左詰め（両端揃え・最後の行は左）。小見出しは「メールでの／お問い合わせ」の位置（<wbr>）でだけ折る。
+   アドレスと「ご購入はこちら」は、欄の幅に入る大きさまで小さくして1行で入れる（cqw＝欄の中身の幅の1%） */
+@media (min-width:541px) and (max-width:840px){
+  #contact .ct-col{container-type:inline-size}
+  #contact .ct-col h3{word-break:keep-all}
+  #contact .ct-col p{align-self:stretch;text-align:justify;text-justify:inter-character;text-align-last:left;line-break:strict}
+  #contact .ct-col p br{display:none}
+  #contact .ct-col p .nw{white-space:normal}
+  #contact .ct-mail{white-space:nowrap;overflow-wrap:normal;font-size:min(19px,8.4cqw)}
+  #contact .ct-col .btn-gold{white-space:nowrap;padding-left:clamp(16px,calc((100cqw - 196px) / 2),45px);padding-right:clamp(16px,calc((100cqw - 196px) / 2),45px);font-size:min(23px,calc((100cqw - 34px) / 8.6))}
+}
+/* 箱の左右の余白 */
+@media (min-width:1281px){#contact .ct-col{padding-left:24px;padding-right:24px}}
+@media (min-width:1141px) and (max-width:1280px){#contact .ct-col{padding-left:24px;padding-right:24px}}
+@media (min-width:1197px) and (max-width:1280px){#contact .ct-col{padding-left:26px;padding-right:26px}}
+@media (min-width:951px) and (max-width:1140px){#contact .ct-col{padding-left:18px;padding-right:18px}}
+@media (min-width:841px) and (max-width:950px){#contact .ct-col{padding-left:20px;padding-right:20px}}
+/* 541〜840pxは2列で細いので、余白はホームの44pxにしない（前の値のまま） */
+/* 540px以下は、箱の左右の余白（26px）が外側の枠についているので、そのまま */
+@media (max-width:540px){#contact .ct-col{padding-left:0;padding-right:0}}
+
+/* ---- 章の見出し（h2）とページの題名（h1）：ホームの章の見出しと同じ大きさ（1281px以上 40px／951〜1140px 36px／841〜950px 32px。1141〜1280px と 840px以下は元から同じ）2026-11-03 ---- */
+@media (min-width:1281px){.sec-title,.ph-title,.msg-title{font-size:40px}}
+@media (min-width:951px) and (max-width:1140px){.sec-title,.ph-title,.msg-title{font-size:36px}}
+@media (min-width:841px) and (max-width:950px){.sec-title,.ph-title,.msg-title{font-size:32px}}
+
+/* ---- ホームと同じ文字詰めのルール 2026-11-03 ---- */
+/* リード文：841〜950pxの行間はホームと同じ2.15 */
+@media (min-width:841px) and (max-width:950px){main .sec-lead{line-height:2.15}}
+/* 箱の中の文章：ホームと同じく両端揃え（文字単位）、最後の行を整える */
+
+/* 箱の小見出し：540px以下は、ホームと同じく言葉の区切りで改行する */
+@media (max-width:540px){#contact .ct-col h3{word-break:auto-phrase}}
+/* よくある質問：質問の行間・改行、答えの行間をホームと同じに */
+.qa .q{word-break:normal}
+@media (min-width:841px){.qa .q{line-height:2.15}}
+@media (min-width:841px) and (max-width:950px){.qa .a,.qa .a p,.qa .a-body p{line-height:1.95}}
+
+/* ---- 中央に置く説明文（章の見出しの下）：ホームと同じく最大42字分の幅にし、両端揃え＋最後の行は中央（全幅）2026-11-03 ---- */
+@media (min-width:841px){#contact .sec-lead{max-width:42em}}
+@media (max-width:840px){#contact .sec-lead{max-width:44em}}
+/* 両端揃え＋最後の行は中央にするのは840px以下だけ。841px以上は普通の中央揃え（ホームと同じ） */
+@media (max-width:840px){.head-c .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:center}}
+@media (min-width:841px){.head-c .sec-lead,#contact .sec-lead{text-align:center;text-align-last:auto}}
 </style>
 </head>
 <body>
@@ -1162,7 +1224,7 @@ footer{
     </div>
     <div class="ct-box reveal">
       <div class="ct-col">
-        <h3>メールでのお問い合わせ</h3>
+        <h3>メールでの<wbr>お問い合わせ</h3>
         <p><span class="nw">商品やご注文についてのご質問は、</span><br><span class="nw">こちらのメールへお送りください。</span></p>
         <div class="ct-act"><a class="ct-mail" href="mailto:chrono-r@hatamama.co.jp">chrono-r@hatamama.co.jp</a></div>
       </div>
@@ -1374,6 +1436,25 @@ footer{
   let t;const run=()=>{clearTimeout(t);t=setTimeout(fit,60)};
   window.addEventListener('load',run);window.addEventListener('resize',run);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
+})();
+</script>
+<script>
+/* 541〜840px：問い合わせ欄の2つの小見出し 2026-11-03
+   どちらかが2行になったら、2つの小見出しの高さを一番高いものにそろえて、下の文章の書き出しを横一列にそろえる */
+(function(){
+  const hs=[...document.querySelectorAll('#contact .ct-col h3')];if(hs.length<2)return;
+  const mq=window.matchMedia('(min-width:541px) and (max-width:840px)');
+  const lines=h=>{const r=document.createRange();r.selectNodeContents(h);const fs=parseFloat(getComputedStyle(h).fontSize);
+    const c=[...r.getClientRects()].filter(b=>b.width>1&&b.height>1).map(b=>b.top+b.height/2).sort((a,b)=>a-b);let n=c.length?1:0;for(let i=1;i<c.length;i++)if(c[i]-c[i-1]>fs*.5)n++;return n};
+  function fit(){
+    hs.forEach(h=>h.style.minHeight='');
+    if(!mq.matches||Math.max(...hs.map(lines))<=1)return;
+    const mh=Math.max(...hs.map(h=>h.getBoundingClientRect().height));hs.forEach(h=>h.style.minHeight=mh+'px');
+  }
+  // 字間を詰める処理（60ms後に動く）が終わってから、もう一度そろえ直す
+  let t;const run=()=>{fit();clearTimeout(t);t=setTimeout(fit,200)};
+  run();window.addEventListener('resize',run);window.addEventListener('load',run);
+  if(document.fonts){if(document.fonts.ready)document.fonts.ready.then(run);document.fonts.addEventListener('loadingdone',run)}
 })();
 </script>
 <!-- ▼▼ 一時的：画面サイズの表示（確認用。公開前に、この目印の間をまるごと消す） ▼▼ -->

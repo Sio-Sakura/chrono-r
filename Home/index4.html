@@ -924,7 +924,7 @@ section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
 @media (max-width:540px){.final-catch{margin-bottom:25px}} /* 540px以下：最後の章の見出しと下の文章の間も25pxに（2026-11-02 Shio指示） */
 .final-body{
   position:relative;z-index:1;
-  max-width:38em;margin:0 auto 50px;
+  max-width:42em;margin:0 auto 50px; /* ほかの中央の説明文と同じ42字分（2026-11-03 Shio指示） */
   font-size:16px;color:var(--text);line-height:2.25;}
 .final .btn-gold{display:block;width:max-content;margin:0 auto}
 
@@ -1353,6 +1353,18 @@ footer{
   .quote-card .q-title .nw{white-space:normal}
   .quote-card .q-title br{display:none}
 }
+/* ---- 541〜840px：価格の箱の中身を真ん中に（商品・成分ページの価格の箱と同じ並び。写真はそのまま）。英語・商品名・値段は中央、内容量・目安の線とご購入ボタンと注意書きは一番幅のある行（商品名）と同じ幅で中央、注意書きの文字はその左端にそろえる。文字の大きさは今のまま（2026-11-03 Shio指示） ---- */
+@media (min-width:541px) and (max-width:840px){
+  .price-info{display:grid;grid-template-columns:fit-content(100%);justify-content:center}
+  /* 最後の字の後ろの字間の分だけ左に足して、見た目の中心を合わせる（英語.2em・商品名.06em＝JSで入れている字間） */
+  .price-info .price-en{text-indent:.2em}
+  .price-info .price-name{text-indent:.06em}
+  .price-info .price-notes{text-align:left}
+}
+/* ---- 541〜840px：リバースエイジングの比較図（アンチエイジング／リバースエイジングの2枚）の上下の間を40pxに。注目の成分の文章と写真の間は、リバースエイジングの文章と写真の間（文章の箱の下端から36px）と同じに（写真の上の36pxだけにして、並びの間隔は0に）（2026-11-03 Shio指示） ---- */
+@media (min-width:541px) and (max-width:840px){.rev .vs-grid{row-gap:40px}.split.ing-split{row-gap:0}.split.ing-split .photo{margin-top:36px}}
+/* ---- 800〜840px：1画面目（FV）の説明文の幅を、ヒーローの内側の幅の90%に（左寄せのまま）。541〜799pxは100%のまま（2026-11-03 Shio指示） ---- */
+@media (min-width:800px) and (max-width:840px){.hero .hero-copy{width:90%}}
 /* ---- 540px以下：口コミの一言は「、」の後で必ず折る（1行目＝「、」まで（.q1）、2行目＝残り（.nw））。1行目が右端に入らない幅では字間を0まで詰め、それでも入らなければ小さくする（下のJS）。541px以上は変えない（2026-11-03 Shio指示） ---- */
 @media (max-width:540px){
   /* 折り返さない1行目でカードが広がらないように（カードの幅は画面幅のまま） */
@@ -2215,8 +2227,9 @@ footer{
   main .news-card h3,.quote-card .q-title{font-size:20px}
   .hero .hero-eyebrow{font-size:16.5px}
   .hero .hero-kicker{font-size:22.6px;letter-spacing:.3em}
-  .hero .hero-title{font-size:min(94px,16.2vw)}
-  .hero .hero-h1 .hero-sub-en{font-size:40px}
+  /* 1画面目のCHRONO-R・CAPSULESを1.1倍（94→103.4px・40→44px。2026-11-03 Shio指示）。CHRONO-Rは横幅いっぱい（16.2vw）を超えない＝約638px未満は今までどおり幅いっぱいの大きさ */
+  .hero .hero-title{font-size:min(103.4px,16.2vw)}
+  .hero .hero-h1 .hero-sub-en{font-size:44px}
   .hero .hero-copy{font-size:18px}
   .hero .btn-gold,main .btn-gold{font-size:23px}
   .hero .btn-note{font-size:16px}
@@ -2236,8 +2249,8 @@ footer{
   main .faq-item .mark{font-size:26px}
   .quote-card .who,.quote-card .who-age{font-size:16px}
   .price-spec dt{font-size:16px}
-  /* 価格の箱：英語・商品名・値段（税込）は左揃え */
-  .price-info .price-en,.price-info .price-name,.price-info .price-amount{text-align:left}
+  /* 価格の箱：英語・商品名・値段（税込）は中央（2026-11-03 Shio指示で左揃え→中央。並びは上の「541〜840px：価格の箱の中身を真ん中に」） */
+  .price-info .price-en,.price-info .price-name,.price-info .price-amount{text-align:center}
   main .link-more{font-size:18px}
   /* コラムの「記事を読む」は15→17px（下の矢印は文字の幅に合わせて伸びる） */
   main .news-card .more{font-size:17px}
@@ -2258,6 +2271,10 @@ footer{
 }
 /* ---- 840px以下：よくある質問の「Q」と「A」の間を15px詰める ---- */
 @media (max-width:840px){main .faq-item .a{margin-top:-15px}}
+/* ---- 441〜540px：3つの理由の見出し〜六角形のアイコンを40pxに（440px以下と同じ。66→40px）（2026-11-03 Shio指示） ---- */
+@media (min-width:441px) and (max-width:540px){.why .line-grid.cols3{margin-top:84px!important}}
+/* ---- 841px以上：よくある質問の答えは、線の幅の95%までに収める（2026-11-03 Shio指示） ---- */
+@media (min-width:841px){main .faq-item .a{max-width:95%}}
 /* ---- 541〜840px：フッターを「メニュー → ロゴ → 開発元・正規販売店 → ©」の順に ---- */
 @media (min-width:541px) and (max-width:840px){
   footer .f-in{flex-direction:column}
@@ -2282,6 +2299,12 @@ footer{
   footer .f-logo{order:1}
   footer .f-company{order:3}
 }
+/* ---- 541〜840px：箱の中の文章（3つの理由・口コミ）は、リード文（17px）より1px小さい16pxに 2026-11-03 ---- */
+@media (min-width:541px) and (max-width:840px){.why .cell p,.quote-card p:not(.q-title):not(.who){font-size:16px}}
+
+/* 3つの小見出し：3つとも1行のときは普通の1行（1280pxと同じ間隔）、1つでも2行のときは3つとも言葉の区切りで2行（下のJSが印を付ける）2026-11-03 */
+.why .cell h3.h3-one{display:block;min-height:0}
+.why .cell h3.h3-brk .ph2{display:block}
 </style>
 </head>
 <body>
@@ -2667,7 +2690,7 @@ footer{
     <div class="hd reveal">
       <div class="sec-head"><span class="label">CHRONO-R</span></div>
       <h2 class="final-catch"><span class="nw">アンチエイジングの<span class="hang">、</span></span><span class="nw">その一歩先へ<span class="hang">。</span></span></h2>
-      <p class="final-body">年齢を重ねることを、あきらめではなく、これからを楽しむきっかけに。<br>リエール再生医療研究所が開発したリバースエイジング サプリメント<span class="nw">「クロノ・アール</span> <span class="nw">カプセル」で、</span>内側からのインナーケアを始めませんか。</p>
+      <p class="final-body">年齢を重ねることを、あきらめではなく、これからを楽しむきっかけに。リエール再生医療研究所が開発したリバースエイジング サプリメント<span class="nw">「クロノ・アール</span> <span class="nw">カプセル」で、</span>内側からのインナーケアを始めませんか。</p>
       <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
     </div>
   </div>
@@ -3170,6 +3193,26 @@ footer{
   center();
   window.addEventListener('resize',center);window.addEventListener('load',center);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(center);
+})();
+</script>
+<script>
+/* 841px以上（1141〜1280pxはもともと1行なので除く）：3つの選ばれる理由の小見出し 2026-11-03
+   3つとも1行に入る幅は、1280pxと同じ普通の1行の見出しにする（No.の線→小見出し・小見出し→文章の間も1280pxと同じ）。
+   1つでも2行になる幅は、3つとも言葉の区切りで2行にして高さをそろえる（No.の線と文章の書き出しを横一列にそろえる） */
+(function(){
+  const hs=[...document.querySelectorAll('.why .cell h3')];if(!hs.length)return;
+  const mq=window.matchMedia('(min-width:841px)'),one=window.matchMedia('(min-width:1141px) and (max-width:1280px)');
+  const lines=h=>{const r=document.createRange();r.selectNodeContents(h);const fs=parseFloat(getComputedStyle(h).fontSize);
+    const c=[...r.getClientRects()].filter(b=>b.width>1&&b.height>1).map(b=>b.top+b.height/2).sort((a,b)=>a-b);let n=c.length?1:0;for(let i=1;i<c.length;i++)if(c[i]-c[i-1]>fs*.5)n++;return n};
+  function fit(){
+    hs.forEach(h=>{h.classList.remove('h3-one','h3-brk');h.style.minHeight=''});
+    if(!mq.matches||one.matches)return;
+    if(Math.max(...hs.map(lines))<=1){hs.forEach(h=>h.classList.add('h3-one'));return}
+    hs.forEach(h=>h.classList.add('h3-brk'));
+    const mh=Math.max(...hs.map(h=>h.getBoundingClientRect().height));hs.forEach(h=>h.style.minHeight=mh+'px');
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>
 <!-- ▼▼ 一時的：画面サイズの表示（確認用。公開前に、この目印の間をまるごと消す） ▼▼ -->

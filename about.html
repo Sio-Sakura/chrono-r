@@ -1123,6 +1123,10 @@ footer{
 .head-c .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:center}
 /* 06 のカード3枚：841px以上は1行が短く、両端揃えだと字の間が広がるので、左揃えにする（840px以下は両端揃えのまま） */
 @media (min-width:841px){.vals .step p{text-align:left}}
+/* ---- 541〜840px：06 正規販売店の3枚のカードを端から端まで（最大460px→文章の幅いっぱい）。03の3つの考え方・下の販売店の概要の箱と同じ幅。カードの中の左右の余白も03と同じ44px（18px→44px）（2026-11-03 Shio指示） ---- */
+@media (min-width:541px) and (max-width:840px){#store .steps.vals{max-width:none}#store .vals .step{padding-left:44px;padding-right:44px}}
+/* 541〜840px：01 開発元と販売店の箱も、ホームの3つの理由と同じく端まで広げる（左右の余白44px）（2026-11-03 Shio指示） */
+@media (min-width:541px) and (max-width:840px){#roles .roles{max-width:none}#roles .role{padding-left:44px;padding-right:44px}}
 /* 文字だけのリンク（パンくず、概要の表の中）：見た目は変えずに、押せる範囲だけ上下に広げる（高さ44px以上） */
 .txt-link,.ph-crumb a{display:inline-block;padding:13px 0;margin:-13px 0}
 /* 2行に折れるリンクでも、左の項目名は1行目の高さにそろえる */
@@ -1351,6 +1355,87 @@ footer{
 @media (max-width:364px){
   .ph-lead,.msg-lead{letter-spacing:.02em}
 }
+/* ---- 541〜840px：03 研究所の3つの考え方（No.1〜3）の文章は、上のリード文（17px）より1px小さい16pxに 2026-11-03 ---- */
+@media (min-width:541px) and (max-width:840px){#philosophy .cell p{font-size:16px}}
+/* ---- 840px以下：03 研究所の3つの考え方（No.1〜3）の箱は、ホームの「3つの選ばれる理由」と同じく、左右の端まで伸ばす（最大460pxの制限を外す）2026-11-03 ---- */
+@media (max-width:840px){#philosophy .line-grid.cols3{max-width:none;margin-left:0;margin-right:0}}
+/* ---- 840px以下：03 研究所の3つの考え方（No.1〜3）の箱を、ホームの「3つの選ばれる理由」にそろえる 2026-11-03
+   左右の余白（541〜840px：44px、540px以下：26px）と、No.の大きさ（No. 48px・数字65px）。
+   上の余白は44pxのまま（ホームの72pxは、上の線にかかる六角形のアイコンの分。この箱にはアイコンがない） ---- */
+@media (min-width:541px) and (max-width:840px){#philosophy .cell{padding-left:44px;padding-right:44px}}
+@media (max-width:540px){#philosophy .cell{padding-left:26px;padding-right:26px}}
+@media (max-width:840px){#philosophy .cell .big .no{font-size:48px}#philosophy .cell .big .n{font-size:65px}}
+/* ---- 541〜840px：05 クロノ・アール カプセルに込めた想いの写真を、商品・成分ページの01（クロノ・アール カプセルとは）と同じ写真・同じ縦横（最大420px幅、横1400：縦1202）にする 2026-11-03
+   写真の差し替えは HTML の <picture> で541〜840pxだけ。ほかの幅は今の写真のまま ---- */
+#product .pic picture{display:contents}
+@media (min-width:541px) and (max-width:840px){
+  #product .ov-photo{max-width:420px;aspect-ratio:1400/1202}
+  #product .ov-photo .pic img{object-position:center calc(50% - 40px)}
+}
+/* ---- 841px以上：03 研究所の3つの考え方（No.1〜3）の箱を、ホームの「3つの選ばれる理由」と同じ値にする 2026-11-03
+   左右の余白・No.と数字・小見出し・文章の大きさと字間。小見出しはホームと同じく折り返し、2行分の高さで上下中央にそろえる
+   （上の余白は44pxのまま。ホームの72pxは六角形のアイコンの分） ---- */
+@media (min-width:841px){#philosophy .cell h3{white-space:normal;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.9}}
+/* 3つの小見出し：3つとも1行のときは普通の1行（1280pxと同じ間隔）、1つでも2行のときは3つとも言葉の区切りで2行（下のJSが印を付ける）2026-11-03 */
+#philosophy .cell h3.h3-one{display:block;min-height:0}
+#philosophy .cell h3.h3-brk .ph2{display:block}
+@media (min-width:841px) and (max-width:950px){
+  #philosophy .cell{padding-left:20px;padding-right:20px}
+  #philosophy .cell h3{font-size:17px;letter-spacing:.01em;text-wrap:wrap;word-break:normal}
+  #philosophy .cell p{line-height:1.7}
+}
+@media (min-width:951px) and (max-width:1140px){#philosophy .cell{padding-left:18px;padding-right:18px}#philosophy .cell h3{font-size:19px}}
+@media (min-width:1141px) and (max-width:1280px){#philosophy .cell{padding-left:24px;padding-right:24px}#philosophy .cell h3{font-size:clamp(19px,calc(19px + (100vw - 1141px) / 59),20px)}#philosophy .cell p{letter-spacing:.02em}}
+@media (min-width:1197px) and (max-width:1280px){#philosophy .cell{padding-left:26px;padding-right:26px}#philosophy .cell p{letter-spacing:.03em}}
+/* 1141〜1280px：小見出しはホームと同じく1行（入らない幅は、小見出しの字間を詰めて入れるJSが動く） */
+@media (min-width:1141px) and (max-width:1280px){#philosophy .cell h3{white-space:nowrap;min-height:0;display:block}}
+@media (min-width:1281px){
+  #philosophy .cell{padding-left:24px;padding-right:24px}
+  #philosophy .cell .big .no{font-size:45px}#philosophy .cell .big .n{font-size:70px}
+  #philosophy .cell h3{font-size:22px}
+  #philosophy .cell p{font-size:16px;letter-spacing:.02em}
+}
+
+/* ---- 章の見出し（h2）とページの題名（h1）：ホームの章の見出しと同じ大きさ（1281px以上 40px／951〜1140px 36px／841〜950px 32px。1141〜1280px と 840px以下は元から同じ）2026-11-03 ---- */
+@media (min-width:1281px){.sec-title,.ph-title,.msg-title{font-size:40px}}
+@media (min-width:951px) and (max-width:1140px){.sec-title,.ph-title,.msg-title{font-size:36px}}
+@media (min-width:841px) and (max-width:950px){.sec-title,.ph-title,.msg-title{font-size:32px}}
+
+/* ---- 02 開発元の概要・05 名前の由来／開発の考え方・06 販売店の3つ：小見出しと文章を、ホームの「3つの選ばれる理由」と同じ大きさに（全幅）2026-11-03 ---- */
+#developer .info h3,#product .cn-item h3,#store .step h3{font-size:22px;letter-spacing:.05em;line-height:1.9}
+@media (min-width:1141px) and (max-width:1280px){#developer .info h3,#product .cn-item h3,#store .step h3{font-size:clamp(19px,calc(19px + (100vw - 1141px) / 59),20px)}}
+@media (min-width:951px) and (max-width:1140px){#developer .info h3,#product .cn-item h3,#store .step h3{font-size:19px}}
+@media (min-width:951px) and (max-width:1056px){#developer .info h3,#product .cn-item h3,#store .step h3{letter-spacing:.01em}}
+@media (min-width:841px) and (max-width:950px){#developer .info h3,#product .cn-item h3,#store .step h3{font-size:17px;letter-spacing:.01em}}
+/* 841〜950px：06 正規販売店の小見出しを「幹細胞上清液／× エア導入技術」「完全個室の／プライベート空間」で改行する（2026-11-03 Shio指示） */
+@media (min-width:841px) and (max-width:950px){#store .step h3 .st-l2{display:block}}
+@media (min-width:1281px){#product .cn-item p,#store .step > p{font-size:16px;line-height:1.8;letter-spacing:.02em}}
+@media (min-width:1141px) and (max-width:1280px){#product .cn-item p,#store .step > p{font-size:15px;line-height:1.8;letter-spacing:.02em}}
+@media (min-width:1197px) and (max-width:1280px){#product .cn-item p,#store .step > p{letter-spacing:.03em}}
+@media (min-width:951px) and (max-width:1140px){#product .cn-item p,#store .step > p{font-size:15px;line-height:1.8;letter-spacing:.04em}}
+@media (min-width:841px) and (max-width:950px){#product .cn-item p,#store .step > p{font-size:15px;line-height:1.7;letter-spacing:.04em}}
+@media (min-width:541px) and (max-width:840px){#product .cn-item p,#store .step > p{font-size:16px;line-height:1.8;letter-spacing:.04em}}
+
+/* ---- ホームと同じ文字詰めのルール 2026-11-03 ---- */
+/* リード文：841〜950pxの行間はホームと同じ2.15 */
+@media (min-width:841px) and (max-width:950px){main .sec-lead{line-height:2.15}}
+/* 箱の中の文章：ホームと同じく両端揃え（文字単位）、最後の行を整える */
+#philosophy .cell p,#product .cn-item p,#store .step > p{text-align:justify;text-justify:inter-character;text-wrap:pretty}
+/* 箱の小見出し：540px以下は、ホームと同じく言葉の区切りで改行する */
+@media (max-width:540px){#philosophy .cell h3,#developer .info h3,#product .cn-item h3,#store .step h3{word-break:auto-phrase}}
+/* 05 名前の由来・開発の考え方の文章：540px以下はホームの箱の文章と同じ（17px・行間1.8・字間.02em、402px以下.03em） */
+@media (max-width:540px){#product .cn-item p{font-size:17px;line-height:1.8;letter-spacing:.02em}}
+@media (max-width:402px){#product .cn-item p{letter-spacing:.03em}}
+/* ---- 951〜1280px：1画面目の目次（CONTENTS）の項目は1行で表示する（「02 リエール再生医療研究所とは」が折り返していたため）。
+   字間は詰めずに、目次の箱（右の列）を一番長い項目が1行で入る幅まで広げる 2026-11-03 ---- */
+@media (min-width:951px) and (max-width:1280px){.toc a{white-space:nowrap}.ph-grid{grid-template-columns:minmax(0,1fr) max-content}} /* 951〜1140pxも同じ（2026-11-03） */
+
+/* ---- 中央に置く説明文（章の見出しの下）：ホームと同じく最大42字分の幅にし、両端揃え＋最後の行は中央（全幅）2026-11-03 ---- */
+@media (min-width:951px){.head-c .sec-lead{max-width:42em}}
+@media (min-width:951px){#roles .sec-lead,#philosophy .sec-lead,#store .sec-lead,#contact .sec-lead{max-width:42em}} /* 前の「幅の制限なし」の指定を上書き */
+/* 両端揃え＋最後の行は中央にするのは840px以下だけ。841px以上は普通の中央揃え（ホームと同じ） */
+@media (max-width:840px){.head-c .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:center}}
+@media (min-width:841px){.head-c .sec-lead{text-align:center;text-align-last:auto}}
 </style>
 </head>
 <body>
@@ -1409,7 +1494,7 @@ footer{
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">01</span></p>
       <h2 class="sec-title">開発はリエール再生医療研究所、<br>販売はHATSUGA</h2>
       <p class="sec-en" lang="en">ABOUT US</p>
-      <p class="sec-lead">つくっているのは、再生医療の研究を土台にする研究所。お届けしているのは、東京・銀座のサロンです。<br class="br-pc">それぞれが担っている役割を紹介します。</p>
+      <p class="sec-lead">つくっているのは、再生医療の研究を土台にする研究所。お届けしているのは、東京・銀座のサロンです。それぞれが担っている役割を紹介します。</p>
     </div>
     <ul class="roles" role="list">
       <li class="role reveal">
@@ -1440,7 +1525,7 @@ footer{
         <p class="chap" aria-hidden="true"><span class="chap-no gold-text">02</span></p>
         <h2 class="sec-title"><span class="nw">リエール再生医療研究所とは</span></h2>
         <p class="sec-en" lang="en">DEVELOPER</p>
-        <p class="sec-lead">リエール再生医療研究所は、<span class="hl"><strong>再生医療の技術を美容と健康の分野に生かし</strong></span>、商品の開発と販売を行っている研究所です。民間での再生医療の普及を目指して、日本から世界へ発信を続けています。</p>
+        <p class="sec-lead">リエール再生医療研究所は、<span class="hl">再生医療の技術を美容と健康の分野に生かし</span>、商品の開発と販売を行っている研究所です。民間での再生医療の普及を目指して、日本から世界へ発信を続けています。</p>
         <p class="sec-lead">開発しているのは、その技術を活用した、美容・健康の商品など、毎日の暮らしの中で使える商品です。<span class="hl">研究で積み重ねられてきた知見を、多くの人が手に取れる形にすること</span>を大切にしています。</p>
         <p class="sec-lead">2024年5月には、ニューヨークで開かれた Next Era Leaders Award で、Next Era Beauty部門を受賞しました。クロノ・アール カプセルは、この研究所が開発したサプリメントです。</p>
       </div>
@@ -1470,22 +1555,22 @@ footer{
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">03</span></p>
       <h2 class="sec-title">リエール再生医療研究所が<br>大切にしている3つの考え方</h2>
       <p class="sec-en" lang="en">PHILOSOPHY</p>
-      <p class="sec-lead">年齢を重ねることは、衰えていくことだけではない。<br class="br-pc">そう考える研究所が、商品づくりの土台にしている3つの考え方です。</p>
+      <p class="sec-lead">年齢を重ねることは、衰えていくことだけではない。そう考える研究所が、商品づくりの土台にしている3つの考え方です。</p>
     </div>
     <div class="line-grid cols3">
       <div class="cell reveal">
         <span class="big" aria-hidden="true"><span class="gold-text"><span class="no">No.</span><span class="n">1</span></span></span>
-        <h3><span><span class="ph2">再生医療を、</span><span class="ph2">もっと身近なものに</span></span></h3>
+        <h3><span><span class="ph2">再生医療を、</span><span class="ph2">もっと身近に</span></span></h3>
         <p>研究所が目指しているのは、民間での再生医療の普及です。その技術を生かした商品を開発し、毎日の暮らしの中で手に取れる形にして届けています。</p>
       </div>
       <div class="cell reveal d1">
         <span class="big" aria-hidden="true"><span class="gold-text"><span class="no">No.</span><span class="n">2</span></span></span>
-        <h3>日本から、世界へ</h3>
+        <h3><span><span class="ph2">日本から、</span><span class="ph2">世界へ</span></span></h3>
         <p>日本で培われた技術を、日本から世界へ発信していく。その先に見ているのは、多くの人が明るく朗らかに過ごせる「人生100年時代」です。</p>
       </div>
       <div class="cell reveal d2">
         <span class="big" aria-hidden="true"><span class="gold-text"><span class="no">No.</span><span class="n">3</span></span></span>
-        <h3>科学的な根拠にもとづいた情報を</h3>
+        <h3><span><span class="ph2">科学的な根拠に</span><span class="ph2">基づいた情報を</span></span></h3>
         <p>うわべを整える「若作り」ではなく、年齢を重ねた今の体に内側から向き合うこと。そのために、科学的な根拠にもとづいた健康と美容の情報を届けていくことを大切にしています。</p>
       </div>
     </div>
@@ -1528,7 +1613,7 @@ footer{
       </div>
       <div class="ov-photo photo reveal d1">
         <div class="pframe"></div>
-        <div class="pic"><img src="Home/images/supplement.jpg" alt="クロノ・アール カプセルのパッケージ" width="720" height="826" loading="lazy"></div>
+        <div class="pic"><picture><source media="(min-width:541px) and (max-width:840px)" srcset="Home/images/supplement2.jpg" width="1069" height="1472"><img src="Home/images/supplement.jpg" alt="クロノ・アール カプセルのパッケージ" width="720" height="826" loading="lazy"></picture></div>
       </div>
     </div>
     <div class="cn reveal">
@@ -1552,7 +1637,7 @@ footer{
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">06</span></p>
       <h2 class="sec-title"><span class="nw">正規販売店</span><span class="bar">｜</span><span class="nw">幹細胞育毛ラボ HATSUGA</span></h2>
       <p class="sec-en" lang="en">STORE</p>
-      <p class="sec-lead">幹細胞育毛ラボ HATSUGA は、東京・銀座にある完全個室のスカルプケアサロンです。<br class="br-pc">開発元のリエール再生医療研究所と提携し、クロノ・アール カプセルの正規販売店としてこのサイトを運営しています。<br class="br-pc">店名の「HATSUGA」は「発芽」から。芽吹く新芽のような生命力を、名前に込めています。</p>
+      <p class="sec-lead">幹細胞育毛ラボ HATSUGA は、東京・銀座にある完全個室のスカルプケアサロンです。開発元のリエール再生医療研究所と提携し、クロノ・アール カプセルの正規販売店としてこのサイトを運営しています。店名の「HATSUGA」は「発芽」から。芽吹く新芽のような生命力を、名前に込めています。</p>
     </div>
     <ul class="steps vals" role="list">
       <li class="step reveal">
@@ -1562,12 +1647,12 @@ footer{
       </li>
       <li class="step reveal d1">
         <img class="ic" src="Home/images/ic-drop.png" alt="" width="252" height="240" loading="lazy">
-        <h3>幹細胞上清液 × エア導入技術</h3>
+        <h3>幹細胞上清液 <span class="st-l2">× エア導入技術</span></h3>
         <p>1ccに約3000億個以上のエクソソームを含む、国産の幹細胞上清液を使用。針を使わないエア導入の技術で施術を行っています。</p>
       </li>
       <li class="step reveal d2">
         <img class="ic" src="Home/images/ic-door.png" alt="" width="172" height="240" loading="lazy">
-        <h3>完全個室のプライベート空間</h3>
+        <h3>完全個室の<span class="st-l2">プライベート空間</span></h3>
         <p>お客様のプライバシーを最優先に考えた完全個室です。男性も女性も、人目を気にせずお過ごしいただけます。</p>
       </li>
     </ul>
@@ -1601,7 +1686,7 @@ footer{
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">07</span></p>
       <h2 class="sec-title">クロノ・アール カプセルの<br>ご購入・お問い合わせ</h2>
       <p class="sec-en" lang="en">CONTACT</p>
-      <p class="sec-lead">成分や飲み方は「商品・成分」のページで、<br class="br-pc">ご購入の前の疑問は「よくある質問」のページでご案内しています。</p>
+      <p class="sec-lead">成分や飲み方は「商品・成分」のページで、ご購入の前の疑問は「よくある質問」のページでご案内しています。</p>
     </div>
     <div class="cta-btn reveal"><a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a></div>
     <div class="next-links reveal">
@@ -1864,6 +1949,84 @@ footer{
   window.addEventListener('scroll',check,{passive:true});
   window.addEventListener('load',check);
   check();
+})();
+</script>
+<script>
+/* 841px以上：章の見出し（h2）とページの題名（h1）は、ホームと同じ大きさ（40／36／32px）にしたうえで、元の大きさのときと同じ行数に収める 2026-11-03
+   ホームの大きさで行が増える・枠からはみ出すときだけ、字間を.12emから.04emまで詰め、それでも入らなければ文字を元の大きさ（min(37px, 3.2vw)）まで小さくする */
+(function(){
+  const hs=[...document.querySelectorAll('main .sec-title, main .ph-title, main .msg-title')];if(!hs.length)return;
+  const mq=window.matchMedia('(min-width:841px)');
+  // 行数：文字の箱の上下の真ん中が、文字の大きさの半分以上離れていたら別の行
+  const lines=h=>{const r=document.createRange();r.selectNodeContents(h);const fs=parseFloat(getComputedStyle(h).fontSize);
+    const cs=[...r.getClientRects()].filter(b=>b.width>1&&b.height>1).map(b=>b.top+b.height/2).sort((a,b)=>a-b);
+    let n=cs.length?1:0;for(let i=1;i<cs.length;i++)if(cs[i]-cs[i-1]>fs*.5)n++;return n};
+  // はみ出しの判定：ページの題名（1画面目）は左の列、章の見出しはページの枠（.wrap）からはみ出したら詰める
+  const over=h=>{const w=h.matches('.ph-title')?h.parentElement:h.closest('.wrap');if(!w)return false;const r=document.createRange();r.selectNodeContents(h);return r.getBoundingClientRect().right>w.getBoundingClientRect().right+1};
+  function fit(){
+    hs.forEach(h=>{
+      if(h.dataset.fitPc){h.style.letterSpacing='';h.style.fontSize='';delete h.dataset.fitPc}
+      if(!mq.matches)return;
+      const fs0=parseFloat(getComputedStyle(h).fontSize),ls0=(parseFloat(getComputedStyle(h).letterSpacing)||0)/fs0,min=Math.min(fs0,37,window.innerWidth*.032);
+      // 元の大きさのときの行数を、決めた行数にする
+      // 改行（<br>）がある見出しは「改行の数＋1行」、ない見出しは元の大きさのときの行数を、決めた行数にする
+      const brs=[...h.querySelectorAll('br')].filter(b=>getComputedStyle(b).display!=='none').length;
+      h.style.fontSize=min+'px';const t=brs?brs+1:lines(h);h.style.fontSize='';
+      const ok=()=>lines(h)<=t&&!over(h);
+      if(ok())return;
+      h.dataset.fitPc='1';
+      for(let f=fs0;f>=min-.01;f=Math.max(min,f-.5)){
+        h.style.fontSize=f+'px';
+        for(let ls=ls0;ls>=.04-.001;ls=Math.round((ls-.01)*100)/100){h.style.letterSpacing=ls+'em';if(ok())return}
+        if(f===min)break;
+      }
+      // 元の大きさでも入らないときは、元の大きさのまま字間を0まで詰める。それでも入らなければ元の大きさ・元の字間に戻す
+      h.style.fontSize=min+'px';
+      for(let ls=.04;ls>=-.001;ls=Math.round((ls-.01)*100)/100){h.style.letterSpacing=Math.max(0,ls)+'em';if(ok())return}
+      h.style.letterSpacing='';
+    });
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* 841px以上（1141〜1280pxはもともと1行なので除く）：03 研究所の3つの考え方の小見出し 2026-11-03
+   3つとも1行に入る幅は、1280pxと同じ普通の1行の見出しにする（No.の線→小見出し・小見出し→文章の間も1280pxと同じ）。
+   1つでも2行になる幅は、3つとも言葉の区切りで2行にして高さをそろえる（No.の線と文章の書き出しを横一列にそろえる） */
+(function(){
+  const hs=[...document.querySelectorAll('#philosophy .cell h3')];if(!hs.length)return;
+  const mq=window.matchMedia('(min-width:841px)'),one=window.matchMedia('(min-width:1141px) and (max-width:1280px)');
+  const lines=h=>{const r=document.createRange();r.selectNodeContents(h);const fs=parseFloat(getComputedStyle(h).fontSize);
+    const c=[...r.getClientRects()].filter(b=>b.width>1&&b.height>1).map(b=>b.top+b.height/2).sort((a,b)=>a-b);let n=c.length?1:0;for(let i=1;i<c.length;i++)if(c[i]-c[i-1]>fs*.5)n++;return n};
+  function fit(){
+    hs.forEach(h=>{h.classList.remove('h3-one','h3-brk');h.style.minHeight=''});
+    if(!mq.matches||one.matches)return;
+    if(Math.max(...hs.map(lines))<=1){hs.forEach(h=>h.classList.add('h3-one'));return}
+    hs.forEach(h=>h.classList.add('h3-brk'));
+    const mh=Math.max(...hs.map(h=>h.getBoundingClientRect().height));hs.forEach(h=>h.style.minHeight=mh+'px');
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* 841px以上：06 正規販売店の3つの箱 2026-11-03
+   小見出しが1つでも2行になったら、3つの小見出しの高さを一番高いものにそろえて、文章の書き出しを横一列にそろえる */
+(function(){
+  const hs=[...document.querySelectorAll('#store .vals .step h3')];if(!hs.length)return;
+  const mq=window.matchMedia('(min-width:841px)');
+  const lines=h=>{const r=document.createRange();r.selectNodeContents(h);const fs=parseFloat(getComputedStyle(h).fontSize);
+    const c=[...r.getClientRects()].filter(b=>b.width>1&&b.height>1).map(b=>b.top+b.height/2).sort((a,b)=>a-b);let n=c.length?1:0;for(let i=1;i<c.length;i++)if(c[i]-c[i-1]>fs*.5)n++;return n};
+  function fit(){
+    hs.forEach(h=>h.style.minHeight='');
+    if(!mq.matches||Math.max(...hs.map(lines))<=1)return;
+    const mh=Math.max(...hs.map(h=>h.getBoundingClientRect().height));hs.forEach(h=>h.style.minHeight=mh+'px');
+  }
+  // 「最後の行が2文字以下の文は字間を詰める」処理（60ms後に動く）が終わってから、もう一度そろえ直す
+  let t;const run=()=>{fit();clearTimeout(t);t=setTimeout(fit,200)};
+  run();window.addEventListener('resize',run);window.addEventListener('load',run);
+  if(document.fonts){if(document.fonts.ready)document.fonts.ready.then(run);document.fonts.addEventListener('loadingdone',run)}
 })();
 </script>
 <!-- ▼▼ 一時的：画面サイズの表示（確認用。公開前に、この目印の間をまるごと消す） ▼▼ -->
