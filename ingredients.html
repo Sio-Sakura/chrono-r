@@ -1196,7 +1196,8 @@ footer{
 /* 540px以下：中央揃えの文章（p）は、左からの両端揃え（最後の行は左）にする。ホームの540px以下と同じ（2026-11-03 Shio指示） */
 @media (max-width:540px){
   .head-c .sec-lead,#key .sec-lead,#design .sec-lead,#howto .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:left}
-  .note.c{text-align:justify;text-justify:inter-character;text-align-last:left}
+  /* ※の注意書きは短い文なので、両端揃えにせず左揃え（2026-11-03 Shio指示） */
+  .note.c{text-align:left;text-align-last:auto}
 }
 /* ---- 540px以下：縦の間を全ページ共通の決まりにそろえる（ホームと同じ。2026-11-03 Shio指示）
    見出し・文章の下 → 写真・箱（カード・アイコン） 40px／写真の下 → 文章・箱 48px／箱と箱の間 35px（2026-11-03 Shio指示で32→35px）

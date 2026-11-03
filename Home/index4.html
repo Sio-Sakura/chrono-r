@@ -2272,8 +2272,8 @@ footer{
 }
 /* ---- 840px以下：よくある質問の「Q」と「A」の間を15px詰める ---- */
 @media (max-width:840px){main .faq-item .a{margin-top:-15px}}
-/* ---- 540px以下：中央揃えの文章（比較図の下の※の注意書き）も、左からの両端揃え（最後の行は左）に（2026-11-03 Shio指示） ---- */
-@media (max-width:540px){.vs-note{text-align:justify;text-justify:inter-character;text-align-last:left}}
+/* ---- 540px以下：比較図の下の※の注意書きは短い文なので、両端揃えにせず左揃え。行は右端まで入れてから折る（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){.vs-note{text-align:left;text-align-last:auto;text-wrap:wrap}}
 /* ---- 441〜540px：3つの理由の見出し〜六角形のアイコンを40pxに（440px以下と同じ。66→40px）（2026-11-03 Shio指示） ---- */
 @media (min-width:441px) and (max-width:540px){.why .line-grid.cols3{margin-top:84px!important}}
 /* ---- 841px以上：よくある質問の答えは、線の幅の95%までに収める（2026-11-03 Shio指示） ---- */
