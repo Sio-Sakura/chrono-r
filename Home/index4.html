@@ -2349,6 +2349,13 @@ footer{
 }
 /* 402px以下：「記事を読む」の文字が小さくなる分、1px足す */
 @media (max-width:402px){.head-c .news-grid{row-gap:42px}}
+/* ---- 540px以下：成分とコラムの見出しは、決めた改行（<br>）の位置でだけ折る。
+   成分「ウロリチン・スペルミジン・／フィセチン配合。話題の成分を／まとめて摂れるサプリメント」、コラム「コラム｜リバースエイジングと／エイジングケアの基礎知識」。
+   言葉の区切りで折る指定（auto-phrase）に対応していないSafari（iPhone）でも同じ3行・2行になるように（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  .ing .sec-title br{display:inline}
+  .ing .sec-title,.col-title{white-space:nowrap}
+}
 @media (max-width:389px){.split.ing-split .photo{--ph-top:-6px}}
 @media (max-width:375px){.award .dev-split .photo{--ph-top:-7px}}
 @media (max-width:359px){.hd .sec-title.faq-title{margin-bottom:37.5px}}
