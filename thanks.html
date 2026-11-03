@@ -145,6 +145,8 @@ main:focus{outline:none}
 
 /* ---------- 共通セクション ---------- */
 section{position:relative;padding:120px var(--gutter);z-index:1;scroll-margin-top:76px}
+/* 841〜950px：章の上下の余白を120→100pxに（左右はそのまま）。2026-11-03 Shio指示、全ページ共通 */
+@media (min-width:841px) and (max-width:950px){section{padding-top:100px;padding-bottom:100px}}
 .wrap{max-width:1080px;margin:0 auto;position:relative}
 .ghost{
   position:absolute;top:-24px;left:-8px;z-index:0;
@@ -584,7 +586,7 @@ footer{
         <dl>
           <div><dt>ご注文の確認</dt><dd>ご注文の内容は、ご入力いただいたメールアドレスにお送りしています。</dd></div>
           <div><dt>商品の発送</dt><dd>ご注文から5営業日を目安に発送します。銀行振込の場合は、お振込みを確認してから5営業日が目安です。ご注文状況により前後する可能性があります。</dd></div>
-          <div><dt>お問い合わせ</dt><dd>ご注文についてのご質問は、販売店の幹細胞育毛ラボ HATSUGA が承ります。<br><a class="txt-link" href="mailto:kumiko.michiwa@hatamama.co.jp">kumiko.michiwa@hatamama.co.jp</a></dd></div>
+          <div><dt>お問い合わせ</dt><dd>ご注文についてのご質問は、販売店の幹細胞育毛ラボ HATSUGA が承ります。<br><a class="txt-link" href="mailto:chrono-r@hatamama.co.jp">chrono-r@hatamama.co.jp</a></dd></div>
         </dl>
       </div>
       <div class="msg-links">

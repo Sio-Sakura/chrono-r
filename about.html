@@ -144,6 +144,8 @@ main:focus{outline:none}
 
 /* ---------- 共通セクション ---------- */
 section{position:relative;padding:120px var(--gutter);z-index:1;scroll-margin-top:76px}
+/* 841〜950px：章の上下の余白を120→100pxに（左右はそのまま）。2026-11-03 Shio指示、全ページ共通 */
+@media (min-width:841px) and (max-width:950px){section{padding-top:100px;padding-bottom:100px}}
 .wrap{max-width:1080px;margin:0 auto;position:relative}
 .ghost{
   position:absolute;top:-24px;left:-8px;z-index:0;
@@ -1010,9 +1012,11 @@ footer{
 
 /* ---------- 03 研究所の3つの考え方：ホームの「3つの選ばれる理由」のカードと同じ作り（ホームのスタイルをそのまま持ってきたもの。上の六角形のアイコンはなし） ---------- */
 .line-grid{position:relative;z-index:1;
-  display:grid;grid-template-columns:repeat(4,1fr);
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
   gap:20px;}
-.line-grid.cols3{grid-template-columns:repeat(3,1fr)}
+/* 3つの箱は全幅で同じ幅にする（見出しの長さで箱が広がらない。2026-11-03 Shio指示）。入らない見出しは下のスクリプトで字間→大きさの順に縮める */
+.line-grid.cols3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.line-grid > .cell{min-width:0}
 .cell{position:relative;
   background:var(--white);
   border:1px solid var(--gold);
@@ -1785,7 +1789,7 @@ footer{
 })();
 </script>
 <script>
-/* 540px以下：大見出しと、カードの小見出し（1行で表示するもの）が入らない幅では、字間を0まで詰め、それでも入らなければ小さくする（ホームの3つの理由と同じ） */
+/* 540px以下：大見出しと、カードの小見出し（1行で表示するもの）が入らない幅では、字間を0まで詰め、それでも入らなければ小さくする（ホームの3つの理由と同じ）。カードの小見出し（.cell h3）だけは全幅で動かす（箱を同じ幅にしたため。2026-11-03） */
 (function(){
   const ts=[...document.querySelectorAll('.ph-title,.sec-title,.msg-title,.plain h1,.cell h3')];if(!ts.length)return;
   const over=t=>{const r=document.createRange();r.selectNodeContents(t);const b=r.getBoundingClientRect();
@@ -1793,9 +1797,13 @@ footer{
     return b.right>bb.right-parseFloat(c.paddingRight)-parseFloat(c.borderRightWidth)+.5||b.left<bb.left+parseFloat(c.paddingLeft)+parseFloat(c.borderLeftWidth)-.5};
   function fit(){
     ts.forEach(t=>{t.style.letterSpacing='';t.style.fontSize=''});
-    if(!window.matchMedia('(max-width:540px)').matches)return;
-    ts.forEach(t=>{for(let i=0;i<80&&over(t);i++){const c=getComputedStyle(t),ls=parseFloat(c.letterSpacing)||0,fs=parseFloat(c.fontSize);
-      if(ls>0)t.style.letterSpacing=Math.max(0,ls-.2)+'px';else t.style.fontSize=(fs-.25)+'px'}});
+    const sp=window.matchMedia('(max-width:540px)').matches;
+    const step=t=>{const c=getComputedStyle(t),ls=parseFloat(c.letterSpacing)||0,fs=parseFloat(c.fontSize);
+      if(ls>0)t.style.letterSpacing=Math.max(0,ls-.2)+'px';else t.style.fontSize=(fs-.25)+'px'};
+    if(sp){ts.forEach(t=>{for(let i=0;i<80&&over(t);i++)step(t)});return}
+    /* 541px以上：同じ段に並ぶカードの小見出しは、1つでも入らなければ3つ一緒に縮めて大きさを揃える */
+    const groups=new Map();ts.filter(t=>t.matches('.cell h3')).forEach(t=>{const g=t.closest('.line-grid')||t;if(!groups.has(g))groups.set(g,[]);groups.get(g).push(t)});
+    groups.forEach(hs=>{for(let i=0;i<80&&hs.some(over);i++)hs.forEach(step)});
   }
   fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);

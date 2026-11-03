@@ -150,7 +150,7 @@
    "name": "商品についての問い合わせは、どこにすればいいですか？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "販売店の幹細胞育毛ラボ HATSUGA が承ります。下のメールアドレスまでお問い合わせください。kumiko.michiwa@hatamama.co.jp"
+    "text": "販売店の幹細胞育毛ラボ HATSUGA が承ります。下のメールアドレスまでお問い合わせください。chrono-r@hatamama.co.jp"
    }
   }
  ]
@@ -291,6 +291,8 @@ main:focus{outline:none}
 
 /* ---------- 共通セクション ---------- */
 section{position:relative;padding:120px var(--gutter);z-index:1;scroll-margin-top:76px}
+/* 841〜950px：章の上下の余白を120→100pxに（左右はそのまま）。2026-11-03 Shio指示、全ページ共通 */
+@media (min-width:841px) and (max-width:950px){section{padding-top:100px;padding-bottom:100px}}
 .wrap{max-width:1080px;margin:0 auto;position:relative}
 .ghost{
   position:absolute;top:-24px;left:-8px;z-index:0;
@@ -432,10 +434,13 @@ footer{
 .ph-crumb li+li::before{content:"";display:inline-block;width:18px;height:1px;background:var(--gold);vertical-align:middle;margin-right:14px}
 .ph-crumb a{color:var(--dim);text-decoration:none;transition:color .4s;display:inline-block;padding:13px 0;margin:-13px 0}
 .ph-crumb a:hover{color:var(--gold-deep)}
+/* 左の「FAQ」と見出しの上端を、右の文章の上端にそろえる（下ぞろえ→上ぞろえ。2026-11-03 Shio指示） */
+/* 2列のとき（951px以上）：「FAQ」の文字の上端を右の文章の1行目の文字の上端にそろえる（文章の行間の上の空き分7px下げる・実測） */
+@media (min-width:951px){.fh-grid>div:first-child{margin-top:7px}}
 .fh-grid{
   position:relative;z-index:1;
   display:grid;grid-template-columns:auto minmax(0,1fr);
-  gap:clamp(36px,6vw,86px);align-items:end;
+  gap:clamp(36px,6vw,86px);align-items:start;
 }
 .ph-label{
   display:flex;align-items:center;gap:14px;
@@ -616,6 +621,8 @@ footer{
   .fh-grid{grid-template-columns:1fr;gap:22px}
   .ph-lead{max-width:44em;margin-bottom:0}
 }
+/* 841〜950px：ヘッダーのメニュー（商品・成分／開発元・販売店について／よくある質問）を13→14pxに（2026-11-03 Shio指示）。14pxだと841pxでロゴとメニューの間が3pxになるので、ロゴ24px・ボタン15pxはホームの同じ幅の値に合わせる（ホームと同じ間隔14pxになる） */
+@media (min-width:841px) and (max-width:950px){nav a.navlink{font-size:14px}header .logo{font-size:24px}header .nav-cta{font-size:15px;padding:7px 23px}}
 /* 840px以下：メニューは三本線のボタンで開く */
 @media (max-width:840px){
   .h-right{gap:14px}
@@ -1135,7 +1142,7 @@ footer{
             <summary><span class="mark" aria-hidden="true">Q.</span><h3 class="q">商品についての問い合わせは、どこにすればいいですか？</h3><span class="tg" aria-hidden="true"></span></summary>
             <div class="a"><span class="mark" aria-hidden="true">A.</span><div class="a-body">
               <p>販売店の幹細胞育毛ラボ HATSUGA が承ります。下のメールアドレスまでお問い合わせください。</p>
-              <p><a class="txt-link" href="mailto:kumiko.michiwa@hatamama.co.jp">kumiko.michiwa@hatamama.co.jp</a></p>
+              <p><a class="txt-link" href="mailto:chrono-r@hatamama.co.jp">chrono-r@hatamama.co.jp</a></p>
             </div></div>
           </details>
         </div>
@@ -1157,7 +1164,7 @@ footer{
       <div class="ct-col">
         <h3>メールでのお問い合わせ</h3>
         <p><span class="nw">商品やご注文についてのご質問は、</span><br><span class="nw">こちらのメールへお送りください。</span></p>
-        <div class="ct-act"><a class="ct-mail" href="mailto:kumiko.michiwa@hatamama.co.jp">kumiko.michiwa@hatamama.co.jp</a></div>
+        <div class="ct-act"><a class="ct-mail" href="mailto:chrono-r@hatamama.co.jp">chrono-r@hatamama.co.jp</a></div>
       </div>
       <div class="ct-col">
         <h3>ご購入</h3>

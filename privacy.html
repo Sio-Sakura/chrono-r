@@ -144,6 +144,8 @@ main:focus{outline:none}
 
 /* ---------- 共通セクション ---------- */
 section{position:relative;padding:120px var(--gutter);z-index:1;scroll-margin-top:76px}
+/* 841〜950px：章の上下の余白を120→100pxに（左右はそのまま）。2026-11-03 Shio指示、全ページ共通 */
+@media (min-width:841px) and (max-width:950px){section{padding-top:100px;padding-bottom:100px}}
 .wrap{max-width:1080px;margin:0 auto;position:relative}
 .ghost{
   position:absolute;top:-24px;left:-8px;z-index:0;
@@ -1467,7 +1469,7 @@ body{background:#fff}
     <p>個人情報の取り扱いについてのご質問、ご相談、苦情は、次の窓口までお寄せください。</p>
     <dl>
       <div><dt>窓口</dt><dd>株式会社ハタママ（幹細胞育毛ラボ HATSUGA）個人情報お問い合わせ窓口</dd></div>
-      <div><dt>メール</dt><dd><a href="mailto:kumiko.michiwa@hatamama.co.jp">kumiko.michiwa@hatamama.co.jp</a></dd></div>
+      <div><dt>メール</dt><dd><a href="mailto:chrono-r@hatamama.co.jp">chrono-r@hatamama.co.jp</a></dd></div>
     </dl>
   </section>
 

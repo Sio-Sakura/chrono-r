@@ -401,6 +401,8 @@ main:focus{outline:none}
 
 /* ---------- 共通セクション ---------- */
 section{position:relative;padding:120px clamp(24px,6vw,110px);z-index:1}
+/* 841〜950px：章の上下の余白を120→100pxに（左右はそのまま）。2026-11-03 Shio指示、全ページ共通 */
+@media (min-width:841px) and (max-width:950px){section{padding-top:100px;padding-bottom:100px}}
 @media (max-width:840px){section{padding-top:80px;padding-bottom:80px}}
 .wrap{max-width:1080px;margin:0 auto;position:relative}
 .ghost{
@@ -3152,7 +3154,8 @@ footer{
     const absTop=e=>{let t=0;while(e&&e!==main){t+=e.offsetTop;e=e.offsetParent}return t};
     const tops=[rt?rt.offsetTop:1e9,ey?absTop(ey):1e9],bots=[rt?rt.offsetTop+rt.offsetHeight:-1e9,bt?absTop(bt)+bt.offsetHeight:-1e9,nt?absTop(nt)+nt.offsetHeight:-1e9];
     const top=mt+Math.min(...tops),bot=mt+Math.max(...bots);
-    const gapT=top-hd.getBoundingClientRect().bottom,gapB=mq.getBoundingClientRect().top-bot,d=(gapB-gapT)/2;
+    // 上の空きは「ページの一番上にいるとき」の値で測る（ヘッダーは固定なので、スクロール中に測るとスクロール量ぶんずれて、1画面目の余白が膨らんでしまう）
+    const gapT=top+window.scrollY-hd.getBoundingClientRect().height,gapB=mq.getBoundingClientRect().top-bot,d=(gapB-gapT)/2;
     // 841〜1140px（1画面目を画面の高さに合わせない幅）：上下の空きを固定する
     if(window.matchMedia('(max-width:1140px)').matches){
       const ht=parseFloat(getComputedStyle(hero).paddingTop),mb=parseFloat(getComputedStyle(main).paddingBottom);
