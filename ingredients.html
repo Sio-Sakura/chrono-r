@@ -16,6 +16,65 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="description" content="クロノ・アール カプセルの成分と全原材料を一覧で公開。ウロリチン・スペルミジン・フィセチンなど注目成分の解説、1日1包の飲み方、ご使用上の注意まで。再生医療の研究所が開発したインナーケア サプリメントです。">
 <link rel="canonical" href="https://chrono-r-capsules.com/ingredients/">
+<!-- SNSで共有したときの表示（OGP）。題名・説明文はこのページの title・description と同じにする（直すときは両方）。画像のURLはWordPressに移すときにテーマの画像の場所に直す 2026-11-04 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="クロノ・アール カプセル">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="成分・全原材料一覧 - ウロリチン・スペルミジン・フィセチン配合 | クロノ・アール カプセル">
+<meta property="og:description" content="クロノ・アール カプセルの成分と全原材料を一覧で公開。ウロリチン・スペルミジン・フィセチンなど注目成分の解説、1日1包の飲み方、ご使用上の注意まで。再生医療の研究所が開発したインナーケア サプリメントです。">
+<meta property="og:url" content="https://chrono-r-capsules.com/ingredients/">
+<meta property="og:image" content="https://chrono-r-capsules.com/Home/images/hero2.jpg">
+<meta property="og:image:width" content="1672">
+<meta property="og:image:height" content="941">
+<meta property="og:image:alt" content="クロノ・アール カプセル（CHRONO-R CAPSULES）のパッケージとカプセル">
+<meta name="twitter:card" content="summary_large_image">
+<!-- 構造化データ：商品（名前・画像・価格・在庫・送料。画面の表示と同じ内容。値段などを直すときはここも直す。画像のURLはWordPressに移すときに直す） 2026-11-04 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": "https://chrono-r-capsules.com/ingredients/#product",
+  "name": "クロノ・アール カプセル",
+  "alternateName": "CHRONO-R CAPSULES",
+  "description": "ウロリチン、スペルミジン、フィセチン、NAD原料成分。エイジングケアの分野で名前が挙がる成分をはじめ、30種以上の成分を1日1包にまとめたリバースエイジング サプリメントです。",
+  "image": "https://chrono-r-capsules.com/Home/images/supplement2.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "CHRONO-R"
+  },
+  "category": "栄養補助食品",
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "リエール再生医療研究所",
+    "url": "https://senolytics-rieir.jp/"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://chrono-r-capsules.com/ingredients/",
+    "price": 159500,
+    "priceCurrency": "JPY",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": {
+      "@type": "Organization",
+      "@id": "https://chrono-r-capsules.com/#organization",
+      "name": "株式会社ハタママ"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": 0,
+        "currency": "JPY"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "JP"
+      }
+    }
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -1303,6 +1362,8 @@ footer{
 /* ---- 540px以下：ページ最後の矢印ボタン2つ（商品・成分／開発元・販売店について／よくある質問・お問い合わせ）を3ページでそろえる（2026-11-03 Shio指示）
    2つのボタンの間＝商品・成分ページと同じ（行の間8px）。上の箱・ボタンの下端から1つ目のボタンの文字の上までを40pxに ---- */
 @media (max-width:540px){.next-links{row-gap:8px;margin-top:30.3px}}
+/* ---- 541〜840px：写真の幅を最大420px→460pxに（左右20pxずつ広げる。高さは420pxのときの361pxのまま）（2026-11-04 Shio指示） ---- */
+@media (min-width:541px) and (max-width:840px){#overview .ov-photo-sp,#all .all-photo{max-width:460px;height:calc(420px * 1202 / 1400);aspect-ratio:auto}}
 /* ---- 「ご購入はこちら」の文字をボタンの真ん中に（全幅）。最後の文字の後ろに付く字間の分だけ文字が左に寄っていたので、左にも同じ幅を空ける。ページ内のボタンは文字が少し下にあったので0.5px上げる（2026-11-04 Shio指示） ---- */
 .btn-gold{text-indent:.2em}
 .btn-gold span{top:-.5px}

@@ -16,6 +16,52 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="description" content="再生医療の研究所が開発したリバースエイジング サプリメント「クロノ・アール カプセル」。ウロリチン・スペルミジン・フィセチンなど30種以上の成分を1日1包に。アンチエイジングの一歩先をいく、毎日のインナーケアに。">
 <link rel="canonical" href="https://chrono-r-capsules.com/">
+<!-- SNSで共有したときの表示（OGP）。題名・説明文はこのページの title・description と同じにする（直すときは両方）。画像のURLはWordPressに移すときにテーマの画像の場所に直す 2026-11-04 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="クロノ・アール カプセル">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="リバースエイジング サプリメント - アンチエイジングの一歩先へ | クロノ・アール カプセル">
+<meta property="og:description" content="再生医療の研究所が開発したリバースエイジング サプリメント「クロノ・アール カプセル」。ウロリチン・スペルミジン・フィセチンなど30種以上の成分を1日1包に。アンチエイジングの一歩先をいく、毎日のインナーケアに。">
+<meta property="og:url" content="https://chrono-r-capsules.com/">
+<meta property="og:image" content="https://chrono-r-capsules.com/Home/images/hero2.jpg">
+<meta property="og:image:width" content="1672">
+<meta property="og:image:height" content="941">
+<meta property="og:image:alt" content="クロノ・アール カプセル（CHRONO-R CAPSULES）のパッケージとカプセル">
+<meta name="twitter:card" content="summary_large_image">
+<!-- 構造化データ：サイト名と運営会社（画面には出ない） 2026-11-04 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://chrono-r-capsules.com/#website",
+      "name": "クロノ・アール カプセル",
+      "alternateName": "CHRONO-R CAPSULES",
+      "url": "https://chrono-r-capsules.com/",
+      "inLanguage": "ja",
+      "publisher": {
+        "@id": "https://chrono-r-capsules.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://chrono-r-capsules.com/#organization",
+      "name": "株式会社ハタママ",
+      "url": "https://chrono-r-capsules.com/",
+      "email": "chrono-r@hatamama.co.jp",
+      "address": {
+        "@type": "PostalAddress",
+        "postalCode": "153-0063",
+        "addressCountry": "JP",
+        "addressRegion": "東京都",
+        "addressLocality": "目黒区",
+        "streetAddress": "目黒4-18-8"
+      }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -2448,6 +2494,19 @@ footer{
 @media (max-width:540px){.why .cell.has-hex{padding-top:57px}}
 /* ---- 540px以下：コラムの一番下の「記事を読む」（下線）から「コラム一覧を見る」の文字の上までを25pxに（31.7→25px）（2026-11-03 Shio指示） ---- */
 @media (max-width:540px){.news-grid + .tc .link-more{margin-top:29.3px}}
+/* ---- 541〜840px：章の写真（リバースエイジングとは・成分・開発元）を下層ページと同じにする（最大460px＝420pxから左右20pxずつ広げた。高さは420pxのときの361pxのまま）。
+   リバースエイジングとは・開発元の写真は左寄せ、成分の写真は真ん中（2026-11-04 Shio指示） ---- */
+@media (min-width:541px) and (max-width:840px){
+  .rev .split .photo,.split.ing-split .photo,.award .dev-split .photo{width:100%;max-width:460px;min-width:0;height:calc(420px * 1202 / 1400);min-height:0;aspect-ratio:auto;margin-left:auto;margin-right:auto}
+  .rev .split .photo,.award .dev-split .photo{margin-left:0}
+}
+/* ---- 541〜840px：価格の箱の写真を540px以下と同じにする（同じ写真・横1400：縦1202・写真を40px上げる）。幅は箱の中の文字・線・ボタンの列と同じ（下のJSで合わせる）（2026-11-04 Shio指示。写真の差し替えは HTML の <picture> で840px以下） ---- */
+@media (min-width:541px) and (max-width:840px){
+  .price-box .price-photo{aspect-ratio:1400/1202;max-width:none;min-height:0}
+  .price-box .price-photo img{object-position:center calc(50% - 40px)}
+}
+/* ---- 541〜840px：コラムの写真3枚を、商品・成分ページ02（注目の6成分）の写真と同じ横16：縦9にする（540px以下はもともと16：9。841px以上は触らない）（2026-11-04 Shio指示） ---- */
+@media (min-width:541px) and (max-width:840px){.head-c .news-card .thumb{aspect-ratio:16/9}}
 /* ---- 「ご購入はこちら」の文字をボタンの真ん中に（全幅）。最後の文字の後ろに付く字間の分だけ文字が左に寄っていたので、左にも同じ幅を空ける。ページ内のボタンは文字が少し下にあったので0.5px上げる（2026-11-04 Shio指示） ---- */
 .btn-gold{text-indent:.2em}
 .btn-gold span{top:-.5px}
@@ -2750,7 +2809,7 @@ main{overflow-x:clip}
       <p class="sec-lead price-lead">話題の成分を一つずつそろえる手間を、1包に。30種以上の成分を配合した、約30日分のリバースエイジング サプリメントです。</p>
     </div>
     <div class="price-box reveal">
-      <div class="price-photo"><picture><source media="(max-width:540px)" srcset="images/supplement2.jpg" width="1069" height="1472"><img src="images/supplement.jpg" alt="クロノ・アール カプセルのパッケージ" width="720" height="826" loading="lazy"></picture></div>
+      <div class="price-photo"><picture><source media="(max-width:840px)" srcset="images/supplement2.jpg" width="1069" height="1472"><img src="images/supplement.jpg" alt="クロノ・アール カプセルのパッケージ" width="720" height="826" loading="lazy"></picture></div>
       <div class="price-info">
         <p class="price-en">CHRONO-R CAPSULES</p>
         <p class="price-name">クロノ・アール カプセル</p>
@@ -3512,6 +3571,15 @@ main{overflow-x:clip}
   const over=t=>{const q=t.querySelector('.q1');if(!q||getComputedStyle(q).display==='inline')return false;const r=document.createRange();r.selectNodeContents(q);const b={right:r.getBoundingClientRect().right};const e=q.lastChild;if(e&&e.nodeType===1&&e.classList.contains('yk-r'))b.right=e.getBoundingClientRect().right+parseFloat(getComputedStyle(e).marginRight);const c=getComputedStyle(t),tb=t.getBoundingClientRect();return b.right>tb.right-parseFloat(c.paddingRight)+.5};
   function fit(){ts.forEach(t=>{t.style.letterSpacing='';t.style.fontSize=''});if(!window.matchMedia('(max-width:540px)').matches)return;
     ts.forEach(t=>{for(let i=0;i<80&&over(t);i++){const c=getComputedStyle(t),ls=parseFloat(c.letterSpacing)||0,fs=parseFloat(c.fontSize);if(ls>0)t.style.letterSpacing=Math.max(0,ls-.2)+'px';else t.style.fontSize=(fs-.25)+'px'}})}
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* ---- 541〜840px：価格の箱の写真の幅を、箱の中の文字・線・ボタンの列（一番長い行の幅）と同じにする。ほかの幅では何もしない ---- */
+(function(){
+  const box=document.querySelector('.price-box');if(!box)return;
+  const ph=box.querySelector('.price-photo'),ref=box.querySelector('.price-info .price-spec');if(!ph||!ref)return;
+  function fit(){ph.style.width='';if(!window.matchMedia('(min-width:541px) and (max-width:840px)').matches)return;ph.style.width=ref.getBoundingClientRect().width+'px'}
   fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>

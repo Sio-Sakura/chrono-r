@@ -10,12 +10,24 @@
   return add.call(this,type,fn,opt)}})();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>開発元・販売店について - リエール再生医療研究所とHATSUGA | クロノ・アール カプセル</title>
+<title>開発元・販売店について - リエール再生医療研究所と株式会社ハタママ | クロノ・アール カプセル</title>
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="description" content="クロノ・アール カプセルの開発元・リエール再生医療研究所と、販売店・幹細胞育毛ラボ HATSUGA（東京・銀座）を紹介します。研究所の考え方、ニューヨークでの Next Era Beauty部門の受賞、販売店の所在地やアクセスまで、購入の前に確かめられます。">
+<meta name="description" content="クロノ・アール カプセルの開発元・リエール再生医療研究所と、正規販売店・株式会社ハタママを紹介します。研究所の考え方、ニューヨークでの Next Era Beauty部門の受賞、販売店の会社情報まで、購入の前に確かめられます。">
 <link rel="canonical" href="https://chrono-r-capsules.com/about/">
+<!-- SNSで共有したときの表示（OGP）。題名・説明文はこのページの title・description と同じにする（直すときは両方）。画像のURLはWordPressに移すときにテーマの画像の場所に直す 2026-11-04 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="クロノ・アール カプセル">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="開発元・販売店について - リエール再生医療研究所と株式会社ハタママ | クロノ・アール カプセル">
+<meta property="og:description" content="クロノ・アール カプセルの開発元・リエール再生医療研究所と、正規販売店・株式会社ハタママを紹介します。研究所の考え方、ニューヨークでの Next Era Beauty部門の受賞、販売店の会社情報まで、購入の前に確かめられます。">
+<meta property="og:url" content="https://chrono-r-capsules.com/about/">
+<meta property="og:image" content="https://chrono-r-capsules.com/Home/images/hero2.jpg">
+<meta property="og:image:width" content="1672">
+<meta property="og:image:height" content="941">
+<meta property="og:image:alt" content="クロノ・アール カプセル（CHRONO-R CAPSULES）のパッケージとカプセル">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -1451,6 +1463,12 @@ footer{
 @media (min-width:541px) and (max-width:840px){#roles .roles{margin-top:calc(var(--rs) / 2 + 32px)}}
 @media (min-width:841px) and (max-width:950px){#roles .roles{margin-top:calc(var(--rs) / 2 + 33.6px)}}
 @media (min-width:951px){#roles .roles{margin-top:calc(var(--rs) / 2 + 32.8px)}}
+/* 06：リード文の下から販売店の概要の箱の上までを、01と同じく全幅で40pxに（文字の下端から測る。カード3枚を外したので文章のすぐ下が箱）（2026-11-04 Shio指示） */
+#store .hd .sec-lead{margin-bottom:0}
+@media (max-width:540px){#store .st-info{margin-top:37px}}
+@media (min-width:541px) and (max-width:840px){#store .st-info{margin-top:33px}}
+@media (min-width:841px) and (max-width:950px){#store .st-info{margin-top:34.6px}}
+@media (min-width:951px){#store .st-info{margin-top:33.8px}}
 /* 540px以下：中央揃えの文章（p）は、左からの両端揃え（最後の行は左）にする。ホームの540px以下と同じ（2026-11-03 Shio指示） */
 @media (max-width:540px){
   .head-c .sec-lead,#roles .sec-lead,#philosophy .sec-lead,#store .sec-lead,#contact .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:left}
@@ -1474,9 +1492,7 @@ footer{
   #award .all-top{row-gap:36px;margin-bottom:48px}
   /* 05：説明文〜写真 40px（写真〜下の枠は48pxのまま） */
   #product .ov-grid{row-gap:36px}
-  /* 06：説明文〜カード 40px／カード同士 35px／カード〜販売店の情報の箱 35px */
-  #store .hd .sec-lead{margin-bottom:36px}
-  #store .steps.vals{row-gap:35px;margin-bottom:35px}
+  /* 06：説明文〜販売店の概要の箱 40px（下の「06：リード文の下から…」で指定） */
 }
 /* ---- 540px以下：05 の写真も、商品・成分ページの01（クロノ・アール カプセルとは）と同じ写真・同じ切り取り・同じ大きさにする（541〜840pxと同じ写真。HTMLの<picture>で840px以下を差し替え）（2026-11-03 Shio指示）
    横1400：縦1202、写真は右の金の枠の分（12px）を残して幅いっぱい、枠の中の写真は40px上げる ---- */
@@ -1511,8 +1527,7 @@ footer{
   /* 03：中央揃えのまま、言葉ごとに改行せず行の端まで詰めて折る */
   #philosophy .sec-title{word-break:normal}
   #philosophy .sec-title .nw{white-space:normal}
-  /* 06：1行に入らないときは「正規販売店｜幹細胞／育毛ラボ HATSUGA」で折る（「｜」を見せる。折ってよいのは幹細胞と育毛ラボのあいだだけ＝HTMLの<wbr>） */
-  #store .sec-title .bar{display:inline;height:auto;overflow:visible}
+  /* 06：パソコンと同じく「正規販売店／株式会社ハタママ」の2行（2026-11-04 HATSUGA→ハタママに変更） */
   /* 07：1行目に「クロノ・アール カプセルの」まで入れる（入らない幅では、見出しの字間を詰める既存の処理で収める） */
 }
 /* ---- 540px以下：いちばん小さい補足の文字を13→14pxに（02 の表の補足・04 の受賞の補足・06 の住所の※）（2026-11-03 Shio指示） ---- */
@@ -1544,6 +1559,8 @@ footer{
 /* ---- 540px以下：ページ最後の矢印ボタン2つ（商品・成分／開発元・販売店について／よくある質問・お問い合わせ）を3ページでそろえる（2026-11-03 Shio指示）
    2つのボタンの間＝商品・成分ページと同じ（行の間8px）。上の箱・ボタンの下端から1つ目のボタンの文字の上までを40pxに ---- */
 @media (max-width:540px){.next-links{row-gap:8px;margin-top:20.4px}}
+/* ---- 541〜840px：写真の幅を最大420px→460pxに（左右20pxずつ広げる。高さは420pxのときの361pxのまま）（2026-11-04 Shio指示） ---- */
+@media (min-width:541px) and (max-width:840px){#award .aw-photo,#product .ov-photo{max-width:460px;height:calc(420px * 1202 / 1400);aspect-ratio:auto}}
 /* ---- 「ご購入はこちら」の文字をボタンの真ん中に（全幅）。最後の文字の後ろに付く字間の分だけ文字が左に寄っていたので、左にも同じ幅を空ける。ページ内のボタンは文字が少し下にあったので0.5px上げる（2026-11-04 Shio指示） ---- */
 .btn-gold{text-indent:.2em}
 .btn-gold span{top:-.5px}
@@ -1749,50 +1766,30 @@ main{overflow-x:clip}
   </div>
 </section>
 
-<!-- 06 販売店：幹細胞育毛ラボ HATSUGA -->
+<!-- 06 正規販売店：株式会社ハタママ -->
 <section class="sect-a head-c" id="store">
   <div class="wrap">
     <div class="hd reveal">
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">06</span></p>
-      <h2 class="sec-title"><span class="sp-nw"><span class="nw">正規販売店</span><span class="bar">｜</span><span class="nw">幹細胞</span></span><wbr><span class="nw">育毛ラボ HATSUGA</span></h2>
+      <h2 class="sec-title"><span class="nw">正規販売店</span><span class="bar">｜</span><span class="nw">株式会社ハタママ</span></h2>
       <p class="sec-en" lang="en">STORE</p>
-      <p class="sec-lead">幹細胞育毛ラボ HATSUGA は、東京・銀座にある完全個室のスカルプケアサロンです。開発元のリエール再生医療研究所と提携し、クロノ・アール カプセルの正規販売店としてこのサイトを運営しています。店名の「HATSUGA」は「発芽」から。芽吹く新芽のような生命力を、名前に込めています。</p>
+      <p class="sec-lead">株式会社ハタママは、開発元のリエール再生医療研究所と提携し、クロノ・アール カプセルの正規販売店としてこのサイトを運営しています。再生医療事業や、東京・銀座のスカルプケアサロン「幹細胞育毛ラボ HATSUGA」の運営も行っています。</p>
     </div>
-    <ul class="steps vals" role="list">
-      <li class="step reveal">
-        <img class="ic" src="Home/images/ic-shield.png" alt="" width="214" height="240" loading="lazy">
-        <h3>医療機関の監修</h3>
-        <p>再生医療を専門とする医療機関「GINZA中央クリニック」の監修を受けて、サロンを運営しています。</p>
-      </li>
-      <li class="step reveal d1">
-        <img class="ic" src="Home/images/ic-drop.png" alt="" width="252" height="240" loading="lazy">
-        <h3><span class="nw">幹細胞上清液</span> <span class="st-l2"><span class="nw">×</span> <span class="sp-nw"><span class="nw">エア導入</span><span class="nw">技術</span></span></span></h3>
-        <p>1ccに約3000億個以上のエクソソームを含む、国産の幹細胞上清液を使用。針を使わないエア導入の技術で施術を行っています。</p>
-      </li>
-      <li class="step reveal d2">
-        <img class="ic" src="Home/images/ic-door.png" alt="" width="172" height="240" loading="lazy">
-        <h3><span class="nw">完全個室の</span><span class="st-l2"><span class="sp-nw"><span class="nw">プライベート</span><span class="nw">空間</span></span></span></h3>
-        <p>お客様のプライバシーを最優先に考えた完全個室です。男性も女性も、人目を気にせずお過ごしいただけます。</p>
-      </li>
-    </ul>
     <div class="info st-info reveal">
       <h3>販売店の概要</h3>
       <dl class="spec">
-        <div><dt>店名</dt><dd>幹細胞育毛ラボ HATSUGA</dd></div>
-        <div><dt>運営会社</dt><dd>株式会社ハタママ</dd></div>
-        <div><dt>所在地</dt><dd>〒104-0061 東京都中央区銀座2-12<small>※詳しい住所は、サロンのご予約時にお伝えしています。</small></dd></div>
-        <div><dt>営業時間</dt><dd><span class="n">11</span>時〜<span class="n">20</span>時</dd></div>
-        <div><dt>アクセス</dt><dd>
+        <div><dt>会社名</dt><dd>株式会社ハタママ</dd></div>
+        <div><dt>代表者</dt><dd>代表取締役 道輪久美子</dd></div>
+        <div><dt>所在地</dt><dd>〒153-0063 東京都目黒区目黒4-18-8</dd></div>
+        <div><dt>事業内容</dt><dd>
           <ul role="list">
-            <li>都営浅草線「東銀座駅」A7・A8出口から徒歩<span class="n">3</span>分</li>
-            <li>東京メトロ日比谷線「東銀座駅」4番出口から徒歩<span class="n">6</span>分</li>
-            <li>東京メトロ「銀座駅」松屋デパート出口から徒歩<span class="n">8</span>分</li>
-            <li>「有楽町駅」「銀座一丁目駅」から徒歩<span class="n">10</span>分</li>
+            <li>再生医療事業</li>
+            <li>スカルプケアサロン<span class="nw">「<a class="txt-link" href="https://hatsuga-scalp.jp/" target="_blank" rel="noopener" aria-label="幹細胞育毛ラボ HATSUGA のWebサイト（別の画面で開きます）">幹細胞育毛ラボ HATSUGA</a>」</span>の運営</li>
+            <li>サプリメント<span class="nw">「クロノ・アール カプセル」</span>の販売</li>
+            <li>映像制作事業</li>
           </ul>
         </dd></div>
-        <div><dt>メール</dt><dd><a class="txt-link" href="mailto:hatsuga.scalp@gmail.com">hatsuga.scalp@gmail.com</a></dd></div>
-        <div><dt>Webサイト</dt><dd><a class="txt-link" href="https://hatsuga-scalp.jp/" target="_blank" rel="noopener" aria-label="幹細胞育毛ラボ HATSUGA のWebサイト（別の画面で開きます）">hatsuga-scalp.jp</a></dd></div>
-        <div><dt>Instagram</dt><dd><a class="txt-link" href="https://www.instagram.com/hatsuga.scalp/" target="_blank" rel="noopener" aria-label="幹細胞育毛ラボ HATSUGA のInstagram（別の画面で開きます）">@hatsuga.scalp</a></dd></div>
+        <div><dt>メール</dt><dd><a class="txt-link" href="mailto:chrono-r@hatamama.co.jp">chrono-r@hatamama.co.jp</a></dd></div>
       </dl>
     </div>
   </div>
