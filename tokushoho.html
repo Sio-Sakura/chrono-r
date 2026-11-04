@@ -1356,6 +1356,8 @@ body{background:#fff}
   .plain{padding-left:24px;padding-right:24px}
   header{padding-left:24px;padding-right:24px}
 }
+/* ---- スマホの文字サイズ設定で、文字だけが大きくなるのを止める（AndroidのLINEの中のブラウザで、文字だけ約1.15倍になって見出しがはみ出していたため。指で広げる拡大はこれまでどおりできる）（2026-11-03 Shio指示） ---- */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 /* ---- 横に動かないようにする：中身（main）から横にはみ出したものは切る。読み込み中（英語の書体が届く前）に大きな飾りの英字が画面の外へはみ出し、スマホで画面が左右に動いていたため。clip なので縦のスクロールや追従する部品には影響しない（2026-11-03 Shio指示） ---- */
 main{overflow-x:clip}
 </style>
