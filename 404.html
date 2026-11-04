@@ -46,7 +46,8 @@
   --gutter:clamp(24px,6vw,110px);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+/* 文章が短いページ：縦に長い画面でフッターの下が空いたとき、フッターと同じ色で埋める 2026-11-04 */
+html{scroll-behavior:smooth;background:#302c23}
 body{
   background:var(--bg);
   color:var(--head);
@@ -279,8 +280,9 @@ footer{
 /* 未確定の目印（特定商取引法のページと同じ。公開前に消す） */
 .kari{background:#fff1b8;color:#5c4300;font-size:13px;padding:1px 6px;margin:0 2px}
 .msg{
-  min-height:calc(100vh - 120px);display:flex;align-items:center;
-  padding:calc(76px + clamp(56px,7vw,96px)) var(--gutter) clamp(72px,8vw,110px);
+  /* 上下の余白は規約の3ページとそろえる：パソコン100px・タブレット80px・スマホ60px（上はヘッダー76pxの下から）2026-11-04 */
+  display:flex;align-items:center;
+  padding:calc(76px + 100px) var(--gutter) 100px;
   background:var(--bg);
 }
 .msg .wrap{width:100%;text-align:center}
@@ -318,11 +320,16 @@ footer{
   padding:clamp(26px,3vw,36px) clamp(24px,3.6vw,48px) clamp(14px,1.6vw,20px);
 }
 .msg-box::before{content:"";position:absolute;inset:6px;border:1px solid rgba(181,147,59,.35);border-radius:3px;pointer-events:none}
-.msg-box h2{font-family:var(--mincho);font-size:clamp(18px,1.7vw,21px);font-weight:600;letter-spacing:.1em;line-height:1.6;color:var(--gold-deep);padding-bottom:14px;border-bottom:1px solid rgba(181,147,59,.4)}
+/* パソコン：1280pxの画面で「ご注文の内容は…」「ご注文についてのご質問は…」が1行に入る幅（720→780px）2026-11-04 Shio指示 */
+@media (min-width:841px){.msg-box{max-width:780px}.msg-box dd{flex:1}} /* 文章の欄は空いている幅いっぱいに（句読点を詰める仕組みで幅が狭く計算され、早く折り返すのを防ぐ） */
+/* 導入文：文の間で改行すると3行以上になる幅（561px以下）では、改行しないで続けて流す 2026-11-04 Shio指示 */
+@media (max-width:561px){.msg-lead br{display:none}}
+.msg-box h2{font-family:var(--mincho);font-size:clamp(20px,1.7vw,21px);font-weight:600;letter-spacing:.1em;line-height:1.6;color:var(--gold-deep);padding-bottom:14px;border-bottom:1px solid rgba(181,147,59,.4)}
 .msg-box dl>div{display:flex;gap:24px;align-items:baseline;padding:13px 2px;border-bottom:1px solid rgba(181,147,59,.4)}
 .msg-box dl>div:last-child{border-bottom:none}
-.msg-box dt{flex:none;width:7.2em;font-family:var(--mincho);font-size:15px;font-weight:600;letter-spacing:.12em;line-height:1.7;color:var(--gold-deep)}
+.msg-box dt{flex:none;width:7.2em;font-family:var(--mincho);font-size:16px;font-weight:600;letter-spacing:.12em;line-height:1.7;color:var(--gold-deep)}
 .msg-box dd{min-width:0;font-size:15px;letter-spacing:.05em;line-height:1.9;color:var(--text);overflow-wrap:anywhere}
+/* 「このあとの流れ」の枠：見出しは20px以上（上の clamp）、項目名はどの画面も16px。文章は15pxのまま（2026-11-04 Shio指示） */
 .msg-btn{margin-top:clamp(40px,4.6vw,56px)}
 .msg-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px clamp(28px,5vw,60px);margin-top:clamp(30px,3.6vw,44px)}
 .msg-links .link-more{margin-top:0}
@@ -356,8 +363,9 @@ footer{
   header.open #gnav{display:flex}
   #gnav a.navlink{font-size:16px;letter-spacing:.12em;padding:18px 2px;border-bottom:1px solid rgba(240,232,214,.14)}
   #gnav a.navlink::after{display:none}
-  .msg{padding-top:calc(76px + 56px);padding-bottom:72px}
+  .msg{padding-top:calc(76px + 80px);padding-bottom:80px}
 }
+@media (max-width:540px){.msg{padding-top:calc(76px + 60px);padding-bottom:60px}}
 @media (min-width:541px) and (max-width:840px){.msg-title{font-size:clamp(24px,3.5vw,27px)}}
 @media (max-width:540px){
   header{padding:0 20px}
@@ -428,7 +436,7 @@ footer{
   .ph-title,.sec-title,.msg-title{font-size:min(27px,calc((100vw - 48px) / 12.3));letter-spacing:.02em;line-height:1.65}
   .plain h1{font-family:var(--mincho);font-weight:600;font-size:min(27px,calc((100vw - 48px) / 12.3));letter-spacing:.02em;line-height:1.65}
   /* 見出しの下の英語 */
-  .ph-label,.sec-en,.msg-en{font-size:16px}
+  .ph-label,.sec-en,.msg-en{font-size:17px} /* 540px以下：THANK YOU・PAGE NOT FOUND を17pxに（ほかのページの英字ラベルとそろえる。2026-11-04 Shio指示） */
   .toc-ttl,.fq-nav-ttl,.ki-en,.step-no{font-size:16px}
   .fq-head .en{font-size:15px}
   /* 小見出し */
@@ -502,7 +510,8 @@ footer{
   /* 章の見出し（h2）・ページの題名（h1）：ホームの章の見出しと同じ大きさ（29〜32px） */
   .ph-title,.sec-title,.msg-title{font-size:min(32px,max(29px,4.88vw))}
   /* ページ最初の説明文：ホームの1画面目の説明文と同じ（18px・行間1.8・字間.02em） */
-  .ph-lead,.msg-lead{font-size:18px;line-height:1.8;letter-spacing:.02em}
+  .ph-lead{font-size:18px;line-height:1.8;letter-spacing:.02em}
+  .msg-lead{font-size:17px;line-height:1.8;letter-spacing:.02em} /* thanks・404の導入文はタブレットで17px（2026-11-04 Shio指示） */
   /* カードの小見出し：ホームの「3つの理由」と同じ22px。その他の小見出しはスマホと同じ20px */
   .cell h3{font-size:22px}
   .step h3,.dz-row h3,.cn-item h3,.info h3,.caution h3,.ct-col h3,.role h3{font-size:20px}
@@ -534,7 +543,8 @@ footer{
 }
 /* ---- 540px以下（ホームの540px以下と同じ値） ---- */
 @media (max-width:540px){
-  .ph-lead,.msg-lead{font-size:18px;line-height:1.8;letter-spacing:.03em}
+  .ph-lead{font-size:18px;line-height:1.8;letter-spacing:.03em}
+  .msg-lead{font-size:17px;line-height:1.8;letter-spacing:.03em} /* thanks・404の導入文はスマホで17px（2026-11-04 Shio指示） */
   .sec-lead,.head-c .sec-lead,#contact .sec-lead{letter-spacing:.06em}
   .buy .spec dt{line-height:2.15;letter-spacing:.12em}
   .buy .spec dd{line-height:1.6}
@@ -583,6 +593,13 @@ footer{
 }
 /* ---- 540px以下：下線付きのリンクをホームと同じく18→19px（01 の箱の中の「開発元について」「販売店について」は16pxのまま）。入らない幅は既存の処理で詰める（2026-11-03 Shio指示） ---- */
 @media (max-width:540px){main .link-more:not(.role .link-more){font-size:19px}}
+/* ---- 「ご購入はこちら」の文字をボタンの真ん中に（全幅）。最後の文字の後ろに付く字間の分だけ文字が左に寄っていたので、左にも同じ幅を空ける。ページ内のボタンは文字が少し下にあったので0.5px上げる（2026-11-04 Shio指示） ---- */
+.btn-gold{text-indent:.2em}
+.btn-gold span{top:-.5px}
+.nav-cta{text-indent:.16em}
+@media (max-width:540px){.nav-cta{text-indent:.08em}}
+/* 横幅いっぱいのボタン（価格の箱・よくある質問のご購入）は、文字が内側の余白に入りきらない幅でも、真ん中から左右に均等にはみ出すようにする（左寄せにならないように） */
+.buy .btn-gold,.price-info .btn-gold,.ct-act .btn-gold{display:flex;justify-content:center}
 /* ---- スマホの文字サイズ設定で、文字だけが大きくなるのを止める（AndroidのLINEの中のブラウザで、文字だけ約1.15倍になって見出しがはみ出していたため。指で広げる拡大はこれまでどおりできる）（2026-11-03 Shio指示） ---- */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 /* ---- 横に動かないようにする：中身（main）から横にはみ出したものは切る。読み込み中（英語の書体が届く前）に大きな飾りの英字が画面の外へはみ出し、スマホで画面が左右に動いていたため。clip なので縦のスクロールや追従する部品には影響しない（2026-11-03 Shio指示） ---- */
@@ -632,7 +649,7 @@ main{overflow-x:clip}
   <div class="f-in">
     <div class="f-left">
       <p class="f-logo gold-text">CHRONO-R</p>
-      <p class="f-company">開発元：リエール再生医療研究所<br>正規販売店：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）</p>
+      <p class="f-company">開発元：リエール再生医療研究所<br>正規販売店：株式会社ハタママ</p>
     </div>
     <div class="f-links">
       <a href="ingredients.html">商品・成分</a>

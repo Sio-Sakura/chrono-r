@@ -1446,7 +1446,11 @@ footer{
 </style>
 <style>
 /* 540px以下：01 の説明文〜開発元・販売店の箱のアイコンの丸を40pxに（25→40px。文字の下端から）（2026-11-03 Shio指示） */
-@media (max-width:540px){#roles .roles{margin-top:calc(var(--rs) / 2 + 35px)}}
+/* 01：リード文の下からアイコンの丸の上までを、全幅で40pxにそろえる（文章→箱・写真のルール）（2026-11-04 Shio指示） */
+@media (max-width:540px){#roles .roles{margin-top:calc(var(--rs) / 2 + 36px)}}
+@media (min-width:541px) and (max-width:840px){#roles .roles{margin-top:calc(var(--rs) / 2 + 32px)}}
+@media (min-width:841px) and (max-width:950px){#roles .roles{margin-top:calc(var(--rs) / 2 + 33.6px)}}
+@media (min-width:951px){#roles .roles{margin-top:calc(var(--rs) / 2 + 32.8px)}}
 /* 540px以下：中央揃えの文章（p）は、左からの両端揃え（最後の行は左）にする。ホームの540px以下と同じ（2026-11-03 Shio指示） */
 @media (max-width:540px){
   .head-c .sec-lead,#roles .sec-lead,#philosophy .sec-lead,#store .sec-lead,#contact .sec-lead{text-align:justify;text-justify:inter-character;text-align-last:left}
@@ -1540,6 +1544,13 @@ footer{
 /* ---- 540px以下：ページ最後の矢印ボタン2つ（商品・成分／開発元・販売店について／よくある質問・お問い合わせ）を3ページでそろえる（2026-11-03 Shio指示）
    2つのボタンの間＝商品・成分ページと同じ（行の間8px）。上の箱・ボタンの下端から1つ目のボタンの文字の上までを40pxに ---- */
 @media (max-width:540px){.next-links{row-gap:8px;margin-top:20.4px}}
+/* ---- 「ご購入はこちら」の文字をボタンの真ん中に（全幅）。最後の文字の後ろに付く字間の分だけ文字が左に寄っていたので、左にも同じ幅を空ける。ページ内のボタンは文字が少し下にあったので0.5px上げる（2026-11-04 Shio指示） ---- */
+.btn-gold{text-indent:.2em}
+.btn-gold span{top:-.5px}
+.nav-cta{text-indent:.16em}
+@media (max-width:540px){.nav-cta{text-indent:.08em}}
+/* 横幅いっぱいのボタン（価格の箱・よくある質問のご購入）は、文字が内側の余白に入りきらない幅でも、真ん中から左右に均等にはみ出すようにする（左寄せにならないように） */
+.buy .btn-gold,.price-info .btn-gold,.ct-act .btn-gold{display:flex;justify-content:center}
 /* ---- スマホの文字サイズ設定で、文字だけが大きくなるのを止める（AndroidのLINEの中のブラウザで、文字だけ約1.15倍になって見出しがはみ出していたため。指で広げる拡大はこれまでどおりできる）（2026-11-03 Shio指示） ---- */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 /* ---- 横に動かないようにする：中身（main）から横にはみ出したものは切る。読み込み中（英語の書体が届く前）に大きな飾りの英字が画面の外へはみ出し、スマホで画面が左右に動いていたため。clip なので縦のスクロールや追従する部品には影響しない（2026-11-03 Shio指示） ---- */
@@ -1577,7 +1588,7 @@ main{overflow-x:clip}
       <div>
         <h1 class="ph-title"><span class="nw">クロノ・アール カプセルの</span><br><span class="nw">開発元・販売店について</span></h1>
         <p class="ph-label" lang="en">DEVELOPER &amp; STORE</p>
-        <p class="ph-lead">クロノ・アール カプセルは、リエール再生医療研究所が開発し、東京・銀座の幹細胞育毛ラボ HATSUGA が販売しているリバースエイジング サプリメントです。誰がつくり、誰がお届けしているのか。購入の前に確かめておきたい開発元と販売店のことを、このページにまとめました。</p>
+        <p class="ph-lead">クロノ・アール カプセルは、リエール再生医療研究所が開発し、株式会社ハタママが販売しているリバースエイジング サプリメントです。誰がつくり、誰がお届けしているのか。購入の前に確かめておきたい開発元と販売店のことを、このページにまとめました。</p>
       </div>
       <nav class="toc" aria-label="このページの内容">
         <p class="toc-ttl" lang="en">CONTENTS</p>
@@ -1587,7 +1598,7 @@ main{overflow-x:clip}
           <li><a href="#philosophy"><span class="no">03</span>研究所の3つの考え方</a></li>
           <li><a href="#award"><span class="no">04</span>受賞歴</a></li>
           <li><a href="#product"><span class="no">05</span>商品に込めた想い</a></li>
-          <li><a href="#store"><span class="no">06</span>正規販売店 HATSUGA</a></li>
+          <li><a href="#store"><span class="no">06</span><span>正規販売店 <span class="nw">株式会社ハタママ</span></span></a></li>
           <li><a href="#contact"><span class="no">07</span>ご購入・お問い合わせ</a></li>
         </ol>
       </nav>
@@ -1600,9 +1611,9 @@ main{overflow-x:clip}
   <div class="wrap">
     <div class="hd reveal">
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">01</span></p>
-      <h2 class="sec-title"><span class="nw">開発は</span><span class="nw">リエール<br class="sp540">再生医療研究所、</span><br><span class="nw">販売はHATSUGA</span></h2>
+      <h2 class="sec-title"><span class="nw">開発は</span><span class="nw">リエール<br class="sp540">再生医療研究所、</span><br><span class="nw">販売はハタママ</span></h2>
       <p class="sec-en" lang="en">ABOUT US</p>
-      <p class="sec-lead">つくっているのは、再生医療の研究を土台にする研究所。お届けしているのは、東京・銀座のサロンです。それぞれが担っている役割を紹介します。</p>
+      <p class="sec-lead">つくっているのは、再生医療の研究を土台にする研究所。お届けしているのは、東京・銀座の幹細胞育毛ラボ HATSUGA などを運営する株式会社ハタママです。それぞれが担っている役割を紹介します。</p>
     </div>
     <ul class="roles" role="list">
       <li class="role reveal">
@@ -1616,7 +1627,7 @@ main{overflow-x:clip}
       <li class="role reveal d1">
         <div class="hex"><img class="ic" src="Home/images/ic-shop.png" alt="" width="400" height="400"></div>
         <p class="role-tag">販売店</p>
-        <h3>幹細胞育毛ラボ HATSUGA</h3>
+        <h3>株式会社ハタママ</h3>
         <p class="role-do">販売・お問い合わせの窓口</p>
         <p class="role-txt">開発元と提携し、クロノ・アール カプセルを販売しています。このサイトの運営と、ご購入・お問い合わせの窓口を担っています。</p>
         <a class="link-more" href="#store">販売店について<span class="arrow"></span></a>
@@ -1810,7 +1821,7 @@ main{overflow-x:clip}
   <div class="f-in">
     <div class="f-left">
       <p class="f-logo gold-text">CHRONO-R</p>
-      <p class="f-company">開発元：リエール再生医療研究所<br>正規販売店：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）</p>
+      <p class="f-company">開発元：リエール再生医療研究所<br>正規販売店：株式会社ハタママ</p>
     </div>
     <div class="f-links">
       <a href="ingredients.html">商品・成分</a>

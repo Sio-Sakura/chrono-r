@@ -133,7 +133,7 @@
    "name": "クロノ・アール カプセルは、誰がつくって、誰が販売していますか？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "開発したのは、リエール再生医療研究所です。販売は、開発元の正規販売店である、東京・銀座の幹細胞育毛ラボ HATSUGA が行っています。詳しくは、開発元・販売店についてのページで紹介しています。"
+    "text": "開発したのは、リエール再生医療研究所です。販売は、開発元の正規販売店である株式会社ハタママが行っています。詳しくは、開発元・販売店についてのページで紹介しています。"
    }
   },
   {
@@ -157,7 +157,7 @@
    "name": "商品についての問い合わせは、どこにすればいいですか？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "販売店の幹細胞育毛ラボ HATSUGA が承ります。下のメールアドレスまでお問い合わせください。chrono-r@hatamama.co.jp"
+    "text": "販売店の株式会社ハタママが承ります。下のメールアドレスまでお問い合わせください。chrono-r@hatamama.co.jp"
    }
   }
  ]
@@ -1033,6 +1033,13 @@ footer{
 /* ---- 540px以下：ページ最後の矢印ボタン2つ（商品・成分／開発元・販売店について／よくある質問・お問い合わせ）を3ページでそろえる（2026-11-03 Shio指示）
    2つのボタンの間＝商品・成分ページと同じ（行の間8px）。上の箱・ボタンの下端から1つ目のボタンの文字の上までを40pxに ---- */
 @media (max-width:540px){.next-links{row-gap:8px;margin-top:30.3px}}
+/* ---- 「ご購入はこちら」の文字をボタンの真ん中に（全幅）。最後の文字の後ろに付く字間の分だけ文字が左に寄っていたので、左にも同じ幅を空ける。ページ内のボタンは文字が少し下にあったので0.5px上げる（2026-11-04 Shio指示） ---- */
+.btn-gold{text-indent:.2em}
+.btn-gold span{top:-.5px}
+.nav-cta{text-indent:.16em}
+@media (max-width:540px){.nav-cta{text-indent:.08em}}
+/* 横幅いっぱいのボタン（価格の箱・よくある質問のご購入）は、文字が内側の余白に入りきらない幅でも、真ん中から左右に均等にはみ出すようにする（左寄せにならないように） */
+.buy .btn-gold,.price-info .btn-gold,.ct-act .btn-gold{display:flex;justify-content:center}
 /* ---- スマホの文字サイズ設定で、文字だけが大きくなるのを止める（AndroidのLINEの中のブラウザで、文字だけ約1.15倍になって見出しがはみ出していたため。指で広げる拡大はこれまでどおりできる）（2026-11-03 Shio指示） ---- */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 /* ---- 横に動かないようにする：中身（main）から横にはみ出したものは切る。読み込み中（英語の書体が届く前）に大きな飾りの英字が画面の外へはみ出し、スマホで画面が左右に動いていたため。clip なので縦のスクロールや追従する部品には影響しない（2026-11-03 Shio指示） ---- */
@@ -1250,7 +1257,7 @@ main{overflow-x:clip}
           <details class="qa">
             <summary><span class="mark" aria-hidden="true">Q.</span><h3 class="q">クロノ・アール カプセルは、誰がつくって、誰が販売していますか？</h3><span class="tg" aria-hidden="true"></span></summary>
             <div class="a"><span class="mark" aria-hidden="true">A.</span><div class="a-body">
-              <p>開発したのは、リエール再生医療研究所です。販売は、開発元の正規販売店である、東京・銀座の幹細胞育毛ラボ HATSUGA が行っています。詳しくは、<a class="txt-link" href="about.html">開発元・販売店について</a>のページで紹介しています。</p>
+              <p>開発したのは、リエール再生医療研究所です。販売は、開発元の正規販売店である株式会社ハタママが行っています。詳しくは、<a class="txt-link" href="about.html">開発元・販売店について</a>のページで紹介しています。</p>
             </div></div>
           </details>
           <details class="qa">
@@ -1269,7 +1276,7 @@ main{overflow-x:clip}
           <details class="qa">
             <summary><span class="mark" aria-hidden="true">Q.</span><h3 class="q">商品についての<span class="nw">問い合わせは、</span>どこにすればいいですか？</h3><span class="tg" aria-hidden="true"></span></summary>
             <div class="a"><span class="mark" aria-hidden="true">A.</span><div class="a-body">
-              <p>販売店の幹細胞育毛ラボ HATSUGA が承ります。下のメールアドレスまでお問い合わせください。</p>
+              <p>販売店の株式会社ハタママが承ります。下のメールアドレスまでお問い合わせください。</p>
               <p><a class="txt-link" href="mailto:chrono-r@hatamama.co.jp">chrono-r@hatamama.co.jp</a></p>
             </div></div>
           </details>
@@ -1286,7 +1293,7 @@ main{overflow-x:clip}
     <div class="hd reveal">
       <p class="sec-en" lang="en">CONTACT</p>
       <h2 class="sec-title"><span class="nw">答えが見つからないときは、</span><br><span class="nw">お問い合わせください</span></h2>
-      <p class="sec-lead">クロノ・アール カプセルについてのご質問は、販売店の幹細胞育毛ラボ HATSUGA が承ります。</p>
+      <p class="sec-lead">クロノ・アール カプセルについてのご質問は、販売店の株式会社ハタママが承ります。</p>
     </div>
     <div class="ct-box reveal">
       <div class="ct-col">
@@ -1313,7 +1320,7 @@ main{overflow-x:clip}
   <div class="f-in">
     <div class="f-left">
       <p class="f-logo gold-text">CHRONO-R</p>
-      <p class="f-company">開発元：リエール再生医療研究所<br>正規販売店：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）</p>
+      <p class="f-company">開発元：リエール再生医療研究所<br>正規販売店：株式会社ハタママ</p>
     </div>
     <div class="f-links">
       <a href="ingredients.html">商品・成分</a>

@@ -14,7 +14,7 @@
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="description" content="クロノ・アール カプセルの販売サイトを運営する、株式会社ハタママの会社概要です。会社名、代表者、所在地、事業内容、運営店舗（幹細胞育毛ラボ HATSUGA）、連絡先をご確認いただけます。">
+<meta name="description" content="クロノ・アール カプセルの販売サイトを運営する、株式会社ハタママの会社概要です。会社名、代表者、所在地、事業内容、連絡先をご確認いただけます。">
 <link rel="canonical" href="https://chrono-r-capsules.com/company/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +45,8 @@
   --gutter:clamp(24px,6vw,110px);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+/* 文章が短いページ：縦に長い画面でフッターの下が空いたとき、フッターと同じ色で埋める 2026-11-04 */
+html{scroll-behavior:smooth;background:#302c23}
 body{
   background:var(--bg);
   color:var(--head);
@@ -1131,7 +1132,10 @@ footer{
    ヘッダーとフッターはほかのページと同じ。本文は白地・飾りなし
    ========================================================== */
 body{background:#fff}
-.plain{background:#fff;color:#333;font-size:15px;line-height:1.9;letter-spacing:.02em;padding:calc(76px + 56px) 20px 80px}
+.plain{background:#fff;color:#333;font-size:15px;line-height:1.9;letter-spacing:.02em;padding:calc(76px + 100px) 20px 100px}
+/* 上下の余白：パソコン100px・タブレット80px・スマホ60px（上はヘッダーの高さ76pxの下から）2026-11-04 */
+@media (max-width:840px){.plain{padding-top:calc(76px + 80px);padding-bottom:80px}}
+@media (max-width:540px){.plain{padding-top:calc(76px + 60px);padding-bottom:60px}}
 .plain-in{max-width:800px;margin:0 auto}
 .plain h1{font-family:var(--sans);font-size:22px;font-weight:700;line-height:1.5;letter-spacing:.04em;color:#222;margin-bottom:32px}
 .plain dl{border-top:1px solid #ddd}
@@ -1148,7 +1152,7 @@ body{background:#fff}
 .plain a:hover{color:var(--gold-deep)}
 .kari{background:#fff1b8;color:#5c4300;font-size:13px;padding:1px 6px;margin:0 2px}
 @media (max-width:600px){
-  .plain{padding:calc(76px + 36px) 16px 56px}
+  .plain{padding-left:16px;padding-right:16px}
   .plain h1{font-size:20px}
   .plain dl>div{flex-direction:column;gap:2px;padding:14px 2px}
   .plain dt{width:auto}
@@ -1360,6 +1364,13 @@ body{background:#fff}
   .plain{padding-left:24px;padding-right:24px}
   header{padding-left:24px;padding-right:24px}
 }
+/* ---- 「ご購入はこちら」の文字をボタンの真ん中に（全幅）。最後の文字の後ろに付く字間の分だけ文字が左に寄っていたので、左にも同じ幅を空ける。ページ内のボタンは文字が少し下にあったので0.5px上げる（2026-11-04 Shio指示） ---- */
+.btn-gold{text-indent:.2em}
+.btn-gold span{top:-.5px}
+.nav-cta{text-indent:.16em}
+@media (max-width:540px){.nav-cta{text-indent:.08em}}
+/* 横幅いっぱいのボタン（価格の箱・よくある質問のご購入）は、文字が内側の余白に入りきらない幅でも、真ん中から左右に均等にはみ出すようにする（左寄せにならないように） */
+.buy .btn-gold,.price-info .btn-gold,.ct-act .btn-gold{display:flex;justify-content:center}
 /* ---- スマホの文字サイズ設定で、文字だけが大きくなるのを止める（AndroidのLINEの中のブラウザで、文字だけ約1.15倍になって見出しがはみ出していたため。指で広げる拡大はこれまでどおりできる）（2026-11-03 Shio指示） ---- */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 /* ---- 横に動かないようにする：中身（main）から横にはみ出したものは切る。読み込み中（英語の書体が届く前）に大きな飾りの英字が画面の外へはみ出し、スマホで画面が左右に動いていたため。clip なので縦のスクロールや追従する部品には影響しない（2026-11-03 Shio指示） ---- */
@@ -1397,8 +1408,6 @@ main{overflow-x:clip}
             <li>映像制作事業</li>
           </ul>
         </dd></div>
-        <div><dt>運営店舗</dt><dd>幹細胞育毛ラボ HATSUGA<small><a href="https://hatsuga-scalp.jp/" target="_blank" rel="noopener" aria-label="幹細胞育毛ラボ HATSUGA のWebサイト（別の画面で開きます）">hatsuga-scalp.jp</a></small></dd></div>
-        <div><dt>電話番号</dt><dd>ご請求があれば遅滞なく開示いたします。<small>お問い合わせは、メールで承ります。</small></dd></div>
         <div><dt>メールアドレス</dt><dd>chrono-r@hatamama.co.jp</dd></div>
       </dl>
   </div>
@@ -1408,7 +1417,7 @@ main{overflow-x:clip}
   <div class="f-in">
     <div class="f-left">
       <p class="f-logo gold-text">CHRONO-R</p>
-      <p class="f-company">開発元：リエール再生医療研究所<br>正規販売店：幹細胞育毛ラボ HATSUGA（運営：株式会社ハタママ）</p>
+      <p class="f-company">開発元：リエール再生医療研究所<br>正規販売店：株式会社ハタママ</p>
     </div>
     <div class="f-links">
       <a href="ingredients.html">商品・成分</a>
