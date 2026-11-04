@@ -1527,6 +1527,14 @@ footer{
 }
 /* ---- 540px以下：下線付きのリンクをホームと同じく18→19px（01 の箱の中の「開発元について」「販売店について」は16pxのまま）。入らない幅は既存の処理で詰める（2026-11-03 Shio指示） ---- */
 @media (max-width:540px){main .link-more:not(.role .link-more){font-size:19px}}
+/* ---- 540px以下：01 の見出しは「開発はリエール／再生医療研究所、／販売はHATSUGA」の3行（540px以下だけの改行 <br class="sp540">）。541px以上は今まで通り（2026-11-03 Shio指示） ---- */
+.sec-title .sp540{display:none}
+@media (max-width:540px){
+  .sec-title .sp540{display:inline}
+  #roles .sec-title,#roles .sec-title .nw{white-space:nowrap}
+}
+/* ---- 540px以下：ページ最初の英語〜説明文の間を37→20pxに（文字の下端から文字の上端まで）（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){.phero .ph-grid .ph-label{margin-bottom:17px}}
 </style>
 </head>
 <body>
@@ -1583,7 +1591,7 @@ footer{
   <div class="wrap">
     <div class="hd reveal">
       <p class="chap" aria-hidden="true"><span class="chap-no gold-text">01</span></p>
-      <h2 class="sec-title"><span class="nw">開発は</span><span class="nw">リエール再生医療研究所、</span><br><span class="nw">販売はHATSUGA</span></h2>
+      <h2 class="sec-title"><span class="nw">開発は</span><span class="nw">リエール<br class="sp540">再生医療研究所、</span><br><span class="nw">販売はHATSUGA</span></h2>
       <p class="sec-en" lang="en">ABOUT US</p>
       <p class="sec-lead">つくっているのは、再生医療の研究を土台にする研究所。お届けしているのは、東京・銀座のサロンです。それぞれが担っている役割を紹介します。</p>
     </div>

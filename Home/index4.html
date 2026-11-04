@@ -1679,10 +1679,9 @@ footer{
   .hero-badges .hb .hbw .s{letter-spacing:.08em}
   .hero-badges .hb .hbw .t{letter-spacing:.1em;margin-right:-.1em}
 }
-/* ---- 360px以下：3つの証明のアイコンを右へ5pxずらし、アイコンと文字の間を5px狭くする（文字の位置はそのまま）。受賞の「2024」を英語と同じ高さの数字に ---- */
+/* ---- 360px以下：3つの証明のアイコンを右へ5pxずらし、アイコンと文字の間を5px狭くする（文字の位置はそのまま） ---- */
 @media (max-width:360px){
   .hero-badges .hb .hbw{padding-left:5px;column-gap:19px}
-  .award-date{font-variant-numeric:lining-nums}
 }
 /* ---- 403〜540px：CHRONO-R・CAPSULES・キャッチ（再生医療の研究所が開発した、）を1.2倍に。入らない幅では横いっぱいの大きさで止める ---- */
 @media (min-width:403px) and (max-width:540px){
@@ -2423,7 +2422,21 @@ footer{
   main .link-more{font-size:19px}
   .award .link-more{font-size:min(19px,calc((100vw - 100px) / 15.4))}
   .faq-list ~ .link-more{font-size:min(19px,calc((100vw - 48px - 26px) / 14.75))}
+  /* 「記事を読む」は540px以下すべて18px（441〜540pxだけ15pxだったのをそろえる） */
+  .head-c .news-card .more{font-size:18px}
 }
+/* ---- 540px以下：口コミの一言は、文字を小さくせず（20pxのまま）、「、」の後の改行もしないで普通に折り返す（2〜3行になってよい）。
+   1行目を折らない指定をやめるので、入らないときに小さくする処理（下のJS）も働かない（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  .quote-card .q-title .q1,.quote-card .q-title .nw{display:inline;white-space:normal}
+  .quote-card .q-title{word-break:normal;line-break:strict}
+}
+/* ---- 540px以下：価格の箱の「※お支払い：クレジットカード・銀行振込」は、文字の大きさは変えずに、字間を0にして「：」「・」の左右の空きを詰め、360px以上は1行に入れる。359px以下は2行でよい（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  .price-notes .pay{letter-spacing:0}
+  .price-notes .pay .pn{margin:0 -.25em}
+}
+@media (min-width:360px) and (max-width:540px){.price-notes .pay{white-space:nowrap}}
 </style>
 </head>
 <body>
@@ -2727,7 +2740,7 @@ footer{
         <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
         <ul class="price-notes">
           <li>送料：全国一律 無料</li>
-          <li>お支払い：クレジットカード・<span class="nw">銀行振込</span></li>
+          <li class="pay">お支払い<span class="pn">：</span>クレジットカード<span class="pn">・</span><span class="nw">銀行振込</span></li>
           <li>定期購入ではありません</li>
         </ul>
       </div>

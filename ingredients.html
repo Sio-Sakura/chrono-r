@@ -1275,6 +1275,31 @@ footer{
 @media (max-width:540px){#price .buy .spec>div:nth-child(2) dd{white-space:normal}}
 /* ---- 540px以下：下線付きのリンクをホームと同じく18→19px（01 の箱の中の「開発元について」「販売店について」は16pxのまま）。入らない幅は既存の処理で詰める（2026-11-03 Shio指示） ---- */
 @media (max-width:540px){main .link-more:not(.role .link-more){font-size:19px}}
+/* ---- 540px以下：06 ご使用上の注意の箇条書きの文を17→16px、文頭のダイヤを6×6→8×8px。ダイヤの中心は1行目の文字の中心に合わせる（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  #safety .caution li{font-size:16px}
+  #safety .caution li::before{width:8px;height:8px;left:3px;top:calc(15px + .9em - 4px)}
+}
+/* ---- 540px以下：ページ最初の英語〜説明文の間を37→20pxに（文字の下端から文字の上端まで）（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){.phero .ph-grid .ph-label{margin-bottom:17px}}
+/* ---- 540px以下：07 の価格の箱の中（写真以外）をホームの価格の箱と同じにする：箱の中の余白（上下28px・左右26px、402px以下は22px）、
+   英語〜商品名〜値段〜表〜ボタン〜※の間隔、表の行の上下9px・項目と値の間20px（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  #price .buy{padding:28px 26px}
+  #price .buy .price-en{margin-bottom:10px}
+  #price .buy .price-name{margin-bottom:12px}
+  #price .buy .price-amount{margin-bottom:16px}
+  #price .buy .spec{margin-bottom:22px}
+  #price .buy .spec>div{padding:9px 0;gap:20px}
+  #price .buy .price-notes{margin-top:14px}
+}
+@media (max-width:402px){#price .buy{padding-left:22px;padding-right:22px}}
+/* ---- 540px以下：価格の箱の「※お支払い：クレジットカード・銀行振込」は、文字の大きさは変えずに、字間を0にして「：」「・」の左右の空きを詰め、360px以上は1行に入れる。359px以下は2行でよい（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  .price-notes .pay{letter-spacing:0}
+  .price-notes .pay .pn{margin:0 -.25em}
+}
+@media (min-width:360px) and (max-width:540px){.price-notes .pay{white-space:nowrap}}
 </style>
 </head>
 <body>
@@ -1598,7 +1623,7 @@ footer{
       <a class="btn-gold" href="https://itec.shopselect.net/items/147237064" target="_blank" rel="noopener" aria-label="ご購入はこちら（別の画面で開きます）"><span>ご購入はこちら</span></a>
       <ul class="price-notes" role="list">
         <li>送料：全国一律 無料</li>
-        <li>お支払い：クレジットカード・銀行振込</li>
+        <li class="pay">お支払い<span class="pn">：</span>クレジットカード<span class="pn">・</span><span class="nw">銀行振込</span></li>
         <li>定期購入ではありません</li>
       </ul>
     </div>
@@ -1828,7 +1853,8 @@ footer{
       e.style.letterSpacing=ls+'px';e.style.marginRight=(-ls)+'px'});
     // 値段の行（¥159,500（税込））は、箱の幅いっぱい（左端〜右端）になる大きさにする。¥は数字との比（41:61）を保つ。（税込）は15pxのまま
     if(am){const row=am.parentElement,yen=am.querySelector('.yen'),tx=row.querySelector('.tax');row.style.whiteSpace='nowrap';
-      const set=fs=>{am.style.fontSize=fs+'px';if(yen)yen.style.fontSize=(fs*41/61)+'px'};
+      // ホームと同じく、値段の行（p）の大きさを決める（行の高さも値段と同じになる）
+      const set=fs=>{row.style.fontSize=fs+'px';am.style.fontSize='';if(yen)yen.style.fontSize=(fs*41/61)+'px'};
       const aw=()=>tx.getBoundingClientRect().right-am.getBoundingClientRect().left-parseFloat(getComputedStyle(tx).letterSpacing);
       let lo=20,hi=200;for(let i=0;i<30;i++){const m=(lo+hi)/2;set(m);if(aw()>inner)hi=m;else lo=m}set(lo)}
   }

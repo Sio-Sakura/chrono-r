@@ -1018,10 +1018,18 @@ footer{
   .ph-label,.sec-en,#contact .sec-en,.fq-nav-ttl{font-size:17px}
   /* 答えの分類の英語（HOW TO TAKE など） */
   main p.en[lang="en"]{font-size:17px}
-  .ph-label::before,#contact .sec-en::before,#contact .sec-en::after{width:11px;height:11px}
+  .ph-label::before,#contact .sec-en::before,#contact .sec-en::after,.fq-head h2::before{width:11px;height:11px}
 }
 /* ---- 540px以下：下線付きのリンクをホームと同じく18→19px（01 の箱の中の「開発元について」「販売店について」は16pxのまま）。入らない幅は既存の処理で詰める（2026-11-03 Shio指示） ---- */
 @media (max-width:540px){main .link-more:not(.role .link-more){font-size:19px}}
+/* ---- 540px以下：分類の見出しの英語は、1つでも見出しの下に落ちたら、5つとも下に置く（下のJSが .fq-stack を付ける）。
+   下に置くときは、ほかのページの章の見出しと同じ形：見出しの下に「◆ 英語」。見出し〜英語は文字の端から17px、ダイヤ〜英語は14px、英語の字間.26em（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){
+  .fq-head.fq-stack{flex-direction:column;align-items:flex-start;row-gap:0}
+  .fq-head.fq-stack h2::before{display:none}
+  .fq-head.fq-stack .en{display:flex;align-items:center;gap:14px;letter-spacing:.26em;margin-top:15.5px}
+  .fq-head.fq-stack .en::before{content:"";width:11px;height:11px;background:var(--gold);transform:rotate(45deg);flex:none}
+}
 </style>
 </head>
 <body>
@@ -1506,6 +1514,22 @@ footer{
   let t;const run=()=>{fit();clearTimeout(t);t=setTimeout(fit,200)};
   run();window.addEventListener('resize',run);window.addEventListener('load',run);
   if(document.fonts){if(document.fonts.ready)document.fonts.ready.then(run);document.fonts.addEventListener('loadingdone',run)}
+})();
+</script>
+<script>
+/* ---- 540px以下：分類の見出しの英語が1つでも下に落ちたら、5つとも下に置く（.fq-stack） ---- */
+(function(){
+  const heads=[...document.querySelectorAll('.fq-head')];if(!heads.length)return;
+  const mq=window.matchMedia('(max-width:540px)');
+  function fit(){
+    heads.forEach(h=>h.classList.remove('fq-stack'));
+    if(!mq.matches)return;
+    const below=heads.some(h=>{const a=h.querySelector('h2'),b=h.querySelector('.en');if(!a||!b)return false;return b.getBoundingClientRect().top>=a.getBoundingClientRect().bottom-2});
+    if(below)heads.forEach(h=>h.classList.add('fq-stack'));
+  }
+  let t;const run=()=>{fit();clearTimeout(t);t=setTimeout(fit,250)};
+  run();window.addEventListener('resize',run);window.addEventListener('load',run);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
 })();
 </script>
 </body>
