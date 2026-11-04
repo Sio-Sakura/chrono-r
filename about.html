@@ -1525,6 +1525,8 @@ footer{
   .chap .chap-no{font-size:53px}
   #roles .role-tag{font-size:18px}
 }
+/* ---- 540px以下：下線付きのリンクをホームと同じく18→19px（01 の箱の中の「開発元について」「販売店について」は16pxのまま）。入らない幅は既存の処理で詰める（2026-11-03 Shio指示） ---- */
+@media (max-width:540px){main .link-more:not(.role .link-more){font-size:19px}}
 </style>
 </head>
 <body>
