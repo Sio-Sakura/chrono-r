@@ -2431,6 +2431,13 @@ footer{
   .quote-card .q-title .q1,.quote-card .q-title .nw{display:inline;white-space:normal}
   .quote-card .q-title{word-break:normal;line-break:strict}
 }
+/* ---- 398〜414px（402px前後）：口コミの一言は「が、」「て、」まで1行目に入れ、残りを2行目にする。入れるために1行目の終わりの「、」を半分の幅にし、字間を0に（文字の大きさ・左右の余白は変えない）。
+   ほかの幅は普通に折り返す。Chromeは行末の「、」を詰めても改行の判断では詰める前の幅で数えるため、折る位置をここで決める（2026-11-03 Shio指示） ---- */
+@media (min-width:398px) and (max-width:414px){
+  .quote-card .q-title{letter-spacing:0}
+  .quote-card .q-title .q1,.quote-card .q-title .nw{display:block;white-space:nowrap}
+  .quote-card .q-title .q1>.yk-r:last-child{margin-right:-.5em}
+}
 /* ---- 540px以下：価格の箱の「※お支払い：クレジットカード・銀行振込」は、文字の大きさは変えずに、字間を0にして「：」「・」の左右の空きを詰め、360px以上は1行に入れる。359px以下は2行でよい（2026-11-03 Shio指示） ---- */
 @media (max-width:540px){
   .price-notes .pay{letter-spacing:0}
@@ -3487,7 +3494,7 @@ footer{
 /* ---- 540px以下：口コミの一言の1行目（.q1）が右端に入らない幅では、字間を0まで詰め、それでも入らなければ文字を小さくする（2行とも同じ大きさ）。541px以上では何もしない ---- */
 (function(){
   const ts=[...document.querySelectorAll('.quote-card .q-title')];if(!ts.length)return;
-  const over=t=>{const q=t.querySelector('.q1');if(!q)return false;const r=document.createRange();r.selectNodeContents(q);const b=r.getBoundingClientRect();const c=getComputedStyle(t),tb=t.getBoundingClientRect();return b.right>tb.right-parseFloat(c.paddingRight)+.5};
+  const over=t=>{const q=t.querySelector('.q1');if(!q||getComputedStyle(q).display==='inline')return false;const r=document.createRange();r.selectNodeContents(q);const b={right:r.getBoundingClientRect().right};const e=q.lastChild;if(e&&e.nodeType===1&&e.classList.contains('yk-r'))b.right=e.getBoundingClientRect().right+parseFloat(getComputedStyle(e).marginRight);const c=getComputedStyle(t),tb=t.getBoundingClientRect();return b.right>tb.right-parseFloat(c.paddingRight)+.5};
   function fit(){ts.forEach(t=>{t.style.letterSpacing='';t.style.fontSize=''});if(!window.matchMedia('(max-width:540px)').matches)return;
     ts.forEach(t=>{for(let i=0;i<80&&over(t);i++){const c=getComputedStyle(t),ls=parseFloat(c.letterSpacing)||0,fs=parseFloat(c.fontSize);if(ls>0)t.style.letterSpacing=Math.max(0,ls-.2)+'px';else t.style.fontSize=(fs-.25)+'px'}})}
   fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
