@@ -2490,6 +2490,8 @@ footer{
   .price-notes .pay .pn{margin:0 -.25em}
 }
 @media (min-width:360px) and (max-width:540px){.price-notes .pay{white-space:nowrap}}
+/* ---- 402px以下：価格の箱の※3行（送料・お支払い・定期購入）は字間0（2026-11-05 Shio指示。文章の −0.24px の対象外） ---- */
+@media (max-width:402px){.price-notes li{letter-spacing:0}}
 /* ---- 540px以下：3つの選ばれる理由（No.1〜3）の箱の上の余白を15px狭める（72→57px）（2026-11-03 Shio指示） ---- */
 @media (max-width:540px){.why .cell.has-hex{padding-top:57px}}
 /* ---- 540px以下：コラムの一番下の「記事を読む」（下線）から「コラム一覧を見る」の文字の上までを25pxに（31.7→25px）（2026-11-03 Shio指示） ---- */
@@ -2518,6 +2520,27 @@ footer{
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 /* ---- 横に動かないようにする：中身（main）から横にはみ出したものは切る。読み込み中（英語の書体が届く前）に大きな飾りの英字が画面の外へはみ出し、スマホで画面が左右に動いていたため。clip なので縦のスクロールや追従する部品には影響しない（2026-11-03 Shio指示） ---- */
 main{overflow-x:clip}
+/* ---- 320px以下：文章の文字を1px小さく（Shio指示 2026-11-05）。321px以上は一切変えない（この中だけ）。
+   上の指定と同じ書き方で、値だけ1px小さくしている。見出し・英字のラベル・1行のキャッチ・成分名・表の項目名（dt・th）・ボタン・リンク・メニュー・フッターはそのまま。
+   上の文章の大きさを変えたときは、ここも合わせて直す
+   文章＝ヒーローの説明文／コンセプトの本文／リード文（違い・成分・価格）／比較の図の説明と「※イメージ図です」／3つの理由の本文／比較表の中身（td）／開発元の本文／口コミの本文／価格の内容量・目安と注意書き／FAQの答え／コラムの説明／最後の文 */
+@media (max-width:320px){
+  .hero .hero-copy{font-size:17px}
+  .concept .concept-body p:first-child{font-size:17px}
+  .concept .concept-body p:not(:first-child){font-size:16px}
+  .rev .sec-lead,.ing .sec-lead,.sect-a .sec-lead,.sect-b .sec-lead,.sect-c .sec-lead,.sec-lead{font-size:16px}
+  .vs-text{font-size:14px}
+  .vs-note{font-size:14px}
+  .why .cell p{font-size:16px}
+  .cmp-table td,.cmp-table td.hl{font-size:15px}
+  .award .award-body{font-size:16px}
+  .quote-card p:not(.q-title):not(.who){font-size:16px}
+  .price-box .price-spec dd{font-size:15px}
+  .price-notes li{font-size:13px}
+  .faq-item .a{font-size:15px}
+  .news-card .ex{font-size:15px}
+  .final .final-body,.final-body{font-size:16px}
+}
 </style>
 </head>
 <body>
@@ -3290,24 +3313,54 @@ main{overflow-x:clip}
   const sel='main p, main li, main li a, main dd, main dd small, main h2, main h3, main .nm, footer p';
   const skip=e=>e.closest('svg,.ghost,.marquee,[aria-hidden="true"]')||getComputedStyle(e).whiteSpace==='nowrap'||(e.style.letterSpacing&&!e.dataset.orph);
   const r=document.createRange();
-  // 最後の行の文字数と行の数
+  // 最後の行の文字数と行の数（core：とじかっこと句読点を数えない文字数）
+  const CLOSE=/[、。，．」』）〉》】〕］｝！？]/;
   function lastLine(e){
-    const tops=[];const w=document.createTreeWalker(e,NodeFilter.SHOW_TEXT);let n;
-    while(n=w.nextNode()){if(n.parentElement.closest('.ghost,[aria-hidden="true"]'))continue;for(let i=0;i<n.length;i++){if(/\s/.test(n.data[i]))continue;r.setStart(n,i);r.setEnd(n,i+1);const b=r.getBoundingClientRect();if(b.width||b.height)tops.push(b.top)}}
-    if(!tops.length)return{lines:0,last:0};
-    const lt=tops[tops.length-1];let k=0,lines=1;for(let i=tops.length-1;i>=0;i--){if(Math.abs(tops[i]-lt)<3)k++;else break}
+    const tops=[],cs=[];const w=document.createTreeWalker(e,NodeFilter.SHOW_TEXT);let n;
+    while(n=w.nextNode()){if(n.parentElement.closest('.ghost,[aria-hidden="true"]'))continue;for(let i=0;i<n.length;i++){if(/\s/.test(n.data[i]))continue;r.setStart(n,i);r.setEnd(n,i+1);const b=r.getBoundingClientRect();if(b.width||b.height){tops.push(b.top);cs.push(n.data[i])}}}
+    if(!tops.length)return{lines:0,last:0,core:0};
+    const lt=tops[tops.length-1];let k=0,c=0,lines=1;for(let i=tops.length-1;i>=0;i--){if(Math.abs(tops[i]-lt)<3){k++;if(!CLOSE.test(cs[i]))c++}else break}
     for(let i=1;i<tops.length;i++)if(tops[i]-tops[i-1]>3)lines++;
-    return{lines,last:k};
+    return{lines,last:k,core:c};
   }
+  /* ---- 402px以下の文章（下の BODY）の字間（Shio指示 2026-11-05。はじめ950px以下→402px以下に変更。403px以上は今日の変更の前のまま） ----
+     並び（コンセプトの3段落／並んだカード：比較・3つの理由・口コミ・FAQ・コラム／同じ表・同じ箇条書き／同じ親の段落）ごとに、全部同じ字間にする。
+     基本は −0.24px（Shio指示。はじめ −0.42px→ −0.24px に変更）。どれかの最後の行が1文字＋句読点（「い。」「す。」「ル」。」など。とじかっこと句読点は数えない）に
+     なるときは、0.02pxずつ詰めて、どれもならない一番ゆるい数字にそろえる（2文字＋句読点「さい。」「ます。」はそのままでよい）。もとの字間でそうなっている文章は数えない。
+     （280〜402pxで測って、一番詰まるのは360px台のFAQの答えで −1.72px。念のため −3px で止め、それでもだめならもとの字間）。
+     価格の箱の※3行（送料・お支払い・定期購入）は対象外（402px以下は字間0。CSSで指定）。
+     文章だけ（見出し・ラベルなどは対象外。BODY は320px以下で1px小さくした文章と同じ。価格の※3行をのぞく）。403px以上は変えない ---- */
+  const BODY='.hero-copy,.concept-body p,.sec-lead,.vs-text,.vs-note,.cell p,.award-body,.quote-card p:not(.q-title):not(.who),.price-spec dd,.faq-item .a,.news-card .ex,.final-body';
+  const isB=e=>window.matchMedia('(max-width:402px)').matches&&e.matches(BODY)&&!e.closest('svg,.ghost,.marquee,[aria-hidden="true"]');
   function fit(){
     document.querySelectorAll(sel).forEach(e=>{
       if(e.dataset.orph){e.style.letterSpacing='';delete e.dataset.orph}
-      if(!e.offsetParent||skip(e))return;
+      if(!e.offsetParent||isB(e)||skip(e))return;
       let s=lastLine(e);if(s.lines<2||s.last>2)return;
       const fs=parseFloat(getComputedStyle(e).fontSize),base=parseFloat(getComputedStyle(e).letterSpacing)||0;
       e.dataset.orph='1';
       for(let k=1;k<=12;k++){e.style.letterSpacing=(base-fs*.005*k)+'px';const t=lastLine(e);if(t.lines<s.lines)return}
       e.style.letterSpacing='';delete e.dataset.orph;
+    });
+    fitBody();
+  }
+  function fitBody(){
+    if(!window.matchMedia('(max-width:402px)').matches)return;
+    const groups=[];
+    document.querySelectorAll(BODY).forEach(e=>{
+      if(e.dataset.orph){e.style.letterSpacing='';delete e.dataset.orph}
+      if(!e.offsetParent||!isB(e)||e.style.letterSpacing)return;
+      const c=getComputedStyle(e),fs=parseFloat(c.fontSize),base=parseFloat(c.letterSpacing)||0;
+      const cp=e.matches('.concept .concept-body p'),card=e.closest('.vs-card,.cell,.quote-card,.faq-item,.news-card');
+      const box=cp?e.closest('.concept-body'):card?card.parentElement:e.tagName==='DD'?e.closest('dl'):e.tagName==='LI'?e.closest('ul,ol'):e.parentElement,k=cp?'concept':e.tagName+'|'+fs;
+      let g=groups.find(x=>x.box===box&&x.k===k);if(!g)groups.push(g={box,k,m:[]});g.m.push({e,base});
+    });
+    const one=e=>{const t=lastLine(e);return t.lines>=2&&t.core<=1};
+    groups.forEach(g=>{
+      const was=g.m.map(x=>one(x.e));
+      const set=v=>g.m.forEach(x=>{x.e.style.letterSpacing=v+'px';x.e.dataset.orph='m'});
+      for(let v=-.24;v>=-3;v=Math.round((v-.02)*100)/100){set(v);if(!g.m.some((x,i)=>!was[i]&&one(x.e)))return}
+      g.m.forEach(x=>{x.e.style.letterSpacing='';delete x.e.dataset.orph});
     });
   }
   let t;const run=()=>{clearTimeout(t);t=setTimeout(fit,60)};
